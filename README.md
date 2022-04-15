@@ -1,7 +1,7 @@
 # Tabla de contenidos 
-1. [GoodTrail] (#goodTrail)
-2. [¿Quiénes somos?] (#quienesSomos)
-3. [Links de inspiración] (#links)
+1. [GoodTrail](#goodTrail)
+2. [¿Quiénes somos?](#quienesSomos)
+3. [Links de inspiración](#links)
 
 ## GoodTrail <a name="goodTrail"></a>
 GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar experiencias.
