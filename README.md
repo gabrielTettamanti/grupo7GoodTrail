@@ -10,7 +10,14 @@ GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar 
 Aca iria quienes somos 
 
 ## Links de inspiración <a name="links"></a>
-https://www.bigbox.com.ar/
-https://dashboard.visme.co/v2/register
-https://www.netflix.com/ar/login
-https://www.sothebysrealty.com/spa
+* https://www.bigbox.com.ar/
+    Sitio elegido debido a la similitud en los productos que ofrece GoodTrail
+* https://www.mercadolibre.com.ar/
+    Sitio elegido por la estetica y funcionalidad del carrito de compras
+
+* https://www.netflix.com/ar/login
+
+* https://www.sothebysrealty.com/spa
+    Sitio elegido debido a la estetica de la descripcion de los productos
+* https://www.twitch.tv/
+    Sitio elegido debido a la estetica y funcionalidad de las pantallas de Login y Registración
