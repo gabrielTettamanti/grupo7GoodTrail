@@ -13,6 +13,7 @@ Mi nombre es Lucrecia Rios, tengo 18 años. Soy de Córdoba, me gusta el deporte
 
 Yo soy Gabriel Tettamanti, nací en San Pedro provincia de Buenos Aires hace 22 años, estudié tres años de economía, soy apacionado del arte, los videojuegos y el deporte.
 
+Mi nombre es Julian Blazquez, tengo 18 años y soy de Coghlan CABA. Soy actual estudiante de economía en la UBA. Me gusta salir a correr y los deportes en general. Nunca entendí mucho de todo lo relacionado a la tecnologia pero me pareció interesante hacer este curso para tener nuevas herramientas y para darle una oportunidad a algo que creo que me puede llegar a gustar. 
 ## Links de inspiración <a name="links"></a>
 * https://www.bigbox.com.ar/
     Sitio elegido debido a la similitud en los productos que ofrece GoodTrail
