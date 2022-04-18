@@ -2,7 +2,7 @@
 ## Tabla de contenidos 
 1. [GoodTrail](#goodTrail)
 2. [¿Quiénes somos?](#quienesSomos)
-3. [Links de inspiración](#links)
+3. [Referentes del mercado](#links)
 
 ## ¿Qué es GoodTrail? <a name="goodTrail"></a>
 GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar experiencias.
@@ -34,7 +34,10 @@ Yo soy Gabriel Tettamanti, nací en San Pedro provincia de Buenos Aires hace 22 
 ### Ignacio Lopez
 Mi nombre es Ignacio Lopez, tengo 23 año, soy de la ciudad de Avellaneda y estudiante de ingeniería informática. Apasionado por la tecnología desde chico ya hace años que estudio informática y siempre busco aprender cosas nuevas para seguir mejorando. Me gusta mucho los deportes, el cine y los libros. 
 
-## Links de inspiración <a name="links"></a>
+### Julian Blazquez
+Mi nombre es Julian Blazquez, tengo 18 años y soy de Coghlan CABA. Soy actual estudiante de economía en la UBA. Me gusta salir a correr y los deportes en general. Nunca entendí mucho de todo lo relacionado a la tecnología pero me pareció interesante hacer este curso para tener nuevas herramientas y para darle una oportunidad a algo que creo que me puede llegar a gustar.
+
+## Referentes del mercado <a name="links"></a>
 ### BigBox 
 https://www.bigbox.com.ar/
 
