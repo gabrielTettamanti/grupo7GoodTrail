@@ -3,6 +3,7 @@
 1. [GoodTrail](#goodTrail)
 2. [¿Quiénes somos?](#quienesSomos)
 3. [Referentes del mercado](#links)
+4. [Tablero de trabajo](#trello)
 
 ## ¿Qué es GoodTrail? <a name="goodTrail"></a>
 GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar experiencias.
@@ -63,4 +64,6 @@ Elegimos el sitio por la estética y funcionalidad de la descripción de los pro
 https://www.twitch.tv/
     
 Uno de los sitios webs más importantes de los últimos años. Fue elegido por la estética y funcionalidad que presentan las pantallas de Login y Registración de usuario. Al no redirigirnos a otra pantalla, creemos que presenta una funcionalidad muy user-friendly.
- 
+
+## Tablero <a name="trello"></a>
+https://trello.com/b/6FLmuyJn/goodtrail
