@@ -1,0 +1,22 @@
+{
+  "name": "grupo7goodtrail",
+  "version": "1.0.0",
+  "description": "1. [GoodTrail](#goodTrail)\r 2. [¿Quiénes somos?](#quienesSomos)\r 3. [Referentes del mercado](#links)\r 4. [Tablero de trabajo](#trello)",
+  "main": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bapp.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielTettamanti/grupo7GoodTrail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielTettamanti/grupo7GoodTrail/issues"
+  },
+  "homepage": "https://github.com/gabrielTettamanti/grupo7GoodTrail#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
