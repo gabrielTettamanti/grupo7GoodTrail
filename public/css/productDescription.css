@@ -11,6 +11,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--cultured);
+    /* background-color: white; */
 }
 
 /* IMAGE CAROUSEL*/
@@ -74,7 +75,7 @@ main {
 
 .container {
     background-color: white;
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -91,10 +92,28 @@ main {
     color: var(--blue-crayola);
 }
 
+.section-title {
+    color: var(--blue-crayola);
+    width: 100%;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.description-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    font-size: 14px;
+    justify-content: center;
+    font-weight: bold;
+}
+
 .buy-button {
     font-size: 22px;
     font-weight: 400;
-    width: 200px;
+    width: 120px;
     height: 40px;
     background-color: white;
     color: var(--blue-crayola);
@@ -134,6 +153,7 @@ main {
 
 .info-context {
     font-size: 12px;
+    margin-top: 0;
 }
 
 .mobile-buttons {
@@ -141,6 +161,10 @@ main {
     justify-content: space-around;
     align-items: center;
     margin: 20px 0;
+}
+
+.map-container {
+    padding-bottom: 0;
 }
 
 .map {
@@ -175,6 +199,10 @@ main {
         display: flex;
     }
 
+    .buy-button {
+        width: 200px;
+    }
+
     .column {
         width: 22%;
     }
@@ -189,5 +217,9 @@ main {
 
     .mobile-buttons {
         display: none;
+    }
+
+    .description-text {
+        font-size: 18px;
     }
 }
