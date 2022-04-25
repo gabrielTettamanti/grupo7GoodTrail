@@ -1,0 +1,151 @@
+:root {
+    --cultured: #f5f5f5;
+    --blue-crayola: #3777ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--blue-crayola);
+}
+
+.form-section {
+    width: 50%;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.header-title {
+    font-size: 20px;
+}
+
+.register-nav {
+    width: 80%;
+    border-bottom: solid 1px #ced4da;
+}
+
+.register-nav ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-start;
+    padding-left: 5px;
+    margin-bottom: 1px;
+}
+
+.register-nav a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.option-selected {
+    color: var(--blue-crayola);
+    border-bottom: solid 2px var(--blue-crayola);
+}
+
+.option-unselected {
+    color: #ced4da;
+}
+
+/* MAIN */
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* FORM */
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.input-container {
+    width: 80%;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container label {
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    height: 30px;
+    width: 100%;
+    border: 0;
+    background-color: #ced4da;
+    border-radius: 5px;
+}
+
+.input-container input:focus {
+    outline: none;
+    border: solid 2px var(--blue-crayola);
+}
+
+/* .register-button {
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    color: var(--blue-crayola);
+    border: solid 2px var(--blue-crayola);
+    border-radius: 150px;
+} */
+
+.register-button:hover {
+    background-color: var(--blue-crayola);
+    color: white;
+    cursor: pointer;
+}
+
+
+.register-button {background-image: linear-gradient(to right, #56CCF2 0%, #3777ff  51%, #56CCF2  100%)}
+
+.register-button {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 150px;
+    border: 0;
+ }
+
+ .register-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+ }

@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/registerFormulary.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Formulario de registro Nacho</h1>
+
+    <section class="form-section">
+        <header>
+            <!-- <div class="logo-container">
+                <img src="/img/Good Tail - logo.jpg" alt="" class="logo">
+            </div> -->
+            <h1 class="header-title">Registrarse en GoodTrail</h1>
+            <nav class="register-nav">
+                <ul>
+                    <li><a href="#" class="option-unselected">Iniciar sesión</a></li>
+                    <li><a href="#" class="option-selected">Registrarse</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+    
+            <form action="#">
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input type="email" name="userEmail" id="email">
+                </div>
+                <div class="input-container">
+                    <label for="userName">Nombre</label>
+                    <input type="text" name="userName" id="userName">
+                </div>
+                <div class="input-container">
+                    <label for="">Contraseña</label>
+                    <input type="password" name="userPassword">
+                </div>
+                <div class="input-container">
+                    <label for="">Confirmar contraseña</label>
+                    <input type="password" name="passwordConfirmation">
+                </div>
+                <div class="input-container">
+                    <label for="">Fecha de nacimiento</label>
+                    <input type="date" name="birthDate" id="" max="2020-01-01" min="1949-12-31">
+                </div>
+                <button class="register-button">Registrarse</button>
+            </form>
+
+        </main>
+    </section>
+
 </body>
 </html>
