@@ -6,6 +6,35 @@
 
 /* ///////////////////// BODY //////////////////// */
 
-header .logo {
-    width: 300px;
-}
+    header {
+        background-color: #f5f5f5;
+    }
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+                    .fa-bars,
+                    .fa-magnifying-glass {
+                        font-size: 30px;
+                    }
+
+                    header .logo {
+                        width: 50%;
+                    }
+
+                    .buscar,
+                    .usuario,
+                    .fa-cart-shopping,
+                    .categorias {
+                        display: none;
+                    }
+
+    main {
+        width: 100%;
+        height: 600px;
+        border: solid 2px red;
+        background-color: #f5f5f5;
+    }
+
