@@ -144,7 +144,7 @@ form {
 .register-button {background-image: linear-gradient(to right, #56CCF2 0%, #3777ff  51%, #56CCF2  100%)}
 
 .register-button {
-    margin: 20px 0;
+    margin: 10px 0;
     width: 200px;
     height: 30px;
     text-align: center;
@@ -165,7 +165,8 @@ form {
  @media (min-width: 768px) {
      
     body {
-        background-image: linear-gradient(to left, #3777ff 0%, #3777ff  51%, #56CCF2  100%);
+        /* background-image: linear-gradient(to left, #3777ff 0%, #3777ff  51%, #56CCF2  100%); */
+        background-image: url('/img/form-background.svg');
     }
 
     .form-section {
