@@ -1,0 +1,26 @@
+body{
+    background-color: #03264C;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 55px;
+    color: wheat;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color: wheat;
+}
+h3{
+    text-align: center;
+    color: wheat;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    width: 150px;
+    border-radius: 50px;
+}
+
