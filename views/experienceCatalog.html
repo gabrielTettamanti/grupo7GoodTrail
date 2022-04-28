@@ -5,39 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/experienceCatalog.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        Aca va el header
+        <div class="cont1">
+            <i class="fa-solid fa-bars"></i>
+            <img class="logo" src="/img/logo.png" alt="logo">
+            <form class="buscador" action="/catalogo">
+                <input class="buscar" type="text" name="buscar" id="buscar" placeholder="Busca tu mejor experiencia">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        </div>
+        <div class="cont2">
+            <h2 class="categorias">Categorias</h2>
+            <div class="bottom-header-right">
+            <div class="usuario">
+                <i class="fa-solid fa-user"></i>
+                <p>Usuario</p>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
     </header>
 
     <main>
 
     <form action="" class="filter-form">
-        <h2>Filtrar</h2>
-        <div>
+        <h2 class="filter-title">Filtrar</h2>
+        <div class="filter-container">
             <h3>Categorías</h3>
-            <div>
-                <input type="radio" value="category" name="category">Viajes</input>
-                <input type="radio" value="category" name="category">Hotelería</input>
-                <input type="radio" value="category" name="category">Gourmet</input>
-                <input type="radio" value="category" name="category">Desportes</input>
-                <input type="radio" value="category" name="category">Cultura</input>
+            <div class="option-container">
+                <div class="option">
+                    <input type="radio" value="category" name="category">
+                    <label>Viajes</label>
+                </div>
+                <div class="option">
+                    <input type="radio" value="category" name="category">
+                    <label>Hotelería</label>
+                </div>
+                <div class="option">
+                    <input type="radio" value="category" name="category">
+                    <label>Gourmet</label>
+                </div>
+                <div class="option">
+                    <input type="radio" value="category" name="category">
+                    <label>Deportes</label>
+                </div>
+                <div class="option">
+                    <input type="radio" value="category" name="category">
+                    <label>Cultura</label>
+                </div>
             </div>
         </div>
-        <div>
+        <div class="filter-container">
             <h3>Cantidad de personas</h3>
-            <div>
-                <input type="radio" name="quantity">1 Persona</input>
-                <input type="radio" name="quantity">2 Persona</input>
-                <input type="radio" name="quantity">Más de 2 Persona</input>
+            <div class="option-container">
+                <div class="option">
+                    <input type="radio" name="quantity">
+                    <label>1 Persona</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="quantity">
+                    <label>2 Persona</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="quantity">
+                    <label>Más de 2 Persona</label>
+                </div>
+            </div>
+        </div>
+        <div class="filter-container">
+            <h3>Destino</h3>
+            <div class="option-container">
+                <div class="option">
+                    <input type="radio" name="destination">
+                    <label>Buenos Aires</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="destination">
+                    <label>Argentina</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="destination">
+                    <label>Por el Mundo</label>
+                </div>
+            </div>
+        </div>
+        <div class="filter-container">
+            <h3>Precio</h3>
+            <div class="option-container field-container">
+                <input type="number" placeholder="Mínimo" class="option-field" min="0">
+                <input type="number" placeholder="Maximo" class="option-field" min="0">
             </div>
         </div>
     </form>
 
+    <section class="experience-section">
+        <div class="experience-card">
+            <img src="/img/bernabeu.jpg" alt="">
+            <div class="experience-description">
+                <h3>Santiago Bernabeu</h3>
+                <h3>$310.000</h3>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <img src="/img/bernabeu.jpg" alt="">
+            <div class="experience-description">
+                <h3>Roma</h3>
+                <h3>$350.000</h3>
+            </div>
+        </div>
+
+        <div class="experience-card hidden-card">
+            <img src="/img/bernabeu.jpg" alt="">
+            <div class="experience-description">
+                <h3>Roma</h3>
+                <h3>$350.000</h3>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button>Ver más</button>
+        </div>
+    </section>
+
     </main>
+    
     <footer>
-        Aca va el footer
+        <div class="container">
+            <section class="experiencias">
+                <h3>Experiencias</h3>
+                <ul>
+                    <li><a href="/catalogo/hoteleria">Hoteleria</a></li>
+                    <li><a href="/catalogo/gourmet">Gourmet</a></li>                   
+                    <li><a href="/catalogo/deportes">Deportes</a></li>                      
+                    <li><a href="/catalogo/cultura">Cultura</a></li>  
+                    <li><a href="/catalogo/viajes">Viajes</a></li>
+                </ul>
+            </section>
+            <section class="metodosDePago">
+                <h3>Metodos de pago</h3>
+                <h4>Pagar con tarjeta de credito o debito</h4>
+                <i class="fa-solid fa-credit-card"></i>
+                <h4>Pago en efectivo</h4>
+                <i class="fa-solid fa-money-bills"></i>
+            </section>
+            <section class="contactanos">
+                <h3>Contactanos</h3>
+                <h4>Informacion de contacto</h4>
+                <i class="fa-brands fa-whatsapp"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </section>
+        </div>
     </footer>
     
 </body>
