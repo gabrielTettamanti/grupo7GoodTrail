@@ -12,12 +12,11 @@
         header .cont1 {
             padding: 10px 0px;
             background-color: #ffffff;
-            width: 95%;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-around;           
             margin: auto;
-            border-radius: 150px;
         }
 
                     .fa-bars,

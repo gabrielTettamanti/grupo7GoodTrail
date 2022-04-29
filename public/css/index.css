@@ -1,11 +1,14 @@
-main {
-    background-color: #f5f5f5;
-    width: 90%;
+.index-main{
+    background-color: #ffffff;
+    width: 100%;
+    min-height: 800px;
     margin: auto;
 }
 
     main section {
         padding: 10px 0px;
+        width: 85%;
+        margin: auto;
     }
 
     .home-buttons {
@@ -13,7 +16,8 @@ main {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin-top: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .home-buttons button{
@@ -53,15 +57,69 @@ main {
             }
 
             .product p {
-                font-size: 14px;
+                font-size: 18px;
                 margin: 0px 10px 5px 10px;
             }
 
-            .product p {
-                font-size: 18px;
+            .price-stars {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px 10px 5px 5px;
             }
 
-            .product i {
-                font-size: 18px;
-                align-content: flex-end;
+                .product .price-stars p {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+
+                .product i {
+                    font-size: 18px;
+                    color: #ffd60a;
+                }
+                    .star {
+                        color:  #ffd60a;
+                        font-weight: bold;
+                    }
+
+        .load-more-button {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 15px;
+        }
+
+            .load-more-button button{
+                display: flex;
+                justify-self: center;
+                align-items: center;
+                width: 100px;
+                height: 40px;
+                font-size: 20px;
+                background-color: #ffffff;
+                padding: 5px 10px;
+                border: #ffffff solid 2px;
+                border-radius: 150px;
+                box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+                transition: all 450ms;
             }
+
+            .load-more-button button:hover{
+                color: #D7263D;
+                border: #D7263D solid 2px;
+            }
+
+@media (min-width: 768px) {
+    .product {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product {
+        width: 20%;
+    }
+}
