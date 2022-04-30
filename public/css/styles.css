@@ -5,6 +5,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-image: url('/img/main-background.svg');
+}
+
+/* HEADER */
 
     header {
         background-color: #f5f5f5;
@@ -75,16 +80,8 @@
                         top: 50%;
                         right: 2%;
                     }
-    /* main {
-    } */
-
-    main {
-        width: 100%;
-        height: 600px;
-        /* border: solid 2px red; */
-        background-color: #f5f5f5;
-    }
-
+    
+/* FOOTER */
 
     footer{
         padding: 10px 0px;
@@ -134,6 +131,7 @@
             margin: 0px 5px;
         }
 
+/* MEDIA QUERIES */
 
 @media (min-width: 768px) {
                     .fa-bars,
@@ -195,30 +193,13 @@
                         height: 45px;
                         padding: 2px 50px 2px 30px;
                         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
-                        /* border: none; */
                         font-size: 18px;
                         width: 50%;
                         outline: none;
                         margin-left: 40px;
-                        /* display: flex;
-                        justify-self: center; */
-                        
-                        /* padding: 5px 0px; */
-                        /* margin: 0px 10px; */
-                        /* position: absolute;
-                        top: 0%;
-                        right: 50%; */
                     }
 
-                        /* .buscar {
-                            border: none;
-                            font-size: 18px;
-                            margin: 0px 10px;
-                            margin: auto;
-                            width: 50%;
-                        } */
                         .fa-magnifying-glass{
-                            /* color: #6c757d; */
                             font-size: 22px;
                             position: absolute;
                             top: 25%;

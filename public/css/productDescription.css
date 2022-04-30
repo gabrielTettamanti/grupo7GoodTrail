@@ -5,19 +5,12 @@
     --golden-yellow: #ffd60a;
 }
 
-body {
-    /* background-color: var(--cultured); */
-    background-image: url('/img/background-main.svg');
-    /* background-color: white; */
-}
-
 /* IMAGE CAROUSEL*/
 .image-carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%; 
-    /* height: 200px; */
     position: relative;
 }
 
