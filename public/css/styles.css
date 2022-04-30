@@ -35,6 +35,46 @@
                         display: none;
                     }
 
+                    .image-carousel {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%; 
+                        /* height: 200px; */
+                        position: relative;
+                    }
+                    
+                    .image-carousel img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+                    .carousel-button {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 20px;
+                        height: 20px;
+                        background-color: rgba(55,119,255,0.5);
+                        color: white;
+                        border-radius: 150px;
+                    }
+                    
+                    .carousel-button:hover {
+                        cursor: pointer;
+                        background-color: #3777ff;
+                    }
+                    
+                    .back {
+                        top: 50%;
+                        left: 2%;
+                    }
+                    
+                    .forward {
+                        top: 50%;
+                        right: 2%;
+                    }
     /* main {
     } */
 
@@ -234,5 +274,19 @@
                                 border-left: #3777ff solid 4px;
                                 padding: 10px 0px 10px 5px;
                                 font-size: 20px;
+                            }
+                            
+                            .image-carousel:hover {
+                                cursor: pointer;
+                            }
+                        
+                            .image-carousel:hover .carousel-button{
+                                display: flex;
+                            }
+                        
+                            .carousel-button {
+                                display: none;
+                                width: 50px;
+                                height: 50px;
                             }
 }
