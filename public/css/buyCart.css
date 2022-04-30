@@ -6,76 +6,242 @@
     --carousel-button-color: rgba(55,119,255,0.5);
     --golden-yellow: #ffd60a;
 }
-
-main .imagenUno img{
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+*{
+    box-sizing: border-box;
 }
-div .imagenUno{
+
+main{
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+    background-color: white;
+    border: 0.3vh solid rgb(217, 205, 205);
+    box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 15%);
+}
+img{
+    max-height: 200px;
+}
+div img{
+    width: 100%;
+}
+main .imagenDos{
     width: 50%;
+    max-height: 200px;
+    position: relative;
+}
+
+.imagenDos:hover .nombreProducto{
+    opacity: 1;
+    background-color: rgba(108, 64, 113, 0.5);
+    border-radius: 7%;
+
+}
+ .nombreProducto{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffff;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 450ms;
+    font-size: 60%;
+}
+
+.compraDos{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2%;
+    margin-left: 1%;
+    position: relative;
+}
+.fraseEntera{
+    display:none ;
+}
+.personasCantidad{
+    display: flex;
+}
+.precioMasCant{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 0.4vh;
+    margin-right: 0.4vh;
+    margin-top: 5%;
 }
 
 .cantidad{
     display: flex;
     max-width: 270px;
-    height: 20%;
     max-height: 37px;
-    margin-top: 5%;
-    margin-left: 20%;
     align-items: center;
     justify-content: space-between;
-    border: 0.3vh solid green;
+    /*border: 0.3vh solid rgb(81 72 72);*/
     border-radius: 1.5vh;
-    background-color: ;
-    : ;
+    /*margin: auto;*/
+    width: 60%;
+    height: 3vh;
+    background-color: rgb(249, 249, 249);
+    box-shadow: 4px 5px 5px 0px rgb(0 0 0 / 50%)
+}
+.cantidad p{
+    font-size: 1.8vh;
+}
+.precio{
+    overflow: hidden;
+    font-size: 3vh;
+    font-weight: bold;
+
+}
+.personasCantidad p{
+    overflow: hidden;
 }
 .fa-plus{
-    margin-left: 3px;
+    margin-right: 3px;
     color: #3777ff;
+    font-size: 1.8vh;
 }
 .fa-minus{
-    margin-right: 3px;
-    color: red;
-
+    margin-left: 3px;
+    color: rgb(206, 3, 3);
+    font-size: 1.8vh;
 }
-.personasMasPrecio{
+.cantidadMasTacho{
     display: flex;
     justify-content: space-around;
-    margin-top: 3vh;
-    margin-left: 15%;
 }
-div.personasMasPrecio div{
-    align-items: center;
+
+.fa-trash-can{
+    color: rgb(206, 3, 3);
+    display: none;
 }
-.personasMasPrecio div.precio{
+main .infoCompraDos{
     width: 50%;
 }
-div.precio{
+
+hr{
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    background-color: grey;
+}
+
+
+.envioDomicilio{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    font-size: 2vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.sub{
+    display: flex;
+    margin-right: 10%;
+    color: #3777ff;
+}
+
+.gratis{
+    margin-right: 10%;
+    color: rgb(92, 211, 92);
+}
+
+.precioTotal{
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.total{
+  margin-right: 15%;
+}
+
+
+.dinero{
+    margin-right: 6%;
+}
+
+.botonContinuar{
+        font-size: 16px;     
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        color: var(--blue-crayola);
+        border: solid 2px var(--blue-crayola);
+        border-radius: 150px;
+        box-shadow: 4px 5px 5px 0px rgb(0 0 0 / 50%);
+        margin-bottom: 5%;
+        transition: all 350ms;
+
+}
+/*main .botonContinuar{
+    width: 100%;
+}*/
+
+button.botonContinuar{
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
 }
-.fa-user{
-    font-size: 4.5vh;
-}
-.personasCantidad{
-    display: flex;
-    width: 50%;
-
-}
-.compraUno{
-    display: flex;
-    margin: 5vh;
+.botonContinuar:hover{
+    cursor: pointer;
+    color: var(--cultured);
+    background-color: var(--blue-crayola);
 }
 
-.compraUno div.infoCompra{
-    width: 50%;
-}
-
-p{
-    font-size: 3.5vh;
-    margin: auto;
-    align-items: center;
-    justify-content: center ;
+@media (min-width: 550px){
+    .fraseEntera{
+        display:block ;
+        font-size: 3vh;
+    }
+    .numeroSolo{
+        display: none;
+    }
+    .fa-user{
+        font-size: 3.5vh;
+    }
+    .precio{
+        font-size: 4vh ;
+    }
+    .precioMasCant{
+        justify-content: space-around;
+    }
+    .cantidad{
+        height: 4.5vh;
+        
+    }
+    .fa-minus{
+        margin-left: 10px;
+    }
+    .fa-plus {
+        margin-right: 10px;
+    }
+    .envioDomicilio{
+        font-size: 3vh;
+    }
+    .precioTotal{
+        font-size: 4vh;
+        margin-bottom: 5%;
+    }
+    .botonContinuar{
+        font-size: 16px;     
+        width: 200px;
+        height: 50px;
+    }
+    .nombreProducto{
+        font-size: 100%;
+    }
+    .fa-trash-can {
+        font-size: 4vh;
+        display: block;
+    }
+    hr{
+        height: 0.1vh;
+        background-color: grey;
+        width: 100%;
+    }
 }
