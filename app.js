@@ -24,6 +24,9 @@ app.get("/login", (req,res) =>{
 app.get("/registerFormulary", (req,res) =>{
     res.sendFile(path.resolve(__dirname, "./views/registerFormulary.html"))
 })
+app.get("/experienceCatalog", (req,res) => {
+    res.sendFile(path.resolve(__dirname, "./views/experienceCatalog.html"));
+});
 app.get("*", (req,res) =>{
     res.sendFile(path.resolve(__dirname, "./views/notFound.html"))
 })

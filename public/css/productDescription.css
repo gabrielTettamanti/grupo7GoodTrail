@@ -5,13 +5,9 @@
     --golden-yellow: #ffd60a;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--cultured);
+    /* background-color: var(--cultured); */
+    background-image: url('/img/background-main.svg');
     /* background-color: white; */
 }
 
@@ -61,6 +57,7 @@ body {
 
 main {
     width: 90%;
+    height: 100%;
     margin: auto;
 }
 
@@ -121,9 +118,9 @@ main {
 }
 
 .buy-button {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 400;
-    width: 120px;
+    width: 200px;
     height: 40px;
     background-color: white;
     color: var(--blue-crayola);
@@ -220,7 +217,7 @@ main {
     }
 
     .buy-button {
-        width: 200px;
+        font-size: 22px;
     }
 
     .column {

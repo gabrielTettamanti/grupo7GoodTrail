@@ -78,6 +78,14 @@
     /* main {
     } */
 
+    main {
+        width: 100%;
+        height: 600px;
+        /* border: solid 2px red; */
+        background-color: #f5f5f5;
+    }
+
+
     footer{
         padding: 10px 0px;
         line-height: 31px;
@@ -149,7 +157,8 @@
                 padding: 10px 0px;
                 width: 100%;
                 display: flex;
-                justify-content: space-between;           
+                justify-content: space-between; 
+                flex-wrap: wrap;          
                 margin: auto;
                 border-radius: 0px;
             }
@@ -161,39 +170,60 @@
                         font-size: 40px;
                     }
 
+                    .logo-container {
+                        width: 30%;
+                    }
+
                     header .logo {
                         width: 250px;
                         justify-self: flex-start;
                         margin-left: 20px;
                     }
 
-                    .buscador {
+                    .search-container {
+                        width: 70%;
+                        position: relative;
                         display: flex;
-                        justify-self: center;
-                        border: black solid 1px;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                    }
+
+                    .buscador {
+                        border: #6c757d solid 1px;
                         border-radius: 30px;
                         width: 450px;
                         height: 45px;
-                        padding: 5px 0px;
+                        padding: 2px 50px 2px 30px;
                         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
-                        position: relative;
+                        /* border: none; */
+                        font-size: 18px;
+                        width: 50%;
+                        outline: none;
+                        margin-left: 40px;
+                        /* display: flex;
+                        justify-self: center; */
+                        
+                        /* padding: 5px 0px; */
+                        /* margin: 0px 10px; */
+                        /* position: absolute;
                         top: 0%;
-                        right: 34%;
-                        /* margin: auto; */
+                        right: 50%; */
                     }
 
-                        .buscar {
+                        /* .buscar {
                             border: none;
                             font-size: 18px;
-                            /* margin: 0px 10px; */
+                            margin: 0px 10px;
                             margin: auto;
                             width: 50%;
-                        }
+                        } */
                         .fa-magnifying-glass{
-                            font-size: 30px;
-                            position: relative;
-                            top: 0%;
-                            left: -3%;
+                            /* color: #6c757d; */
+                            font-size: 22px;
+                            position: absolute;
+                            top: 25%;
+                            right: 48%;
+                            z-index: 1;
                         }
 
                     .buscar,

@@ -13,9 +13,6 @@
 
     <section class="form-section">
         <header>
-            <!-- <div class="logo-container">
-                <img src="/img/Good Tail - logo.jpg" alt="" class="logo">
-            </div> -->
             <h1 class="header-title">Registrarse en GoodTrail</h1>
             <nav class="register-nav">
                 <ul>
@@ -30,23 +27,23 @@
             <form action="#" method="post">
                 <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="email" name="userEmail" id="email">
+                    <input type="email" name="userEmail" id="email" required>
                 </div>
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="userName" id="userName">
+                    <input type="text" name="userName" id="userName" required>
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword">
+                    <input type="password" name="userPassword" minlength="8" required> 
                 </div>
                 <div class="input-container">
                     <label for="">Confirmar contraseña</label>
-                    <input type="password" name="passwordConfirmation">
+                    <input type="password" name="passwordConfirmation" minlength="8" required>
                 </div>
                 <div class="input-container">
                     <label for="">Fecha de nacimiento</label>
-                    <input type="date" name="birthDate" id="" max="2020-01-01" min="1949-12-31">
+                    <input type="date" name="birthDate" id="" max="2020-01-01" min="1949-12-31" required>
                 </div>
                 <button class="register-button">Registrarse</button>
             </form>
