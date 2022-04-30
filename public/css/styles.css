@@ -169,17 +169,40 @@
                     flex-wrap: wrap;
                     flex-direction: row;
                 }
+
+                .categorias {
+                    font-size: 25px;
+                    margin: 0px 0px 0px 40px;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                    .categorias .fa-plus {
+                        border-right: solid 4px #3777ff;
+                        margin: 0px 5px 0px 0px;
+                        padding: 10px 5px 10px 0px;
+                        font-size: 20px;
+                    }
+
+                    .fa-angle-down,
+                    .fa-plane-departure,
+                    .fa-landmark,
+                    .fa-person-skiing,
+                    .fa-kitchen-set,
+                    .fa-hotel {
+                        margin-left: 10px;
+                    }
+
+                    .fa-angle-down {
+                        margin-right: 5px;
+                    }
+
                     .bottom-header-right {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         margin: 0px 40px 0px 0px;
                     }
-
-                        .categorias {
-                            font-size: 25px;
-                            margin: 0px 0px 0px 40px;
-                        }
 
                         .usuario {
                             border: solid black 1px;
