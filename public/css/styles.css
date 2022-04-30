@@ -12,12 +12,11 @@
         header .cont1 {
             padding: 10px 0px;
             background-color: #ffffff;
-            width: 95%;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-around;           
             margin: auto;
-            border-radius: 150px;
         }
 
                     .fa-bars,
@@ -36,6 +35,49 @@
                         display: none;
                     }
 
+                    .image-carousel {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%; 
+                        /* height: 200px; */
+                        position: relative;
+                    }
+                    
+                    .image-carousel img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+                    .carousel-button {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 20px;
+                        height: 20px;
+                        background-color: rgba(55,119,255,0.5);
+                        color: white;
+                        border-radius: 150px;
+                    }
+                    
+                    .carousel-button:hover {
+                        cursor: pointer;
+                        background-color: #3777ff;
+                    }
+                    
+                    .back {
+                        top: 50%;
+                        left: 2%;
+                    }
+                    
+                    .forward {
+                        top: 50%;
+                        right: 2%;
+                    }
+    /* main {
+    } */
+
     main {
         width: 100%;
         height: 600px;
@@ -43,17 +85,20 @@
         background-color: #f5f5f5;
     }
 
+
     footer{
         padding: 10px 0px;
         line-height: 31px;
+        background-color: #f5f5f5;
     }
 
-        footer .container {
+        footer .cont1-footer {
             display: flex;
             justify-content: space-around;
             flex-direction: row;
             flex-wrap: wrap;
             text-align: center;
+
         }
 
             footer section {
@@ -194,17 +239,40 @@
                     flex-wrap: wrap;
                     flex-direction: row;
                 }
+
+                .categorias {
+                    font-size: 25px;
+                    margin: 0px 0px 0px 40px;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                    .categorias .fa-plus {
+                        border-right: solid 4px #3777ff;
+                        margin: 0px 5px 0px 0px;
+                        padding: 10px 5px 10px 0px;
+                        font-size: 20px;
+                    }
+
+                    .fa-angle-down,
+                    .fa-plane-departure,
+                    .fa-landmark,
+                    .fa-person-skiing,
+                    .fa-kitchen-set,
+                    .fa-hotel {
+                        margin-left: 10px;
+                    }
+
+                    .fa-angle-down {
+                        margin-right: 5px;
+                    }
+
                     .bottom-header-right {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         margin: 0px 40px 0px 0px;
                     }
-
-                        .categorias {
-                            font-size: 25px;
-                            margin: 0px 0px 0px 40px;
-                        }
 
                         .usuario {
                             border: solid black 1px;
@@ -236,5 +304,19 @@
                                 border-left: #3777ff solid 4px;
                                 padding: 10px 0px 10px 5px;
                                 font-size: 20px;
+                            }
+                            
+                            .image-carousel:hover {
+                                cursor: pointer;
+                            }
+                        
+                            .image-carousel:hover .carousel-button{
+                                display: flex;
+                            }
+                        
+                            .carousel-button {
+                                display: none;
+                                width: 50px;
+                                height: 50px;
                             }
 }
