@@ -14,7 +14,9 @@
 <body>
     <header>
         <div class="cont1">
-            <i class="fa-solid fa-bars"></i>
+            <div class="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
             <div class="logo-container">
                 <img class="logo" src="/img/logo.png" alt="logo">
             </div>
@@ -28,21 +30,23 @@
             <div class="categorias">
                 <i class="fa-solid fa-plus"></i>
 
-                    <i class="fa-solid fa-angle-down"></i>
-                    <i class="fa-solid fa-hotel"></i>
-                    <i class="fa-solid fa-kitchen-set"></i>
-                    <i class="fa-solid fa-person-skiing"></i>
-                    <i class="fa-solid fa-landmark"></i>
-                    <i class="fa-solid fa-plane-departure"></i>
+                    <a href="/experienceCatalog">
+                        <i class="fa-solid fa-angle-down"></i>
+                        <i class="fa-solid fa-hotel"></i>
+                        <i class="fa-solid fa-kitchen-set"></i>
+                        <i class="fa-solid fa-person-skiing"></i>
+                        <i class="fa-solid fa-landmark"></i>
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </a>
             </div>
 
             <div class="bottom-header-right">
-            <div class="usuario">
+            <a href="/login" class="usuario">
                 <i class="fa-solid fa-user"></i>
                 <p>Usuario</p>
                 <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="/buyCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </div>
     </header>
