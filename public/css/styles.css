@@ -133,7 +133,7 @@ body {
 
 /* MEDIA QUERIES */
 
-@media (min-width: 768px) {
+@media (min-width: 468px) {
                     .fa-bars,
                     .fa-magnifying-glass {
                         font-size: 40px;
@@ -144,7 +144,7 @@ body {
                     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
 
     header {
         background-color: #ffffff;
