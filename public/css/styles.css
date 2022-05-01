@@ -5,6 +5,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background-image: url('/img/main-background.svg');
 }
@@ -227,6 +231,9 @@ body {
                     justify-content: space-between;
                     align-items: center;
                 }
+                 .categorias a {   
+                    color: black;
+                 }
 
                     .categorias .fa-plus {
                         border-right: solid 4px #3777ff;
@@ -263,6 +270,7 @@ body {
                             width: 150px;
                             height: 40px;
                             border-radius: 20px;
+                            color: black;
                         }
                             .usuario .fa-user {
                                 background-color: #ccc7c7;
@@ -285,6 +293,8 @@ body {
                                 border-left: #3777ff solid 4px;
                                 padding: 10px 0px 10px 5px;
                                 font-size: 20px;
+                                color: black;
+                                text-decoration: none;
                             }
                             
                             .image-carousel:hover {
