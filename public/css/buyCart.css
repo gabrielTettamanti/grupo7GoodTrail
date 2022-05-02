@@ -14,6 +14,7 @@ main{
     width: 90%;
     margin: auto;
     margin-top: 5%;
+    margin-bottom: 5%;
     background-color: white;
     border: 0.3vh solid rgb(217, 205, 205);
     box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 15%);
@@ -72,6 +73,7 @@ main .imagenDos{
     margin-left: 0.4vh;
     margin-right: 0.4vh;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .cantidad{
@@ -80,8 +82,8 @@ main .imagenDos{
     max-height: 37px;
     align-items: center;
     justify-content: space-between;
-    /*border: 0.3vh solid rgb(81 72 72);*/
-    border-radius: 1.5vh;
+    border: 0.3vh solid rgb(81 72 72);
+    border-radius: 3vh;
     /*margin: auto;*/
     width: 60%;
     height: 3vh;
@@ -176,11 +178,9 @@ hr{
         box-shadow: 4px 5px 5px 0px rgb(0 0 0 / 50%);
         margin-bottom: 5%;
         transition: all 350ms;
+        font-weight: bold;
 
 }
-/*main .botonContinuar{
-    width: 100%;
-}*/
 
 button.botonContinuar{
     display: flex;
@@ -193,7 +193,7 @@ button.botonContinuar{
     background-color: var(--blue-crayola);
 }
 
-@media (min-width: 550px){
+@media (min-width: 559px){
     .fraseEntera{
         display:block ;
         font-size: 3vh;
@@ -228,7 +228,7 @@ button.botonContinuar{
         margin-bottom: 5%;
     }
     .botonContinuar{
-        font-size: 16px;     
+        font-size: 20px;     
         width: 200px;
         height: 50px;
     }
@@ -243,5 +243,34 @@ button.botonContinuar{
         height: 0.1vh;
         background-color: grey;
         width: 100%;
+    }
+}
+
+@media (min-width: 768px){
+    .precioMasCant{
+        margin-bottom: 10%
+    }
+    .fa-trash-can{
+        font-size: 5vh;
+        margin-top: 2%;
+    }
+    .cantidad {
+        height: 7vh;
+        width: 50%;
+        max-height: none;
+    }
+    .cantidad p{
+        font-size: 3.5vh;
+    }
+    .fa-minus{
+        font-size: 3vh;
+    }
+    .fa-plus{
+        font-size: 3vh;
+    }
+    .botonContinuar{
+        font-size: 25px;     
+        width: 230px;
+        height: 60px;
     }
 }
