@@ -277,11 +277,58 @@ body {
                     .fa-kitchen-set,
                     .fa-hotel {
                         margin-left: 10px;
+                        transition: color 100ms;
+                        animation-duration: 1s;
+                        animation-iteration-count: infinite;
                     }
+
+                    .fa-angle-down:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+
+                    .fa-plane-departure:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+                    .fa-landmark:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+                    .fa-person-skiing:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+                    .fa-kitchen-set:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+                    .fa-hotel:hover {
+                        color: #3777ff;
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+                    .fa-cart-shopping:hover {
+                        color: #3777ff;   
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+
+                    @keyframes dance {
+                        0%   { transform: rotate(0deg); }
+                        50%  { transform: rotate(25deg); }
+                        100% { transform: rotate(-25deg); }
+                      }
 
                     .fa-angle-down {
                         margin-right: 5px;
                     }
+                    
 
                     .bottom-header-right {
                         display: flex;
