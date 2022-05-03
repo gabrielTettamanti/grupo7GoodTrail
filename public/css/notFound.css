@@ -1,19 +1,36 @@
-body{
-    background-color: #03264C;
+main{
+    min-height: 500px;
+}
+main div{
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    padding: 20px ;
+    margin-top: 40px;
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+main div a{
+    color:  #3777ff;
+    transition: 100ms;
+}
+main div a:hover{
+    color: #D7263D;
 }
 h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 55px;
-    color: wheat;
     text-align: center;
 }
 h2{
     text-align: center;
-    color: wheat;
+
 }
 h3{
     text-align: center;
-    color: wheat;
+
 }
 .logo{
     display: flex;

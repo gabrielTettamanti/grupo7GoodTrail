@@ -4,17 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/notFound.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="/img/logo.png" alt="">
-        </div>
-        <h1>ERROR 404</h1>
-        <h2>The page you requested was NOT FOUND.</h2>
-        <h3>You can go back to the home page and continue browsing.</h3>
-    </header>
+        <header>
+            <div class="cont1">
+                <div class="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="logo-container">
+                    <a href="/"><img class="logo" src="/img/logo.png" alt="logo"></a>
+                </div>
+                <form class="search-container" action="/catalogo">
+                    <input type="text" class="buscador" placeholder="Busca tu mejor experiencia">
+                    <i class="fa-solid fa-magnifying-glass"></i> 
+                </form>
+            </div>
+            <div class="cont2">
+    
+                <div class="categorias">
+                    <i class="fa-solid fa-plus"></i>
+    
+                        <a href="/experienceCatalog">
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-hotel"></i>
+                            <i class="fa-solid fa-kitchen-set"></i>
+                            <i class="fa-solid fa-person-skiing"></i>
+                            <i class="fa-solid fa-landmark"></i>
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </a>
+                </div>
+    
+                <div class="bottom-header-right">
+                <a href="/login" class="usuario">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Usuario</p>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="/buyCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </header>
+<main>
+    <div>
+    <h1>ERROR 404</h1>
+    <h2>SE ROMPIÓ TODO</h2>
+    <h3>La página que estas buscando no existe o fue eliminada. Podes volver a la <a href="/">pagina de inicio</a> y continuar navegando.</h3>
+    </div>
+</main>
+<footer>
+    <div class="cont1-footer">
+        <section class="experiencias">
+            <h3>Experiencias</h3>
+            <ul>
+                <li><a href="/catalogo/hoteleria">Hoteleria</a></li>
+                <li><a href="/catalogo/gourmet">Gourmet</a></li>                   
+                <li><a href="/catalogo/deportes">Deportes</a></li>                      
+                <li><a href="/catalogo/cultura">Cultura</a></li>  
+                <li><a href="/catalogo/viajes">Viajes</a></li>
+            </ul>
+        </section>
+        <section class="metodosDePago">
+            <h3>Metodos de pago</h3>
+            <h4>Pagar con tarjeta de credito o debito</h4>
+            <i class="fa-solid fa-credit-card"></i>
+            <h4>Pago en efectivo</h4>
+            <i class="fa-solid fa-money-bills"></i>
+        </section>
+        <section class="contactanos">
+            <h3>Contactanos</h3>
+            <h4>Informacion de contacto</h4>
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </section>
+    </div>
+</footer>
 </body>
 </html>
