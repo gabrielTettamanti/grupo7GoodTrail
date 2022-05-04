@@ -52,6 +52,7 @@
             margin-bottom: 30px;
             color: black;
             text-decoration: none;
+            border-radius: 5px;
         }
 
             .product img {
@@ -80,6 +81,10 @@
                 .product .price-stars p {
                     font-size: 18px;
                     font-weight: bold;
+                }
+
+                .price {
+                    color: #3777ff;
                 }
 
                 .product i {
@@ -123,6 +128,13 @@
     .product {
         width: 40%;
     }
+
+    .product:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+    }
+
+
 }
 
 @media (min-width: 1200px) {
