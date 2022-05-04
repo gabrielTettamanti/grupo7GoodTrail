@@ -1,3 +1,9 @@
+:root {
+    --blue-crayola: #3777ff;
+    --golden-yellow: #ffd60a;
+    --crimson-red: #d7263d;
+}
+
 .index-main{
     width: 100%;
     min-height: 800px;
@@ -29,8 +35,8 @@
     }
 
     .home-buttons button:hover{
-        color: #3777FF;
-        border: #3777FF solid 2px;
+        color: var(--blue-crayola);
+        border: var(--blue-crayola) solid 2px;
     }
 
     .product-home-container {
@@ -78,10 +84,10 @@
 
                 .product i {
                     font-size: 18px;
-                    color: #ffd60a;
+                    color: var(--golden-yellow);
                 }
                     .star {
-                        color:  #ffd60a;
+                        color:  var(--golden-yellow);
                         font-weight: bold;
                     }
 
@@ -109,8 +115,8 @@
             }
 
             .load-more-button button:hover{
-                color: #D7263D;
-                border: #D7263D solid 2px;
+                color: var(--crimson-red);
+                border: var(--crimson-red) solid 2px;
             }
 
 @media (min-width: 768px) {

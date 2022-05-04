@@ -1,3 +1,7 @@
+:root {
+    --crimson-red: #d7263d;
+}
+
 main{
     min-height: 500px;
 }
@@ -17,7 +21,7 @@ main div a{
     transition: 100ms;
 }
 main div a:hover{
-    color: #D7263D;
+    color: var(--crimson-red);
 }
 h1{
     font-family: 'Roboto', sans-serif;
