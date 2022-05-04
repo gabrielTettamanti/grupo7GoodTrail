@@ -106,11 +106,22 @@ main .imagenDos{
     margin-right: 3px;
     color: #3777ff;
     font-size: 1.8vh;
+    transition: transform .2s; 
 }
+
+.fa-plus:hover {
+    transform: scale(1.3); 
+}
+
 .fa-minus{
     margin-left: 3px;
     color: rgb(206, 3, 3);
     font-size: 1.8vh;
+    transition: transform .2s; 
+}
+ 
+.fa-minus:hover {
+    transform: scale(1.3); 
 }
 .cantidadMasTacho{
     display: flex;
@@ -120,6 +131,15 @@ main .imagenDos{
 .fa-trash-can{
     color: rgb(206, 3, 3);
     display: none;
+}
+
+.fa-trash-can:hover{
+    animation: tiembla 1s 1;
+}
+@keyframes tiembla{
+  0%  { -webkit-transform:rotateZ(-5deg); }
+  50% { -webkit-transform:rotateZ( 0deg) scale(.8); }
+  100%{ -webkit-transform:rotateZ( 5deg); }
 }
 main .infoCompraDos{
     width: 50%;
@@ -145,11 +165,13 @@ hr{
     display: flex;
     margin-right: 10%;
     color: #3777ff;
+    font-weight: bold;
 }
 
 .gratis{
     margin-right: 10%;
-    color: rgb(92, 211, 92);
+    color: rgb(24 161 24);
+    font-weight: bold;
 }
 
 .precioTotal{
@@ -176,9 +198,9 @@ hr{
         border: solid 2px var(--blue-crayola);
         border-radius: 150px;
         box-shadow: 4px 5px 5px 0px rgb(0 0 0 / 50%);
-        margin-bottom: 5%;
         transition: all 350ms;
         font-weight: bold;
+        margin-right: 7vh;
 
 }
 
@@ -191,6 +213,13 @@ button.botonContinuar{
     cursor: pointer;
     color: var(--cultured);
     background-color: var(--blue-crayola);
+}
+
+.divBoton{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5%;
 }
 
 @media (min-width: 559px){
@@ -272,5 +301,6 @@ button.botonContinuar{
         font-size: 25px;     
         width: 230px;
         height: 60px;
+        margin-right: 10vh;
     }
 }
