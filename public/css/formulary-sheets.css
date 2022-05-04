@@ -3,6 +3,7 @@
     --blue-crayola: #3777ff;
     --cool-gray: #d9d9d9;
     --harder-gray: #6c757d;
+    --light-blue-crayola: #7fa8ff;
 }
 
 * {
@@ -124,22 +125,11 @@ form {
     background-color: white;
 }
 
-/* .register-button {
-    font-size: 16px;
-    width: 200px;
-    height: 30px;
-    background-color: white;
-    color: var(--blue-crayola);
-    border: solid 2px var(--blue-crayola);
-    border-radius: 150px;
-} */
-
 .register-button:hover {
     background-color: var(--blue-crayola);
     color: white;
     cursor: pointer;
 }
-
 
 .register-button {background-image: linear-gradient(to right, #56CCF2 0%, #3777ff  51%, #56CCF2  100%)}
 
@@ -158,6 +148,88 @@ form {
  .register-button:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
+ }
+
+ .forgot-password-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+ }
+
+ .last-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+ }
+
+ .label-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-left: 5px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+ }
+
+ .remember-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+ }
+
+ .link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+
+ .label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+ .checkbox-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 2px var(--blue-crayola);
+ }
+
+ .label-container:hover input ~ .checkbox-button {
+    background-color: var(--light-blue-crayola);
+    border: none;
+}
+
+.label-container input:checked ~ .checkbox-button {
+    background-color: var(--blue-crayola);
+}
+
+.checkbox-button::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.label-container input:checked .checkbox-button::after {
+    display: block;
+}
+
+ .link-container a {
+    text-decoration: none;
+    color: var(--blue-crayola);
+ }
+
+ .link-container a:hover {
+    text-decoration: underline;
  }
 
  /* MEDIA QUERIES */
@@ -186,8 +258,25 @@ form {
         font-size: 14px;
     }
 
+    .remember-container {
+        width: 45%;
+    }
+
+    .link-container {
+        width: 45%;
+    }
+
     .register-button {
         font-size: 18px;
+    }
+
+    .label-container {
+        font-size: 18px;
+    }
+
+    .checkbox-button {
+        width: 20px;
+        height: 20px;
     }
  }
 
