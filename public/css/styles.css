@@ -1,6 +1,7 @@
 :root {
     --blue-crayola: #3777ff;
     --cultured: #f5f5f5;
+    --crimson-red: #d7263d;
 }
 
 * {
@@ -164,6 +165,11 @@ body {
             margin: 0px 5px;
         }
 
+        footer .experiencias a:hover {
+            color: #3777ff;
+            font-weight: bold;
+        }
+
 /* MEDIA QUERIES */
 
 @media (min-width: 468px) {
@@ -281,7 +287,8 @@ body {
                     .fa-landmark,
                     .fa-person-skiing,
                     .fa-kitchen-set,
-                    .fa-hotel {
+                    .fa-hotel,
+                    footer .contactanos i {
                         margin-left: 10px;
                         transition: color 100ms;
                         animation-duration: 1s;
@@ -321,6 +328,12 @@ body {
                     }
                     .fa-cart-shopping:hover {
                         color: var(--blue-crayola);   
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+
+                    footer .contactanos i:hover {
+                        color: var(--crimson-red);   
                         animation-name: dance;
                         animation-timing-function: ease;
                     }
