@@ -19,23 +19,13 @@ main{
     border: 0.3vh solid rgb(217, 205, 205);
     box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 15%);
 }
-img{
-    max-height: 200px;
-}
-div img{
+article .imagenDos img{
     width: 100%;
+    max-height: 100px;
 }
 main .imagenDos{
     width: 50%;
-    max-height: 200px;
     position: relative;
-}
-
-.imagenDos:hover .nombreProducto{
-    opacity: 1;
-    background-color: rgba(108, 64, 113, 0.5);
-    border-radius: 7%;
-
 }
  .nombreProducto{
     background-color: rgba(0, 0, 0, 0.7);
@@ -49,8 +39,8 @@ main .imagenDos{
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: all 450ms;
+    opacity: 1;
+    background-color: rgba(60, 61, 136, 0.5);
     font-size: 60%;
 }
 
@@ -72,8 +62,8 @@ main .imagenDos{
     justify-content: space-around;
     margin-left: 0.4vh;
     margin-right: 0.4vh;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 12%;
 }
 
 .cantidad{
@@ -84,7 +74,6 @@ main .imagenDos{
     justify-content: space-between;
     border: 0.3vh solid rgb(81 72 72);
     border-radius: 3vh;
-    /*margin: auto;*/
     width: 60%;
     height: 3vh;
     background-color: rgb(249, 249, 249);
@@ -226,6 +215,7 @@ button.botonContinuar{
     .fraseEntera{
         display:block ;
         font-size: 3vh;
+        margin-left: 1vh;
     }
     .numeroSolo{
         display: none;
@@ -273,11 +263,17 @@ button.botonContinuar{
         background-color: grey;
         width: 100%;
     }
+    .precioMasCant{
+        margin-bottom: 20%;
+    }
+    article .imagenDos img{
+        max-height: 375px;
+    }
 }
 
 @media (min-width: 768px){
     .precioMasCant{
-        margin-bottom: 10%
+        margin-bottom: 25%
     }
     .fa-trash-can{
         font-size: 5vh;
@@ -302,5 +298,12 @@ button.botonContinuar{
         width: 230px;
         height: 60px;
         margin-right: 10vh;
+    }
+    .nombreProducto{
+        font-size: 3vh;
+    }
+    .personasCantidad p{
+        margin-left: 2vh;
+        font-size: 3.5vh;
     }
 }
