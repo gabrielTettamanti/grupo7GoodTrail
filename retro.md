@@ -1,4 +1,4 @@
-# Retrospectiva
+# Retrospectiva Sprint 1
 
 ## Comenzar a hacer
 * Organizarnos más. 
@@ -21,5 +21,27 @@
 ## Dejar de hacer
 * Desorganización.
 * No distribuir las tareas de manera equitativa entre los individuos del equipo.
+
+# Retrospectiva Sprint 2
+
+## Comenzar a hacer
+* Estandarizar los procesos de revision al terminar una tarea. Indicar que integrante del grupo debe llevar a cabo la revision. 
+* Revision global grupal en vivo en el canal de Discord.
+
+## Hacer más
+* Pedir más ayuda en caso de trabarnos. 
+* Distribuir de manera más equitativa las tareas y responsabilidades entre los integrantes del equipo.
+* Llamadas en Discord más frecuentes. Añadir más días para hacer meetings.
+* Conectarnos más en el canal de voz de Discord (aunque no este pautado el día para juntarnos).
+* Utilizar más el tablero de Trello. 
+* En Git, hacer más cantidad de push por el trabajo realizado (de manera más seguida). 
+## Continuar 
+* Comunicarnos solo por whatsapp. El canal que tenemos en Discord mantenerlo solo para links/archivos.
+* Las criticas constructivas entre las tareas integrantes del equipo.
+* La buena comunicación entre todos los integrantes del grupo. 
+## Hacer menos
+
+
+## Dejar de hacer
 
 
