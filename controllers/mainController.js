@@ -1,4 +1,4 @@
-let experiencias = [
+let experiences = [
     {
         id: 1,
         nombre: 'Santiago Bernabeu',
@@ -55,13 +55,14 @@ let experiencias = [
 const mainController ={
 
     index: (req, res) => {
-         res.render('index');
+         res.render('index', {experiences: experiences});
     },
     experienceCatalog:(req, res) => {
-         res.render('experienceCatalog');
+         res.render('experienceCatalog', {experiences: experiences});
     },
     productDescription: (req, res) => {
-         res.render('productDescription');
+        let experienceDetail = experiences.find(experience => experience.id == req.params.id)
+         res.render('productDescription', {experienceDetail: experienceDetail});
     },
     buyCart: (req, res) => {
          res.render('buyCart');
