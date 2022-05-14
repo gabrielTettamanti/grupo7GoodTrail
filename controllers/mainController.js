@@ -55,30 +55,26 @@ let experiencias = [
 const mainController ={
 
     index: (req, res) => {
-        let detalleExperiencias = productos.find(experiencia => experiencia.id == req.params.id)
-        return res.render('detallePlato', {idExperiencias: detalleExperiencias, experiencias: experiencias});
+         res.render('index');
     },
     experienceCatalog:(req, res) => {
-        return res.render('experienceCatalog');
+         res.render('experienceCatalog');
     },
     productDescription: (req, res) => {
-        let detalleExperiencias = productos.find(experiencia => experiencia.id == req.params.id)
-        return res.render('detallePlato', {idExperiencias: detalleExperiencias});
+         res.render('productDescription');
     },
     buyCart: (req, res) => {
-        return res.render('buyCart');
+         res.render('buyCart');
     },
     login: (req, res) => {
-        return res.render('login');
+         res.render('login');
     },
-    register: (req, res) => {
-        return res.render('register');
+    registerFormulary: (req, res) => {
+         res.render('registerFormulary');
     },
     notFound: (req, res) => {
-        return res.render('notFound');
-    },
-
-    
+         res.render('notFound');
+    }
 }
 
 module.exports = mainController
