@@ -91,14 +91,16 @@ main .imagenDos{
 .personasCantidad p{
     overflow: hidden;
 }
-.fa-plus{
+
+#plusBuyCart{
     margin-right: 3px;
     color: #3777ff;
     font-size: 1.8vh;
     transition: transform .2s; 
 }
 
-.fa-plus:hover {
+
+#plusBuyCart:hover {
     transform: scale(1.3); 
 }
 
@@ -236,7 +238,9 @@ button.botonContinuar{
     .fa-minus{
         margin-left: 10px;
     }
-    .fa-plus {
+
+
+#plusBuyCart    {
         margin-right: 10px;
     }
     .envioDomicilio{
@@ -290,7 +294,9 @@ button.botonContinuar{
     .fa-minus{
         font-size: 3vh;
     }
-    .fa-plus{
+
+
+#plusBuyCart    {
         font-size: 3vh;
     }
     .botonContinuar{
