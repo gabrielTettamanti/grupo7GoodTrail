@@ -12,44 +12,9 @@
     <link href="/css/experienceCatalog.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="cont1">
-            <div class="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <div class="logo-container">
-                <a href="/"><img class="logo" src="/img/logo.png" alt="logo"></a>
-            </div>
-            <form class="search-container" action="/catalogo">
-                <input type="text" class="buscador" placeholder="Busca tu mejor experiencia">
-                <i class="fa-solid fa-magnifying-glass"></i> 
-            </form>
-        </div>
-        <div class="cont2">
 
-            <div class="categorias">
-                <i class="fa-solid fa-plus"></i>
-
-                    <a href="/experienceCatalog">
-                        <i class="fa-solid fa-angle-down"></i>
-                        <i class="fa-solid fa-hotel"></i>
-                        <i class="fa-solid fa-kitchen-set"></i>
-                        <i class="fa-solid fa-person-skiing"></i>
-                        <i class="fa-solid fa-landmark"></i>
-                        <i class="fa-solid fa-plane-departure"></i>
-                    </a>
-            </div>
-
-            <div class="bottom-header-right">
-            <a href="/login" class="usuario">
-                <i class="fa-solid fa-user"></i>
-                <p>Usuario</p>
-                <i class="fa-solid fa-arrow-down"></i>
-            </a>
-            <a href="/buyCart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-        </div>
-    </header>
+    <!-- HEADER -->
+    <%- include('./partials/header')%>
 
     <main>
 
