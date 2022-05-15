@@ -296,6 +296,12 @@ body {
                         animation-iteration-count: infinite;
                     }
 
+                    #plusHeader:hover {
+                        color: var(--blue-crayola);   
+                        animation-name: dance;
+                        animation-timing-function: ease;
+                    }
+
                     .fa-angle-down:hover {
                         color: var(--blue-crayola);
                         animation-name: dance;
