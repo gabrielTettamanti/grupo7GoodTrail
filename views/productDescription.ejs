@@ -9,7 +9,7 @@
     <!-- HEADER -->
     <%- include('./partials/header')%>
 
-    <%- include('partials/imageCarousel') %> 
+    <%- include('partials/imageCarousel', {experience: experienceDetail}) %> 
 
     <main>
         <section class="mobile-title">
@@ -57,8 +57,8 @@
         <section class="container">
             <h2 class="section-title">Descripción</h2>
             <div class="description-text">
-                <p>Estadia en Madrid para 2 personas. 2 días de estadias. Viaje incluido. </p>
-                <p>Vivi la experiencia de ver un partido de UEFA Champions League del Real Madrid en el grandioso Santiago Bernabeu</p>    
+                <p> <%= experienceDetail.descripcion %> </p>
+                <p> <%= experienceDetail.detailDescription %>  </p>    
             </div>
         </section>
         <section class="mobile-buttons">
