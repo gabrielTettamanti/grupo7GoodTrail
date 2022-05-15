@@ -6,7 +6,7 @@ router.get("/", mainController.index)
 
 router.get("/experienceCatalog", mainController.experienceCatalog )
 
-router.get("/productDescription", mainController.productDescription )
+router.get("/productDescription/:id", mainController.productDescription )
 
 router.get("/buyCart", mainController.buyCart )
 
