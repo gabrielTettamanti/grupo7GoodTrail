@@ -1,0 +1,13 @@
+<a href="/productDescription/<%= experience.id %> " class="experience-card">
+    <img src="/img/<%= experience.imagen %> " alt="">
+    <div class="rating-container">
+        <% for( let index = 0; index < experience.rating; index++ ) { %>
+            <i class="fa-solid fa-star"></i>
+        <% } %>
+    </div>
+    <div class="experience-description">
+        <h3 class="experience-title"> <%= experience.nombre %> </h3>
+        <p class="experience-about"> <%= experience.descripcion %> </p>
+        <h3 class="experience-price"> <%= experience.precio %> </h3>
+    </div>
+</a>
