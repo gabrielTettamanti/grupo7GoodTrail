@@ -1,0 +1,27 @@
+<article class="compraDos">
+    <div class="imagenDos">
+        <img src="/img/cardImages/<%= experience.imagen %> " alt="">
+        <h2 class="nombreProducto"> <%= experience.nombre %> </h2>
+    </div> 
+    <div class="infoCompraDos">
+        <div class="precioMasCant">
+            <div class="personasCantidad">
+                <i class="fa-solid fa-user"></i>
+                <p class="fraseEntera">Para <%= experience.peopleQuantity %> personas</p>
+                <!-- <p class="numeroSolo"> 2 </p> -->
+            </div>
+            <div class="precio">
+                <p> <%= experience.precio %>  </p>
+            </div>
+        </div>
+        <div class="cantidadMasTacho">
+            <div class="cantidad">
+                <i class="fa-solid fa-minus"></i>
+                <p>1</p>
+                <i class="fa-solid fa-plus" id="plusBuyCart"></i>
+            </div>
+            <i class="fa-solid fa-trash-can"></i>
+        </div>
+    </div>
+</article>
+<hr>

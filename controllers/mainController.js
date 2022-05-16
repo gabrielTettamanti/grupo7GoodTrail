@@ -23,7 +23,7 @@ let experiences = [
         ubication: 'Giza - Egipto',
         days: '3',
         peopleQuantity: '2',
-        detailDescription: '',
+        detailDescription: 'Entre la arena y los rayos de sol del desierto podras visitar las grandes piramides, un recuerdo de una de las mas grandes civilizaciones de la antiguedad.',
         googleMaps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98273.55947475434!2d31.11199047685871!3d29.976588930703745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584514019cd63f%3A0xcd9b620a6cdaf277!2sPir%C3%A1mides%20de%20Guiza!5e0!3m2!1ses-419!2sar!4v1652632518404!5m2!1ses-419!2sar"
     },
 
@@ -37,7 +37,7 @@ let experiences = [
         ubication: 'Roma - Italia',
         days: '4',
         peopleQuantity: '2',
-        detailDescription: '',
+        detailDescription: 'Explora las calles y recovecos de la historia en la hermosa ciudad de los Gnocchi.',
         googleMaps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.123073808986!2d12.490042215441486!3d41.89021017922119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColiseo%20de%20Roma!5e0!3m2!1ses-419!2sar!4v1652645816136!5m2!1ses-419!2sar'
     },
 
@@ -127,9 +127,6 @@ let experiences = [
 
 ];
 
-
-
-
 const mainController ={
 
     index: (req, res) => {
@@ -143,7 +140,7 @@ const mainController ={
         res.render('productDescription', {experienceDetail: experienceDetail});
     },
     buyCart: (req, res) => {
-        res.render('buyCart');
+        res.render('buyCart', {experiences: experiences});
     },
     login: (req, res) => {
         res.render('login');
