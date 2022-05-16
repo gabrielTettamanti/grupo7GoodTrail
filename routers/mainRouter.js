@@ -14,6 +14,8 @@ router.get("/login", mainController.login)
 
 router.get("/registerFormulary", mainController.registerFormulary)
 
+router.get("/editor", mainController.editor)
+
 router.get("*", mainController.notFound)
 
 module.exports = router

@@ -148,6 +148,9 @@ const mainController ={
     registerFormulary: (req, res) => {
         res.render('registerFormulary');
     },
+    editor: (req, res) => {
+        res.render('editor');
+    },
     notFound: (req, res) => {
         res.render('notFound');
     }
