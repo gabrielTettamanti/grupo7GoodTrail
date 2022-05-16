@@ -1,0 +1,62 @@
+<!-- HEAD -->
+<%- include('./partials/head')%>
+
+    <link href="/css/editor.css" rel="stylesheet">
+    <title>GoodTrail | Editor</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <%- include('./partials/header')%>
+    <section class="form-section">
+        <main>
+            <h1 class="header-title">Tus experiencias</h1>
+            <nav class="edition-nav">
+                <ul>
+                    <li><a href="/creation" class="option-unselected">Creación</a></li>
+                    <li><a href="#" class="option-selected">Edición</a></li>
+                </ul>
+            </nav>    
+            <form class="forms" action="#" method="post">
+                <div class="input-container">
+                    <label for="userName">Nombre</label>
+                    <input type="text" name="userName" id="userName" required>
+                </div>
+                <div class="input-container">
+                    <label for="">Descripción</label>
+                    <input type="text" name="description" maxlength="400" style="height: 150px" required> 
+                </div>
+                <div class="input-container">
+                    <label for="">Imagenes</label>
+                    <input type="file" name="image" accept=".jpg" multiple required> 
+                </div>
+                <div class="categoryDestiny">
+                    <div class="input-container">
+                            <label for="">Categoria</label>
+                            <input type="radio" name="category" value="Aventura">Aventura
+                            <input type="radio" name="category" value="Deportes">Deportes
+                            <input type="radio" name="category" value="Cultura">Cultura
+                            <input type="radio" name="category" value="Viajes">Viajes
+                            <input type="radio" name="category" value="Gourmet">Gourmet
+                        
+                    </div>
+                    <div class="input-container">
+                        <label for="">Destino</label>
+                        <input type="radio" name="destiny" value="San Pedro">San Pedro
+                        <input type="radio" name="destiny" value="Madrid">Madrid
+                        <input type="radio" name="destiny" value="Roma">Roma
+                        <input type="radio" name="destiny" value="Giza">Giza
+                        <input type="radio" name="destiny" value="Argentina">Argentina                    
+                    </div>
+                </div>
+                <div class="buttomTrash">
+                    <button class="edition-button">Editar</button>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </form>
+        </main>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include('./partials/footer')%>
+</body>

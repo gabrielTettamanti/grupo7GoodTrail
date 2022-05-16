@@ -135,22 +135,6 @@ const mainController ={
     experienceCatalog:(req, res) => {
         res.render('experienceCatalog', {experiences: experiences});
     },
-    productDescription: (req, res) => {
-        let experienceDetail = experiences.find(experience => experience.id == req.params.id);
-        res.render('productDescription', {experienceDetail: experienceDetail});
-    },
-    buyCart: (req, res) => {
-        res.render('buyCart', {experiences: experiences});
-    },
-    login: (req, res) => {
-        res.render('login');
-    },
-    registerFormulary: (req, res) => {
-        res.render('registerFormulary');
-    },
-    editor: (req, res) => {
-        res.render('editor');
-    },
     notFound: (req, res) => {
         res.render('notFound');
     }

@@ -6,16 +6,6 @@ router.get("/", mainController.index)
 
 router.get("/experienceCatalog", mainController.experienceCatalog )
 
-router.get("/productDescription/:id", mainController.productDescription )
-
-router.get("/buyCart", mainController.buyCart )
-
-router.get("/login", mainController.login)
-
-router.get("/registerFormulary", mainController.registerFormulary)
-
-router.get("/editor", mainController.editor)
-
 router.get("*", mainController.notFound)
 
 module.exports = router
