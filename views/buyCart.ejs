@@ -10,7 +10,12 @@
     <%- include('./partials/header')%>
     
     <main>
-        <article class="compraDos">
+
+        <% experiences.forEach(experience => { %>
+            <%- include('./partials/cartProduct', {experience: experience}) %> 
+        <% }) %>
+
+        <!-- <article class="compraDos">
             <div class="imagenDos">
                 <img src="/img/bernabeuCatalog.jpg" alt="">
                 <h2 class="nombreProducto">Experiencia Santiago Bernabeu</h2>
@@ -90,7 +95,7 @@
                 </div>
             </div>
         </article>
-        <hr>
+        <hr> -->
         <article>
             <div class="envioDomicilio">
                 <div class="sub">
