@@ -271,20 +271,21 @@ main {
 .coinPrice .input-container{
     width: 48%;
 }
-.price{
+.peopleDuration{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.peopleDuration .input-container{
+    width: 40%;
+}
+.hidden{
     visibility: hidden;
 }
 .fa-trash-can{
     color: rgb(206, 3, 3);
     font-size: 3.5vh;
-}
-.image{
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
 }
 .more{
     display: inline;
@@ -303,6 +304,13 @@ main {
     width: 80%;
     justify-content: space-between;
     margin-top: 20px;
+}
+.duration{
+    display: flex;
+    width: 40%;
+}
+.duration input{
+    margin-right: 10px;
 }
  /* MEDIA QUERIES */
 
