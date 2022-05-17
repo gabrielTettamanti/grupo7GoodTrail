@@ -1,3 +1,5 @@
+const experiences = require('../model/products/experiences');
+
 const productController={
     productDescription: (req, res) => {
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
