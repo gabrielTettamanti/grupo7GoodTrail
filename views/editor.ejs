@@ -24,29 +24,58 @@
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <input type="text" name="description" maxlength="400" style="height: 150px" required> 
+                    <textarea type="text" name="description" maxlength="400" style="height: 150px" required> </textarea>
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
-                    <input type="file" name="image" accept=".jpg" multiple required> 
+                    <input class= "image" type="file" name="image" accept=".jpg" multiple required> 
                 </div>
                 <div class="categoryDestiny">
                     <div class="input-container">
-                            <label for="">Categoria</label>
-                            <input type="radio" name="category" value="Aventura">Aventura
-                            <input type="radio" name="category" value="Deportes">Deportes
-                            <input type="radio" name="category" value="Cultura">Cultura
-                            <input type="radio" name="category" value="Viajes">Viajes
-                            <input type="radio" name="category" value="Gourmet">Gourmet
-                        
+                            <label for="">Categoría</label>
+                            <select name="ciudad">
+                                <option value="a">Aventura</option>
+                                <option value="d">Deportes</option>
+                                <option value="c">Cultura</option>
+                            </select>
                     </div>
                     <div class="input-container">
-                        <label for="">Destino</label>
-                        <input type="radio" name="destiny" value="San Pedro">San Pedro
-                        <input type="radio" name="destiny" value="Madrid">Madrid
-                        <input type="radio" name="destiny" value="Roma">Roma
-                        <input type="radio" name="destiny" value="Giza">Giza
-                        <input type="radio" name="destiny" value="Argentina">Argentina                    
+                            <label for="">Destino</label>
+                            <input type="search" name="destiny" required> 
+                    </div>
+                </div>
+                <div class="categoryDestiny">
+                    <div class="input-container">
+                        <label for="">Personas</label>
+                        <input type="number" name="people" required> 
+                    </div>
+                    <div class="duration">
+                        <div class="input-container">
+                                <label for="">Duración</label>
+                                <input type="number" name="duration" required> 
+                        </div>
+                        <div class="input-container">
+                            <label for="">Duración</label>
+                                <select name="coin">
+                                    <option value="dia">día</option>
+                                    <option value="mes">mes</option>
+                                    <option value="año">año</option>
+                                </select> 
+                        </div>
+                    </div>
+                </div>
+                <div class="coinPrice">
+                    <div class="input-container">
+                        <label for="">Precio</label>
+                            <select name="coin">
+                                <option value="$">$</option>
+                                <option value="€">€</option>
+                                <option value="¥">¥</option>
+                            </select> 
+                    </div>
+                    <div class="input-container">
+                         <label class="price" for="">Precio</label>
+                         <input type="number" name="price" required> 
                     </div>
                 </div>
                 <div class="buttomTrash">
