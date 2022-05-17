@@ -30,7 +30,7 @@ let experiences = [
     {
         id: 3,
         nombre: 'Roma',
-        descripcion: 'Explora las calles y recovecos de la historia en la hermosa ciudad de los Gnocchi.',
+        descripcion: 'Un recorrido asombroso en la capital de Italia.',
         imagen: 'romaCatalog.jpg',
         precio: '$350.000',
         rating: 5,
