@@ -2,7 +2,7 @@
 <%- include('./partials/head')%>
 
     <link href="/css/editor.css" rel="stylesheet">
-    <title>GoodTrail | Creador</title>
+    <title>GoodTrail | Crear</title>
 </head>
 <body>
 
@@ -13,8 +13,8 @@
             <h1 class="header-title">Tus experiencias</h1>
             <nav class="edition-nav">
                 <ul>
-                    <li><a href="#" class="option-unselected">Creación</a></li>
-                    <li><a href="/edition" class="option-selected">Edición</a></li>
+                    <li><a href="../product/creacion" class="option-selected">Crear</a></li>
+                    <li><a href="../product/editor" class="option-unselected">Editar</a></li>
                 </ul>
             </nav>    
             <form class="forms" action="#" method="post">
@@ -28,7 +28,10 @@
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
-                    <input class= "image" type="file" name="image" accept=".jpg" multiple required> 
+                    <input class= "image" type="file" id="file" name="image" accept=".jpg" multiple required> 
+                    <label id="imageButton" for="file">
+                        <i class="fa-solid fa-plus"></i>
+                    </label>
                 </div>
                 <div class="categoryDestiny">
                     <div class="input-container">
@@ -79,7 +82,7 @@
                     </div>
                 </div>
                 <div class="buttomTrash">
-                    <button class="edition-button">Crear</button>
+                    <button class="edition-button">Editar</button>
                     <i class="fa-solid fa-trash-can"></i>
                 </div>
             </form>
