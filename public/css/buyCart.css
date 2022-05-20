@@ -51,9 +51,7 @@ main .imagenDos{
     margin-left: 1%;
     position: relative;
 }
-.fraseEntera{
-    display:none ;
-}
+
 .personasCantidad{
     display: flex;
 }
