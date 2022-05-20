@@ -45,3 +45,21 @@
 ## Dejar de hacer
 
 
+# Retrospectiva Sprint 3
+
+## Comenzar a hacer
+* En caso de no tener tareas pendientes corregir/editar el codigo sin esperar permiso.
+* Estandarizar los procesos de revision al terminar una tarea. Indicar que integrante del grupo debe llevar a cabo la revision. 
+* Implementar daily compartiendo qué hizo ayer, si se encontró con algún impedimento, qué va a hacer hoy, por whatsapp.
+
+## Hacer más
+* Implementar nuevos estilos y funciones yendo más allá de las consignas.
+## Continuar 
+
+## Hacer menos
+* Pautar cosas en el retro y no hacerlo.
+
+
+## Dejar de hacer
+* No colgar tanto con el Trello.
+* No colgar tanto con el Whatsapp.
