@@ -4,6 +4,8 @@ const mainController = require("../controllers/mainController")
 
 router.get("/", mainController.index)
 
+router.get("/search", mainController.search);
+
 router.get("/experienceCatalog", mainController.experienceCatalog )
 
 router.get("*", mainController.notFound)

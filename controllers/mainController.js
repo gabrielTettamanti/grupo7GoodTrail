@@ -8,6 +8,18 @@ const mainController ={
     experienceCatalog:(req, res) => {
         res.render('experienceCatalog', {experiences: experiences});
     },
+    search: (req,res) => {
+        const searched = req.query.search;
+        const searchExperiences = [];
+
+        experiences.forEach(experience => {
+            if(experience.nombre.includes(searched) || experience.nombre.toLowerCase().includes(searched)){
+                searchExperiences.push(experience);
+            }
+        })
+
+        res.render('experienceCatalog', {experiences: searchExperiences});
+    },
     notFound: (req, res) => {
         res.render('notFound');
     }
