@@ -1,11 +1,33 @@
+//******* Require´s *******
 const express = require("express");
 const productRouter = express.Router();
-const productController = require("../controllers/productController")
+const multer = require('multer');
+const path = require('path');
 
-productRouter.get("/productDescription/:id", productController.productDescription)
+//******* Product´s controller*******
+const productController = require("../controllers/productController");
 
-productRouter.get("/editor", productController.editor)
+//******* Multer configuration *******
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../public/img/cardImages');
+    },
+    filename: (req, file, cb) => {
+        const newFileName = Date.now() + '-' + file.originalname + path.extname(file.originalname);
+        cb(null, newFileName);
+    }
+});
 
-productRouter.get("/creacion", productController.creacion)
+const upload = multer({ storage });
 
-module.exports = productRouter
+//******* Get Product Detail *******
+productRouter.get("/productDescription/:id", productController.productDescription);
+
+//******* Product Edition *******
+productRouter.get("/editor", productController.editor);
+
+//******* Product Creation *******
+productRouter.get("/creation", productController.creacion);
+productRouter.post("/creation", upload.array('image') , productController.store);
+
+module.exports = productRouter;

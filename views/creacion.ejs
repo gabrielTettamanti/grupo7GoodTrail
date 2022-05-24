@@ -17,10 +17,10 @@
                     <li><a href="../product/editor" class="option-unselected">Editar</a></li>
                 </ul>
             </nav>    
-            <form class="forms" action="#" method="post">
+            <form class="forms" action="/product/creation" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="userName" id="userName" required>
+                    <input type="text" name="name" id="name" required>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
-                    <input class= "image" type="file" id="file" name="image" accept=".jpg" multiple required> 
+                    <input class= "image" type="file" id="image" name="image" multiple> 
                     <label id="imageButton" for="file">
                         <i class="fa-solid fa-plus"></i>
                     </label>
@@ -36,21 +36,21 @@
                 <div class="categoryDestiny">
                     <div class="input-container">
                             <label for="">Categoría</label>
-                            <select name="ciudad">
-                                <option value="a">Aventura</option>
-                                <option value="d">Deportes</option>
-                                <option value="c">Cultura</option>
+                            <select name="category">
+                                <option value="aventure">Aventura</option>
+                                <option value="sports">Deportes</option>
+                                <option value="culture">Cultura</option>
                             </select>
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="destiny" required> 
+                            <input type="search" name="ubication" required> 
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people" required> 
+                        <input type="number" name="peopleQuantity" required> 
                     </div>
                     <div class="duration">
                         <div class="input-container">
@@ -59,10 +59,11 @@
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
-                                <select name="coin">
-                                    <option value="dia">día</option>
-                                    <option value="mes">mes</option>
-                                    <option value="año">año</option>
+                                <select name="durationType">
+                                    <option value="hour">Horas</option>
+                                    <option value="day">Día</option>
+                                    <option value="month">Mes</option>
+                                    <option value="year">Año</option>
                                 </select> 
                         </div>
                     </div>
@@ -82,7 +83,7 @@
                     </div>
                 </div>
                 <div class="buttomTrash">
-                    <button class="edition-button">Editar</button>
+                    <button class="edition-button" type="submit">Crear</button>
                     <i class="fa-solid fa-trash-can"></i>
                 </div>
             </form>
