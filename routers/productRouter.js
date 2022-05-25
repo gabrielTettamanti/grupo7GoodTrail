@@ -24,7 +24,7 @@ const upload = multer({ storage });
 productRouter.get("/productDescription/:id", productController.productDescription);
 
 //******* Product Edition *******
-productRouter.get("/editor", productController.editor);
+productRouter.get("/editor/:id", productController.editor);
 
 //******* Product Creation *******
 productRouter.get("/creation", productController.creacion);

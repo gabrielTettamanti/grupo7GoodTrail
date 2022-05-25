@@ -20,11 +20,11 @@
             <form class="forms" action="#" method="post">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="userName" id="userName" required>
+                    <input type="text" name="userName" id="userName" value="<%= experienceEdit.name %>" required>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea type="text" name="description" maxlength="400" style="height: 150px" required> </textarea>
+                    <textarea type="text" name="description" style="height: 150px" value="<%= experienceEdit.description %>" required> </textarea>
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
@@ -44,18 +44,18 @@
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="destiny" required> 
+                            <input type="search" name="destiny" value="<%= experienceEdit.ubication %>" required> 
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people" required> 
+                        <input type="number" name="people" value="<%= experienceEdit.peopleQuantity %>" required> 
                     </div>
                     <div class="duration">
                         <div class="input-container">
                                 <label for="">Duración</label>
-                                <input type="number" name="duration" required> 
+                                <input type="number" name="duration" value="<%= experienceEdit.duration %>" required> 
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" name="price" required> 
+                         <input type="number" name="price" value="<%= experienceEdit.price %>" required> 
                     </div>
                 </div>
                 <div class="buttomTrash">

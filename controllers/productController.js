@@ -12,7 +12,8 @@ const productController={
         res.render('productDescription', {experienceDetail: experienceDetail});
     },
     editor: (req, res) => {
-        res.render('editor');
+        let experienceEdit = experiencesFile.find(experience => experience.id == req.params.id);
+        res.render('editor', {experienceEdit: experienceEdit});
     },
     creacion: (req, res) => {
         res.render('creacion');
