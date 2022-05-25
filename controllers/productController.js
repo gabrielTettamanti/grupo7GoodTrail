@@ -20,16 +20,15 @@ const productController={
     store: (req,res) => {
         const newExperience = {
             id: experiencesFile[experiencesFile.length - 1].id + 1,
-            ...req.body
+            ...req.body,
+            image: req.file.filename
         }
 
-        console.log(experiencesFile);
+        experiencesFile.push(newExperience);
 
-        // experiencesFile.push(newExperience);
+        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiencesFile));
 
-        // fs.writeFileSync(JSON.stringify(experiencesFile));
-
-        // res.redirect('/');
+        res.redirect('/');
     }
 }
 module.exports = productController
