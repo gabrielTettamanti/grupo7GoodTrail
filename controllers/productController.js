@@ -1,10 +1,9 @@
 //******* Require´s ******* 
 const path = require('path');
 const fs = require('fs');
-const experiences = require('../model/products/experiences');
 
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
-const experiencesFile = JSON.parse(fs.readFileSync(experiencesFilePath));
+const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
 
 const productController={
     productDescription: (req, res) => {

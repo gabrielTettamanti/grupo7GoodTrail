@@ -1,13 +1,13 @@
 <a href="/product/productDescription/<%= experience.id %> " class="experience-card">
-    <img src="/img/cardImages/<%= experience.imagen %> " alt="">
+    <img src="/img/cardImages/<%= experience.image %> " alt="">
     <div class="rating-container">
         <% for( let index = 0; index < experience.rating; index++ ) { %>
             <i class="fa-solid fa-star"></i>
         <% } %>
     </div>
     <div class="experience-description">
-        <h3 class="experience-title"> <%= experience.nombre %> </h3>
-        <p class="experience-about"> <%= experience.descripcion %> </p>
-        <h3 class="experience-price"> <%= experience.precio %> </h3>
+        <h3 class="experience-title"> <%= experience.name %> </h3>
+        <p class="experience-about"> <%= experience.description.slice(0,experience.description.indexOf('.')); %> </p>
+        <h3 class="experience-price"> $<%= experience.price %> </h3>
     </div>
 </a>

@@ -1,12 +1,29 @@
-const experiences = require('../model/products/experiences');
+//******* Require´s ******* 
+const path = require('path');
+const fs = require('fs');
+
+const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
+const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
 
 const mainController ={
 
     index: (req, res) => {
-        res.render('index', {experiences: experiences});
+        let experienceOfHome = [];
+
+        for(let i=0 ; i<3; i++){
+            experienceOfHome.push(experiences[i]);
+        }
+
+        res.render('index', {experiences: experienceOfHome});
     },
     experienceCatalog:(req, res) => {
-        res.render('experienceCatalog', {experiences: experiences});
+        let experiencesOfCatalog = [];
+
+        for(let i=0; i<9; i++){
+            experiencesOfCatalog.push(experiences[i]);
+        }
+
+        res.render('experienceCatalog', {experiences: experiencesOfCatalog});
     },
     search: (req,res) => {
         const searched = req.query.search;

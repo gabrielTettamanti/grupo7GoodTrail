@@ -19,19 +19,20 @@
 
         <section class="product-home-container">
 
-            <% for( let index = 0; index < 3; index++ ) { %>
-                <a href="/product/productDescription/<%= experiences[index].id %> " class="product">
-                        <img src="/img/cardImages/<%= experiences[index].imagen %>" alt=<%= experiences[index].nombre %>>
-                        <h4> <%= experiences[index].nombre %> </h4>
-                        <p> <%= experiences[index].detailDescription %> </p>
+
+            <% experiences.forEach(experience => { %>
+                <a href="/product/productDescription/<%= experience.id %> " class="product">
+                    <img src="/img/cardImages/<%= experience.image %>" alt=<%= experience.nombre %>>
+                    <h4> <%= experience.name %> </h4>
+                    <p> <%= experience.description.slice(0,experience.description.indexOf('.')); %> </p>
         
-                        <div class="price-stars">
-                            <p class="price"> <%= experiences[index].precio %> </p>
-                            <p class="star"><i class="fa-solid fa-star"></i>5</p>
-                        </div>
-                    </a>
-            <% } %>
-            
+                    <div class="price-stars">
+                        <p class="price"> <%= experience.price %> </p>
+                        <p class="star"><i class="fa-solid fa-star"><%= experience.rating %></i></p>
+                    </div>
+                </a> 
+            <% }) %>
+
         </section>
 
         <section class="load-more-button">

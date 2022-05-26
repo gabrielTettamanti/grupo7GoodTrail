@@ -13,12 +13,12 @@
 
     <main>
         <section class="mobile-title">
-            <h1 class="main-title"> <%= experienceDetail.nombre %> </h1>
+            <h1 class="main-title"> <%= experienceDetail.name %> </h1>
         </section>
 
         <section class="container experience-options">
             <div class="experience-title">
-                <h1 class="main-title"> <%= experienceDetail.nombre %> </h1>
+                <h1 class="main-title"> <%= experienceDetail.name %> </h1>
                 <div class="experience-rating">
 
                     <% for( let index = 0; index < experienceDetail.rating; index++ ) { %>
@@ -39,7 +39,7 @@
         <section class="container">
             <div class="column">
                 <h2 class="info-header">Precio</h2>
-                <h3 class="info-context"> <%= experienceDetail.precio %> </h3>
+                <h3 class="info-context"> <%= experienceDetail.price %> </h3>
             </div>
             <div class="column">
                 <h2 class="info-header">Personas</h2>
@@ -53,7 +53,7 @@
             <% if (experienceDetail.days > 0) { %>
                 <div class="column">
                     <h2 class="info-header">Días</h2>
-                    <h3 class="info-context"> <%= experienceDetail.days %> </h3>
+                    <h3 class="info-context"> <%= experienceDetail.duration %> </h3>
                 </div>
             <% } %>
 
@@ -61,8 +61,7 @@
         <section class="container">
             <h2 class="section-title">Descripción</h2>
             <div class="description-text">
-                <p> <%= experienceDetail.descripcion %> </p>
-                <p> <%= experienceDetail.detailDescription %>  </p>    
+                <p> <%= experienceDetail.description %></p>    
             </div>
         </section>
         <section class="mobile-buttons">
@@ -78,7 +77,7 @@
         </section>
         <section class="container map-container">
             <h2 class="section-title">Mapa</h2>
-            <iframe class="map" src= <%= experienceDetail.googleMaps %>  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map" src= <%= experienceDetail.map %>  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </main>
 
