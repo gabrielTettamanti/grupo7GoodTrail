@@ -1,4 +1,3 @@
-const experiences = require('../model/products/experiences');
 
 const userController = {
     buyCart: (req, res) => {

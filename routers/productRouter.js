@@ -10,10 +10,10 @@ const productController = require("../controllers/productController");
 //******* Multer configuration *******
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../public/img/cardImages');
+        cb(null, process.cwd()+'/public/img/cardImages');
     },
     filename: (req, file, cb) => {
-        const newFileName = Date.now() + '-' + file.originalname + path.extname(file.originalname);
+        const newFileName = Date.now() + '-' + file.originalname;
         cb(null, newFileName);
     }
 });
@@ -28,6 +28,6 @@ productRouter.get("/editor/:id", productController.editor);
 
 //******* Product Creation *******
 productRouter.get("/creation", productController.creacion);
-productRouter.post("/creation", upload.array('image') , productController.store);
+productRouter.post("/creation", upload.single('image') , productController.store);
 
 module.exports = productRouter;

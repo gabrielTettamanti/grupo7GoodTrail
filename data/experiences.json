@@ -338,5 +338,18 @@
     "peopleQuantity": 7,
     "map": "https://arizona.edu/hac/habitasse/platea/dictumst.json?hac=pretium&habitasse=iaculis&platea=diam&dictumst=erat&etiam=fermentum&faucibus=justo&cursus=nec&urna=condimentum&ut=neque&tellus=sapien&nulla=placerat&ut=ante&erat=nulla&id=justo&mauris=aliquam&vulputate=quis&elementum=turpis&nullam=eget&varius=elit&nulla=sodales&facilisi=scelerisque&cras=mauris&non=sit&velit=amet&nec=eros&nisi=suspendisse&vulputate=accumsan&nonummy=tortor&maecenas=quis&tincidunt=turpis&lacus=sed&at=ante&velit=vivamus&vivamus=tortor&vel=duis&nulla=mattis&eget=egestas&eros=metus&elementum=aenean&pellentesque=fermentum&quisque=donec&porta=ut&volutpat=mauris&erat=eget&quisque=massa&erat=tempor&eros=convallis&viverra=nulla&eget=neque&congue=libero&eget=convallis&semper=eget&rutrum=eleifend&nulla=luctus&nunc=ultricies&purus=eu&phasellus=nibh&in=quisque&felis=id&donec=justo&semper=sit&sapien=amet&a=sapien&libero=dignissim&nam=vestibulum&dui=vestibulum&proin=ante&leo=ipsum&odio=primis&porttitor=in&id=faucibus&consequat=orci&in=luctus&consequat=et&ut=ultrices&nulla=posuere&sed=cubilia&accumsan=curae&felis=nulla&ut=dapibus&at=dolor&dolor=vel&quis=est",
     "offer": true
+  },
+  {
+    "id": 21,
+    "name": "Bombonera ",
+    "description": " Disfruta de una noche de Copa Libertadores en el mítico estadio argentino. ",
+    "category": "aventure",
+    "ubication": "La Boca, Buenos Aires",
+    "peopleQuantity": "2",
+    "duration": "3",
+    "durationType": "hour",
+    "currency": "$",
+    "price": "20000",
+    "image": "1653676317524-bombonera.jpg"
   }
 ]

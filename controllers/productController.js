@@ -11,22 +11,30 @@ const productController={
         res.render('productDescription', {experienceDetail: experienceDetail});
     },
     editor: (req, res) => {
-        let experienceEdit = experiencesFile.find(experience => experience.id == req.params.id);
+        let experienceEdit = experiences.find(experience => experience.id == req.params.id);
         res.render('editor', {experienceEdit: experienceEdit});
     },
     creacion: (req, res) => {
         res.render('creacion');
     },
     store: (req,res) => {
-        const newExperience = {
-            id: experiencesFile[experiencesFile.length - 1].id + 1,
-            ...req.body,
-            image: req.file.filename
+        let image;
+
+        if(req.file != undefined){
+            image = req.file.filename;
+        }else{
+            image = 'default.jpg';
         }
 
-        experiencesFile.push(newExperience);
+        const newExperience = {
+            id: experiences[experiences.length - 1].id + 1,
+            ...req.body,
+            image: image
+        }
 
-        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiencesFile));
+        experiences.push(newExperience);
+
+        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
 
         res.redirect('/');
     }

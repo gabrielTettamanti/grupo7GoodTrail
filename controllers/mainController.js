@@ -22,7 +22,7 @@ const mainController ={
         for(let i=0; i<9; i++){
             experiencesOfCatalog.push(experiences[i]);
         }
-
+        
         res.render('experienceCatalog', {experiences: experiencesOfCatalog});
     },
     search: (req,res) => {
@@ -30,7 +30,7 @@ const mainController ={
         const searchExperiences = [];
 
         experiences.forEach(experience => {
-            if(experience.nombre.includes(searched) || experience.nombre.toLowerCase().includes(searched)){
+            if(experience.name.includes(searched) || experience.name.toLowerCase().includes(searched)){
                 searchExperiences.push(experience);
             }
         })
