@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
-const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
+const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
 
 const productController={
     productDescription: (req, res) => {
@@ -14,6 +14,19 @@ const productController={
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);
         res.render('editor', {experienceEdit: experienceEdit});
     },
+
+    //******* Product Destroy *******
+    destroy: (req, res) => {
+        let idToDestroy = req.params.id
+        const idToHunt = experiences.find(experience => experience.id == idToDestroy)
+        const indice = experiences.indexOf(idToHunt)
+        experiences.splice(indice, 1)
+
+        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
+
+        res.redirect('/');
+    },
+
     creacion: (req, res) => {
         res.render('creacion');
     },

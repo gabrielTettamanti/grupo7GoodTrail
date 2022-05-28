@@ -1,10 +1,13 @@
 const express = require("express")
 const app = express()
 const path = require("path")
+const methodOverride =  require('method-override');
 const port = 3000
 const mainRouter = require("./routers/mainRouter")
 const userRouter = require("./routers/userRouter")
 const productRouter = require("./routers/productRouter")
+
+app.use(methodOverride('_method'));
 
 app.listen(port, () => console.log("Server up and running on the port " + port))
 

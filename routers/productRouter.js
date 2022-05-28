@@ -26,6 +26,9 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 //******* Product Edition *******
 productRouter.get("/editor/:id", productController.editor);
 
+//******* Product Destroy *******
+productRouter.delete("/delete/:id", productController.destroy);
+
 //******* Product Creation *******
 productRouter.get("/creation", productController.creacion);
 productRouter.post("/creation", upload.single('image') , productController.store);

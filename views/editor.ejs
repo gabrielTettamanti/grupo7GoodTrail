@@ -17,7 +17,7 @@
                     <li><a href="../product/editor" class="option-selected">Editar</a></li>
                 </ul>
             </nav>    
-            <form class="forms" action="#" method="post">
+            <form class="forms" action="#" method="post" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
                     <input type="text" name="userName" id="userName" value="<%= experienceEdit.name %>" required>
@@ -83,8 +83,13 @@
                 </div>
                 <div class="buttomTrash">
                     <button class="edition-button">Editar</button>
-                    <i class="fa-solid fa-trash-can"></i>
+
+                    
+
                 </div>
+            </form>
+            <form action="/product/delete/<%= experienceEdit.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="action-button delete"><i class="fa-solid fa-trash-can"></i></button>
             </form>
         </main>
     </section>
