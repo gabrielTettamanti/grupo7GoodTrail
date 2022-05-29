@@ -17,14 +17,14 @@
                     <li><a href="../product/editor" class="option-selected">Editar</a></li>
                 </ul>
             </nav>    
-            <form class="forms" action="#" method="post" enctype="multipart/form-data">
+            <form class="forms" action="/product/editor/<%=experienceEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="userName" id="userName" value="<%= experienceEdit.name %>" required>
+                    <input type="text" name="name" id="userName" value="<%= experienceEdit.name %>" required>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea type="text" name="description" style="height: 150px" value="<%= experienceEdit.description %>" required> </textarea>
+                    <textarea type="text" name="description" style="height: 150px" value="<%= experienceEdit.description %>" required><%= experienceEdit.description %> </textarea>
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
@@ -36,30 +36,30 @@
                 <div class="categoryDestiny">
                     <div class="input-container">
                             <label for="">Categoría</label>
-                            <select name="ciudad">
-                                <option value="a">Aventura</option>
-                                <option value="d">Deportes</option>
-                                <option value="c">Cultura</option>
+                            <select name="category">
+                                <option value="Aventura">Aventura</option>
+                                <option value="Deportes">Deportes</option>
+                                <option value="Cultura">Cultura</option>
                             </select>
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="destiny" value="<%= experienceEdit.ubication %>" required> 
+                            <input type="search" name="ubication" value="<%= experienceEdit.ubication %>" required> 
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people" value="<%= experienceEdit.peopleQuantity %>" required> 
+                        <input type="number" name="peopleQuantity" value=<%= experienceEdit.peopleQuantity %> required> 
                     </div>
                     <div class="duration">
                         <div class="input-container">
                                 <label for="">Duración</label>
-                                <input type="number" name="duration" value="<%= experienceEdit.duration %>" required> 
+                                <input type="number" name="duration" value=<%= experienceEdit.duration %> required> 
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
-                                <select name="coin">
+                                <select name="durationType">
                                     <option value="dia">día</option>
                                     <option value="mes">mes</option>
                                     <option value="año">año</option>
@@ -70,7 +70,7 @@
                 <div class="coinPrice">
                     <div class="input-container">
                         <label for="">Precio</label>
-                            <select name="coin">
+                            <select name="currency">
                                 <option value="$">$</option>
                                 <option value="€">€</option>
                                 <option value="¥">¥</option>
@@ -78,14 +78,11 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" name="price" value="<%= experienceEdit.price %>" required> 
+                         <input type="number" name="price" value=<%= experienceEdit.price %> required> 
                     </div>
                 </div>
                 <div class="buttomTrash">
-                    <button class="edition-button">Editar</button>
-
-                    
-
+                    <button type="submit" class="edition-button">Editar</button>
                 </div>
             </form>
             <form action="/product/delete/<%= experienceEdit.id %>?_method=DELETE" method="POST">

@@ -17,36 +17,35 @@ const productController={
     // Update - Method to update
 	update: (req, res) => {
         let id = req.params.id
-		let editedExperiences = experiences.find(product => product.id == id)
-        let image 
-
-		if(req.files[0] != undefined){
+		let editedExperiences = experiences.find(experience => experience.id == id)
+        if(req.files[0] != undefined){
 			
             image = req.files[0].filename  
 
 		}else{
 			image = editedExperiences.image
 		}
-        
-		editedExperiences = {
+        newEditedExperiences = {
 			id: editedExperiences.id,
-			...req.body,
-			image: image,
-			
+            ...req.body,
+            owner: editedExperiences.owner,
+            image: image,
+            rating: editedExperiences.rating,
+            map: editedExperiences.map,
+            offer: editedExperiences.offer,
 		}
-
-		let newExperience = experiences.map(experience => {
-
-            if (experiences.id == editedExperiences.id){
-
-                return experience = {...editedExperiences}
+        
+        let newExperience = experiences.map(experience => {
+            
+            if (experience.id == newEditedExperiences.id){
+                
+                return experience = {...newEditedExperiences}
 			}
             return experience
 		})
-
-		fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
+        fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
      
-		res.redirect ('/products/' + editedExperiences.id)
+		res.redirect ('/product/productDescription/' + editedExperiences.id)
 	},
 
     //******* Product Destroy *******
