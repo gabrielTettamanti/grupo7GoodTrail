@@ -25,6 +25,7 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 
 //******* Product Edition *******
 productRouter.get("/editor/:id", productController.editor);
+productRouter.put("/editor/:id", upload.any() , productController.update);
 
 //******* Product Destroy *******
 productRouter.delete("/delete/:id", productController.destroy);

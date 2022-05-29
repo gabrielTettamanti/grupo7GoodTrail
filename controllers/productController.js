@@ -14,6 +14,40 @@ const productController={
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);
         res.render('editor', {experienceEdit: experienceEdit});
     },
+    // Update - Method to update
+	update: (req, res) => {
+        let id = req.params.id
+		let editedExperiences = experiences.find(product => product.id == id)
+        let image 
+
+		if(req.files[0] != undefined){
+			
+            image = req.files[0].filename  
+
+		}else{
+			image = editedExperiences.image
+		}
+        
+		editedExperiences = {
+			id: editedExperiences.id,
+			...req.body,
+			image: image,
+			
+		}
+
+		let newExperience = experiences.map(experience => {
+
+            if (experiences.id == editedExperiences.id){
+
+                return experience = {...editedExperiences}
+			}
+            return experience
+		})
+
+		fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
+     
+		res.redirect ('/products/' + editedExperiences.id)
+	},
 
     //******* Product Destroy *******
     destroy: (req, res) => {
