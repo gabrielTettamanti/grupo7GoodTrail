@@ -28,6 +28,9 @@ const productController={
         newEditedExperiences = {
 			id: editedExperiences.id,
             ...req.body,
+            price: parseInt(req.body.price),
+            duration: parseInt(req.body.duration),
+            peopleQuantity: parseInt(req.body.peopleQuantity), 
             owner: editedExperiences.owner,
             image: image,
             rating: editedExperiences.rating,
@@ -75,6 +78,9 @@ const productController={
         const newExperience = {
             id: experiences[experiences.length - 1].id + 1,
             ...req.body,
+            price: parseInt(req.body.price),
+            duration: parseInt(req.body.duration),
+            peopleQuantity: parseInt(req.body.peopleQuantity),
             image: image
         }
 
