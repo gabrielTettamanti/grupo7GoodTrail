@@ -7,7 +7,12 @@ const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "
 
 const userController = {
     buyCart: (req, res) => {
-        res.render('buyCart', {experiences: experiences});
+        let experiencesOfCart = [];
+
+        for(let i=0; i<9; i++){
+            experiencesOfCart.push(experiences[i]);
+        }
+        res.render('buyCart', {experiences: experiencesOfCart});
     },
     login: (req, res) => {
         res.render('login');
