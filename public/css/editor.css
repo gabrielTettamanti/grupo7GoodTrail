@@ -322,6 +322,7 @@ main {
     padding: 0;
     border: none;
     background: none;
+    cursor: pointer;
 }
 .fa-trash-can{
     color: rgb(206, 3, 3);
