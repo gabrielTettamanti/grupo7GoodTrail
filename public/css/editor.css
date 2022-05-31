@@ -313,6 +313,16 @@ main {
 .hidden{
     visibility: hidden;
 }
+#deleteForm{
+    position: relative;
+    bottom: 87px;
+    left: 36%;
+}
+#deleteButton{
+    padding: 0;
+    border: none;
+    background: none;
+}
 .fa-trash-can{
     color: rgb(206, 3, 3);
     font-size: 3.5vh;
