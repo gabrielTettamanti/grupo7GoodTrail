@@ -2,11 +2,13 @@
 const path = require('path');
 const fs = require('fs');
 
+//******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
 
+//******* Controller *******
 const mainController ={
-
+//******* Rendering home  *******
     index: (req, res) => {
         let experienceOfHome = [];
 
@@ -16,6 +18,7 @@ const mainController ={
 
         res.render('index', {experiences: experienceOfHome});
     },
+//******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
         let experiencesOfCatalog = [];
 
@@ -25,6 +28,7 @@ const mainController ={
         
         res.render('experienceCatalog', {experiences: experiencesOfCatalog});
     },
+//******* Search functionallity *******
     search: (req,res) => {
         const searched = req.query.search;
         const searchExperiences = [];
@@ -37,6 +41,7 @@ const mainController ={
 
         res.render('experienceCatalog', {experiences: searchExperiences});
     },
+//******* Rendering not found *******
     notFound: (req, res) => {
         res.render('notFound');
     }

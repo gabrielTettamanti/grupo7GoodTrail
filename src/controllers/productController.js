@@ -2,19 +2,23 @@
 const path = require('path');
 const fs = require('fs');
 
+//******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
 
+//******* Controller *******
 const productController={
+//******* Rendering Experience detail *******
     productDescription: (req, res) => {
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
         res.render('productDescription', {experienceDetail: experienceDetail});
     },
+//******* Rendering editor view *******
     editor: (req, res) => {
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);
         res.render('editor', {experienceEdit: experienceEdit});
     },
-    // Update - Method to update
+//******* Update - Method to update *******
 	update: (req, res) => {
         let id = req.params.id
 		let editedExperiences = experiences.find(experience => experience.id == id)
@@ -51,7 +55,7 @@ const productController={
 		res.redirect ('/product/productDescription/' + editedExperiences.id)
 	},
 
-    //******* Product Destroy *******
+//******* Experience Destroy *******
     destroy: (req, res) => {
         let idToDestroy = req.params.id
         const idToHunt = experiences.find(experience => experience.id == idToDestroy)
@@ -62,10 +66,11 @@ const productController={
 
         res.redirect('/');
     },
-
+//******* Rendering experience creation view *******
     creacion: (req, res) => {
         res.render('creacion');
     },
+//******* Experience creation functionallity *******
     store: (req,res) => {
         let image;
 
