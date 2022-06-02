@@ -14,7 +14,10 @@
     <div class="cont2">
 
         <nav class="categorias">
-            <a href="/product/creation"><i class="fa-solid fa-plus" id="plusHeader"></i></a>
+
+            <% if (user != undefined) { %>
+                <a href="/product/creation"><i class="fa-solid fa-plus" id="plusHeader"></i></a>             
+            <% } %>
 
                 <a href="/experienceCatalog">
                     <i class="fa-solid fa-angle-down"></i>
@@ -26,13 +29,20 @@
                 </a>
         </nav>
 
-        <div class="bottom-header-right">
-        <a href="/user/login" class="usuario">
-            <i class="fa-solid fa-user"></i>
-            <p>Usuario</p>
-            <i class="fa-solid fa-arrow-down"></i>
-        </a>
-        <a href="/user/buyCart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
+        <% if (user != undefined) { %>
+            <div class="bottom-header-right">
+                <a href="/user/profile" class="usuario">
+                    <i class="fa-solid fa-user"></i>
+                    <p><%= user.first_name + ' ' + user.last_name %> </p>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="/user/buyCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        <% } else { %>
+            <div class="user-not-logged">
+                <a href="/user/login"><p>Iniciar sesión</p></a>
+                <a href="/user/registerFormulary"><p>Registrarse</p></a>
+            </div>
+        <% } %>  
     </div>
 </header>

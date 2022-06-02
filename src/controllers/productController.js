@@ -6,17 +6,25 @@ const fs = require('fs');
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
 
+
 //******* Controller *******
 const productController={
 //******* Rendering Experience detail *******
     productDescription: (req, res) => {
+
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
-        res.render('productDescription', {experienceDetail: experienceDetail});
+        res.render('productDescription', {experienceDetail: experienceDetail, user: userLogged});
     },
 //******* Rendering editor view *******
     editor: (req, res) => {
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);
-        res.render('editor', {experienceEdit: experienceEdit});
+        res.render('editor', {experienceEdit: experienceEdit, user: userLogged});
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
@@ -68,7 +76,11 @@ const productController={
     },
 //******* Rendering experience creation view *******
     creacion: (req, res) => {
-        res.render('creacion');
+
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
+        res.render('creacion', { user: userLogged });
     },
 //******* Experience creation functionallity *******
     store: (req,res) => {

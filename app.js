@@ -4,10 +4,12 @@ const app = express();
 const path = require("path");
 const morgan = require('morgan');
 const methodOverride =  require('method-override');
+const session = require('express-session');
 
 //******* Server Configuration *******
 const port = 3000;
 const publicPath = path.resolve(__dirname, "./public");
+const sessionSecret = 'Scaloneta 2022';
 
 //******* Middlewares *******
 app.use(express.static(publicPath));
@@ -15,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+app.use(session({secret: sessionSecret}));
 
 //******* Template engine *******
 app.set("view engine", "ejs");

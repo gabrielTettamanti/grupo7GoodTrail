@@ -91,10 +91,10 @@ body {
                     .buscar,
                     .usuario,
                     .fa-cart-shopping,
-                    .categorias {
+                    .categorias,
+                    .user-not-logged {
                         display: none;
                     }
-
 /* IMAGE CAROUSEL */
 
     .image-carousel {
@@ -279,6 +279,19 @@ body {
                     .fa-cart-shopping,
                     .categorias {
                         display: flex;
+                    }
+
+                    .user-not-logged {
+                        margin-right: 20px;
+                        font-weight: 600;
+                        width: 200px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-content: flex-end;
+                    }
+                    .user-not-logged a:hover {
+                        color: var(--blue-crayola);
                     }
                 header .cont2 {
                     display: flex;

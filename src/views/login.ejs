@@ -7,6 +7,7 @@
 <body>
     <section class="form-section">
         <header>
+            <a href="/"><h2>GoodTrail</h2></a>
             <h1 class="header-title">Inicio de sesión</h1>
             <nav class="register-nav">
                 <ul>
@@ -17,7 +18,7 @@
         </header>    
         <main>
     
-            <form action="#" method="post">
+            <form action="/user/login" method="POST">
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input type="email" name="userEmail" id="email" required>
@@ -40,7 +41,7 @@
                     </div>
                 </div>
 
-                <button class="register-button">Iniciar sesión</button>
+                <button class="register-button" type="submit">Iniciar sesión</button>
             </form>
 
         </main>

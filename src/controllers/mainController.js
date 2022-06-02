@@ -16,7 +16,10 @@ const mainController ={
             experienceOfHome.push(experiences[i]);
         }
 
-        res.render('index', {experiences: experienceOfHome});
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
+        res.render('index', {experiences: experienceOfHome, user: userLogged});
     },
 //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
@@ -26,7 +29,10 @@ const mainController ={
             experiencesOfCatalog.push(experiences[i]);
         }
         
-        res.render('experienceCatalog', {experiences: experiencesOfCatalog});
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
+        res.render('experienceCatalog', {experiences: experiencesOfCatalog, user: userLogged});
     },
 //******* Search functionallity *******
     search: (req,res) => {
@@ -39,11 +45,18 @@ const mainController ={
             }
         })
 
-        res.render('experienceCatalog', {experiences: searchExperiences});
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
+        res.render('experienceCatalog', {experiences: searchExperiences, user: userLogged});
     },
 //******* Rendering not found *******
     notFound: (req, res) => {
-        res.render('notFound');
+
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+
+        res.render('notFound', {user: userLogged});
     }
 }
 
