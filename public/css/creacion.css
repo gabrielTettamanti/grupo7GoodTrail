@@ -310,6 +310,13 @@ main {
 .peopleDuration .input-container{
     width: 40%;
 }
+
+#deleteButton{
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
 .hidden{
     visibility: hidden;
 }
