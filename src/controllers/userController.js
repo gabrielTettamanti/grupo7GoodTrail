@@ -20,7 +20,11 @@ const userController = {
         for(let i=0; i<9; i++){
             experiencesOfCart.push(experiences[i]);
         }
-        res.render('buyCart', {experiences: experiencesOfCart});
+
+        //******* Getting user Logged *******
+        const userLogged = req.session.user;
+        
+        res.render('buyCart', {experiences: experiencesOfCart, user: userLogged});
     },
 //******* Rendering Login form view*******
     login: (req, res) => {
@@ -60,11 +64,12 @@ const userController = {
                 userLogged = user;
             }
         });
-
         req.session.user = userLogged;
-
-        res.redirect('/');
-
+        if(dejarPasar){
+            res.redirect('/');
+        }else {
+            res.render('login');
+        }
     },
     userProfile: (req, res) => {
         const user = req.session.user;
