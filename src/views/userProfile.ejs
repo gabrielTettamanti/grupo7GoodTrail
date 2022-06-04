@@ -3,13 +3,45 @@
 <head>
     <%- include('./partials/head') %>
     <title>GoodTrail | Perfil</title> 
+    <link rel="stylesheet" href="/css/userProfile.css">
 </head>
 <body>
 
     <%- include('./partials/header') %> 
 
-    <main>
-        <h2><%= user.first_name + ' ' + user.last_name %></h2>
+    <main class="main-profile">
+        <section class="profile-image-section">
+            <div class="image-container">
+                <img src="/img/profile-default.jpg" alt="">
+                <button class="button edit-image-profile-button">Editar</button>
+            </div>
+        </section>
+        <section class="profile-section">
+            <form action="" class="profile-form">
+                <input type="text" name="userName" placeholder="Nombre" value="<%= user ? user.first_name + ' ' + user.last_name : null %>">
+                <input type="email" name="userEmail" placeholder="Email" value="<%= user ? user.email : null %> ">
+                <textarea name="userBio" cols="30" rows="10" placeholder="Bio"></textarea>
+                <button type="submit" class="button edit-profile-button">Editar Perfil</button>
+            </form>
+        </section>
+        
+        <section class="experience-section">
+            <% experiences.forEach(experience => { %>
+                <div class="experience-card">
+                    <img src="/img/cardImages/<%= experience.image %> " alt="">
+                    <div class="experience-description">
+                        <div class="experience-title"> 
+                            <%= experience.name %>
+                        </div> 
+                        <div class="experience-edit">
+                            <a href="/product/editor/<%= experience.id %> ">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>             
+            <% }) %>
+        </section>
     </main>
 
     <%- include('./partials/footer')  %> 

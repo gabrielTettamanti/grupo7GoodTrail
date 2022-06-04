@@ -1,0 +1,139 @@
+:root {
+    --blue-crayola: #3777ff;
+    --golden-yellow: #ffd60a;
+    --crimson-red: #d7263d;
+    --cool-gray: #d9d9d9;
+}
+
+.main-profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.button {
+    border: solid 1px var(--blue-crayola);
+    color: var(--blue-crayola);
+    background-color: white;  
+    font-size: 20px; 
+    border-radius: 15px;
+    transition: all 350ms;
+}
+
+.button:hover {
+    color: white;
+    background-color: var(--blue-crayola);
+    cursor: pointer;
+}
+
+.edit-image-profile-button{   
+    width: 100px;
+    height: 30px;  
+    position: absolute;
+    top: 40%;
+    right: 50%;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-form input {
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 15px;
+}
+
+.profile-form input:focus {
+    outline: none;
+    border: solid 2px var(--blue-crayola);
+}
+
+.profile-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+.profile-form textarea:focus {
+    outline: none;
+    border: solid 2px var(--blue-crayola);
+}
+
+.edit-profile-button {
+    width: 200px;
+    height: 30px;
+}
+
+.experience-card {
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* MEDIA QUERYS */
+@media (min-width: 768px) {
+    .profile-image-section{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    .image-container {
+        height: 400px;
+        position: relative;
+    }
+    .image-container img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    .profile-section {
+        width: 60%;
+        height: 500px;
+    }
+    .profile-section input {
+        width: 70%;
+        height: 40px;
+    }
+    .profile-form textarea {
+        width: 70%;
+    }
+    .experience-section {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .experience-card {
+        width: 20%;
+        margin: 10px 30px;
+    }
+    .experience-card:hover {
+        box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+    }
+    .experience-card img{
+        width: 100%;
+        height: 200px;
+    }
+    .experience-description {
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .experience-title {
+        width: 90%;
+    }
+    .experience-edit {
+        width: 10%;
+    }
+    .experience-edit i:hover{
+        color: var(--blue-crayola);
+    }
+}

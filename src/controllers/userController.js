@@ -72,8 +72,13 @@ const userController = {
         }
     },
     userProfile: (req, res) => {
+        const userExperiences = [];
+        for(let i=0; i<9; i++){
+            userExperiences.push(experiences[i]);
+        }
         const user = req.session.user;
-        res.render('userProfile', {user});
+        console.log(user);
+        res.render('userProfile', {user, experiences: userExperiences});
     }
 }
 module.exports = userController
