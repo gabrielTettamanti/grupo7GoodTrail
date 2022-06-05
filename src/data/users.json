@@ -184,15 +184,8 @@
     "first_name": "Ignacio",
     "last_name": "Lopez",
     "email": "ignaciolopestela12@gmail.com",
-    "password": "$2a$10$EBw3xO3QrBgvfgPFYHwDKeI6lfQJ5Z/6PAQBcRGYTaOB5oXpDLTxi",
-    "category": "user"
-  },
-  {
-    "id": 22,
-    "first_name": "Gabriel",
-    "last_name": "Gabriel",
-    "email": "gabrieltettamanti.dev@gmail.com",
-    "password": "$2a$10$pa5N7sdMIJP7FcAZjrP48eM9mmrg6dgbDoK8Ot4hN6x/m3MaQSn..",
-    "category": "user"
+    "password": "$2a$10$OPkwQVeeDzuxLythxBfNvur7DkwApqgVaBTTaxvFr4CkKMMtkw6z2",
+    "category": "user",
+    "image": "1654440409516-avatar-test.jpeg"
   }
 ]

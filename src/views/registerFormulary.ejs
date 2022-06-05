@@ -20,7 +20,7 @@
     
         <main>
     
-            <form action="/user/registerFormulary" method="POST">
+            <form action="/user/registerFormulary" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input type="email" name="userEmail" id="email" required>
@@ -38,8 +38,11 @@
                     <input type="password" name="passwordConfirmation" minlength="8" required>
                 </div>
                 <div class="input-container">
-                    <label for="">Fecha de nacimiento</label>
-                    <input type="date" name="birthDate" id="" max="2020-01-01" min="1949-12-31" required>
+                    <label for="">Foto de perfil</label>
+                    <input class= "image" type="file" id="image" name="profileImage"> 
+                    <label id="imageButton" for="image">
+                        <i class="fa-solid fa-plus"></i>
+                    </label>
                 </div>
                 <button class="register-button" type="submit">Registrarse</button>
             </form>

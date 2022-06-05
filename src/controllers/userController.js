@@ -35,6 +35,13 @@ const userController = {
         res.render('registerFormulary');
     },
     saveUser: (req, res) => {
+        let image; 
+
+        if(req.file != undefined){
+            image = req.file.filename;
+        }else{
+            image = 'profile-default.jpg';
+        }
         const names = req.body.userName.split(' '); 
         const newUser = {
             id: users[users.length - 1].id + 1,
@@ -42,7 +49,8 @@ const userController = {
             last_name: names[names.length - 1],
             email: req.body.userEmail,
             password: bcrypt.hashSync(req.body.userPassword, 10),
-            category: 'user'
+            category: 'user',
+            image: image
         }
         users.push(newUser);
 
