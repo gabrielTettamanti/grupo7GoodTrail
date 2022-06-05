@@ -11,7 +11,7 @@
                 <!-- <p class="numeroSolo"> 2 </p> -->
             </div>
             <div class="precio">
-                <p> <%= experience.price %>  </p>
+                <p> <%= experience.currency %><%= new Intl.NumberFormat('de-DE').format(experience.price) %>  </p>
             </div>
         </div>
         <div class="cantidadMasTacho">
