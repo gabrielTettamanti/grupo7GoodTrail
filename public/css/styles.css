@@ -399,12 +399,16 @@ body {
                         margin: 0px 40px 0px 0px;
                     }
 
+                        #headerLoginButton {
+                            justify-content: center;
+                        }
+
                         .usuario {
                             border: solid black 1px;
                             justify-content: space-between;
                             align-items: center;
                             background-color: white;
-                            width: 150px;
+                            /* width: 150px; */
                             height: 40px;
                             border-radius: 20px;
                             color: black;
@@ -419,6 +423,7 @@ body {
                             .usuario p {
                                 font-weight: bold;
                                 font-size: 16px;
+                                padding: 10px;
                             }
                             .usuario .fa-arrow-down {
                                 margin-right: 5px;
