@@ -12,9 +12,11 @@ const mainController ={
     index: (req, res) => {
         let experienceOfHome = [];
 
-        for(let i=0 ; i<3; i++){
+        for(let i=0 ; i<4; i++){
+            experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
             experienceOfHome.push(experiences[i]);
         }
+        
 
         //******* Getting user Logged *******
         const userLogged = req.session.user;
@@ -26,6 +28,7 @@ const mainController ={
         let experiencesOfCatalog = [];
 
         for(let i=0; i<9; i++){
+            experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
             experiencesOfCatalog.push(experiences[i]);
         }
         

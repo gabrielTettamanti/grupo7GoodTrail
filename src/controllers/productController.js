@@ -16,6 +16,7 @@ const productController={
         const userLogged = req.session.user;
 
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
+        experienceDetail.price = experienceDetail.currency + new Intl.NumberFormat('de-DE').format(experienceDetail.price)
         res.render('productDescription', {experienceDetail: experienceDetail, user: userLogged});
     },
 
