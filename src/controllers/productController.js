@@ -18,6 +18,12 @@ const productController={
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
         res.render('productDescription', {experienceDetail: experienceDetail, user: userLogged});
     },
+
+//******* Rendering provisional editor view *******   
+    provisionalEditorView: (req, res) => {
+        const userLogged = req.session.user;
+        res.render("provisionalEditorView", {user: userLogged})
+    },
 //******* Rendering editor view *******
     editor: (req, res) => {
         //******* Getting user Logged *******
