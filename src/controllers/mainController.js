@@ -13,7 +13,7 @@ const mainController ={
         let experienceOfHome = [];
 
         for(let i=0 ; i<4; i++){
-            experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
+            // experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
             experienceOfHome.push(experiences[i]);
         }
         
@@ -28,7 +28,7 @@ const mainController ={
         let experiencesOfCatalog = [];
 
         for(let i=0; i<9; i++){
-            experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
+            // experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
             experiencesOfCatalog.push(experiences[i]);
         }
         

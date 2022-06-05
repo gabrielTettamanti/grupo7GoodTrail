@@ -18,7 +18,7 @@ const userController = {
         let experiencesOfCart = [];
 
         for(let i=0; i<9; i++){
-            experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
+            // experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
             experiencesOfCart.push(experiences[i]);
         }
 
