@@ -9,7 +9,7 @@
         "duration": "2",
         "durationType": "dia",
         "currency": "$",
-        "price": "310000",
+        "price": 310000,
         "owner": "cmckitterick0@youtube.com",
         "image": "bernabeuCatalog.jpg",
         "rating": 5,
@@ -43,7 +43,7 @@
         "duration": "4",
         "durationType": "dia",
         "currency": "$",
-        "price": "350000",
+        "price": 350000,
         "owner": "krobathon2@google.de",
         "image": "romaCatalog.jpg",
         "rating": 5,
@@ -349,7 +349,7 @@
         "duration": "3",
         "durationType": "hour",
         "currency": "$",
-        "price": "20000",
+        "price": 20000,
         "image": "1653676317524-bombonera.jpg"
     },
     {

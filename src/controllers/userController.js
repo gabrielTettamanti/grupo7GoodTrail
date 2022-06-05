@@ -16,16 +16,18 @@ const userController = {
 //******* Rendering Experience Buy Cart view *******
     buyCart: (req, res) => {
         let experiencesOfCart = [];
+        let total = 0;
 
         for(let i=0; i<9; i++){
             // experiences[i].price = experiences[i].currency + new Intl.NumberFormat('de-DE').format(experiences[i].price)
+            total = total + experiences[i].price
             experiencesOfCart.push(experiences[i]);
         }
 
         //******* Getting user Logged *******
         const userLogged = req.session.user;
         
-        res.render('buyCart', {experiences: experiencesOfCart, user: userLogged});
+        res.render('buyCart', {experiences: experiencesOfCart, total, user: userLogged});
     },
 //******* Rendering Login form view*******
     login: (req, res) => {
