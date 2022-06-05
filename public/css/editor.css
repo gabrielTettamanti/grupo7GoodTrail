@@ -21,7 +21,6 @@ main {
 
 
 .form-section {
-    width: 80%;
     background-color: white;
     margin-top: 10px;
     border-radius: 30px;
@@ -356,6 +355,12 @@ main {
     margin-right: 10px;
 }
  /* MEDIA QUERIES */
+
+ @media (min-width: 375px) {
+    .form-section {
+        width: 80%;
+    }
+ }
 
  @media (min-width: 768px) {
 
