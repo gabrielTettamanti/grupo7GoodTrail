@@ -2,7 +2,7 @@
 const express = require("express");
 const productRouter = express.Router();
 const multer = require('multer');
-const path = require('path');
+const authenticatorMiddleware = require('../middlewares/authenticatorMiddleware');
 
 //******* Product´s controller*******
 const productController = require("../controllers/productController");
@@ -24,7 +24,7 @@ const upload = multer({ storage });
 productRouter.get("/productDescription/:id", productController.productDescription);
 
 //******* Product Edition *******
-productRouter.get("/editor", productController.provisionalEditorView)
+productRouter.get("/editor", authenticatorMiddleware, productController.provisionalEditorView)
 productRouter.get("/editor/:id", productController.editor);
 productRouter.put("/editor/:id", upload.any() , productController.update);
 
@@ -32,7 +32,7 @@ productRouter.put("/editor/:id", upload.any() , productController.update);
 productRouter.delete("/delete/:id", productController.destroy);
 
 //******* Product Creation *******
-productRouter.get("/creation", productController.creacion);
+productRouter.get("/creation", authenticatorMiddleware, productController.creacion);
 productRouter.post("/creation", upload.single('image') , productController.store);
 
 module.exports = productRouter;

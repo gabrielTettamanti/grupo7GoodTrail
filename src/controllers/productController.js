@@ -11,26 +11,18 @@ const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "
 const productController={
 //******* Rendering Experience detail *******
     productDescription: (req, res) => {
-
-        //******* Getting user Logged *******
-        const userLogged = req.session.user;
-
         let experienceDetail = experiences.find(experience => experience.id == req.params.id);
-        res.render('productDescription', {experienceDetail: experienceDetail, user: userLogged});
+        res.render('productDescription', {experienceDetail: experienceDetail });
     },
 
 //******* Rendering provisional editor view *******   
     provisionalEditorView: (req, res) => {
-        const userLogged = req.session.user;
-        res.render("provisionalEditorView", {user: userLogged})
+        res.render("provisionalEditorView")
     },
 //******* Rendering editor view *******
     editor: (req, res) => {
-        //******* Getting user Logged *******
-        const userLogged = req.session.user;
-
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);
-        res.render('editor', {experienceEdit: experienceEdit, user: userLogged});
+        res.render('editor', {experienceEdit: experienceEdit });
     },
 //******* Update - Method to update *******
 	update: (req, res) => {

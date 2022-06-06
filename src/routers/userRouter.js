@@ -3,7 +3,7 @@ const express = require("express");
 const userRouter = express.Router()
 const userController = require("../controllers/userController")
 const multer = require('multer');
-const path = require('path');
+const authenticatorMiddleware = require('../middlewares/authenticatorMiddleware');
 
 //******* Multer configuration *******
 const storage = multer.diskStorage({
@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //******* Get experience buy cart view *******
-userRouter.get("/buyCart", userController.buyCart)
+userRouter.get("/buyCart", authenticatorMiddleware, userController.buyCart)
 
 //******* Get Register form view *******
 userRouter.get("/registerFormulary", userController.registerFormulary)
@@ -34,6 +34,6 @@ userRouter.get("/login", userController.login)
 userRouter.post('/login', userController.checkLogin);
 
 //******* Get User Profile *******
-userRouter.get('/profile', userController.userProfile);
+userRouter.get('/profile', authenticatorMiddleware, userController.userProfile);
 
 module.exports = userRouter

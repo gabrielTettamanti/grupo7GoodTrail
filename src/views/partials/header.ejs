@@ -26,10 +26,10 @@
         </nav>
 
         <div class="bottom-header-right">
-            <% if (user != undefined) { %>
+            <% if (locals.userIsLogged) { %>
                 <a href="/user/profile" class="usuario">
                     <i class="fa-solid fa-user"></i>
-                    <p><%= user.first_name + ' ' + user.last_name %> </p>
+                    <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
             <% } else { %>
