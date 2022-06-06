@@ -315,7 +315,7 @@ main {
 
 #deleteButton{
     border: none;
-    background-color: var(--cultured);
+    background-color: white;
     cursor: pointer;
 }
 
