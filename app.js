@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const methodOverride =  require('method-override');
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+const cookies = require('cookie-parser');
 
 //******* Server Configuration *******
 const port = 3000;
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.use(session({secret: sessionSecret}));
+app.use(cookies());
 app.use(userLoggedMiddleware);
 
 //******* Template engine *******

@@ -62,6 +62,10 @@ const userController = {
             password: req.body.userPassword
         }
 
+        if(req.body.remember){
+            res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
+        }
+
         let dejarPasar = false;
         let userLogged;
 
@@ -84,7 +88,6 @@ const userController = {
             userExperiences.push(experiences[i]);
         }
         const user = req.session.user;
-        console.log(user);
         res.render('userProfile', {user, experiences: userExperiences});
     }
 }
