@@ -316,6 +316,7 @@ body {
                         margin: 0px 5px 0px 0px;
                         padding: 10px 5px 10px 0px;
                         font-size: 20px;
+                        transition: 500ms;
                         /* color: #000000; */
                     }
 
@@ -373,6 +374,7 @@ body {
                         color: var(--blue-crayola);   
                         animation-name: dance;
                         animation-timing-function: ease;
+                        transition: 500ms;
                     }
 
                     footer .contactanos i:hover {
@@ -412,6 +414,12 @@ body {
                             height: 40px;
                             border-radius: 20px;
                             color: black;
+                        }
+
+                        .usuario:hover {
+                            color: var(--cultured);
+                            background-color: var(--blue-crayola);
+                            transition: 500ms;
                         }
                             .usuario .fa-user {
                                 background-color: #ccc7c7;

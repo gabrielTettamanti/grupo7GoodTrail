@@ -58,6 +58,9 @@
     border: none;
     border-radius: 15px;
     margin: 15px 0;
+    border: #d9d9d9 2px solid;
+    min-width: 200px;
+    height: 200px;
 }
 
 .profile-form textarea:focus {
