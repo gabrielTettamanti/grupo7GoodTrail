@@ -113,6 +113,7 @@ form {
     border: 0;
     background-color: var(--cool-gray);
     border-radius: 5px;
+    padding: 10px;
 }
 
 .input-container input:hover {
