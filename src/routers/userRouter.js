@@ -36,4 +36,7 @@ userRouter.post('/login', userController.checkLogin);
 //******* Get User Profile *******
 userRouter.get('/profile', authenticatorMiddleware, userController.userProfile);
 
+//******* Get User Logout *******
+userRouter.get("/logout", userController.logout)
+
 module.exports = userRouter

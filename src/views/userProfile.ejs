@@ -22,6 +22,8 @@
                 <input type="email" name="userEmail" placeholder="Email" value="<%= user ? user.email : null %> ">
                 <textarea name="userBio" cols="30" rows="10" placeholder="Bio"></textarea>
                 <button type="submit" class="button edit-profile-button">Editar Perfil</button>
+            </form>
+            <form action="/user/logout">
                 <button class="button logOutButton">Cerrar sesión</button>
             </form>
         </section>

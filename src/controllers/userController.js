@@ -89,6 +89,11 @@ const userController = {
         }
         const user = req.session.user;
         res.render('userProfile', {user, experiences: userExperiences});
+    },
+    logout: (req, res) => {
+        req.session.destroy();
+        res.clearCookie("userEmail");
+        return res.redirect("/");
     }
 }
 module.exports = userController
