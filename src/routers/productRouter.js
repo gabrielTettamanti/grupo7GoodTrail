@@ -25,11 +25,11 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 
 //******* Product Edition *******
 productRouter.get("/editor", authenticatorMiddleware, productController.provisionalEditorView)
-productRouter.get("/editor/:id", productController.editor);
+productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor);
 productRouter.put("/editor/:id", upload.any() , productController.update);
 
 //******* Product Destroy *******
-productRouter.delete("/delete/:id", productController.destroy);
+productRouter.delete("/delete/:id", authenticatorMiddleware, productController.destroy);
 
 //******* Product Creation *******
 productRouter.get("/creation", authenticatorMiddleware, productController.creacion);
