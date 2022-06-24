@@ -9,7 +9,7 @@
     <!-- HEADER -->
     <%- include('./partials/header')%>
 
-    <%- include('./partials/imageCarousel', {experience: experiences[0]})%> 
+    <%- include('./partials/imageCarousel', {experiences: experiences})%> 
 
     <main class="index-main">
         <section class="home-buttons">
@@ -43,6 +43,8 @@
 
     <!-- FOOTER -->
     <%- include('./partials/footer')%>
+
+    <script async src="/js/carousel.js"></script>
 
 </body>
 </html>
