@@ -37,6 +37,9 @@ userRouter.post('/login', userController.checkLogin);
 //******* Get User Profile *******
 userRouter.get('/profile', authenticatorMiddleware, userController.userProfile);
 
+//******* Update User Profile *******
+userRouter.put('/update', userController.updateUser);
+
 //******* Get User Logout *******
 userRouter.get("/logout", authenticatorMiddleware, userController.logout)
 
