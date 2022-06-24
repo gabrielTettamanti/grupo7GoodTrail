@@ -3,6 +3,7 @@ const express = require("express");
 const productRouter = express.Router();
 const multer = require('multer');
 const authenticatorMiddleware = require('../middlewares/authenticatorMiddleware');
+const productFormMiddleware = require('../middlewares/productFormsMiddleware');
 
 //******* Product´s controller*******
 const productController = require("../controllers/productController");
