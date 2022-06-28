@@ -28,7 +28,7 @@
         <div class="bottom-header-right">
             <% if (locals.userIsLogged) { %>
                 <a href="/user/profile" class="usuario">
-                    <i class="fa-solid fa-user"></i>
+                    <img id="headerUserAvatar" src="/img/usersImages/<%= locals.userLogged.image %>" alt="">
                     <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>

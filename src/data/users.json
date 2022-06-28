@@ -223,5 +223,14 @@
     "password": "$2a$10$OZsrYslxJ9diUK57SFw7Le/8BMWHdrdQIjgeR2vPrd6XAgZRdKaFm",
     "category": "user",
     "image": "profile-default.jpg"
+  },
+  {
+    "id": 26,
+    "first_name": "Gabriel",
+    "last_name": "Tettamanti",
+    "email": "gabrieltmma@gmail.com",
+    "password": "$2a$10$aNA0XihKsN7ST7CvLLxx3.4/yHjq4dv8uk4OkoMOXMAU9dKNfrzfq",
+    "category": "user",
+    "image": "1655238715970-20628.jpg"
   }
 ]

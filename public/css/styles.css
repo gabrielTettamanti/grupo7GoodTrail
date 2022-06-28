@@ -293,6 +293,15 @@ body {
                     .user-not-logged a:hover {
                         color: var(--blue-crayola);
                     }
+
+                    #headerUserAvatar {
+                        margin: 0px 0px 0px 3px;
+                        height: 32px;
+                        width: 32px;
+                        border-radius: 100px;
+                        border: solid 1px #000;
+                    }
+
                 header .cont2 {
                     display: flex;
                     align-items: center;
