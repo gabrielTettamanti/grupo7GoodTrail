@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require("express-validator")
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
@@ -34,27 +35,34 @@ const userController = {
         res.render('registerFormulary');
     },
     saveUser: (req, res) => {
-        let image; 
+        const errors = validationResult(req)
+        if (errors.isEmpty()){
+            let image; 
 
-        if(req.file != undefined){
-            image = req.file.filename;
-        }else{
-            image = 'profile-default.jpg';
-        }
-        const names = req.body.userName.split(' '); 
-        const newUser = {
-            id: users[users.length - 1].id + 1,
-            first_name: names[0], 
-            last_name: names[names.length - 1],
-            email: req.body.userEmail,
-            password: bcrypt.hashSync(req.body.userPassword, 10),
-            category: 'user',
-            image: image
-        }
-        users.push(newUser);
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(users));
-        res.redirect('/user/login');
+            if(req.file != undefined){
+                image = req.file.filename;
+            }else{
+                image = 'profile-default.jpg';
+            }
+            const names = req.body.userName.split(' '); 
+            const newUser = {
+                id: users[users.length - 1].id + 1,
+                first_name: names[0], 
+                last_name: names[names.length - 1],
+                email: req.body.userEmail,
+                password: bcrypt.hashSync(req.body.userPassword, 10),
+                category: 'user',
+                image: image
+            }
+            users.push(newUser);
+    
+            fs.writeFileSync(usersFilePath, JSON.stringify(users));
+            res.redirect('/user/login');
+        
+            }
+            else{
+                res.render("registerFormulary", {errors: errors.mapped(), old:req.body})
+            }
     },
     checkLogin: (req, res) => {
         const userLogging = {

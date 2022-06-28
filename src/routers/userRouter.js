@@ -5,6 +5,7 @@ const userController = require("../controllers/userController")
 const multer = require('multer');
 const authenticatorMiddleware = require('../middlewares/authenticatorMiddleware');
 const accessUserMiddleware = require('../middlewares/accessUserMiddleware');
+const registerMiddleware = require("../middlewares/registerMiddleware")
 
 //******* Multer configuration *******
 const storage = multer.diskStorage({
@@ -26,7 +27,7 @@ userRouter.get("/buyCart", authenticatorMiddleware, userController.buyCart)
 userRouter.get("/registerFormulary", accessUserMiddleware, userController.registerFormulary)
 
 //******* Register User *******
-userRouter.post('/registerFormulary', upload.single('profileImage'), userController.saveUser);
+userRouter.post('/registerFormulary', upload.single('profileImage'), registerMiddleware, userController.saveUser);
 
 //******* Get Login form view *******
 userRouter.get("/login", accessUserMiddleware, userController.login)
