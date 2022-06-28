@@ -1,0 +1,39 @@
+<!-- HEAD -->
+<%- include('./partials/head')%>
+
+    <link href="/css/listProductsToEdit.css" rel="stylesheet">
+    <title>GoodTrail | Editar</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <%- include('./partials/header')%>
+    <section class="form-section">
+        <main>
+            <h1 class="header-title">Tus experiencias</h1>
+            <nav class="edition-nav">
+                <ul>
+                    <li><a href="../creation" class="option-unselected">Crear</a></li>
+                    <li><a href="../product/editor" class="option-selected">Editar</a></li>
+                </ul>
+            </nav>    
+            
+            <section class="experiencesList">
+
+                
+                <% experiences.forEach(experience => { %>
+                            
+                            <div class="experiencesName">
+                                <a class="experience" href="/product/editor/<%= experience.id %> "><i class="fa-solid fa-angle-right"></i>  <%= experience.name %></a>
+                            </div>
+
+                <% }) %>
+
+            </section>
+            
+        </main>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include('./partials/footer')%>
+</body>

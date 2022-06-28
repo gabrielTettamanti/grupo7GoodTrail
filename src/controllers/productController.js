@@ -16,9 +16,17 @@ const productController={
     },
 
 //******* Rendering provisional editor view *******   
-    provisionalEditorView: (req, res) => {
-        res.render("provisionalEditorView")
-    },
+listProductsToEdit: (req, res) => {
+
+        const userExperiences = [];
+
+        for(let i=0; i<9; i++){
+            userExperiences.push(experiences[i]);
+        }
+        const user = req.session.user;
+        res.render('listProductsToEdit', {user, experiences: userExperiences});
+    }, 
+
 //******* Rendering editor view *******
     editor: (req, res) => {
         let experienceEdit = experiences.find(experience => experience.id == req.params.id);

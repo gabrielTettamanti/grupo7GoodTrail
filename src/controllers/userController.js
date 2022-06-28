@@ -82,6 +82,7 @@ const userController = {
             res.render('login');
         }
     },
+    
     userProfile: (req, res) => {
         const userExperiences = [];
         for(let i=0; i<9; i++){
@@ -90,6 +91,7 @@ const userController = {
         const user = req.session.user;
         res.render('userProfile', {user, experiences: userExperiences});
     },
+
     logout: (req, res) => {
         req.session.destroy();
         res.clearCookie("userEmail");
