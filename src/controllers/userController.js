@@ -94,6 +94,32 @@ const userController = {
         req.session.destroy();
         res.clearCookie("userEmail");
         return res.redirect("/");
+    },
+
+    updateUser: (req, res) => {
+        console.log(req.body);
+        const userEmail = req.body.userEmail;
+        const userToEdit = users.find(user => user.email == userEmail );
+
+        const userNames = req.body.userName.split(' ');
+
+        const userUpdated = {
+            ...userToEdit,
+            first_name: userNames[0],
+            last_name: userNames[userNames.length - 1],
+            bio: req.body.userBio
+        }
+
+        let usersUpdated = users.map(user => {
+            if(user.email == userUpdated.email) {
+                return user = {...userUpdated};
+            }
+            return user;
+        })
+
+        fs.writeFileSync(usersFilePath, JSON.stringify(usersUpdated));
+
+        res.redirect('/user/profile');
     }
 }
 module.exports = userController

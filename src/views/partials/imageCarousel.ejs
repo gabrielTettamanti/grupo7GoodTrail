@@ -1,9 +1,21 @@
 <div class="image-carousel">
-    <div class="back carousel-button">
+    
+    <% if (experiences.length > 1) { %>
+        <% experiences.forEach(experience => { %>
+            <div class="slide">
+                <img src="/img/cardImages/<%= experience.image %> " alt="">
+            </div>     
+        <% }) %>     
+    <% } else { %>
+        <div class="slide">
+            <img src="/img/cardImages/<%= experiences.image %> " alt="">
+        </div>
+    <% } %> 
+
+    <div class="back carousel-button" id="back-button">
         <i class="fa-solid fa-angle-left"></i>
     </div>
-    <div class="forward carousel-button">
+    <div class="forward carousel-button" id="forward-button">
         <i class="fa-solid fa-angle-right"></i>
     </div>
-    <img src="/img/cardImages/<%= experience.image %> " alt="" style="height: 400px; object-fit: cover;">
 </div>
