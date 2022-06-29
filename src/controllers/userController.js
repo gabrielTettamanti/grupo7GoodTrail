@@ -29,6 +29,7 @@ const userController = {
 //******* Rendering Login form view*******
     login: (req, res) => {
         res.render('login');
+        
     },
 //******* Rendering Register form view*******
     registerFormulary: (req, res) => {
@@ -65,32 +66,38 @@ const userController = {
             }
     },
     checkLogin: (req, res) => {
-        const userLogging = {
-            email: req.body.userEmail,
-            password: req.body.userPassword
-        }
-
-        if(req.body.remember){
-            res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
-        }
-
-        let dejarPasar = false;
-        let userLogged;
-
-        users.forEach(user => {
-            if(user.email == userLogging.email && bcrypt.compareSync(userLogging.password, user.password)){
-                dejarPasar= true;
-                userLogged = user;
+        const errors = validationResult(req)
+        if (errors.isEmpty()){
+        
+            const userLogging = {
+                email: req.body.userEmail,
+                password: req.body.userPassword
             }
-        });
-        req.session.user = userLogged;
-        if(dejarPasar){
-            res.redirect('/');
-        }else {
-            res.render('login');
-        }
-    },
     
+            if(req.body.remember){
+                res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
+            }
+    
+            let dejarPasar = false;
+            let userLogged;
+    
+            users.forEach(user => {
+                if(user.email == userLogging.email && bcrypt.compareSync(userLogging.password, user.password)){
+                    dejarPasar= true;
+                    userLogged = user;
+                }
+            });
+            req.session.user = userLogged;
+            if(dejarPasar){
+                res.redirect('/');
+            }else {
+                res.render('login');
+            }
+        }
+        else{
+            res.render("login", {errors: errors.mapped(), old:req.body})
+        }
+    },    
     userProfile: (req, res) => {
         const userExperiences = [];
         for(let i=0; i<9; i++){
