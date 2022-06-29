@@ -1,6 +1,7 @@
 //******* Require´s ******* 
 const path = require('path');
 const fs = require('fs');
+const { validationResult } = require('express-validator');
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
@@ -34,39 +35,43 @@ listProductsToEdit: (req, res) => {
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
-        let id = req.params.id
-		let editedExperiences = experiences.find(experience => experience.id == id)
-        if(req.files[0] != undefined){
-			
-            image = req.files[0].filename  
-
-		}else{
-			image = editedExperiences.image
-		}
-        newEditedExperiences = {
-			id: editedExperiences.id,
-            ...req.body,
-            price: parseInt(req.body.price),
-            duration: parseInt(req.body.duration),
-            peopleQuantity: parseInt(req.body.peopleQuantity), 
-            owner: editedExperiences.owner,
-            image: image,
-            rating: editedExperiences.rating,
-            map: editedExperiences.map,
-            offer: editedExperiences.offer,
-		}
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            let id = req.params.id;
+		    let editedExperiences = experiences.find(experience => experience.id == id);
+            if(req.files[0] != undefined){
+                image = req.files[0].filename;  
+		    }else{
+			    image = editedExperiences.image;
+		    }
+            const newEditedExperiences = {
+			    id: editedExperiences.id,
+                ...req.body,
+                price: parseInt(req.body.price),
+                duration: parseInt(req.body.duration),
+                peopleQuantity: parseInt(req.body.peopleQuantity), 
+                owner: editedExperiences.owner,
+                image: image,
+                rating: editedExperiences.rating,
+                map: editedExperiences.map,
+                offer: editedExperiences.offer,
+		    }
         
-        let newExperience = experiences.map(experience => {
-            
-            if (experience.id == newEditedExperiences.id){
-                
-                return experience = {...newEditedExperiences}
-			}
-            return experience
-		})
-        fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
+            let newExperience = experiences.map(experience => {
+                if (experience.id == newEditedExperiences.id){
+                    return experience = {...newEditedExperiences}
+			    }
+                return experience
+		    })
+            fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
      
-		res.redirect ('/product/productDescription/' + editedExperiences.id)
+		    res.redirect ('/product/productDescription/' + editedExperiences.id);
+        } else {
+            let experienceId = req.params.id;
+            let experienceUpdating = experiences.find(experience => experience.id == experienceId);
+            res.render('editor', { errors: errors.mapped(), experienceEdit: experienceUpdating });
+        }
+        
 	},
 
 //******* Experience Destroy *******
@@ -90,28 +95,34 @@ listProductsToEdit: (req, res) => {
     },
 //******* Experience creation functionallity *******
     store: (req,res) => {
-        let image;
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            let image;
 
-        if(req.file != undefined){
-            image = req.file.filename;
-        }else{
-            image = 'default.jpg';
+            if(req.file != undefined){
+                image = req.file.filename;
+            }else{
+                image = 'default.jpg';
+            }
+
+            const newExperience = {
+                id: experiences[experiences.length - 1].id + 1,
+                ...req.body,
+                price: parseInt(req.body.price),
+                duration: parseInt(req.body.duration),
+                peopleQuantity: parseInt(req.body.peopleQuantity),
+                image: image
+            }
+
+            experiences.push(newExperience);
+
+            fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
+
+            res.redirect('/');
+        }else {
+            res.render('creacion', { errors: errors.mapped(), old: req.body });
         }
-
-        const newExperience = {
-            id: experiences[experiences.length - 1].id + 1,
-            ...req.body,
-            price: parseInt(req.body.price),
-            duration: parseInt(req.body.duration),
-            peopleQuantity: parseInt(req.body.peopleQuantity),
-            image: image
-        }
-
-        experiences.push(newExperience);
-
-        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
-
-        res.redirect('/');
+        
     }
 }
 module.exports = productController

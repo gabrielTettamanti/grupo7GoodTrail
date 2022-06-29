@@ -20,11 +20,21 @@
             <form class="forms" action="/product/creation" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                    <% if (locals.errors && errors.name) { %>
+                        <p class="text-danger">
+                            <%= errors.name.msg %> 
+                        </p>
+                    <% } %>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea type="text" name="description" maxlength="400" style="height: 150px" required> </textarea>
+                    <textarea type="text" name="description" maxlength="400" style="height: 150px"><%= locals.old && old.description ? old.description : '' %></textarea>
+                    <% if (locals.errors && errors.description) { %>
+                        <p class="text-danger">
+                            <%= errors.description.msg %>
+                        </p>
+                    <% } %>
                 </div>
 
                 <div class="input-container">
@@ -45,18 +55,33 @@
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="ubication" required> 
+                            <input type="search" name="ubication"> 
+                            <% if (locals.errors && errors.ubication) { %>
+                                <p class="text-danger">
+                                    <%= errors.ubication.msg %>
+                                </p>
+                            <% } %>
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="peopleQuantity" required> 
+                        <input type="number" name="peopleQuantity"> 
+                        <% if (locals.errors && errors.peopleQuantity) { %>
+                            <p class="text-danger">
+                                <%= errors.peopleQuantity.msg %>
+                            </p>
+                        <% } %>
                     </div>
                     <div class="duration">
                         <div class="input-container">
                                 <label for="">Duración</label>
-                                <input type="number" name="duration" required> 
+                                <input type="number" name="duration"> 
+                                <% if (locals.errors && errors.duration) { %>
+                                    <p class="text-danger">
+                                        <%= errors.duration.msg %>
+                                    </p>
+                                <% } %>
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
@@ -79,7 +104,12 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" name="price" required> 
+                         <input type="number" name="price"> 
+                         <% if (locals.errors && errors.price) { %>
+                            <p class="text-danger">
+                                <%= errors.price.msg %>
+                            </p>
+                        <% } %>
                     </div>
                 </div>
                 <div class="buttomTrash">

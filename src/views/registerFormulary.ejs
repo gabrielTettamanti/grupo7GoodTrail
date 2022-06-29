@@ -24,7 +24,7 @@
             <form action="/user/registerFormulary" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="email" name="userEmail" id="email" value="<%= locals.old && old.userEmail ? old.userEmail : "" %>">
+                    <input type="text" name="userEmail" id="email" value="<%= locals.old && old.userEmail ? old.userEmail : "" %>">
                     <% if (locals.errors && errors.userEmail) { %>
                         <div class="text-danger">
                             <%= errors.userEmail.msg %> 

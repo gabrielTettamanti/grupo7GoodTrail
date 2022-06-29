@@ -73,25 +73,22 @@ const userController = {
                 email: req.body.userEmail,
                 password: req.body.userPassword
             }
-    
-            if(req.body.remember){
-                res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
-            }
-    
-            let dejarPasar = false;
-            let userLogged;
-    
-            users.forEach(user => {
-                if(user.email == userLogging.email && bcrypt.compareSync(userLogging.password, user.password)){
-                    dejarPasar= true;
-                    userLogged = user;
+
+            const noLoginMsg = 'Las credenciales son incorrectas';
+            const userSearched = users.find(user => user.email == userLogging.email);
+            
+            if(userSearched != undefined){
+                if(req.body.remember){
+                    res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
                 }
-            });
-            req.session.user = userLogged;
-            if(dejarPasar){
-                res.redirect('/');
-            }else {
-                res.render('login');
+                if(bcrypt.compareSync(userLogging.password, userSearched.password)){
+                    req.session.user = userSearched;
+                    res.redirect('/');
+                } else {
+                    res.render('login', { noLoginMsg: noLoginMsg, old: req.body });
+                }
+            } else {
+                res.render('login', { noLoginMsg: noLoginMsg, old: req.body });
             }
         }
         else{

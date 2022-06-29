@@ -27,13 +27,13 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 //******* Product Edition *******
 productRouter.get("/editor", authenticatorMiddleware, productController.listProductsToEdit)
 productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor);
-productRouter.put("/editor/:id", upload.any() , productController.update);
+productRouter.put("/editor/:id", upload.any(), productFormMiddleware, productController.update);
 
 //******* Product Destroy *******
 productRouter.delete("/delete/:id", authenticatorMiddleware, productController.destroy);
 
 //******* Product Creation *******
 productRouter.get("/creation", authenticatorMiddleware, productController.creacion);
-productRouter.post("/creation", upload.single('image') , productController.store);
+productRouter.post("/creation", upload.single('image') , productFormMiddleware,productController.store);
 
 module.exports = productRouter;

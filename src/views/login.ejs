@@ -21,23 +21,30 @@
             <form action="/user/login" method="POST">
                 <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="email" name="userEmail" id="email" value = "<%= locals.old && old.userEmail ? old.userEmail : "" %>">
+                    <input type="text" name="userEmail" id="email" value = "<%= locals.old && old.userEmail ? old.userEmail : "" %>">
                     <% if (locals.errors && errors.userEmail) { %>
-                        <div class="text-danger">
+                        <p class="text-danger">
                             <%= errors.userEmail.msg %> 
-                        </div>
+                        </p>
                     <% } %>
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
                     <input type="password" name="userPassword" value = "<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword ) { %>
-                        <div class="text-danger">
+                        <p class="text-danger">
                             <%= errors.userPassword.msg %> 
-                        </div>
+                        </p>
                         <% } %>
                     </div>
                 </div>
+
+                <% if (locals.noLoginMsg) { %>
+                    <p class="text-danger">
+                        <%= noLoginMsg %> 
+                    </p>
+                <% } %>
+                
                 <div class="last-container">
                     <div class="remember-container">
                         <label class="label-container">
