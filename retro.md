@@ -85,3 +85,25 @@
 
 ## Dejar de hacer
 * Pushear codigo que comprometa la integridad de la aplicacion.
+
+///////////////////////////////////////////////////
+
+# Retrospectiva Sprint 5
+
+## Comenzar a hacer
+* En caso de no tener tareas pendientes corregir/editar el codigo sin esperar permiso.
+* Implementar daily compartiendo qué hizo ayer, si se encontró con algún impedimento, qué va a hacer hoy, por whatsapp.
+* Implementar reuniones semanales mas extensas para revisar el codigo y resolver dudas.
+
+## Hacer más
+* Implementar nuevos estilos y funciones yendo más allá de las consignas.
+* Hablar temas del proyecto solo por el grupo del wpp, para poder seguir la conversacion y poder trabajarlo en equipo
+## Continuar 
+* Actualizar Trello más seguido.
+* Revisar que nuestro codigo no rompa nada en el resto de la aplicacion.
+
+## Hacer menos
+* Pautar cosas en el retro y no hacerlo.
+
+## Dejar de hacer
+* No dejar las cosas para el ultimo dia. Una idea es que una semana antes si el requisito no se cumplio se libere para el resto del grupo.
