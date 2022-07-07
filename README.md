@@ -71,17 +71,6 @@ https://trello.com/b/6FLmuyJn/goodtrail
 
 ## Base de datos <a name="der"></a>
 ```mermaid
-graph TD;
-client-->client_profile;
-client-->customization;
-client-->country;
-client-->language;
-client-->zone;
-client-->section_client;
-layout-->section_client;
-section-->section_client;
-content-->section_client;
-section_client-->section_extension;
-content-->section_extension;
-extension-->section_extension;
+erDiagram
+    USER ||--o} EXPERIENCE : owns
 ```
