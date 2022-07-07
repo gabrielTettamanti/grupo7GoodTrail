@@ -76,4 +76,66 @@ erDiagram
     USER ||--o{ FAVOURITE_EXPERIENCE : has
     USER ||--o{ USER_RATING : makes
     USER ||--o{ CART_EXEPERINCE : adds
+    USER {
+        int id PK
+        string first_name
+        string last_name
+        string email
+        string password
+        string image
+    }
+    USER_RATING {o--|| RATING : belongs to
+    USER_RATING {
+        int id PK
+        int vote
+        date creation_date
+        int rating_id FK
+        int user_id FK
+    }
+    RATING ||--|| EXPERIENCE : belongs to
+    RATING {
+        int id PK
+        int rating 
+        int experience_id FK 
+    } 
+    CART_EXEPERINCE {o--|| EXPERIENCE : has
+    CART_EXEPERINCE {
+        int id PK
+        int experience_id FK
+        int user_id FK
+    }
+    FAVOURITE_EXPERIENCE {o--|| EXPERIENCE : has
+    FAVOURITE_EXPERIENCE {
+        int id PK 
+        int experience_id FK
+        int user_id FK
+    }
+    EXPERIENCE ||--o{ IMAGE : has
+    EXPERIENCE ||--o| OFFER : has
+    EXPERIENCE {
+        int id PK
+        string name
+        string description
+        string category
+        string ubication
+        int people_quantity
+        int duration
+        string duration_type
+        string currency
+        float price
+        string map
+        int owner FK
+    }
+    IMAGE {
+        int id PK
+        string url
+        int experience_id FK
+    }
+    OFFER {
+        int id PK
+        int status
+        float discount
+        float time
+        int experience_id FK
+    }
 ```
