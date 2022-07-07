@@ -84,7 +84,7 @@ erDiagram
         string password
         string image
     }
-    USER_RATING {o--|| RATING : belongs to
+    USER_RATING {o--|| RATING : "belongs to"
     USER_RATING {
         int id PK
         int vote
@@ -92,7 +92,7 @@ erDiagram
         int rating_id FK
         int user_id FK
     }
-    RATING ||--|| EXPERIENCE : belongs to
+    RATING ||--|| EXPERIENCE : "belongs to"
     RATING {
         int id PK
         int rating 
