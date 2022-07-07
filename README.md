@@ -4,6 +4,7 @@
 2. [¿Quiénes somos?](#quienesSomos)
 3. [Referentes del mercado](#links)
 4. [Tablero de trabajo](#trello)
+5. [Base de datos](#der)
 
 ## ¿Qué es GoodTrail? <a name="goodTrail"></a>
 GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar experiencias.
@@ -67,3 +68,21 @@ Uno de los sitios webs más importantes de los últimos años. Fue elegido por l
 
 ## Tablero <a name="trello"></a>
 https://trello.com/b/6FLmuyJn/goodtrail
+
+## Base de datos <a name="der"></a>
+```mermaid
+classDiagram
+Class01 <| — AveryLongClass : Cool
+Class03 * — Class04
+Class05 o — Class06
+Class07 .. Class08
+Class09 → C2 : Where am i?
+Class09 — * C3
+Class09 — |> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 ←> C2: Cool label
+```
