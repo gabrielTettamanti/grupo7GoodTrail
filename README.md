@@ -72,5 +72,8 @@ https://trello.com/b/6FLmuyJn/goodtrail
 ## Base de datos <a name="der"></a>
 ```mermaid
 erDiagram
-    USER ||--o} EXPERIENCE : owns
+    USER ||--o{ EXPERIENCE : owns
+    USER ||--o{ FAVOURITE_EXPERIENCE : has
+    USER ||--o{ USER_RATING : makes
+    USER ||--o{ CART_EXEPERINCE : adds
 ```
