@@ -76,14 +76,6 @@ erDiagram
     USER ||--o{ FAVOURITE_EXPERIENCE : has
     USER ||--o{ USER_RATING : makes
     USER ||--o{ CART_EXEPERINCE : adds
-    USER {
-        int id PK
-        string first_name
-        string last_name
-        string email
-        string password
-        string image
-    }
     USER_RATING {o--|| RATING : "belongs to"
     USER_RATING {
         int id PK
@@ -137,5 +129,13 @@ erDiagram
         float discount
         float time
         int experience_id FK
+    }
+    USER {
+        int id PK
+        string first_name
+        string last_name
+        string email
+        string password
+        string image
     }
 ```
