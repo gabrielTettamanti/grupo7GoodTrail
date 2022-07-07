@@ -76,7 +76,7 @@ erDiagram
     USER ||--o{ FAVOURITE_EXPERIENCE : has
     USER ||--o{ USER_RATING : makes
     USER ||--o{ CART_EXEPERINCE : adds
-    USER_RATING {o--|| RATING : "belongs to"
+    USER_RATING o{--|| RATING : "belongs to"
     USER_RATING {
         int id PK
         int vote
@@ -90,19 +90,19 @@ erDiagram
         int rating 
         int experience_id FK 
     } 
-    CART_EXEPERINCE {o--|| EXPERIENCE : has
+    CART_EXEPERINCE o{--|| EXPERIENCE : has
     CART_EXEPERINCE {
         int id PK
         int experience_id FK
         int user_id FK
     }
-    FAVOURITE_EXPERIENCE {o--|| EXPERIENCE : has
+    FAVOURITE_EXPERIENCE o{--|| EXPERIENCE : has
     FAVOURITE_EXPERIENCE {
         int id PK 
         int experience_id FK
         int user_id FK
     }
-    EXPERIENCE ||--o{ IMAGE : has
+    EXPERIENCE ||--}o IMAGE : has
     EXPERIENCE ||--o| OFFER : has
     EXPERIENCE {
         int id PK
