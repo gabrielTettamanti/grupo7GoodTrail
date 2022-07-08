@@ -13,6 +13,7 @@ CREATE TABLE `user` (
     `email` VARCHAR(50) NOT NULL, 
     `password` VARCHAR(50) NOT NULL,
     `image` VARCHAR(50) NOT NULL,
+    `bio` VARCHAR(500),
     PRIMARY KEY(`id`)
 ) ENGINE=InnoDB;
 
