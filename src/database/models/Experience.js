@@ -62,5 +62,12 @@ module.exports = (sequelize, DataTypes) => {
     
     const Experience = sequelize.define(alias, cols, config);
 
+    Experience.associate = models => {
+        Experience.belongsTo(models.Offer, {
+            as: 'offer',
+            foreignKey: 'experience'
+        });
+    }
+
     return Experience;
 }
