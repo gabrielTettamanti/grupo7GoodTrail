@@ -67,6 +67,12 @@ module.exports = (sequelize, DataTypes) => {
             as: 'offer',
             foreignKey: 'experience'
         });
+
+        Experience.belongsTo(models.User, {
+            as: 'owner',
+            foreignKey: 'user'
+        });
+
     }
 
     return Experience;
