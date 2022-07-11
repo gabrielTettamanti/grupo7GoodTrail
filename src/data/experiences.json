@@ -32,7 +32,8 @@
     "image": "gizaCatalog.png",
     "rating": 4,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98273.55947475434!2d31.11199047685871!3d29.976588930703745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584514019cd63f%3A0xcd9b620a6cdaf277!2sPir%C3%A1mides%20de%20Guiza!5e0!3m2!1ses-419!2sar!4v1652632518404!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Pirámides de Guiza, Egipto"
   },
   {
     "id": 3,
@@ -49,7 +50,8 @@
     "image": "romaCatalog.jpg",
     "rating": 5,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.123073808986!2d12.490042215441486!3d41.89021017922119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColiseo%20de%20Roma!5e0!3m2!1ses-419!2sar!4v1652645816136!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Coliseo de Roma, Italia"
   },
   {
     "id": 4,
@@ -66,7 +68,8 @@
     "image": "liverpool.jpg",
     "rating": 5,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5081.800814010485!2d-2.963903659422149!3d53.42923419316127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2sAnfield!5e0!3m2!1ses-419!2sar!4v1652646028140!5m2!1ses-419!2sar",
-    "offer": true
+    "offer": true,
+    "map_direction": "Anfield Liverpool, Inglaterra"
   },
   {
     "id": 5,
@@ -101,7 +104,8 @@
     "image": "temple.jpg",
     "rating": 3,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d708.2410542592529!2d-58.427272817284376!3d-34.588174541276224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x508b1b12186da6e7!2sTemple%20Craft%20Soho!5e0!3m2!1ses-419!2sar!4v1652646337594!5m2!1ses-419!2sar",
-    "offer": true
+    "offer": true,
+    "map_direction": "Casa Temple Buenos Aires, Argentina"
   },
   {
     "id": 7,
@@ -118,7 +122,8 @@
     "image": "hotelMadero.avif",
     "rating": 4,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.453115740122!2d-58.364409856396804!3d-34.61798807820555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb601a567735f%3A0x307c7f8ed4683460!2sHotel%20Madero!5e0!3m2!1ses-419!2sar!4v1652646460447!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Hotel Madero Buenos Aires, Argentina"
   },
   {
     "id": 8,
@@ -135,7 +140,8 @@
     "image": "rabieta.jpg",
     "rating": 4,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10459.790100541297!2d-58.42871829626127!3d-34.56657863276878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5989d4c3801%3A0xa668e50e97c28989!2sRabieta!5e0!3m2!1ses-419!2sar!4v1652646606029!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Rabieta Avenida Libertador, Buenos Aires"
   },
   {
     "id": 9,
@@ -152,7 +158,8 @@
     "image": "warriors.jpg",
     "rating": 5,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.436431564132!2d-122.38880064229781!3d37.7676736684068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7fc67f4400e9%3A0x7d6793e3d8a141e3!2sChase%20Center!5e0!3m2!1ses-419!2sar!4v1652646764325!5m2!1ses-419!2sar",
-    "offer": true
+    "offer": true,
+    "map_direction": "Chase Center San Francisco, California"
   },
   {
     "id": 10,
