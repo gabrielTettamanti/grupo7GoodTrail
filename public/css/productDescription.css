@@ -182,6 +182,10 @@ main {
     height: 400px;
 }
 
+.address {
+    display: none;
+}
+
 
 /* MEDIA QUERIES */
 

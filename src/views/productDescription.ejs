@@ -3,6 +3,7 @@
 
     <link href="/css/productDescription.css" rel="stylesheet">
     <title>GoodTrail | Experiencia</title>
+    <script type="module" src="/js/map.js"></script>
 </head>
 <body>
 
@@ -77,12 +78,18 @@
         </section>
         <section class="container map-container">
             <h2 class="section-title">Mapa</h2>
-            <iframe class="map" src= <%= experienceDetail.map %>  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map"></div>
+            <p class="address"><%= experienceDetail.map_direction %></p>
         </section>
     </main>
 
     <!-- FOOTER -->
     <%- include('./partials/footer')%>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQloeVIEm7tds8gHEPO-codgPKVH8DzJI&callback=initMap&v=weekly"
+      defer
+    ></script>
 
 </body>
 </html>

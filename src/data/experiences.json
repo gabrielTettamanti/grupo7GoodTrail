@@ -14,7 +14,8 @@
     "image": "bernabeuCatalog.jpg",
     "rating": 5,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.0426330626033!2d-3.692847685271651!3d40.45219336140707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228e2fe54acd3%3A0x7bdf12a106fcb23e!2sSantiago%20Bernabeu!5e0!3m2!1ses-419!2sar!4v1650753609969!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Santiago Bernabeu, Madrid"
   },
   {
     "id": 2,
@@ -82,7 +83,8 @@
     "image": "stampa.jpg",
     "rating": 4,
     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18381.138862942604!2d-58.39058705895161!3d-34.59371359932359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccab0f465191b%3A0x6da1423e5f34b78!2sLa%20Stampa!5e0!3m2!1ses-419!2sar!4v1652646242219!5m2!1ses-419!2sar",
-    "offer": false
+    "offer": false,
+    "map_direction": "Posadas 1011 CABA, Argentina"
   },
   {
     "id": 6,
