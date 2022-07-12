@@ -7,6 +7,7 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const cookies = require('cookie-parser');
+const googleMapsMiddleware = require('./src/middlewares/googleMapsMiddleware');
 
 //******* Server Configuration *******
 const port = 3000;
@@ -22,6 +23,7 @@ app.use(morgan('dev'));
 app.use(session({secret: sessionSecret}));
 app.use(cookies());
 app.use(userLoggedMiddleware);
+app.use(googleMapsMiddleware);
 
 //******* Template engine *******
 app.set("view engine", "ejs");
