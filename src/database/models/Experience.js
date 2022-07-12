@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL(9,2),
             allowNull: false
         },
-        map: {
+        map_direction: {
             type: DataTypes.STRING(100),
             allowNull: false
         },
@@ -71,6 +71,11 @@ module.exports = (sequelize, DataTypes) => {
         Experience.belongsTo(models.User, {
             as: 'owner',
             foreignKey: 'user'
+        });
+
+        Experience.belongsTo(models.Rating, {
+            as: 'rating',
+            foreignKey: 'experience'
         });
 
     }
