@@ -32,7 +32,7 @@ CREATE TABLE experience (
     `duration_type` VARCHAR(10) NOT NULL,
     `currency` VARCHAR(10) NOT NULL, 
     `price` decimal(9,2) unsigned NOT NULL,
-    `map` VARCHAR(100) NOT NULL,
+    `map_direction` VARCHAR(100) NOT NULL,
     `user` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `experience_user_foreign` FOREIGN KEY(`user`) REFERENCES `user` (`id`)
