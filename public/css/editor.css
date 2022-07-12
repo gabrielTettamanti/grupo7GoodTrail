@@ -354,6 +354,12 @@ main {
 .duration input{
     margin-right: 10px;
 }
+
+#map-input-container{
+    /* display: inline; */
+    /* width: 90%; */
+    margin: 14px 0px 0px 20px;
+}
  /* MEDIA QUERIES */
 
  @media (min-width: 375px) {
