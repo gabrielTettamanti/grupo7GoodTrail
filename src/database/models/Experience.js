@@ -63,6 +63,7 @@ module.exports = (sequelize, DataTypes) => {
     const Experience = sequelize.define(alias, cols, config);
 
     Experience.associate = models => {
+
         Experience.belongsTo(models.Offer, {
             as: 'offer',
             foreignKey: 'experience'
@@ -76,6 +77,13 @@ module.exports = (sequelize, DataTypes) => {
         Experience.belongsTo(models.Rating, {
             as: 'rating',
             foreignKey: 'experience'
+        });
+
+        Experience.belongsToMany(models.User, {
+            as: 'userCart',
+            through: 'cart_experience',
+            foreignKey: 'experience',
+            otherKey: 'user'
         });
 
     }
