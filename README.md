@@ -1,10 +1,33 @@
 # GoodTrail
 ## Tabla de contenidos 
-1. [GoodTrail](#goodTrail)
-2. [¿Quiénes somos?](#quienesSomos)
-3. [Referentes del mercado](#links)
-4. [Tablero de trabajo](#trello)
-5. [Base de datos](#der)
+1. [Instalación y configuración](#install)
+2. [Corriendo el proyecto](#running) 
+3. [GoodTrail](#goodTrail)
+4. [¿Quiénes somos?](#quienesSomos)
+5. [Referentes del mercado](#links)
+6. [Tablero de trabajo](#trello)
+7. [Diagrama de Entidad-Relación](#der)
+
+## Instalación y configuración <a name="install"></a>
+Instalar los modulos requeridos con el siguiente comando: 
+
+```console
+$ npm install
+```
+
+Es necesario tener una clave para la API de Google Maps y crear un archivo .env en la raíz del proyecto. El mismo debe contener la siguiente variable de entorno: 
+
+```console
+GOOGLE_MAPS_KEY = <Key de Google Maps>
+```
+
+Asignarle a la variable de entorno la Key de la API.
+
+## Corriendo el proyecto <a name="running"></a>
+
+```console
+$ npm start
+```
 
 ## ¿Qué es GoodTrail? <a name="goodTrail"></a>
 GoodTrail es un e-commerce/marketplace donde un usuario podrá buscar y comprar experiencias.
