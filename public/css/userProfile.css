@@ -3,13 +3,23 @@
     --golden-yellow: #ffd60a;
     --crimson-red: #d7263d;
     --cool-gray: #d9d9d9;
+    --menu-gray: #eaf4f4;
 }
 
-.main-profile {
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin: 10px 0;
+    width: 80%;
+    background-color: white;
+    border: solid 1px var(--cool-gray);
+    border-radius: 5px;
 }
 
 /* BUTTON STYLES */
@@ -19,7 +29,7 @@
     color: var(--blue-crayola);
     background-color: white;  
     font-size: 20px; 
-    border-radius: 15px;
+    border-radius: 5px;
     transition: all 350ms;
 }
 
@@ -29,12 +39,49 @@
     cursor: pointer;
 }
 
+/* PROFILE MENU */
+
+.profile-menu {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-right: 1px solid var(--cool-gray);
+}
+
+.menu-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.menu-options a {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.menu-options a:hover {
+    border-left: solid 2px var(--cool-gray);
+    background-color: var(--menu-gray);
+}
+
+.selected {
+    border-left: solid 2px black;
+}
+
 /* USER IMAGE SECTION */
 
 .profile-image-section {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-top: 15px;
 }
 
 .image-container {
@@ -54,6 +101,14 @@
     position: absolute;
     top: 80%;
     right: 50%;
+}
+
+/* PROFILE */
+.profile {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
 }
 
 /* USER PROFILE SECTION */
@@ -79,7 +134,7 @@
     width: 80%;
     padding: 15px;
     margin: 15px 0;
-    border: none;
+    border: solid 2px var(--cool-gray);
     border-radius: 15px;
 }
 
@@ -180,14 +235,11 @@
     /* USER IMAGE SECTION */
 
     .profile-image-section{
-        width: 30%;
+        width: 100%;
     }
-    .image-container {
-        height: 400px;
-    }
-
+    
     .edit-image-profile-button{   
-        top: 40%;
+        bottom: 5%;
         right: 50%;
     }
 
