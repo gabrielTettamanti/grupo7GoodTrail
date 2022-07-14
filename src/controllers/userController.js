@@ -100,8 +100,7 @@ const userController = {
         for(let i=0; i<9; i++){
             userExperiences.push(experiences[i]);
         }
-        const user = req.session.user;
-        res.render('userProfile', {user, experiences: userExperiences});
+        res.render('userProfile', { experiences: userExperiences});
     },
 
     logout: (req, res) => {
@@ -137,8 +136,7 @@ const userController = {
     },
 
     passwordConfiguration: (req, res) => {
-        const user = req.session.user;
-        res.render('changePassword', { user });
+        res.render('changePassword');
     }
 }
 module.exports = userController

@@ -21,11 +21,11 @@
                 <section class="profile-section">
                     <form action="/user/update?_method=PUT" method="POST" class="profile-form">
                         <label class="profile-label">Nombre</label>
-                        <input type="text" name="userName" placeholder="Nombre" value="<%= user ? user.first_name + ' ' + user.last_name : null %>">
+                        <input type="text" name="userName" placeholder="Nombre" value="<%= locals.userLogged ? locals.userLogged.first_name + ' ' + locals.userLogged.last_name : null %>">
                         <label class="profile-label">Email</label>
-                        <input type="email" name="userEmail" placeholder="Email" value="<%= user ? user.email : null %> " readonly>
+                        <input type="email" name="userEmail" placeholder="Email" value="<%= locals.userLogged ? locals.userLogged.email : null %> " readonly>
                         <label class="profile-label">Bio</label>
-                        <textarea name="userBio" cols="30" rows="10" placeholder="Bio"><%= user.bio ? user.bio : null  %></textarea>
+                        <textarea name="userBio" cols="30" rows="10" placeholder="Bio"><%= locals.userLogged.bio ? locals.userLogged.bio : null  %></textarea>
                         <button type="submit" class="button edit-profile-button">Guardar</button>
                     </form>
                     <form action="/user/logout" class="log-out-form">
