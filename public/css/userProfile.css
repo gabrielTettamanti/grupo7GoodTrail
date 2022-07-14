@@ -108,7 +108,7 @@ main {
     width: 70%;
     display: flex;
     justify-content: center;
-    padding: 15px;
+    padding: 15px 0px;
 }
 
 /* USER PROFILE SECTION */
@@ -119,21 +119,30 @@ main {
 }
 
 .profile-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
 .profile-label {
-    width: 80%;
+    width: 30%;
     font-weight: bold;
     font-size: 18px;
 }
 
 .profile-form input {
-    width: 80%;
+    width: 70%;
     padding: 15px;
-    margin: 15px 0;
     border: solid 2px var(--cool-gray);
     border-radius: 15px;
 }
@@ -146,9 +155,7 @@ main {
 .profile-form textarea {
     width: 80%;
     padding: 15px;
-    border: none;
     border-radius: 15px;
-    margin: 15px 0;
     border: #d9d9d9 2px solid;
     min-width: 200px;
     height: 200px;
@@ -246,7 +253,7 @@ main {
     /* USER PROFILE SECTION */
 
     .profile-section {
-        width: 60%;
+        width: 80%;
         height: 500px;
     }
 
