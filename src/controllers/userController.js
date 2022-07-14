@@ -137,6 +137,10 @@ const userController = {
 
     passwordConfiguration: (req, res) => {
         res.render('changePassword');
+    },
+
+    getResetPassword: (req, res) => {
+        res.render('resetPassword');
     }
 }
 module.exports = userController

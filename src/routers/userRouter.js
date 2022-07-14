@@ -47,4 +47,7 @@ userRouter.get('/password', userController.passwordConfiguration);
 //******* Get User Logout *******
 userRouter.get("/logout", authenticatorMiddleware, userController.logout)
 
+//******* Get Reset password view *******
+userRouter.get('/reset', userController.getResetPassword);
+
 module.exports = userRouter
