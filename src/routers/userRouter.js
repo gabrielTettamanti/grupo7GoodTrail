@@ -41,6 +41,9 @@ userRouter.get('/profile', authenticatorMiddleware, userController.userProfile);
 //******* Update User Profile *******
 userRouter.put('/update', userController.updateUser);
 
+//******* Get user password configuration view *******
+userRouter.get('/password', userController.passwordConfiguration);
+
 //******* Get User Logout *******
 userRouter.get("/logout", authenticatorMiddleware, userController.logout)
 

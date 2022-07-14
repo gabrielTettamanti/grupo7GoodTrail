@@ -134,6 +134,11 @@ const userController = {
         fs.writeFileSync(usersFilePath, JSON.stringify(usersUpdated));
 
         res.redirect('/user/profile');
+    },
+
+    passwordConfiguration: (req, res) => {
+        const user = req.session.user;
+        res.render('changePassword', { user });
     }
 }
 module.exports = userController

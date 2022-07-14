@@ -72,7 +72,7 @@ main {
 }
 
 .selected {
-    border-left: solid 2px black;
+    border-left: solid 2px var(--blue-crayola);
 }
 
 /* USER IMAGE SECTION */

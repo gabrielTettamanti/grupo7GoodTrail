@@ -14,19 +14,7 @@
 
         <div class="profile-container">
 
-            <div class="profile-menu">
-                <section class="profile-image-section">
-                    <div class="image-container">
-                        <img src="/img/usersImages/<%= user.image %>" alt="">
-                        <button class="button edit-image-profile-button">Editar</button>
-                    </div>
-                </section>
-                <div class="menu-options">
-                    <a href="" class="selected">Editar Perfil</a>
-                    <a href="">Cambiar contraseña</a>
-                    <a href="">Mis Experiencias</a>
-                </div>
-            </div>
+            <%- include('./partials/profileMenu') %>
             
     
             <div class="profile">
@@ -38,7 +26,7 @@
                         <input type="email" name="userEmail" placeholder="Email" value="<%= user ? user.email : null %> " readonly>
                         <label class="profile-label">Bio</label>
                         <textarea name="userBio" cols="30" rows="10" placeholder="Bio"><%= user.bio ? user.bio : null  %></textarea>
-                        <button type="submit" class="button edit-profile-button">Editar Perfil</button>
+                        <button type="submit" class="button edit-profile-button">Guardar</button>
                     </form>
                     <form action="/user/logout" class="log-out-form">
                         <button class="button logOutButton">Cerrar sesión</button>
