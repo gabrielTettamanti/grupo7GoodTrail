@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL(2,1),
             allowNull: false
         },
-        experience: {
+        experience_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -31,6 +31,13 @@ module.exports = (sequelize, DataTypes) => {
         Rating.belongsTo(models.Experience, {
             as: 'experience',
             foreignKey: 'experience'
+        });
+
+        Rating.belongsToMany(models.User, {
+            as: 'users',
+            through: 'user_rate',
+            foreignKey: 'rating_id',
+            otherKey: 'user_id'            
         });
     }
 
