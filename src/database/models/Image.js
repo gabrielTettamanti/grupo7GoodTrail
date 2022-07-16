@@ -29,7 +29,7 @@ const Image = sequelize.define(alias, cols, config);
  Image.associate = models => {   
     Image.belongsTo(models.Experience, {
     as: 'experience',
-    foreignKey: 'experience'
+    foreignKey: 'experience_id'
 });
 }
 return Image;

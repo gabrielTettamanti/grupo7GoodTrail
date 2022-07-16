@@ -86,6 +86,11 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: 'user'
         });
 
+        Experience.hasMany(models.Image, {
+            as: 'images',
+            foreignKey: 'experience_id'
+        });
+
     }
 
     return Experience;
