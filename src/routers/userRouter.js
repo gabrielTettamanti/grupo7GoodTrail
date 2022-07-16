@@ -50,4 +50,7 @@ userRouter.get("/logout", authenticatorMiddleware, userController.logout)
 //******* Get Reset password view *******
 userRouter.get('/reset', userController.getResetPassword);
 
+//******* Sending email with random password *******
+userRouter.post('/sendEmail', userController.sendPasswordEmail);
+
 module.exports = userRouter

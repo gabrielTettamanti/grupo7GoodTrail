@@ -15,7 +15,7 @@ const Mailer = {
         //***** Email Body generation *****/
         const contentHTML = `
             <h1>Contraseña generada</h1>
-            <p>Tu nueva contraseña es: ${randomPassword} <strong> </strong></p> 
+            <p>Tu nueva contraseña es: <strong>${randomPassword}</strong></p> 
         `;
 
         //***** Nodemailer Configuration *****/

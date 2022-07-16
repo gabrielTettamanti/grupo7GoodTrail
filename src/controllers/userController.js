@@ -2,7 +2,9 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
+const PasswordRandomer = require('../services/passwordRandomer.service');
+const Mailer = require('../services/mailer.service');
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
@@ -141,6 +143,15 @@ const userController = {
 
     getResetPassword: (req, res) => {
         res.render('resetPassword');
+    },
+
+    sendPasswordEmail: (req, res) => {
+        const userEmail = req.body.userEmail;
+        const randomPassword = PasswordRandomer.generateRandomPassword();
+        Mailer.sendEmail(userEmail, randomPassword)
+        .then(response => {
+            res.redirect('/');
+        });
     }
 }
 module.exports = userController
