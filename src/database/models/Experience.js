@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        user: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -71,19 +71,26 @@ module.exports = (sequelize, DataTypes) => {
 
         Experience.belongsTo(models.User, {
             as: 'owner',
-            foreignKey: 'user'
+            foreignKey: 'user_id'
         });
 
         Experience.belongsTo(models.Rating, {
             as: 'rating',
-            foreignKey: 'experience'
+            foreignKey: 'experience_id'
         });
 
         Experience.belongsToMany(models.User, {
             as: 'userCart',
             through: 'cart_experience',
-            foreignKey: 'experience',
-            otherKey: 'user'
+            foreignKey: 'experience_id',
+            otherKey: 'user_id'
+        });
+
+        Experience.belongsToMany(models.FavoriteExperience, {
+            as: 'favoriteExperience',
+            through: 'favorite_experience',
+            foreignKey: 'experience_id',
+            otherKey: 'user_id'
         });
 
         Experience.hasMany(models.Image, {
