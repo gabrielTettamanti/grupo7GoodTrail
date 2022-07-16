@@ -35,15 +35,19 @@ module.exports = (sequelize, DataTypes) => {
 
     const CartExperience = sequelize.define(alias, cols, config); 
 
-    CartExperience.belongsTo(User, 
+    CartExperience.associate = models => {
+
+    CartExperience.belongsTo(models.User, 
        {
         foreignKey: "user_id"
        });
        
-    CartExperience.belongsTo(Experience, 
+    CartExperience.belongsTo(models.Experience, 
        {
         foreignKey: "experience_id"
        });
+    
+    }
 
     return CartExperience
 }
