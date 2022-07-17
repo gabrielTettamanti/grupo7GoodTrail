@@ -11,7 +11,7 @@ CREATE TABLE `user` (
     `first_name` VARCHAR(50) NOT NULL,
     `last_name` VARCHAR(50) NOT NULL,
     `email` VARCHAR(50) NOT NULL, 
-    `password` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
     `image` VARCHAR(50) NOT NULL,
     `bio` VARCHAR(500),
     PRIMARY KEY(`id`)
@@ -33,9 +33,9 @@ CREATE TABLE experience (
     `currency` VARCHAR(10) NOT NULL, 
     `price` decimal(9,2) unsigned NOT NULL,
     `map_direction` VARCHAR(100) NOT NULL,
-    `user` int(10) unsigned NOT NULL,
+    `user_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `experience_user_foreign` FOREIGN KEY(`user`) REFERENCES `user` (`id`)
+    CONSTRAINT `experience_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -45,9 +45,9 @@ DROP TABLE IF EXISTS `experiece_image`;
 CREATE TABLE `experiece_image` (
 	`id` int(10) unsigned NOT NULL,
     `url` VARCHAR(50) NOT NULL,
-    `experience` int(10) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `experience_image_experience_foreign` FOREIGN KEY(`experience`) REFERENCES `experience` (`id`)
+    CONSTRAINT `experience_image_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -59,9 +59,9 @@ CREATE TABLE `offer` (
     `status` tinyint unsigned NOT NULL,
     `discount` DECIMAL(3,1) NOT NULL,
     `time` int NOT NULL,
-    `experience` int(10) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `offer_experience_foreign` FOREIGN KEY(`experience`) REFERENCES `experience` (`id`)
+    CONSTRAINT `offer_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -70,11 +70,11 @@ CREATE TABLE `offer` (
 DROP TABLE IF EXISTS `favourite_experience`;
 CREATE TABLE `favourite_experience` (
 	`id` int(10) unsigned NOT NULL,
-    `user` int(10) unsigned NOT NULL,
-    `experience` int(10) unsigned NOT NULL,
+    `user_id` int(10) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `favourite_experience_user_foreign` FOREIGN KEY(`user`) REFERENCES `user` (`id`),
-    CONSTRAINT `favourite_experience_experience_foreign` FOREIGN KEY(`experience`) REFERENCES `experience` (`id`)
+    CONSTRAINT `favourite_experience_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`),
+    CONSTRAINT `favourite_experience_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -83,11 +83,11 @@ CREATE TABLE `favourite_experience` (
 DROP TABLE IF EXISTS `cart_experience`;
 CREATE TABLE `cart_experience` (
 	`id` int(10) unsigned NOT NULL,
-    `user` int(10) unsigned NOT NULL,
-    `experience` int(10) unsigned NOT NULL,
+    `user_id` int(10) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `cart_experience_user_foreign` FOREIGN KEY(`user`) REFERENCES `user` (`id`),
-    CONSTRAINT `cart_experience_experience_foreign` FOREIGN KEY(`experience`) REFERENCES `experience` (`id`)
+    CONSTRAINT `cart_experience_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`),
+    CONSTRAINT `cart_experience_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -97,24 +97,24 @@ DROP TABLE IF EXISTS `rating`;
 CREATE TABLE `rating` (
 	`id` int(10) unsigned NOT NULL,
     `rating` DECIMAL(2,1) unsigned NOT NULL,
-    `experience` int(10) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `rating_experience_foreign` FOREIGN KEY(`experience`) REFERENCES `experience` (`id`)
+    CONSTRAINT `rating_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
 -- Table `goodTrail_db`.`user_rate`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `user_rate`;
-CREATE TABLE `user_rate` (
+DROP TABLE IF EXISTS `user_rating`;
+CREATE TABLE `user_rating` (
 	`id` int(10) unsigned NOT NULL,
     `vote` int unsigned NOT NULL,
     `date` datetime NOT NULL,
-    `rating` int(10) unsigned NOT NULL,
-    `user`int(10) unsigned NOT NULL,
+    `rating_id` int(10) unsigned NOT NULL,
+    `user_id`int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
-    CONSTRAINT `user_rate_rating_foreign` FOREIGN KEY(`rating`) REFERENCES `rating` (`id`),
-    CONSTRAINT `user_rate_user_foreign` FOREIGN KEY(`user`) REFERENCES `user` (`id`)
+    CONSTRAINT `user_rate_rating_foreign` FOREIGN KEY(`rating_id`) REFERENCES `rating` (`id`),
+    CONSTRAINT `user_rate_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB;
 
 

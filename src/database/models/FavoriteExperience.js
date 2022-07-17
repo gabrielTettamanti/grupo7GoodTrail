@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        experience: {
+        experience_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        user: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
