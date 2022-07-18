@@ -58,7 +58,7 @@ CREATE TABLE `offer` (
 	`id` int(10) unsigned NOT NULL,
     `status` tinyint unsigned NOT NULL,
     `discount` DECIMAL(3,1) NOT NULL,
-    `time` int NOT NULL,
+    `time` date NOT NULL,
     `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `offer_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
