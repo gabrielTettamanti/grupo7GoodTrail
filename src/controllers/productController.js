@@ -16,8 +16,17 @@ const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "
 const productController={
 //******* Rendering Experience detail *******
     productDescription: (req, res) => {
-        let experienceDetail = experiences.find(experience => experience.id == req.params.id);
-        res.render('productDescription', {experienceDetail: experienceDetail });
+        const experience_id = req.params.id;
+        Experience.findByPk(experience_id, {
+            include: [
+                {association: 'images'}
+            ]
+        })
+        .then(experience => {
+            res.render('productDescription', {experienceDetail: experience });
+        })
+        .catch(error => console.log(error));
+        // let experienceDetail = experiences.find(experience => experience.id == req.params.id);
     },
 
 //******* Rendering provisional editor view *******   
