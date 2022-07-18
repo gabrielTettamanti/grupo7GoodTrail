@@ -24,18 +24,18 @@ const mainController ={
     },
 //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
-        // Experience.findAll()
-        // .then(experiences => {
-        //     console.log(experiences);
-        //     res.render('experienceCatalog', {experiences: experiences });
-        // });
-        let experiencesOfCatalog = [];
+        Experience.findAll()
+        .then(experiences => {
+            console.log(experiences);
+            res.render('experienceCatalog', {experiences: experiences });
+        });
+        // let experiencesOfCatalog = [];
 
-        for(let i=0; i<9; i++){
-            experiencesOfCatalog.push(experiences[i]);
-        }
+        // for(let i=0; i<9; i++){
+        //     experiencesOfCatalog.push(experiences[i]);
+        // }
 
-        res.render('experienceCatalog', {experiences: experiencesOfCatalog });
+        // res.render('experienceCatalog', {experiences: experiencesOfCatalog });
     },
 //******* Search functionallity *******
     search: (req,res) => {

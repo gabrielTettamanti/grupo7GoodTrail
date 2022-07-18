@@ -42,7 +42,7 @@ CREATE TABLE experience (
 -- Table `goodTrail_db`.`experiece_image`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `experiece_image`; 
-CREATE TABLE `experiece_image` (
+CREATE TABLE `experience_image` (
 	`id` int(10) unsigned NOT NULL,
     `url` VARCHAR(50) NOT NULL,
     `experience_id` int(10) unsigned NOT NULL,

@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+    
     const alias = "Image"
 
     const cols = {
@@ -18,18 +19,22 @@ module.exports = (sequelize, DataTypes) => {
         },
     }
 
-const config = {
-    timestamps: false,
-    underscore: true
-}
+    const config = {
+        tableName: 'experience_image',
+        timestamps: false,
+        underscore: true
+    }
 
-const Image = sequelize.define(alias, cols, config);
+    const Image = sequelize.define(alias, cols, config);
 
- Image.associate = models => {   
-    Image.belongsTo(models.Experience, {
-    as: 'experience',
-    foreignKey: 'experience_id'
-});
-}
-return Image;
+    Image.associate = models => {   
+
+        Image.belongsTo(models.Experience, {
+        as: 'experience',
+        foreignKey: 'experience_id'
+        });
+
+    }
+    
+    return Image;
 }

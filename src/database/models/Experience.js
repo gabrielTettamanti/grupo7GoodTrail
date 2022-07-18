@@ -94,10 +94,10 @@ module.exports = (sequelize, DataTypes) => {
         //     otherKey: 'user_id'
         // });
 
-        // Experience.hasMany(models.Image, {
-        //     as: 'images',
-        //     foreignKey: 'experience_id'
-        // });
+        Experience.hasMany(models.Image, {
+            as: 'images',
+            foreignKey: 'experience_id'
+        });
 
     }
 
