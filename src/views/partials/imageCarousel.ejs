@@ -3,12 +3,12 @@
     <% if (experiences.length > 1) { %>
         <% experiences.forEach(experience => { %>
             <div class="slide">
-                <img src="/img/cardImages/<%= experience.image %> " alt="">
+                <img src="/img/cardImages/<%= experience.images[0].url %> " alt="">
             </div>     
         <% }) %>     
     <% } else { %>
         <div class="slide">
-            <img src="/img/cardImages/<%= experiences.image %> " alt="">
+            <img src="/img/cardImages/<%= experiences.images[0].url %> " alt="">
         </div>
     <% } %> 
 

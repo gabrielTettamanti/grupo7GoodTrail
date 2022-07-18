@@ -14,13 +14,18 @@ const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
 const mainController ={
 //******* Rendering home  *******
     index: (req, res) => {
-        let experienceOfHome = [];
-
-        for(let i=0 ; i<4; i++){
-            experienceOfHome.push(experiences[i]);
-        }
-        
-        res.render('index', {experiences: experienceOfHome });
+        Experience.findAll({
+            limit: 4,
+            include: [
+                {association: 'images'}
+            ]
+        })
+        .then(experiences => {
+            res.render('index', {experiences: experiences });
+        })
+        .catch(error => {
+            console.log(error);
+        })
     },
 //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {

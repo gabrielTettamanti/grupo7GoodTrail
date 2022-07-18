@@ -22,7 +22,7 @@
 
             <% experiences.forEach(experience => { %>
                 <a href="/product/productDescription/<%= experience.id %> " class="product">
-                    <img src="/img/cardImages/<%= experience.image %>" alt=<%= experience.nombre %>>
+                    <img src="/img/cardImages/<%= experience.images[0].url %>" alt=<%= experience.nombre %>>
                     <h4> <%= experience.name %> </h4>
                     <p> <%= experience.description.slice(0,experience.description.indexOf('.')); %> </p>
         
