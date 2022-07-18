@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         time: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DATE,
             allowNull: false
         },
         experience_id: {
