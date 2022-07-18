@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const config = {
+        tableName: 'experience',
         timestamps: false,
         underscore: true
     }
@@ -64,39 +65,39 @@ module.exports = (sequelize, DataTypes) => {
 
     Experience.associate = models => {
 
-        Experience.belongsTo(models.Offer, {
-            as: 'offer',
-            foreignKey: 'experience'
-        });
+        // Experience.belongsTo(models.Offer, {
+        //     as: 'offer',
+        //     foreignKey: 'experience_id'
+        // });
 
         Experience.belongsTo(models.User, {
             as: 'owner',
             foreignKey: 'user_id'
         });
 
-        Experience.belongsTo(models.Rating, {
-            as: 'rating',
-            foreignKey: 'experience_id'
-        });
+        // Experience.belongsTo(models.Rating, {
+        //     as: 'rating',
+        //     foreignKey: 'experience_id'
+        // });
 
-        Experience.belongsToMany(models.User, {
-            as: 'userCart',
-            through: 'cart_experience',
-            foreignKey: 'experience_id',
-            otherKey: 'user_id'
-        });
+        // Experience.belongsToMany(models.User, {
+        //     as: 'userCart',
+        //     through: 'cart_experience',
+        //     foreignKey: 'experience_id',
+        //     otherKey: 'user_id'
+        // });
 
-        Experience.belongsToMany(models.FavoriteExperience, {
-            as: 'favoriteExperience',
-            through: 'favorite_experience',
-            foreignKey: 'experience_id',
-            otherKey: 'user_id'
-        });
+        // Experience.belongsToMany(models.FavoriteExperience, {
+        //     as: 'favoriteExperience',
+        //     through: 'favorite_experience',
+        //     foreignKey: 'experience_id',
+        //     otherKey: 'user_id'
+        // });
 
-        Experience.hasMany(models.Image, {
-            as: 'images',
-            foreignKey: 'experience_id'
-        });
+        // Experience.hasMany(models.Image, {
+        //     as: 'images',
+        //     foreignKey: 'experience_id'
+        // });
 
     }
 

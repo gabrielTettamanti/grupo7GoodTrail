@@ -43,12 +43,12 @@ module.exports = (sequelize, dataTypes) => {
 
         User.hasMany(models.Experience, {
             as: "experiences",
-            foreignKey: "user", 
+            foreignKey: "user_id", 
         })
         
         User.hasMany(models.FavoriteExperience, {
             as: "favoritesExperiences",
-            foreignKey: "user",
+            foreignKey: "user_id",
         })
     }
 

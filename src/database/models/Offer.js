@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     Offer.associate = models => {
         Offer.belongsTo(models.Experience, {
             as: 'experience',
-            foreignKey: 'experience'
+            foreignKey: 'experience_id'
         });
     }
 

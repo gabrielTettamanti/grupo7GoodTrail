@@ -30,11 +30,11 @@ module.exports = (sequelize, DataTypes) => {
 
         FavoriteExperience.belongsTo(models.Experience, {
             as: 'experience',
-            foreignKey: 'experience'
+            foreignKey: 'experience_id'
         })
         FavoriteExperience.belongsTo(models.User, {
             as: 'user',
-            foreignKey: 'user'
+            foreignKey: 'user_id'
         })
     }
 

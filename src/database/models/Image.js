@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
         experience_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: true
         },
     }
 

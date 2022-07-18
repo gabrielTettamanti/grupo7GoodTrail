@@ -43,14 +43,14 @@ module.exports = (sequelize, DataTypes) => {
 
     const UserRating = sequelize.define(alias, cols, config); 
 
-    CartExperience.associate = models => {
+    UserRating.associate = models => {
 
         UserRating.belongsTo(models.User, 
         {
             foreignKey: "user_id"
         });
         
-        UserRating.belongsTo(models.rating, 
+        UserRating.belongsTo(models.Rating, 
         {
             foreignKey: "rating_id"
         });

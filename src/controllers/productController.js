@@ -2,6 +2,10 @@
 const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
+const DB = require('../database/models');
+
+//***** Getting Experience model from DB *****/
+const Experience = DB.Experience;
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');

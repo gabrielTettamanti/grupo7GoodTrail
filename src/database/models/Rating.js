@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Rating.belongsTo(models.Experience, {
             as: 'experience',
-            foreignKey: 'experience'
+            foreignKey: 'experience_id'
         });
 
         Rating.belongsToMany(models.User, {

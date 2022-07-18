@@ -1,6 +1,10 @@
 //******* Require´s ******* 
 const path = require('path');
 const fs = require('fs');
+const DB = require('../database/models');
+
+//***** Getting Experience model from DB *****/
+const Experience = DB.Experience;
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
@@ -20,6 +24,11 @@ const mainController ={
     },
 //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
+        // Experience.findAll()
+        // .then(experiences => {
+        //     console.log(experiences);
+        //     res.render('experienceCatalog', {experiences: experiences });
+        // });
         let experiencesOfCatalog = [];
 
         for(let i=0; i<9; i++){

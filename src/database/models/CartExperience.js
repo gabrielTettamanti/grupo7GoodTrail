@@ -31,21 +31,22 @@ module.exports = (sequelize, DataTypes) => {
 
     let config = {
         timestamps: false,
+        underscore: true
     }
 
     const CartExperience = sequelize.define(alias, cols, config); 
 
     CartExperience.associate = models => {
+        
+        CartExperience.belongsTo(models.User, 
+           {
+            foreignKey: "user_id"
+           });
 
-    CartExperience.belongsTo(models.User, 
-       {
-        foreignKey: "user_id"
-       });
-       
-    CartExperience.belongsTo(models.Experience, 
-       {
-        foreignKey: "experience_id"
-       });
+        CartExperience.belongsTo(models.Experience, 
+           {
+            foreignKey: "experience_id"
+           });
     
     }
 
