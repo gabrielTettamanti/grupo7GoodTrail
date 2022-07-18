@@ -1,5 +1,5 @@
 <a href="/product/productDescription/<%= experience.id %> " class="experience-card">
-    <img src="/img/cardImages/<%= experience.image %> " alt="">
+    <img src="/img/cardImages/<%= experience.images[0].url %> " alt="">
     <div class="rating-container">
         <% for( let index = 0; index < experience.rating; index++ ) { %>
             <i class="fa-solid fa-star"></i>
