@@ -1,14 +1,9 @@
 //******* Require´s ******* 
-const path = require('path');
-const fs = require('fs');
 const DB = require('../database/models');
+const Op = DB.Sequelize.Op;
 
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
-
-//******* Getting experience JSON file *******
-const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
-const experiences = JSON.parse(fs.readFileSync(experiencesFilePath));
 
 //******* Controller *******
 const mainController ={
@@ -17,7 +12,7 @@ const mainController ={
         Experience.findAll({
             limit: 4,
             include: [
-                {association: 'images'}
+                { association: 'images' }
             ]
         })
         .then(experiences => {
@@ -31,7 +26,7 @@ const mainController ={
     experienceCatalog:(req, res) => {
         Experience.findAll({
             include: [
-                {association: 'images'}
+                { association: 'images' }
             ]
         })
         .then(experiences => {
@@ -45,15 +40,19 @@ const mainController ={
 //******* Search functionallity *******
     search: (req,res) => {
         const searched = req.query.search;
-        const searchExperiences = [];
-
-        experiences.forEach(experience => {
-            if(experience.name.includes(searched) || experience.name.toLowerCase().includes(searched)){
-                searchExperiences.push(experience);
-            }
+        Experience.findAll({
+            where: {
+                name: { [Op.like]: `%${searched}%`}
+            },
+            include: [
+                { association: 'images' }
+            ]
         })
-
-        res.render('experienceCatalog', {experiences: searchExperiences });
+        .then(experiences => {
+            console.log(experiences);
+            res.render('experienceCatalog', {experiences: experiences }); 
+        })
+        .catch(error => console.log(error));
     },
 //******* Rendering not found *******
     notFound: (req, res) => {

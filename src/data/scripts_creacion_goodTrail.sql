@@ -4,7 +4,7 @@ USE goodTrail_db;
 
 -- -----------------------------------------------------
 -- Table `goodTrail_db`.`user`
--- -----------------------------------------------------
+-- ---------cart_experience--------------------------------------------
 DROP TABLE IF EXISTS `user`; 
 CREATE TABLE `user` (
 	`id` int(10) unsigned NOT NULL,
