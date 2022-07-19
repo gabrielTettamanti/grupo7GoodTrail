@@ -50,52 +50,36 @@ listProductsToEdit: (req, res) => {
 //******* Rendering editor view *******
     editor: (req, res) => {
         const experienceToEdit = req.params.id;
-        Image.destroy({
-            where: {
-                experience_id: experienceToEdit
-            }
+        Experience.findByPk(experienceToEdit)
+        .then(experience => {
+            res.render('editor', {experienceEdit: experience });
         })
-        .then(result => {
-            Experience.findByPk(experienceToEdit)
-            .then(experience => {
-                res.render('editor', {experienceEdit: experience });
-            })
-        })
-        // let experienceEdit = experiences.find(experience => experience.id == req.params.id);
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            let id = req.params.id;
-		    let editedExperiences = experiences.find(experience => experience.id == id);
+            const experienceId = req.params.id; 
             if(req.files[0] != undefined){
                 image = req.files[0].filename;  
 		    }else{
 			    image = editedExperiences.image;
 		    }
-            const newEditedExperiences = {
-			    id: editedExperiences.id,
+
+            Experience.update({
                 ...req.body,
                 price: parseInt(req.body.price),
                 duration: parseInt(req.body.duration),
-                peopleQuantity: parseInt(req.body.peopleQuantity), 
-                owner: editedExperiences.owner,
-                image: image,
-                rating: editedExperiences.rating,
-                map: editedExperiences.map,
-                offer: editedExperiences.offer,
-		    }
-        
-            let newExperience = experiences.map(experience => {
-                if (experience.id == newEditedExperiences.id){
-                    return experience = {...newEditedExperiences}
-			    }
-                return experience
-		    })
-            fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
-     
-		    res.redirect ('/product/productDescription/' + editedExperiences.id);
+                people_quantity: parseInt(req.body.peopleQuantity)  
+                }, {
+                where: {
+                    id: experienceId
+                }
+            })
+            .then(experience => {
+                res.redirect (`/product/productDescription/${experience.id}`);
+            });
+    
         } else {
             let experienceId = req.params.id;
             let experienceUpdating = experiences.find(experience => experience.id == experienceId);
@@ -107,24 +91,22 @@ listProductsToEdit: (req, res) => {
 //******* Experience Destroy *******
     destroy: (req, res) => {
         let idToDestroy = req.params.id;
-
-        Experience.destroy({
+        Image.destroy({
             where: {
-                id: idToDestroy
+                experience_id: experienceToEdit
             }
         })
         .then(result => {
-            res.redirect('/');    
+            Experience.destroy({
+                where: {
+                    id: idToDestroy
+                }
+            })
+            .then(result => {
+                res.redirect('/');    
+            })
         })
         .catch(error => console.log(error));
-
-        // const idToHunt = experiences.find(experience => experience.id == idToDestroy)
-        // const indice = experiences.indexOf(idToHunt)
-        // experiences.splice(indice, 1)
-
-        // fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
-
-        // res.redirect('/');
     },
 //******* Rendering experience creation view *******
     creacion: (req, res) => {
