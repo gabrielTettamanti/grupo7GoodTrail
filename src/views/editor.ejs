@@ -54,7 +54,7 @@
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="location" value="<%= experienceEdit.ubication %>"> 
+                            <input type="search" name="location" value="<%= experienceEdit.location %>"> 
                             <% if (locals.errors && errors.ubication) { %>
                                 <p class="text-danger">
                                     <%= errors.ubication.msg %> 
@@ -65,7 +65,7 @@
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people_quantity" value=<%= experienceEdit.peopleQuantity %>> 
+                        <input type="number" name="people_quantity" value=<%= experienceEdit.people_quantity %>> 
                         <% if (locals.errors && errors.peopleQuantity) { %>
                             <p class="text-danger">
                                 <%= errors.peopleQuantity.msg %> 
@@ -85,9 +85,9 @@
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
                                 <select name="duration_type">
-                                    <option value="dia">día</option>
-                                    <option value="mes">mes</option>
-                                    <option value="año">año</option>
+                                    <option value="hour">Horas</option>
+                                    <option value="day">Día</option>
+                                    <option value="month">Mes</option>
                                 </select> 
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input type="text" name="map_direction">
+                    <input type="text" name="map_direction" value=<%= experienceEdit.map_direction %>>
                 </div>
                 <div class="buttomTrash">
                     <button type="submit" class="edition-button">Editar</button>

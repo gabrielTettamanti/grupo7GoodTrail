@@ -1,6 +1,4 @@
 //******* Require´s ******* 
-const path = require('path');
-const fs = require('fs');
 const { validationResult } = require('express-validator');
 const DB = require('../database/models');
 
@@ -13,10 +11,8 @@ const User = DB.User;
 //***** Getting Image model from DB *****/
 const Image = DB.Image;
 
-//******* Getting experience JSON file *******
-const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
-const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
-
+//***** Getting Offer model from DB *****/
+const Offer = DB.Offer;
 
 //******* Controller *******
 const productController={
@@ -37,14 +33,12 @@ const productController={
 
 //******* Rendering provisional editor view *******   
 listProductsToEdit: (req, res) => {
-
-        const userExperiences = [];
-
-        for(let i=0; i<9; i++){
-            userExperiences.push(experiences[i]);
-        }
-        const user = req.session.user;
-        res.render('listProductsToEdit', {user, experiences: userExperiences});
+    const user = req.session.user;
+    Experience.findAll()
+    .then(experiences => {
+        res.render('listProductsToEdit', { experiences: experiences});
+    })
+    .catch(error => console.log(error));
     }, 
 
 //******* Rendering editor view *******
@@ -57,33 +51,42 @@ listProductsToEdit: (req, res) => {
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
+        const experienceId = req.params.id; 
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            const experienceId = req.params.id; 
-            if(req.files[0] != undefined){
-                image = req.files[0].filename;  
-		    }else{
-			    image = editedExperiences.image;
-		    }
+            // if(req.files[0] != undefined){
+            //     image = req.files[0].filename;  
+		    // }else{
+			//     image = editedExperiences.image;
+		    // }
 
             Experience.update({
-                ...req.body,
+                name: req.body.name,
+                description: req.body.description,
+                category: req.body.category,
+                location: req.body.location,
+                duration: req.body.duration,
+                duration_type: req.body.duration_type,
+                currency: req.body.currency,
                 price: parseInt(req.body.price),
                 duration: parseInt(req.body.duration),
-                people_quantity: parseInt(req.body.peopleQuantity)  
+                people_quantity: parseInt(req.body.people_quantity),
+                map_direction: req.body.map_direction  
                 }, {
                 where: {
                     id: experienceId
                 }
             })
             .then(experience => {
-                res.redirect (`/product/productDescription/${experience.id}`);
+                res.redirect (`/product/productDescription/${experienceId}`);
             });
     
         } else {
-            let experienceId = req.params.id;
-            let experienceUpdating = experiences.find(experience => experience.id == experienceId);
-            res.render('editor', { errors: errors.mapped(), experienceEdit: experienceUpdating });
+            Experience.findByPk(experienceId)
+            .then(experience => {
+                res.render('editor', { errors: errors.mapped(), experienceEdit: experience });
+            })
+            .catch(error => console.log(error));
         }
         
 	},
@@ -109,12 +112,8 @@ listProductsToEdit: (req, res) => {
         .catch(error => console.log(error));
     },
 //******* Rendering experience creation view *******
-    creacion: (req, res) => {
-
-        //******* Getting user Logged *******
-        const userLogged = req.session.user;
-
-        res.render('creacion', { user: userLogged });
+    creacion: (req, res) => { 
+        res.render('creacion');
     },
 //******* Experience creation functionallity *******
     store: (req,res) => {
@@ -144,12 +143,20 @@ listProductsToEdit: (req, res) => {
                 }
                 Experience.create(newExperience)
                 .then(experience => {
-                    Image.create({
+                    let imageCreation = Image.create({
                         url: image,
                         experience_id: experience.id
-                    })
-                    .then(image => {
-                        console.log(image);
+                    });
+                    let offerCreation = Offer.create({
+                        status: 0,
+                        discount: null,
+                        time: null,
+                        experience_id: experience.id
+                    });                    
+
+                    Promise.all([ imageCreation, offerCreation ])
+                    .then(([imageResult, offerResult]) => {
+                        console.log(imageResult, offerResult);
                         res.redirect('/');
                     })
                 })

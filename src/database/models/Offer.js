@@ -14,12 +14,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         discount: {
-            type: DataTypes.DECIMAL(3,1),
-            allowNull: false
+            type: DataTypes.DECIMAL(3,1)
         },
         time: {
-            type: DataTypes.DATE,
-            allowNull: false
+            type: DataTypes.DATE
         },
         experience_id: {
             type: DataTypes.INTEGER,
