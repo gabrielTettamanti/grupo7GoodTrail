@@ -50,18 +50,10 @@ listProductsToEdit: (req, res) => {
 //******* Rendering editor view *******
     editor: (req, res) => {
         const experienceToEdit = req.params.id;
-        Image.destroy({
-            where: {
-                experience_id: experienceToEdit
-            }
+        Experience.findByPk(experienceToEdit)
+        .then(experience => {
+            res.render('editor', {experienceEdit: experience });
         })
-        .then(result => {
-            Experience.findByPk(experienceToEdit)
-            .then(experience => {
-                res.render('editor', {experienceEdit: experience });
-            })
-        })
-        // let experienceEdit = experiences.find(experience => experience.id == req.params.id);
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
