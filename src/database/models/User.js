@@ -1,39 +1,39 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    let alias = 'User';
+    const alias = 'User';
 
-    let cols = {
+    const cols = {
         id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
+            type: DataTypes.INTEGER,
+            allowNull: false,
             autoIncrement: true,
-            allowNull: false
+            primaryKey: true
         },
         first_name: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         last_name: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         password: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         image: {
-            type: dataTypes.STRING(50),
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         bio: {
-            type: dataTypes.STRING(500),
+            type: DataTypes.STRING(500),
         },
     };
-    let config = {
+    const config = {
         tableName: 'user',
         timestamps: false
     }

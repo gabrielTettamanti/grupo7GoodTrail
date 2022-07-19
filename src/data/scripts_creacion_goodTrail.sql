@@ -7,7 +7,7 @@ USE goodTrail_db;
 -- ---------cart_experience--------------------------------------------
 DROP TABLE IF EXISTS `user`; 
 CREATE TABLE `user` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `first_name` VARCHAR(50) NOT NULL,
     `last_name` VARCHAR(50) NOT NULL,
     `email` VARCHAR(50) NOT NULL, 
@@ -55,7 +55,7 @@ CREATE TABLE `experience_image` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `offer`; 
 CREATE TABLE `offer` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `status` tinyint unsigned NOT NULL,
     `discount` DECIMAL(3,1) NOT NULL,
     `time` date NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `offer` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `favourite_experience`;
 CREATE TABLE `favourite_experience` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `user_id` int(10) unsigned NOT NULL,
     `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
@@ -82,7 +82,7 @@ CREATE TABLE `favourite_experience` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cart_experience`;
 CREATE TABLE `cart_experience` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `user_id` int(10) unsigned NOT NULL,
     `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
@@ -95,7 +95,7 @@ CREATE TABLE `cart_experience` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `rating`;
 CREATE TABLE `rating` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `rating` DECIMAL(2,1) unsigned NOT NULL,
     `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
@@ -107,7 +107,7 @@ CREATE TABLE `rating` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user_rating`;
 CREATE TABLE `user_rating` (
-	`id` int(10) unsigned NOT NULL,
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `vote` int unsigned NOT NULL,
     `date` datetime NOT NULL,
     `rating_id` int(10) unsigned NOT NULL,

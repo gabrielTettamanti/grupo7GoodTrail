@@ -51,20 +51,38 @@ const userController = {
             }else{
                 image = 'profile-default.jpg';
             }
+
+            // console.log(req.body)
             const names = req.body.userName.split(' '); 
-            const newUser = {
-                id: users[users.length - 1].id + 1,
+
+            User.create({
+        
                 first_name: names[0], 
                 last_name: names[names.length - 1],
                 email: req.body.userEmail,
                 password: bcrypt.hashSync(req.body.userPassword, 10),
-                category: 'user',
                 image: image
-            }
-            users.push(newUser);
+        
+            }).then(()=> {
+        
+                res.redirect('/user/login');
+        
+            }) 
+
+            // const names = req.body.userName.split(' '); 
+            // const newUser = {
+            //     id: users[users.length - 1].id + 1,
+            //     first_name: names[0], 
+            //     last_name: names[names.length - 1],
+            //     email: req.body.userEmail,
+            //     password: bcrypt.hashSync(req.body.userPassword, 10),
+            //     category: 'user',
+            //     image: image
+            // }
+            // users.push(newUser);
     
-            fs.writeFileSync(usersFilePath, JSON.stringify(users));
-            res.redirect('/user/login');
+            // fs.writeFileSync(usersFilePath, JSON.stringify(users));
+            // res.redirect('/user/login');
         
             }
             else{
