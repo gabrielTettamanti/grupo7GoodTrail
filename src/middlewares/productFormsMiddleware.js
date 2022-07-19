@@ -6,8 +6,8 @@ const validateForm = [
         .isLength({ min: 4 }).withMessage('El nombre de la experiencia debe contener más de 3 caracteres'),
     body('description').notEmpty().withMessage('La experiencia debe tener una descripción').bail()
         .isLength({ min: 10 }).withMessage('La descripción de la experiencia debe tener más de 9 caracteres'),
-    body('ubication').notEmpty().withMessage('La experiencia debe tener un destino').bail(),
-    body('peopleQuantity').notEmpty().withMessage('La experiencia debe tener la cantidad de personas').bail()
+    body('location').notEmpty().withMessage('La experiencia debe tener un destino').bail(),
+    body('people_quantity').notEmpty().withMessage('La experiencia debe tener la cantidad de personas').bail()
         .isInt().withMessage('La cantidad de personas debe ser un número'),
     body('duration').notEmpty().withMessage('La experiencia debe tener una duración'),
     body('price').notEmpty().withMessage('La experiencia debe tener un precio')

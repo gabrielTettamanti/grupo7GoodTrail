@@ -7,6 +7,12 @@ const DB = require('../database/models');
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+//***** Getting User model from DB *****/
+const User = DB.User;
+
+//***** Getting Image model from DB *****/
+const Image = DB.Image;
+
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
@@ -111,6 +117,7 @@ listProductsToEdit: (req, res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
             let image;
+            const userEmail = req.session.user.email; 
 
             if(req.file != undefined){
                 image = req.file.filename;
@@ -118,20 +125,32 @@ listProductsToEdit: (req, res) => {
                 image = 'default.jpg';
             }
 
-            const newExperience = {
-                id: experiences[experiences.length - 1].id + 1,
-                ...req.body,
-                price: parseInt(req.body.price),
-                duration: parseInt(req.body.duration),
-                peopleQuantity: parseInt(req.body.peopleQuantity),
-                image: image
-            }
-
-            experiences.push(newExperience);
-
-            fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
-
-            res.redirect('/');
+            User.findOne({
+                where: {
+                    email: userEmail
+                }
+            })
+            .then(userFinded => {
+                const newExperience = {
+                    ...req.body,
+                    price: parseInt(req.body.price),
+                    duration: parseInt(req.body.duration),
+                    people_quantity: parseInt(req.body.people_quantity),
+                    user_id: userFinded.id
+                }
+                Experience.create(newExperience)
+                .then(experience => {
+                    Image.create({
+                        url: image,
+                        experience_id: experience.id
+                    })
+                    .then(image => {
+                        console.log(image);
+                        res.redirect('/');
+                    })
+                })
+            });
+            
         }else {
             res.render('creacion', { errors: errors.mapped(), old: req.body });
         }

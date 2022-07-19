@@ -55,7 +55,7 @@
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="ubication"> 
+                            <input type="search" name="location"> 
                             <% if (locals.errors && errors.ubication) { %>
                                 <p class="text-danger">
                                     <%= errors.ubication.msg %>
@@ -66,7 +66,7 @@
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="peopleQuantity"> 
+                        <input type="number" name="people_quantity"> 
                         <% if (locals.errors && errors.peopleQuantity) { %>
                             <p class="text-danger">
                                 <%= errors.peopleQuantity.msg %>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
-                                <select name="durationType">
+                                <select name="duration_type">
                                     <option value="hour">Horas</option>
                                     <option value="day">Día</option>
                                     <option value="month">Mes</option>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input type="text" name="map">
+                    <input type="text" name="map_direction">
                 </div>
                 <div class="buttomTrash">
                     <button class="edition-button" type="submit">Crear</button>
