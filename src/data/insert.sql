@@ -15,3 +15,9 @@ Values (1, "Santiago Bernabeu", "Visita el icónico estadio de Madrid y viví un
 -- -----------------------------------------------------
 INSERT INTO experience_image (id, url, experience_id) 
 VALUES (1, 'bernabeuCatalog.jpg', 1), (2, 'gizaCatalog.png', 2), (3, 'romaCatalog.jpg', 3), (4, 'liverpool.jpg' , 4), (5, 'stampa.jpg' ,5), (6, 'temple.jpg' ,6), (7, 'hotelMadero.avif' ,7), (8, 'rabieta.jpg' ,8), (9, 'warriors.jpg',9);
+
+-- -----------------------------------------------------
+-- Offer insert
+-- -----------------------------------------------------
+INSERT INTO Offer (id, status, discount, limit_date, experience_id)
+VALUES (1, 0, null, null, 1),(2, 0, null, null, 2),(3, 0, null, null, 3),(4, 0, null, null, 4),(5, 0, null, null, 5),(6, 0, null, null, 6),(7, 0, null, null, 7),(8, 0, null, null, 8),(9, 0, null, null, 9);
