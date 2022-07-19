@@ -11,6 +11,9 @@ const User = DB.User;
 //***** Getting Image model from DB *****/
 const Image = DB.Image;
 
+//***** Getting Offer model from DB *****/
+const Offer = DB.Offer;
+
 //******* Controller *******
 const productController={
 //******* Rendering Experience detail *******
@@ -140,12 +143,20 @@ listProductsToEdit: (req, res) => {
                 }
                 Experience.create(newExperience)
                 .then(experience => {
-                    Image.create({
+                    let imageCreation = Image.create({
                         url: image,
                         experience_id: experience.id
-                    })
-                    .then(image => {
-                        console.log(image);
+                    });
+                    let offerCreation = Offer.create({
+                        status: 0,
+                        discount: null,
+                        time: null,
+                        experience_id: experience.id
+                    });                    
+
+                    Promise.all([ imageCreation, offerCreation ])
+                    .then(([imageResult, offerResult]) => {
+                        console.log(imageResult, offerResult);
                         res.redirect('/');
                     })
                 })

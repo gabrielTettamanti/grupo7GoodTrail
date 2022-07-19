@@ -57,8 +57,8 @@ DROP TABLE IF EXISTS `offer`;
 CREATE TABLE `offer` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `status` tinyint unsigned NOT NULL,
-    `discount` DECIMAL(3,1) NOT NULL,
-    `time` date NOT NULL,
+    `discount` DECIMAL(3,1),
+    `limit_date` date,
     `experience_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `offer_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
