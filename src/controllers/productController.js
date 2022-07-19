@@ -37,14 +37,14 @@ const productController={
 
 //******* Rendering provisional editor view *******   
 listProductsToEdit: (req, res) => {
-
-        const userExperiences = [];
-
-        for(let i=0; i<9; i++){
-            userExperiences.push(experiences[i]);
-        }
+    const user = req.session.user;
+    Experience.findAll()
+    .then(experiences => {
         const user = req.session.user;
-        res.render('listProductsToEdit', {user, experiences: userExperiences});
+        res.render('listProductsToEdit', {user, experiences: experiences});
+    })
+    .catch(error => console.log(error));
+
     }, 
 
 //******* Rendering editor view *******
