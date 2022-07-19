@@ -1,6 +1,4 @@
 //******* Require´s ******* 
-const path = require('path');
-const fs = require('fs');
 const { validationResult } = require('express-validator');
 const DB = require('../database/models');
 
@@ -12,11 +10,6 @@ const User = DB.User;
 
 //***** Getting Image model from DB *****/
 const Image = DB.Image;
-
-//******* Getting experience JSON file *******
-const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
-const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: "utf-8"}));
-
 
 //******* Controller *******
 const productController={
@@ -40,11 +33,9 @@ listProductsToEdit: (req, res) => {
     const user = req.session.user;
     Experience.findAll()
     .then(experiences => {
-        const user = req.session.user;
-        res.render('listProductsToEdit', {user, experiences: experiences});
+        res.render('listProductsToEdit', { experiences: experiences});
     })
     .catch(error => console.log(error));
-
     }, 
 
 //******* Rendering editor view *******
@@ -57,10 +48,9 @@ listProductsToEdit: (req, res) => {
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
+        const experienceId = req.params.id; 
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            const experienceId = req.params.id; 
-
             // if(req.files[0] != undefined){
             //     image = req.files[0].filename;  
 		    // }else{
@@ -89,9 +79,11 @@ listProductsToEdit: (req, res) => {
             });
     
         } else {
-            let experienceId = req.params.id;
-            let experienceUpdating = experiences.find(experience => experience.id == experienceId);
-            res.render('editor', { errors: errors.mapped(), experienceEdit: experienceUpdating });
+            Experience.findByPk(experienceId)
+            .then(experience => {
+                res.render('editor', { errors: errors.mapped(), experienceEdit: experience });
+            })
+            .catch(error => console.log(error));
         }
         
 	},
@@ -117,12 +109,8 @@ listProductsToEdit: (req, res) => {
         .catch(error => console.log(error));
     },
 //******* Rendering experience creation view *******
-    creacion: (req, res) => {
-
-        //******* Getting user Logged *******
-        const userLogged = req.session.user;
-
-        res.render('creacion', { user: userLogged });
+    creacion: (req, res) => { 
+        res.render('creacion');
     },
 //******* Experience creation functionallity *******
     store: (req,res) => {

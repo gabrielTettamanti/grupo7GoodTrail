@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "chula#15Mc",
+    "password": null,
     "database": "goodTrail_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
