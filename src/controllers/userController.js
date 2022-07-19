@@ -5,6 +5,10 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require("express-validator");
 const PasswordRandomer = require('../services/passwordRandomer.service');
 const Mailer = require('../services/mailer.service');
+const DB = require('../database/models');
+
+//***** Getting User model from DB *****/
+const User = DB.User;
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
