@@ -49,8 +49,19 @@ listProductsToEdit: (req, res) => {
 
 //******* Rendering editor view *******
     editor: (req, res) => {
-        let experienceEdit = experiences.find(experience => experience.id == req.params.id);
-        res.render('editor', {experienceEdit: experienceEdit });
+        const experienceToEdit = req.params.id;
+        Image.destroy({
+            where: {
+                experience_id: experienceToEdit
+            }
+        })
+        .then(result => {
+            Experience.findByPk(experienceToEdit)
+            .then(experience => {
+                res.render('editor', {experienceEdit: experience });
+            })
+        })
+        // let experienceEdit = experiences.find(experience => experience.id == req.params.id);
     },
 //******* Update - Method to update *******
 	update: (req, res) => {
@@ -95,14 +106,25 @@ listProductsToEdit: (req, res) => {
 
 //******* Experience Destroy *******
     destroy: (req, res) => {
-        let idToDestroy = req.params.id
-        const idToHunt = experiences.find(experience => experience.id == idToDestroy)
-        const indice = experiences.indexOf(idToHunt)
-        experiences.splice(indice, 1)
+        let idToDestroy = req.params.id;
 
-        fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
+        Experience.destroy({
+            where: {
+                id: idToDestroy
+            }
+        })
+        .then(result => {
+            res.redirect('/');    
+        })
+        .catch(error => console.log(error));
 
-        res.redirect('/');
+        // const idToHunt = experiences.find(experience => experience.id == idToDestroy)
+        // const indice = experiences.indexOf(idToHunt)
+        // experiences.splice(indice, 1)
+
+        // fs.writeFileSync(experiencesFilePath, JSON.stringify(experiences));
+
+        // res.redirect('/');
     },
 //******* Rendering experience creation view *******
     creacion: (req, res) => {
