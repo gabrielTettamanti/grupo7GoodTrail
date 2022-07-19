@@ -2,7 +2,7 @@
 -- Users insert
 -- -----------------------------------------------------
 INSERT INTO `user`(id, first_name, last_name, email, `password`, image, bio)
-Values (1, "Ignacio", "Lopez", "ignaciolopestela12@gmail.com", "$2a$10$OPkwQVeeDzuxLythxBfNvur7DkwApqgVaBTTaxvFr4CkKMMtkw6z2", "1654440409516-avatar-test.jpeg", "Me dicen Nacho. Soy uno de los creadores de la página. Aguante Boca!"),(2, "Gabriel", "Tettamanti", "gabrieltettamanti.dev@gmail.com", "$2a$10$K03891dZx9vohC1biqhCP.OvFJ.nrn8bKkUtZQJIR4hmbwxFAZ2sO", "profile-default.jpg", ""), (3, "Julian", "Julian", "julian@gmail.com", "$2a$10$.mShdg4qCVmimsFBi.snoOribx0T0n772QYK6xGP8n7LowTBzNYGC", "1655250027506-938446.jpg", ""),(4, "lucre", "lucre", "lucrerios95@gmail.com", "$2a$10$gYl9kN7ckhF86h/6CVHhtODgSx8FGg2G2kkE0cOnAO4i6f8HTQpWG", "profile-default.jpg", "");
+Values (default, "Ignacio", "Lopez", "ignaciolopestela12@gmail.com", "$2a$10$OPkwQVeeDzuxLythxBfNvur7DkwApqgVaBTTaxvFr4CkKMMtkw6z2", "1654440409516-avatar-test.jpeg", "Me dicen Nacho. Soy uno de los creadores de la página. Aguante Boca!"),(default, "Gabriel", "Tettamanti", "gabrieltettamanti.dev@gmail.com", "$2a$10$K03891dZx9vohC1biqhCP.OvFJ.nrn8bKkUtZQJIR4hmbwxFAZ2sO", "profile-default.jpg", ""), (default, "Julian", "Julian", "julian@gmail.com", "$2a$10$.mShdg4qCVmimsFBi.snoOribx0T0n772QYK6xGP8n7LowTBzNYGC", "1655250027506-938446.jpg", ""),(default, "lucre", "lucre", "lucrerios95@gmail.com", "$2a$10$gYl9kN7ckhF86h/6CVHhtODgSx8FGg2G2kkE0cOnAO4i6f8HTQpWG", "profile-default.jpg", "");
 
 -- -----------------------------------------------------
 -- Experiences insert
