@@ -60,24 +60,32 @@ listProductsToEdit: (req, res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
             const experienceId = req.params.id; 
-            if(req.files[0] != undefined){
-                image = req.files[0].filename;  
-		    }else{
-			    image = editedExperiences.image;
-		    }
+
+            // if(req.files[0] != undefined){
+            //     image = req.files[0].filename;  
+		    // }else{
+			//     image = editedExperiences.image;
+		    // }
 
             Experience.update({
-                ...req.body,
+                name: req.body.name,
+                description: req.body.description,
+                category: req.body.category,
+                location: req.body.location,
+                duration: req.body.duration,
+                duration_type: req.body.duration_type,
+                currency: req.body.currency,
                 price: parseInt(req.body.price),
                 duration: parseInt(req.body.duration),
-                people_quantity: parseInt(req.body.peopleQuantity)  
+                people_quantity: parseInt(req.body.people_quantity),
+                map_direction: req.body.map_direction  
                 }, {
                 where: {
                     id: experienceId
                 }
             })
             .then(experience => {
-                res.redirect (`/product/productDescription/${experience.id}`);
+                res.redirect (`/product/productDescription/${experienceId}`);
             });
     
         } else {
