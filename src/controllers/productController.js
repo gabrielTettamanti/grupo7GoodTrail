@@ -59,35 +59,27 @@ listProductsToEdit: (req, res) => {
 	update: (req, res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            let id = req.params.id;
-		    let editedExperiences = experiences.find(experience => experience.id == id);
+            const experienceId = req.params.id; 
             if(req.files[0] != undefined){
                 image = req.files[0].filename;  
 		    }else{
 			    image = editedExperiences.image;
 		    }
-            const newEditedExperiences = {
-			    id: editedExperiences.id,
+
+            Experience.update({
                 ...req.body,
                 price: parseInt(req.body.price),
                 duration: parseInt(req.body.duration),
-                peopleQuantity: parseInt(req.body.peopleQuantity), 
-                owner: editedExperiences.owner,
-                image: image,
-                rating: editedExperiences.rating,
-                map: editedExperiences.map,
-                offer: editedExperiences.offer,
-		    }
-        
-            let newExperience = experiences.map(experience => {
-                if (experience.id == newEditedExperiences.id){
-                    return experience = {...newEditedExperiences}
-			    }
-                return experience
-		    })
-            fs.writeFileSync(experiencesFilePath, JSON.stringify(newExperience));
-     
-		    res.redirect ('/product/productDescription/' + editedExperiences.id);
+                people_quantity: parseInt(req.body.peopleQuantity)  
+                }, {
+                where: {
+                    id: experienceId
+                }
+            })
+            .then(experience => {
+                res.redirect (`/product/productDescription/${experience.id}`);
+            });
+    
         } else {
             let experienceId = req.params.id;
             let experienceUpdating = experiences.find(experience => experience.id == experienceId);
