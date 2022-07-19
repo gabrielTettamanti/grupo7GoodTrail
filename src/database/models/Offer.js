@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         discount: {
             type: DataTypes.DECIMAL(3,1)
         },
-        time: {
+        limit_date: {
             type: DataTypes.DATE
         },
         experience_id: {
@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const config = {
+        tableName: 'offer',
         timestamps: false
     }
 
