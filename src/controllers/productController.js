@@ -148,18 +148,25 @@ listProductsToEdit: (req, res) => {
                 image = 'default.jpg';
             }
 
-            User.findOne({
+            let findUser = User.findOne({
                 where: {
                     email: userEmail
                 }
-            })
-            .then(userFinded => {
+            });
+
+            let createRating = Rating.create({
+                rating: 0
+            });
+
+            Promise.all([findUser, createRating])
+            .then(([userFinded, ratingCreated]) => {
                 const newExperience = {
                     ...req.body,
                     price: parseInt(req.body.price),
                     duration: parseInt(req.body.duration),
                     people_quantity: parseInt(req.body.people_quantity),
-                    user_id: userFinded.id
+                    user_id: userFinded.id,
+                    rating_id: ratingCreated.dataValues.id
                 }
                 Experience.create(newExperience)
                 .then(experience => {
