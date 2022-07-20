@@ -21,6 +21,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+//***** Get Product filtered *****/
+productRouter.get('/filter', productController.filterExperiences);
+
 //******* Get Product Detail *******
 productRouter.get("/productDescription/:id", productController.productDescription);
 

@@ -178,7 +178,22 @@ listProductsToEdit: (req, res) => {
         }else {
             res.render('creacion', { errors: errors.mapped(), old: req.body });
         }
-        
+    },
+
+    filterExperiences: (req, res) => {
+        const query = req.query;
+        console.log('Query');
+        console.log(query);
+        Experience.findAll({
+            where: query,
+            include: [
+                {association: 'images'}
+            ]
+        })
+        .then(experiences => {
+            console.log(experiences);
+            res.render('experienceCatalog', { experiences });
+        })
     }
 }
 module.exports = productController

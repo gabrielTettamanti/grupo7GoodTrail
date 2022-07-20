@@ -11,43 +11,43 @@
 
     <main>
 
-    <form action="" class="filter-form">
+    <form action="/product/filter" class="filter-form" method="GET">
         <h2 class="filter-title">Filtrar</h2>
         <div class="filter-container superior-filter">
-            <h3>Categorías</h3>
+            <h3 class="title-form">Categorías</h3>
             <div class="option-container">
                 <div class="option">
                     <label class="label-container">
                         Viajes
-                        <input type="radio" value="category" name="category">
+                        <input type="radio" name="category" value="travel" class="radio-button">
                         <span class="radio-button"></span>
                     </label>
                 </div>
                 <div class="option">
                     <label class="label-container">
                         Hotelería
-                        <input type="radio" value="category" name="category">
+                        <input type="radio" name="category" value="hotel">
                         <span class="radio-button"></span>
                     </label>
                 </div>
                 <div class="option">
                     <label class="label-container">
                         Gourmet
-                        <input type="radio" value="category" name="category">
+                        <input type="radio" name="category" value="gourmet">
                         <span class="radio-button"></span>
                     </label>
                 </div>
                 <div class="option">
                     <label class="label-container">
                         Deportes
-                        <input type="radio" value="category" name="category">
+                        <input type="radio" name="category" value="sports">
                         <span class="radio-button"></span>
                     </label>
                 </div>
                 <div class="option">
                     <label class="label-container">
                         Cultura
-                        <input type="radio" value="category" name="category">
+                        <input type="radio" name="category" value="culture">
                         <span class="radio-button"></span>
                     </label>
                 </div>
@@ -59,14 +59,14 @@
                 <div class="option">
                     <label class="label-container">
                         1 Persona
-                        <input type="radio" value="quantity" name="quantity">
+                        <input type="radio" name="people_quantity" value="1">
                         <span class="radio-button"></span>
                     </label>
                 </div>
                 <div class="option">
                     <label class="label-container">
                         2 Personas
-                        <input type="radio" value="quantity" name="quantity">
+                        <input type="radio" name="people_quantity" value="2">
                         <span class="radio-button"></span>
                     </label>
                 </div>
@@ -146,6 +146,8 @@
     
     <!-- FOOTER -->
     <%- include('./partials/footer')%>
+    
+    <script type="text/javascript" src="/js/categoryForm.js"></script>
     
 </body>
 </html>
