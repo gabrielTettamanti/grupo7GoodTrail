@@ -1,9 +1,11 @@
 window.addEventListener('load', () => {
     
-    const button = document.querySelector('.radio-button');
+    const radioButtons = document.querySelectorAll('#radio-button');
 
-    // button.addEventListener('change', () => {
-    //     document.querySelector('form').submit();
-    // });
-
+    radioButtons.forEach(button => {
+        button.addEventListener('change', () => {
+            document.querySelector('.filter-form').submit();
+        }); 
+    });
+    
 });
