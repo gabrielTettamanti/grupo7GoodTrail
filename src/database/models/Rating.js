@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const config = {
+        tableName: 'rating',
         timestamps: false,
         underscore: true
     }

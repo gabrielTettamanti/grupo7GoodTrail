@@ -11,6 +11,9 @@ const User = DB.User;
 //***** Getting Image model from DB *****/
 const Image = DB.Image;
 
+//***** Getting Rating model from DB *****/
+const Rating = DB.Rating;
+
 //***** Getting Offer model from DB *****/
 const Offer = DB.Offer;
 
@@ -25,7 +28,11 @@ const productController={
             ]
         })
         .then(experience => {
-            res.render('productDescription', {experienceDetail: experience });
+            Rating.findByPk(experience.rating_id)
+            .then(rating => {
+                experience.rating = rating.rating;
+                res.render('productDescription', {experienceDetail: experience });
+            })
         })
         .catch(error => console.log(error));
     },
