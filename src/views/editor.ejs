@@ -114,16 +114,16 @@
                 <div class="coinPrice">
                     <div class="input-container">
                         <label for="">Oferta</label>
-                        <input type="number" min="0" max="100" step="1" />
+                        <input type="number" min="0" max="100" step="1" name="offer" />
                     </div>
                     <div class="input-container">
                         <label for="">Fecha limite</label>
-                        <input type="date">
+                        <input type="date" name="limit_date">
                     </div>
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input type="text" name="map_direction" value=<%= experienceEdit.map_direction %>>
+                    <input type="text" name="map_direction" value="<%= experienceEdit.map_direction %>">
                 </div>
                 <div class="buttomTrash">
                     <button type="submit" class="edition-button">Editar</button>

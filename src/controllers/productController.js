@@ -28,12 +28,10 @@ const productController={
             res.render('productDescription', {experienceDetail: experience });
         })
         .catch(error => console.log(error));
-        // let experienceDetail = experiences.find(experience => experience.id == req.params.id);
     },
 
 //******* Rendering provisional editor view *******   
 listProductsToEdit: (req, res) => {
-    const user = req.session.user;
     Experience.findAll()
     .then(experiences => {
         res.render('listProductsToEdit', { experiences: experiences});
@@ -78,7 +76,22 @@ listProductsToEdit: (req, res) => {
                 }
             })
             .then(experience => {
-                res.redirect (`/product/productDescription/${experienceId}`);
+                if(req.body.offer != '') {
+                    Offer.update({
+                        status: 1,
+                        discount: req.body.offer,
+                        limit_date: req.body.limit_date
+                    },{
+                        where: {
+                            experience_id: experienceId
+                        }
+                    })
+                    .then(result => {
+                        res.redirect (`/product/productDescription/${experienceId}`);
+                    })
+                } else {
+                    res.redirect (`/product/productDescription/${experienceId}`);
+                }
             });
     
         } else {
