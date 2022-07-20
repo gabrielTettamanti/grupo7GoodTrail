@@ -4,7 +4,7 @@ USE goodTrail_db;
 
 -- -----------------------------------------------------
 -- Table `goodTrail_db`.`user`
--- ---------cart_experience--------------------------------------------
+-- -----------------------------------------------------
 DROP TABLE IF EXISTS `user`; 
 CREATE TABLE `user` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
@@ -14,6 +14,17 @@ CREATE TABLE `user` (
     `password` VARCHAR(100) NOT NULL,
     `image` VARCHAR(50) NOT NULL,
     `bio` VARCHAR(500),
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Table `goodTrail_db`.`category`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS category; 
+CREATE TABLE category (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+    `category_name` VARCHAR(100) NOT NULL,
+    `style` VARCHAR(100),
     PRIMARY KEY(`id`)
 ) ENGINE=InnoDB;
 
@@ -34,7 +45,6 @@ CREATE TABLE experience (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `name` VARCHAR(100) NOT NULL,
     `description` VARCHAR(500) 	NOT NULL,
-    `category` VARCHAR(50) NOT NULL,
 	`location` VARCHAR(100) NOT NULL,
 	`people_quantity` int(10) unsigned NOT NULL,
     `duration` int unsigned NOT NULL,
@@ -44,9 +54,11 @@ CREATE TABLE experience (
     `map_direction` VARCHAR(100) NOT NULL,
     `user_id` int(10) unsigned NOT NULL,
     `rating_id` int(10) unsigned NOT NULL,
+    `category_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `experience_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`),
-    CONSTRAINT `experience_rating_foreign` FOREIGN KEY(`rating_id`) REFERENCES `rating` (`id`)
+    CONSTRAINT `experience_rating_foreign` FOREIGN KEY(`rating_id`) REFERENCES `rating` (`id`),
+    CONSTRAINT `experience_category_foreign` FOREIGN KEY(`category_id`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------

@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(500),
             allowNull: false
         },
-        category: {
-            type: DataTypes.STRING(50),
-            allowNull: false
-        },
         location: {
             type: DataTypes.STRING(100),
             allowNull: false
@@ -54,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }, 
         rating_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        category_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
