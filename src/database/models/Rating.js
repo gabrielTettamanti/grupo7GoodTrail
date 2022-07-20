@@ -12,10 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         rating: {
             type: DataTypes.DECIMAL(2,1),
             allowNull: false
-        },
-        experience_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
         }
     }
 
@@ -27,11 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     const Rating = sequelize.define(alias, cols, config);
 
     Rating.associate = models => {
-
-        Rating.belongsTo(models.Experience, {
-            as: 'experience',
-            foreignKey: 'experience_id'
-        });
 
         Rating.belongsToMany(models.User, {
             as: 'users',

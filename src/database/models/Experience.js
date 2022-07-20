@@ -52,6 +52,10 @@ module.exports = (sequelize, DataTypes) => {
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
+        }, 
+        rating_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     }
 
@@ -74,11 +78,6 @@ module.exports = (sequelize, DataTypes) => {
             as: 'owner',
             foreignKey: 'user_id'
         });
-
-        // Experience.belongsTo(models.Rating, {
-        //     as: 'rating',
-        //     foreignKey: 'experience_id'
-        // });
 
         // Experience.belongsToMany(models.User, {
         //     as: 'userCart',
