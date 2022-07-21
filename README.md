@@ -127,7 +127,7 @@ erDiagram
     }
     EXPERIENCE ||--}o IMAGE : has
     EXPERIENCE ||--o| OFFER : has
-    EXPERIENCE o{--|| CATEGORY : belongs to
+    EXPERIENCE o{--|| CATEGORY : "belongs to"
     EXPERIENCE {
         int id PK
         string name
