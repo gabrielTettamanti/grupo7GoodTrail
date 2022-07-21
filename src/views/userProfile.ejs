@@ -44,7 +44,7 @@
         <section class="experience-section">
             <% experiences.forEach(experience => { %>
                 <div class="experience-card">
-                    <img src="/img/cardImages/<%= experience.image %> " alt="">
+                    <img src="/img/cardImages/<%= experience.images[0].url %> " alt="">
                     <div class="experience-description">
                         <div class="experience-title"> 
                             <%= experience.name %>

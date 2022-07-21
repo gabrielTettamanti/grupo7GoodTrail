@@ -6,6 +6,7 @@ const { validationResult } = require("express-validator");
 const PasswordRandomer = require('../services/passwordRandomer.service');
 const Mailer = require('../services/mailer.service');
 const DB = require('../database/models');
+const { response } = require('express');
 
 //***** Getting User model from DB *****/
 const User = DB.User;
@@ -116,13 +117,22 @@ const userController = {
             res.render("login", {errors: errors.mapped(), old:req.body})
         }
     },    
-    
+
     userProfile: (req, res) => {
-        const userExperiences = [];
-        for(let i=0; i<9; i++){
-            userExperiences.push(experiences[i]);
-        }
-        res.render('userProfile', { experiences: userExperiences});
+        const owner = req.session.user.id
+
+        Experience.findAll({
+            where: {
+                user_id: owner
+            },
+            include: [
+                    {association: 'images'}
+                ]
+            
+        }).then((experiencesByOwner) => {
+            let userExperiences = experiencesByOwner
+            res.render('userProfile', { experiences: userExperiences});
+        })
     },
 
     logout: (req, res) => {
