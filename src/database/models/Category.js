@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const config = {
+        tableName: 'category',
         timestamps: false,
         underscore: true
     }

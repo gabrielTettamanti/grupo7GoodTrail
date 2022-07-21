@@ -48,9 +48,9 @@
                     <div class="input-container">
                             <label for="">Categoría</label>
                             <select name="category">
-                                <option value="aventure">Aventura</option>
-                                <option value="sports">Deportes</option>
-                                <option value="culture">Cultura</option>
+                                <% categories.forEach(category => { %>
+                                    <option value="<%= category.id %> "><%= category.category_name %></option>    
+                                <% }) %>
                             </select>
                     </div>
                     <div class="input-container">

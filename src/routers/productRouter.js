@@ -36,7 +36,7 @@ productRouter.put("/editor/:id", upload.any(), productFormMiddleware, productCon
 productRouter.delete("/delete/:id", authenticatorMiddleware, productController.destroy);
 
 //******* Product Creation *******
-productRouter.get("/creation", authenticatorMiddleware, productController.creacion);
+productRouter.get("/creation", authenticatorMiddleware, productController.creation);
 productRouter.post("/creation", upload.single('image') , productFormMiddleware,productController.store);
 
 module.exports = productRouter;

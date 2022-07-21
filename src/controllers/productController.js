@@ -17,6 +17,9 @@ const Rating = DB.Rating;
 //***** Getting Offer model from DB *****/
 const Offer = DB.Offer;
 
+//***** Getting Category model from DB *****/
+const Category = DB.Category;
+
 //******* Controller *******
 const productController={
 //******* Rendering Experience detail *******
@@ -132,8 +135,14 @@ listProductsToEdit: (req, res) => {
         .catch(error => console.log(error));
     },
 //******* Rendering experience creation view *******
-    creacion: (req, res) => { 
-        res.render('creacion');
+    creation: (req, res) => { 
+        Category.findAll()
+        .then(categories => {
+            console.log('Categorias');
+            console.log(categories);
+            res.render('creation', { categories });
+        })
+        .catch(error => console.log(error));
     },
 //******* Experience creation functionallity *******
     store: (req,res) => {
