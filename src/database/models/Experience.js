@@ -79,6 +79,11 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'user_id'
         });
 
+        Experience.belongsTo(models.Category, {
+            as: 'category',
+            foreignKey: 'category_id'
+        });
+
         // Experience.belongsToMany(models.User, {
         //     as: 'userCart',
         //     through: 'cart_experience',
