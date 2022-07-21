@@ -142,30 +142,54 @@ const userController = {
     },
 
     updateUser: (req, res) => {
-        console.log(req.body);
-        const userEmail = req.body.userEmail;
-        const userToEdit = users.find(user => user.email == userEmail );
-
+        const userId = req.session.user.id
         const userNames = req.body.userName.split(' ');
-
-        const userUpdated = {
-            ...userToEdit,
-            first_name: userNames[0],
-            last_name: userNames[userNames.length - 1],
-            bio: req.body.userBio
-        }
-
-        let usersUpdated = users.map(user => {
-            if(user.email == userUpdated.email) {
-                return user = {...userUpdated};
+        User.update({
+                first_name: userNames[0],
+                last_name: userNames[userNames.length - 1],
+                email: req.body.userEmail,
+                bio: req.body.userBio,
+                image: req.body.image
+        },{
+            where: {
+                id: userId
             }
-            return user;
+        }).then(() => {
+            User.findByPk(userId)
+                .then((userLoged) => {
+                    req.session.user = userLoged
+                    console.log(req.session.user)
+                }).then(() =>{
+                    res.redirect('/user/profile');
+                })
         })
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(usersUpdated));
-
-        res.redirect('/user/profile');
     },
+
+    // updateUser: (req, res) => {
+    //     console.log(req.body);
+    //     const userEmail = req.body.userEmail;
+    //     const userToEdit = users.find(user => user.email == userEmail );
+
+    //     const userNames = req.body.userName.split(' ');
+
+    //     const userUpdated = {
+    //         ...userToEdit,
+    //         first_name: userNames[0],
+    //         last_name: userNames[userNames.length - 1],
+    //         bio: req.body.userBio
+    //     }
+
+    //     let usersUpdated = users.map(user => {
+    //         if(user.email == userUpdated.email) {
+    //             return user = {...userUpdated};
+    //         }
+    //         return user;
+    //     })
+
+    //     fs.writeFileSync(usersFilePath, JSON.stringify(usersUpdated));
+
+    //     res.redirect('/user/profile');
+    // },
 
     passwordConfiguration: (req, res) => {
         res.render('changePassword');
