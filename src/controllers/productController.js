@@ -207,15 +207,19 @@ listProductsToEdit: (req, res) => {
         const query = req.query;
         console.log('Query');
         console.log(query);
-        Experience.findAll({
+
+        let getExperiences = Experience.findAll({
             where: query,
             include: [
                 {association: 'images'}
             ]
-        })
-        .then(experiences => {
-            console.log(experiences);
-            res.render('experienceCatalog', { experiences });
+        });
+
+        let getCategories = Category.findAll();
+
+        Promise.all([getExperiences, getCategories])
+        .then(([experiences, categories]) => {
+            res.render('experienceCatalog', { experiences, categories });
         })
     }
 }

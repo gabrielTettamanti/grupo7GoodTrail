@@ -5,6 +5,9 @@ const Op = DB.Sequelize.Op;
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+//***** Getting Experience model from DB *****/
+const Category = DB.Category;
+
 //******* Controller *******
 const mainController ={
 //******* Rendering home  *******
@@ -24,14 +27,18 @@ const mainController ={
     },
 //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
-        Experience.findAll({
+        let getExperiences = Experience.findAll({
             include: [
                 { association: 'images' }
             ]
-        })
-        .then(experiences => {
+        });
+
+        let getCategories = Category.findAll();
+
+        Promise.all([getExperiences, getCategories])
+        .then(([experiences, categories]) => {
             console.log(experiences);
-            res.render('experienceCatalog', {experiences: experiences });
+            res.render('experienceCatalog', {experiences, categories });
         })
         .catch(errors => {
             console.log(errors);
@@ -40,17 +47,21 @@ const mainController ={
 //******* Search functionallity *******
     search: (req,res) => {
         const searched = req.query.search;
-        Experience.findAll({
+        let getExperiences = Experience.findAll({
             where: {
                 name: { [Op.like]: `%${searched}%`}
             },
             include: [
                 { association: 'images' }
             ]
-        })
-        .then(experiences => {
+        });
+
+        let getCategories = Category.findAll();
+
+        Promise.all([getExperiences, getCategories])
+        .then(([experiences, categories]) => {
             console.log(experiences);
-            res.render('experienceCatalog', {experiences: experiences }); 
+            res.render('experienceCatalog', { experiences, categories }); 
         })
         .catch(error => console.log(error));
     },
