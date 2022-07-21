@@ -10,6 +10,9 @@ const DB = require('../database/models');
 //***** Getting User model from DB *****/
 const User = DB.User;
 
+//***** Getting Experience model from DB *****/
+const Experience = DB.Experience;
+
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: 'utf-8'}));
