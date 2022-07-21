@@ -127,6 +127,7 @@ erDiagram
     }
     EXPERIENCE ||--}o IMAGE : has
     EXPERIENCE ||--o| OFFER : has
+    EXPERIENCE o{--|| CATEGORY : belongs to
     EXPERIENCE {
         int id PK
         string name
@@ -140,6 +141,11 @@ erDiagram
         float price
         string map
         int owner FK
+    }
+    CATEGORY {
+        int id PK
+        string category_name
+        string style
     }
     IMAGE {
         int id PK
