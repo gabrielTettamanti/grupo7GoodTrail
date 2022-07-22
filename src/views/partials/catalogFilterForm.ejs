@@ -1,79 +1,83 @@
-<form action="/product/filter" class="filter-form" method="GET">
-    <h2 class="filter-title">Filtrar</h2>
-    <div class="filter-container superior-filter">
-        <h3 class="title-form">Categorías</h3>
-        <div class="option-container">
-            <% categories.forEach(category => { %>
+<section class="form-container">
+    <form action="/product/filter" class="filter-form" method="GET">
+        <h2 class="filter-title">Filtrar</h2>
+        <div class="filter-container superior-filter">
+            <h3 class="title-form">Categorías</h3>
+            <div class="option-container">
+                <% categories.forEach(category => { %>
+                    <div class="option">
+                        <label class="label-container">
+                            <%= category.category_name %> 
+                            <input type="radio" name="category_id" value="<%= category.id %> " id="radio-button">
+                            <span class="radio-button"></span>
+                        </label>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="filter-container superior-filter">
+            <h3>Nro de personas</h3>
+            <div class="option-container">
                 <div class="option">
                     <label class="label-container">
-                        <%= category.category_name %> 
-                        <input type="radio" name="category_id" value="<%= category.id %> " id="radio-button">
+                        1 Persona
+                        <input type="radio" name="people_quantity" value="1" id="radio-button">
                         <span class="radio-button"></span>
                     </label>
                 </div>
-            <% }) %>
-        </div>
-    </div>
-    <div class="filter-container superior-filter">
-        <h3>Nro de personas</h3>
-        <div class="option-container">
-            <div class="option">
-                <label class="label-container">
-                    1 Persona
-                    <input type="radio" name="people_quantity" value="1" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
-            </div>
-            <div class="option">
-                <label class="label-container">
-                    2 Personas
-                    <input type="radio" name="people_quantity" value="2" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
-            </div>
-            <div class="option">
-                <label class="label-container">
-                    Más de 2 Personas
-                    <input type="radio" name="people_quantity" value="gte2" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
+                <div class="option">
+                    <label class="label-container">
+                        2 Personas
+                        <input type="radio" name="people_quantity" value="2" id="radio-button">
+                        <span class="radio-button"></span>
+                    </label>
+                </div>
+                <div class="option">
+                    <label class="label-container">
+                        Más de 2 Personas
+                        <input type="radio" name="people_quantity" value="gte2" id="radio-button">
+                        <span class="radio-button"></span>
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="filter-container">
-        <h3>Destino</h3>
-        <div class="option-container">
-            <div class="option">
-                <label class="label-container">
-                    Buenos Aires
-                    <input type="radio" value="destination" name="destination" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
-            </div>
-            <div class="option">
-                <label class="label-container">
-                    Argentina
-                    <input type="radio" value="destination" name="destination" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
-            </div>
-            <div class="option">
-                <label class="label-container">
-                    Por el Mundo
-                    <input type="radio" value="destination" name="destination" id="radio-button">
-                    <span class="radio-button"></span>
-                </label>
+        <div class="filter-container">
+            <h3>Destino</h3>
+            <div class="option-container">
+                <div class="option">
+                    <label class="label-container">
+                        Buenos Aires
+                        <input type="radio" value="destination" name="destination" id="radio-button">
+                        <span class="radio-button"></span>
+                    </label>
+                </div>
+                <div class="option">
+                    <label class="label-container">
+                        Argentina
+                        <input type="radio" value="destination" name="destination" id="radio-button">
+                        <span class="radio-button"></span>
+                    </label>
+                </div>
+                <div class="option">
+                    <label class="label-container">
+                        Por el Mundo
+                        <input type="radio" value="destination" name="destination" id="radio-button">
+                        <span class="radio-button"></span>
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="filter-container price-container">
-        <h3>Precio</h3>
-        <div class="option-container field-container">
-            <input type="number" placeholder="Mínimo" class="option-field" min="0">
-            <input type="number" placeholder="Maximo" class="option-field" min="0">
+    </form>
+    <form action="" method="GET" class="filter-form price-form">
+        <div class="filter-container price-container">
+            <h3>Precio</h3>
+            <div class="option-container field-container">
+                <input type="number" placeholder="Mínimo" class="option-field" min="0" name="minPrice">
+                <input type="number" placeholder="Maximo" class="option-field" min="0" name="maxPrice">
+            </div>
         </div>
-    </div>
-    <div class="search-button-container">
-        <button class="search-button">Buscar</button>
-    </div>
-</form>
+        <div class="search-button-container">
+            <button class="search-button">Buscar</button>
+        </div>
+    </form>
+</section>
