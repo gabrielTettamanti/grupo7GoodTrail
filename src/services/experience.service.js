@@ -62,7 +62,7 @@ const ExperienceService = {
                 id: experienceId
             }
         });
-        
+
         return promiseToUpdate;
     },
 
@@ -74,6 +74,36 @@ const ExperienceService = {
             }
         });
         return promiseToDestroy;
+    },
+
+    getQueryPrice: (minPrice, maxPrice) => {
+        const query = {
+            [Op.and]: [
+                {price: {[Op.gte]: minPrice}},
+                {price: {[Op.lte]: maxPrice}}
+            ]
+        }
+        return query;
+    },
+
+    getfilterQuery: (queryParams) => {
+        let query;
+        if(queryParams.location != undefined) {
+            let locationWanted = queryParams.location;
+            query = {
+                location: { [Op.like]: `%${locationWanted}%` }
+            }
+        }
+        else if(queryParams.people_quantity == 'gte2'){
+            query = { 
+                people_quantity: {
+                    [Op.gt]: 2
+                }
+            } 
+        } else {
+            query = queryParams;
+        }
+        return query;
     }
 }
 

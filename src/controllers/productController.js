@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator');
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 
+//***** Getting Experience Service *****/
 const ExperienceService = require('../services/experience.service');
 
 //***** Getting User model from DB *****/
@@ -38,18 +39,18 @@ const productController={
         .catch(error => console.log(error));
     },
 
-//******* Rendering provisional editor view *******   
-listProductsToEdit: (req, res) => {
-    const getPromise = ExperienceService.getExperiences({});
+    //******* Rendering provisional editor view *******   
+    listProductsToEdit: (req, res) => {
+        const getPromise = ExperienceService.getExperiences({});
 
-    getPromise
-    .then(experiences => {
-        res.render('listProductsToEdit', { experiences: experiences});
-    })
-    .catch(error => console.log(error));
-    }, 
+        getPromise
+        .then(experiences => {
+            res.render('listProductsToEdit', { experiences: experiences});
+        })
+        .catch(error => console.log(error));
+        }, 
 
-//******* Rendering editor view *******
+    //******* Rendering editor view *******
     editor: (req, res) => {
         const experienceToEdit = req.params.id;
         ExperienceService.getExperienceById(experienceToEdit)
@@ -57,7 +58,7 @@ listProductsToEdit: (req, res) => {
             res.render('editor', {experienceEdit: experience });
         })
     },
-//******* Update - Method to update *******
+    //******* Update - Method to update *******
 	update: (req, res) => {
         const experienceId = req.params.id; 
         const errors = validationResult(req);
@@ -98,7 +99,7 @@ listProductsToEdit: (req, res) => {
         
 	},
 
-//******* Experience Destroy *******
+    //******* Experience Destroy *******
     destroy: (req, res) => {
         let idToDestroy = req.params.id;
         Image.destroy({
@@ -114,7 +115,7 @@ listProductsToEdit: (req, res) => {
         })
         .catch(error => console.log(error));
     },
-//******* Rendering experience creation view *******
+    //******* Rendering experience creation view *******
     creation: (req, res) => { 
         Category.findAll()
         .then(categories => {
@@ -124,7 +125,7 @@ listProductsToEdit: (req, res) => {
         })
         .catch(error => console.log(error));
     },
-//******* Experience creation functionallity *******
+    //******* Experience creation functionallity *******
     store: (req,res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
@@ -177,22 +178,8 @@ listProductsToEdit: (req, res) => {
 
     filterExperiences: (req, res) => {
         console.log(req.query.location);
-        let query;
-        if(req.query.location != undefined) {
-            let locationWanted = req.query.location;
-            query = {
-                location: { [Op.like]: `%${locationWanted}%` }
-            }
-        }
-        else if(req.query.people_quantity == 'gte2'){
-            query = { 
-                people_quantity: {
-                    [Op.gt]: 2
-                }
-            } 
-        } else {
-            query = req.query;
-        }
+
+        const query = ExperienceService.getfilterQuery(req.query);
 
         const getExperiences = ExperienceService.getExperiences(query);
         
@@ -209,12 +196,7 @@ listProductsToEdit: (req, res) => {
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
 
-        const query = {
-            [Op.and]: [
-                {price: {[Op.gte]: minPrice}},
-                {price: {[Op.lte]: maxPrice}}
-            ]
-        }
+        const query = ExperienceService.getQueryPrice(minPrice, maxPrice);
 
         let getExperiences = ExperienceService.getExperiences(query);
         let getCategories = Category.findAll();
