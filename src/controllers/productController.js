@@ -230,6 +230,10 @@ listProductsToEdit: (req, res) => {
         .then(([experiences, categories]) => {
             res.render('experienceCatalog', { experiences, categories });
         })
+    },
+
+    filterExperiencesByPrice: (req, res) => {
+        console.log(req.query);
     }
 }
 module.exports = productController

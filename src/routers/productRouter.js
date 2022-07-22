@@ -24,6 +24,8 @@ const upload = multer({ storage });
 //***** Get Product filtered *****/
 productRouter.get('/filter', productController.filterExperiences);
 
+productRouter.get('/filterPrice', productController.filterExperiencesByPrice);
+
 //******* Get Product Detail *******
 productRouter.get("/productDescription/:id", productController.productDescription);
 
