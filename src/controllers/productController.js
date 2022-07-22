@@ -230,10 +230,32 @@ listProductsToEdit: (req, res) => {
         .then(([experiences, categories]) => {
             res.render('experienceCatalog', { experiences, categories });
         })
+        .catch(error => console.log(error));
     },
 
     filterExperiencesByPrice: (req, res) => {
-        console.log(req.query);
+        const minPrice = req.query.minPrice;
+        const maxPrice = req.query.maxPrice;
+
+        let getCategories = Category.findAll();
+
+        let getExperiences = Experience.findAll({
+            where: {
+                [Op.and]: [
+                    {price: {[Op.gte]: minPrice}},
+                    {price: {[Op.lte]: maxPrice}}
+                ]
+            },
+            include: [
+                {association: 'images'}
+            ]
+        });
+
+        Promise.all([getExperiences, getCategories])
+        .then(([experiences, categories]) => {
+            res.render('experienceCatalog', { experiences, categories });
+        })
+        .catch(error => console.log(error));
     }
 }
 module.exports = productController
