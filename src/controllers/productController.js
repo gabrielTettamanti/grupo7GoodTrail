@@ -1,19 +1,14 @@
 //******* Require´s ******* 
 const { validationResult } = require('express-validator');
 const DB = require('../database/models');
-const Op = DB.Sequelize.Op;
 
-//***** Getting Experience Service *****/
+//***** Getting Services *****/
 const ExperienceService = require('../services/experience.service');
-
-//***** Getting User model from DB *****/
-const User = DB.User;
+const UserService = require('../services/user.service');
+const RatingService = require('../services/rating.service');
 
 //***** Getting Image model from DB *****/
 const Image = DB.Image;
-
-//***** Getting Rating model from DB *****/
-const Rating = DB.Rating;
 
 //***** Getting Offer model from DB *****/
 const Offer = DB.Offer;
@@ -30,7 +25,7 @@ const productController={
         
         searchPromise
         .then(experience => {
-            Rating.findByPk(experience.rating_id)
+            RatingService.getRatingById(experience.rating_id)
             .then(rating => {
                 experience.rating = rating.rating;
                 res.render('productDescription', {experienceDetail: experience });
@@ -138,15 +133,8 @@ const productController={
                 image = 'default.jpg';
             }
 
-            let findUser = User.findOne({
-                where: {
-                    email: userEmail
-                }
-            });
-
-            let createRating = Rating.create({
-                rating: 0
-            });
+            let findUser = UserService.getUserByEmail(userEmail);
+            let createRating = RatingService.createRating(0);
 
             Promise.all([findUser, createRating])
             .then(([userFinded, ratingCreated]) => {
