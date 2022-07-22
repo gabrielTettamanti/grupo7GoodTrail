@@ -90,8 +90,24 @@ const ExperienceService = {
         let query;
         if(queryParams.location != undefined) {
             let locationWanted = queryParams.location;
-            query = {
-                location: { [Op.like]: `%${locationWanted}%` }
+            if(locationWanted == 'Buenos Aires'){
+                query = {
+                    location: { [Op.like]: `%${locationWanted}%` }
+                }
+            } else if(locationWanted == 'Argentina'){
+                query = {
+                    [Op.or]: [
+                        { location: { [Op.like]: `%${locationWanted}%` }},
+                        { location: { [Op.like]: `%Buenos Aires%` }}
+                    ]
+                }
+            } else {
+                query = {
+                    [Op.and]: [
+                        { location: { [Op.notLike]: `%Argentina%` }},
+                        { location: { [Op.notLike]: `%Buenos Aires%` }}
+                    ]
+                }
             }
         }
         else if(queryParams.people_quantity == 'gte2'){
