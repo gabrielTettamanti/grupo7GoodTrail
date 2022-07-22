@@ -6,9 +6,7 @@ const DB = require('../database/models');
 const ExperienceService = require('../services/experience.service');
 const UserService = require('../services/user.service');
 const RatingService = require('../services/rating.service');
-
-//***** Getting Image model from DB *****/
-const Image = DB.Image;
+const ImageService = require('../services/experienceImage.service');
 
 //***** Getting Offer model from DB *****/
 const Offer = DB.Offer;
@@ -97,11 +95,7 @@ const productController={
     //******* Experience Destroy *******
     destroy: (req, res) => {
         let idToDestroy = req.params.id;
-        Image.destroy({
-            where: {
-                experience_id: idToDestroy
-            }
-        })
+        ImageService.destroyImage(idToDestroy)
         .then(result => {
             ExperienceService.destroyExperience(idToDestroy)
             .then(result => {
@@ -140,10 +134,7 @@ const productController={
             .then(([userFinded, ratingCreated]) => {
                 ExperienceService.createExperience(req.body, userFinded.id, ratingCreated.id)
                 .then(experience => {
-                    let imageCreation = Image.create({
-                        url: image,
-                        experience_id: experience.id
-                    });
+                    let imageCreation = ImageService.createImage(image, experience.id);
                     let offerCreation = Offer.create({
                         status: 0,
                         discount: null,
