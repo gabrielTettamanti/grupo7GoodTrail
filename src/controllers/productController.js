@@ -3,8 +3,7 @@ const { validationResult } = require('express-validator');
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 
-//***** Getting Experience model from DB *****/
-const Experience = DB.Experience;
+const ExperienceService = require('../services/experience.service');
 
 //***** Getting User model from DB *****/
 const User = DB.User;
@@ -26,11 +25,9 @@ const productController={
 //******* Rendering Experience detail *******
     productDescription: (req, res) => {
         const experience_id = req.params.id;
-        Experience.findByPk(experience_id, {
-            include: [
-                {association: 'images'}
-            ]
-        })
+        const searchPromise = ExperienceService.getExperienceById(experience_id);
+        
+        searchPromise
         .then(experience => {
             Rating.findByPk(experience.rating_id)
             .then(rating => {
@@ -43,7 +40,9 @@ const productController={
 
 //******* Rendering provisional editor view *******   
 listProductsToEdit: (req, res) => {
-    Experience.findAll()
+    const getPromise = ExperienceService.getExperiences({});
+
+    getPromise
     .then(experiences => {
         res.render('listProductsToEdit', { experiences: experiences});
     })
@@ -53,7 +52,7 @@ listProductsToEdit: (req, res) => {
 //******* Rendering editor view *******
     editor: (req, res) => {
         const experienceToEdit = req.params.id;
-        Experience.findByPk(experienceToEdit)
+        ExperienceService.getExperienceById(experienceToEdit)
         .then(experience => {
             res.render('editor', {experienceEdit: experience });
         })
@@ -69,23 +68,7 @@ listProductsToEdit: (req, res) => {
 			//     image = editedExperiences.image;
 		    // }
 
-            Experience.update({
-                name: req.body.name,
-                description: req.body.description,
-                category: req.body.category,
-                location: req.body.location,
-                duration: req.body.duration,
-                duration_type: req.body.duration_type,
-                currency: req.body.currency,
-                price: parseInt(req.body.price),
-                duration: parseInt(req.body.duration),
-                people_quantity: parseInt(req.body.people_quantity),
-                map_direction: req.body.map_direction  
-                }, {
-                where: {
-                    id: experienceId
-                }
-            })
+            ExperienceService.updateExperience(experienceId, req.body)
             .then(experience => {
                 if(req.body.offer != '') {
                     Offer.update({
@@ -106,7 +89,7 @@ listProductsToEdit: (req, res) => {
             });
     
         } else {
-            Experience.findByPk(experienceId)
+            ExperienceService.getExperienceById(experienceId)
             .then(experience => {
                 res.render('editor', { errors: errors.mapped(), experienceEdit: experience });
             })
@@ -120,15 +103,11 @@ listProductsToEdit: (req, res) => {
         let idToDestroy = req.params.id;
         Image.destroy({
             where: {
-                experience_id: experienceToEdit
+                experience_id: idToDestroy
             }
         })
         .then(result => {
-            Experience.destroy({
-                where: {
-                    id: idToDestroy
-                }
-            })
+            ExperienceService.destroyExperience(idToDestroy)
             .then(result => {
                 res.redirect('/');    
             })
@@ -170,15 +149,7 @@ listProductsToEdit: (req, res) => {
 
             Promise.all([findUser, createRating])
             .then(([userFinded, ratingCreated]) => {
-                const newExperience = {
-                    ...req.body,
-                    price: parseInt(req.body.price),
-                    duration: parseInt(req.body.duration),
-                    people_quantity: parseInt(req.body.people_quantity),
-                    user_id: userFinded.id,
-                    rating_id: ratingCreated.dataValues.id
-                }
-                Experience.create(newExperience)
+                ExperienceService.createExperience(req.body, userFinded.id, ratingCreated.id)
                 .then(experience => {
                     let imageCreation = Image.create({
                         url: image,
@@ -205,9 +176,15 @@ listProductsToEdit: (req, res) => {
     },
 
     filterExperiences: (req, res) => {
-        console.log(req.query.people_quantity);
+        console.log(req.query.location);
         let query;
-        if(req.query.people_quantity == 'gte2'){
+        if(req.query.location != undefined) {
+            let locationWanted = req.query.location;
+            query = {
+                location: { [Op.like]: `%${locationWanted}%` }
+            }
+        }
+        else if(req.query.people_quantity == 'gte2'){
             query = { 
                 people_quantity: {
                     [Op.gt]: 2
@@ -217,13 +194,8 @@ listProductsToEdit: (req, res) => {
             query = req.query;
         }
 
-        let getExperiences = Experience.findAll({
-            where: query,
-            include: [
-                {association: 'images'}
-            ]
-        });
-
+        const getExperiences = ExperienceService.getExperiences(query);
+        
         let getCategories = Category.findAll();
 
         Promise.all([getExperiences, getCategories])
@@ -237,19 +209,15 @@ listProductsToEdit: (req, res) => {
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
 
-        let getCategories = Category.findAll();
-
-        let getExperiences = Experience.findAll({
-            where: {
-                [Op.and]: [
-                    {price: {[Op.gte]: minPrice}},
-                    {price: {[Op.lte]: maxPrice}}
-                ]
-            },
-            include: [
-                {association: 'images'}
+        const query = {
+            [Op.and]: [
+                {price: {[Op.gte]: minPrice}},
+                {price: {[Op.lte]: maxPrice}}
             ]
-        });
+        }
+
+        let getExperiences = ExperienceService.getExperiences(query);
+        let getCategories = Category.findAll();
 
         Promise.all([getExperiences, getCategories])
         .then(([experiences, categories]) => {
