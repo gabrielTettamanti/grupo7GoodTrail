@@ -1,6 +1,7 @@
 //******* Require´s ******* 
 const { validationResult } = require('express-validator');
 const DB = require('../database/models');
+const Op = DB.Sequelize.Op;
 
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
@@ -204,9 +205,17 @@ listProductsToEdit: (req, res) => {
     },
 
     filterExperiences: (req, res) => {
-        const query = req.query;
-        console.log('Query');
-        console.log(query);
+        console.log(req.query.people_quantity);
+        let query;
+        if(req.query.people_quantity == 'gte2'){
+            query = { 
+                people_quantity: {
+                    [Op.gt]: 2
+                }
+            } 
+        } else {
+            query = req.query;
+        }
 
         let getExperiences = Experience.findAll({
             where: query,
