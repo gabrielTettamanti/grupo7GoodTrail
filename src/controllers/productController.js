@@ -111,19 +111,16 @@ const productController={
                 image = 'default.jpg';
             }
 
-            let findUser = UserService.getUserByEmail(userEmail);
-            let createRating = RatingService.createRating(0);
-
-            Promise.all([findUser, createRating])
-            .then(([userFinded, ratingCreated]) => {
-                ExperienceService.createExperience(req.body, userFinded.id, ratingCreated.id)
+            UserService.getUserByEmail(userEmail)
+            .then(userFinded => {
+                ExperienceService.createExperience(req.body, userFinded.id)
                 .then(experience => {
                     let imageCreation = ImageService.createImage(image, experience.id);
                     let offerCreation = OfferService.createOffer(0, null, null, experience.id);
-                
-                    Promise.all([ imageCreation, offerCreation ])
-                    .then(([imageResult, offerResult]) => {
-                        console.log(imageResult, offerResult);
+                    let createRating = RatingService.createRating(0, experience.id);
+
+                    Promise.all([ imageCreation, offerCreation, createRating ])
+                    .then(([imageResult, offerResult, ratingResult]) => {
                         res.redirect('/');
                     })
                 })
