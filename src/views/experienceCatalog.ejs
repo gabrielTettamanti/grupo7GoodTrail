@@ -15,6 +15,13 @@
 
     <section class="experience-section">
 
+        <% if (experiences.length == 0) { %>
+            <div class="alert-container">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>No se encontro ninguna experiencia</p>
+            </div>
+        <% } %>
+
         <% experiences.forEach(experience => { %>
             
             <%- include('./partials/experienceCatalogCard', {experience: experience}) %> 
