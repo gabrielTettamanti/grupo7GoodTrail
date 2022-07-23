@@ -16,7 +16,8 @@ const mainController ={
         Experience.findAll({
             limit: 4,
             include: [
-                { association: 'images' }
+                { association: 'images' },
+                { association: 'rating'}
             ]
         })
         .then(experiences => {

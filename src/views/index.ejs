@@ -28,7 +28,7 @@
         
                     <div class="price-stars">
                         <p class="price"> <%= experience.currency %><%= new Intl.NumberFormat('de-DE').format(experience.price) %> </p>
-                        <p class="star"><i class="fa-solid fa-star"><%= experience.rating %></i></p>
+                        <p class="star"><i class="fa-solid fa-star"><%= experience.rating.dataValues.value %></i></p>
                     </div>
                 </a> 
             <% }) %>
