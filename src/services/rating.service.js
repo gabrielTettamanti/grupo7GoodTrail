@@ -11,10 +11,11 @@ const RatingService = {
         return findPromise;
     },
 
-    createRating: ratingValue => {
+    createRating: (ratingValue, experienceId) => {
         const creationPromise = 
         Rating.create({
-            rating: ratingValue
+            rating: ratingValue,
+            experience_id: experienceId
         });
         
         return creationPromise;

@@ -22,7 +22,7 @@
                 <h1 class="main-title"> <%= experienceDetail.name %> </h1>
                 <div class="experience-rating">
 
-                    <% for( let index = 0; index < experienceDetail.rating; index++ ) { %>
+                    <% for( let index = 0; index < experienceDetail.rating.dataValues.value; index++ ) { %>
                         <i class="fa-solid fa-star"></i>
                     <% } %>
 

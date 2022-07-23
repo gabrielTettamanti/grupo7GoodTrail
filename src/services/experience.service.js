@@ -11,7 +11,8 @@ const ExperienceService = {
         Experience.findAll({
             where: query,
             include: [
-                {association: 'images'}
+                {association: 'images'},
+                {association: 'rating'}
             ]
         });
         return promise;
@@ -21,7 +22,8 @@ const ExperienceService = {
         const searchExperience = 
         Experience.findByPk(experienceId, {
             include: [
-                {association: 'images'}
+                {association: 'images'},
+                {association: 'rating'}
             ]
         })
         return searchExperience;

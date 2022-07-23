@@ -99,6 +99,11 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'experience_id'
         });
 
+        Experience.hasOne(models.Rating, {
+            as: 'rating',
+            foreignKey: 'experience_id'
+        });
+
     }
 
     return Experience;

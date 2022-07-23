@@ -14,15 +14,12 @@ const productController={
 //******* Rendering Experience detail *******
     productDescription: (req, res) => {
         const experience_id = req.params.id;
-        const searchPromise = ExperienceService.getExperienceById(experience_id);
-        
-        searchPromise
+
+        ExperienceService.getExperienceById(experience_id)
         .then(experience => {
-            RatingService.getRatingById(experience.rating_id)
-            .then(rating => {
-                experience.rating = rating.rating;
-                res.render('productDescription', {experienceDetail: experience });
-            })
+            console.log('Experiencia');
+            console.log(experience);
+            res.render('productDescription', {experienceDetail: experience }); 
         })
         .catch(error => console.log(error));
     },
