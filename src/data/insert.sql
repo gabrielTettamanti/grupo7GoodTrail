@@ -11,23 +11,24 @@ INSERT INTO category (id, category_name, style)
 VALUES (default, 'Viajes', 'viajes'), (default, 'Aventura', 'aventura'), (default, 'Gourmet', 'gourmet'), (default, 'Alojamiento', 'alojamiento'), (default, 'Relax', 'relax'), (default, 'Cultura', 'cultura'), (default, 'Entretenimiento', 'entretenimiento');
 
 -- -----------------------------------------------------
--- Rating insert
--- -----------------------------------------------------
-INSERT INTO rating (id, rating) 
-VALUES (default, 5), (default, 4), (default, 5), (default, 5), (default, 4), (default, 3), (default, 4), (default, 4), (default, 5); 
--- -----------------------------------------------------
 -- Experiences insert
 -- -----------------------------------------------------
-INSERT INTO experience(id, `name`, `description`, location, people_quantity, duration, duration_type, currency, price, map_direction, `user_id`, rating_id, category_id)
-Values (1, "Santiago Bernabeu", "Visita el icónico estadio de Madrid y viví una noche de UEFA Champions League única. ", "Madrid - España", 2, 2, "dia", "$", 310000, "Santiago Bernabeu, Madrid", 2, 1, 7),
-(2, "Giza", "Visita la tierra de los faraones y descubre una de las maravillas del mundo. Entre la arena y los rayos de sol del desierto podras visitar las grandes piramides, un recuerdo de una de las mas grandes civilizaciones de la antiguedad.", "Giza - Egipto", 2, 3, "días", "$", 350000, "Pirámides de Guiza, Egipto", 2, 2, 1),
-(3, "Roma", "Un recorrido asombroso en la capital de Italia. Explora las calles y recovecos de la historia en la hermosa ciudad de los Gnocchi. ", "Roma - Italia", "2", "4", "dia", "$", 350000, "Coliseo de Roma, Italia", 2, 3, 1),
-(4, "Liverpool", "Vive un partido del Liverpool FC y escucha el emblematico You will never walk alone.", "Liverpool - Inglaterra", 1, 4, "días", "$", 250000, "Anfield Liverpool, Inglaterra", 2, 4, 7),
-(5, "La Stampa", "Cena para 2 en el famoso restaurant italiano de la ciudad de Buenos Aires.", "CABA - Buenos Aires", 2, 0, "días", "$", 5000, "Posadas 1011 CABA, Argentina", 2, 5, 3),
-(6, "The Temple Bar", "Noche de cervezas con amigos en uno de los bares más populares de Buenos Aires.", "CABA - Buenos Aires", 3, 0, "días", "$", 3000, "Casa Temple Buenos Aires, Argentina", 2, 6, 3),
-(7, "Hotel Madero", "Una noche para 2 personas en el prestigioso hotel de Puerto Madero.", "CABA - Buenos Aires", 2, 1, "día", "$", 65000, "Hotel Madero Buenos Aires, Argentina", 2, 7, 4),
-(8, "Rabieta", "Cena para 4 personas en el bar ubicado en el hipodromo de Palermo.", "CABA - Buenos Aires", 4, 0, "día", "$", 8000, "Rabieta Avenida Libertador, Buenos Aires", 2, 8, 3),
-(9, "Golden State Warriors", "Noche de NBA en la casa del gran Stephen Curry.", "San Francisco - USA", 2, 2, "días", "$", 500000, "Chase Center San Francisco, California", 2, 9, 7);
+INSERT INTO experience(id, `name`, `description`, location, people_quantity, duration, duration_type, currency, price, map_direction, `user_id`, category_id)
+Values (1, "Santiago Bernabeu", "Visita el icónico estadio de Madrid y viví una noche de UEFA Champions League única. ", "Madrid - España", 2, 2, "dia", "$", 310000, "Santiago Bernabeu, Madrid", 2, 7),
+(2, "Giza", "Visita la tierra de los faraones y descubre una de las maravillas del mundo. Entre la arena y los rayos de sol del desierto podras visitar las grandes piramides, un recuerdo de una de las mas grandes civilizaciones de la antiguedad.", "Giza - Egipto", 2, 3, "días", "$", 350000, "Pirámides de Guiza, Egipto", 2, 1),
+(3, "Roma", "Un recorrido asombroso en la capital de Italia. Explora las calles y recovecos de la historia en la hermosa ciudad de los Gnocchi. ", "Roma - Italia", "2", "4", "dia", "$", 350000, "Coliseo de Roma, Italia", 2, 1),
+(4, "Liverpool", "Vive un partido del Liverpool FC y escucha el emblematico You will never walk alone.", "Liverpool - Inglaterra", 1, 4, "días", "$", 250000, "Anfield Liverpool, Inglaterra", 2, 7),
+(5, "La Stampa", "Cena para 2 en el famoso restaurant italiano de la ciudad de Buenos Aires.", "CABA - Buenos Aires", 2, 0, "días", "$", 5000, "Posadas 1011 CABA, Argentina", 2, 3),
+(6, "The Temple Bar", "Noche de cervezas con amigos en uno de los bares más populares de Buenos Aires.", "CABA - Buenos Aires", 3, 0, "días", "$", 3000, "Casa Temple Buenos Aires, Argentina", 2, 3),
+(7, "Hotel Madero", "Una noche para 2 personas en el prestigioso hotel de Puerto Madero.", "CABA - Buenos Aires", 2, 1, "día", "$", 65000, "Hotel Madero Buenos Aires, Argentina", 2, 4),
+(8, "Rabieta", "Cena para 4 personas en el bar ubicado en el hipodromo de Palermo.", "CABA - Buenos Aires", 4, 0, "día", "$", 8000, "Rabieta Avenida Libertador, Buenos Aires", 2, 3),
+(9, "Golden State Warriors", "Noche de NBA en la casa del gran Stephen Curry.", "San Francisco - USA", 2, 2, "días", "$", 500000, "Chase Center San Francisco, California", 2, 7);
+
+-- -----------------------------------------------------
+-- Rating insert
+-- -----------------------------------------------------
+INSERT INTO rating (id, value, experience_id) 
+VALUES (default, 5, 1), (default, 4, 2), (default, 5, 3), (default, 5, 4), (default, 4, 5), (default, 3, 6), (default, 4, 7), (default, 4, 8), (default, 5, 9); 
 
 -- -----------------------------------------------------
 -- Experiences images insert

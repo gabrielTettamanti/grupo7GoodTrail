@@ -29,15 +29,6 @@ CREATE TABLE category (
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
--- Table `goodTrail_db`.`rating`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `rating`;
-CREATE TABLE `rating` (
-	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
-    `rating` DECIMAL(2,1) unsigned NOT NULL,
-    PRIMARY KEY(`id`)
-) ENGINE=InnoDB;
--- -----------------------------------------------------
 -- Table `goodTrail_db`.`experiences`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS experience;
@@ -53,12 +44,22 @@ CREATE TABLE experience (
     `price` decimal(9,2) unsigned NOT NULL,
     `map_direction` VARCHAR(100) NOT NULL,
     `user_id` int(10) unsigned NOT NULL,
-    `rating_id` int(10) unsigned NOT NULL,
     `category_id` int(10) unsigned NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT `experience_user_foreign` FOREIGN KEY(`user_id`) REFERENCES `user` (`id`),
-    CONSTRAINT `experience_rating_foreign` FOREIGN KEY(`rating_id`) REFERENCES `rating` (`id`),
     CONSTRAINT `experience_category_foreign` FOREIGN KEY(`category_id`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Table `goodTrail_db`.`rating`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `rating`;
+CREATE TABLE `rating` (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+    `value` DECIMAL(2,1) unsigned NOT NULL,
+    `experience_id` int(10) unsigned NOT NULL,
+    PRIMARY KEY(`id`),
+    CONSTRAINT `rating_experience_foreign` FOREIGN KEY(`experience_id`) REFERENCES `experience` (`id`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------

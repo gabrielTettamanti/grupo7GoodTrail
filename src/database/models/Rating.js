@@ -9,8 +9,13 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
-        rating: {
+        value: {
             type: DataTypes.DECIMAL(2,1),
+            allowNull: false
+        },
+
+        experience_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     }
@@ -30,6 +35,11 @@ module.exports = (sequelize, DataTypes) => {
             through: 'user_rate',
             foreignKey: 'rating_id',
             otherKey: 'user_id'            
+        });
+
+        Rating.belongsTo(models.Experience, {
+            as: 'rating',
+            foreignKey: 'experience_id'
         });
     }
 

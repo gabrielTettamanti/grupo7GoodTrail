@@ -4,6 +4,7 @@ const DB = require('../database/models');
 //***** Getting Services *****/
 const ExperienceService = require('../services/experience.service');
 const CategoryService = require('../services/experienceCategory.service');
+const RatingService = require('../services/rating.service');
 
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
