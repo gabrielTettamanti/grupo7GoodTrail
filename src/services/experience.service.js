@@ -120,6 +120,13 @@ const ExperienceService = {
             query = queryParams;
         }
         return query;
+    },
+
+    getSearchQuery: searched => {
+        const query = {
+            name: { [Op.like] : `%${searched}%`}
+        }
+        return query;
     }
 }
 
