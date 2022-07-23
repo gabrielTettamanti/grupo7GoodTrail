@@ -1,18 +1,13 @@
 //******* Require´s ******* 
 const { validationResult } = require('express-validator');
-const DB = require('../database/models');
 
 //***** Getting Services *****/
 const ExperienceService = require('../services/experience.service');
 const UserService = require('../services/user.service');
 const RatingService = require('../services/rating.service');
 const ImageService = require('../services/experienceImage.service');
-
-//***** Getting Offer model from DB *****/
-const Offer = DB.Offer;
-
-//***** Getting Category model from DB *****/
-const Category = DB.Category;
+const CategoryService = require('../services/experienceCategory.service');
+const OfferService = require('../services/offer.service');
 
 //******* Controller *******
 const productController={
@@ -65,15 +60,7 @@ const productController={
             ExperienceService.updateExperience(experienceId, req.body)
             .then(experience => {
                 if(req.body.offer != '') {
-                    Offer.update({
-                        status: 1,
-                        discount: req.body.offer,
-                        limit_date: req.body.limit_date
-                    },{
-                        where: {
-                            experience_id: experienceId
-                        }
-                    })
+                    OfferService.updateOffer(1, req.body.offer, req.body.limit_date, experienceId)
                     .then(result => {
                         res.redirect (`/product/productDescription/${experienceId}`);
                     })
@@ -106,7 +93,7 @@ const productController={
     },
     //******* Rendering experience creation view *******
     creation: (req, res) => { 
-        Category.findAll()
+        CategoryService.getCategories()
         .then(categories => {
             console.log('Categorias');
             console.log(categories);
@@ -135,13 +122,8 @@ const productController={
                 ExperienceService.createExperience(req.body, userFinded.id, ratingCreated.id)
                 .then(experience => {
                     let imageCreation = ImageService.createImage(image, experience.id);
-                    let offerCreation = Offer.create({
-                        status: 0,
-                        discount: null,
-                        time: null,
-                        experience_id: experience.id
-                    });                    
-
+                    let offerCreation = OfferService.createOffer(0, null, null, experience.id);
+                
                     Promise.all([ imageCreation, offerCreation ])
                     .then(([imageResult, offerResult]) => {
                         console.log(imageResult, offerResult);
@@ -162,7 +144,7 @@ const productController={
 
         const getExperiences = ExperienceService.getExperiences(query);
         
-        let getCategories = Category.findAll();
+        let getCategories = CategoryService.getCategories();
 
         Promise.all([getExperiences, getCategories])
         .then(([experiences, categories]) => {
@@ -178,7 +160,7 @@ const productController={
         const query = ExperienceService.getQueryPrice(minPrice, maxPrice);
 
         let getExperiences = ExperienceService.getExperiences(query);
-        let getCategories = Category.findAll();
+        let getCategories = CategoryService.getCategories();
 
         Promise.all([getExperiences, getCategories])
         .then(([experiences, categories]) => {
