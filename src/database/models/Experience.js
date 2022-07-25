@@ -65,10 +65,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Experience.associate = models => {
 
-        // Experience.belongsTo(models.Offer, {
-        //     as: 'offer',
-        //     foreignKey: 'experience_id'
-        // });
+        Experience.hasOne(models.Offer, {
+            as: 'offer',
+            foreignKey: 'experience_id'
+        });
 
         Experience.belongsTo(models.User, {
             as: 'owner',
@@ -80,20 +80,6 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'category_id'
         });
 
-        // Experience.belongsToMany(models.User, {
-        //     as: 'userCart',
-        //     through: 'cart_experience',
-        //     foreignKey: 'experience_id',
-        //     otherKey: 'user_id'
-        // });
-
-        // Experience.belongsToMany(models.FavoriteExperience, {
-        //     as: 'favoriteExperience',
-        //     through: 'favorite_experience',
-        //     foreignKey: 'experience_id',
-        //     otherKey: 'user_id'
-        // });
-
         Experience.hasMany(models.Image, {
             as: 'images',
             foreignKey: 'experience_id'
@@ -102,6 +88,20 @@ module.exports = (sequelize, DataTypes) => {
         Experience.hasOne(models.Rating, {
             as: 'rating',
             foreignKey: 'experience_id'
+        });
+
+        Experience.belongsToMany(models.User, {
+            as: 'userCart',
+            through: 'cart_experience',
+            foreignKey: 'experience_id',
+            otherKey: 'user_id'
+        });
+
+        Experience.belongsToMany(models.FavoriteExperience, {
+            as: 'favoriteExperience',
+            through: 'favorite_experience',
+            foreignKey: 'experience_id',
+            otherKey: 'user_id'
         });
 
     }

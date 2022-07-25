@@ -40,11 +40,13 @@ module.exports = (sequelize, DataTypes) => {
         
         CartExperience.belongsTo(models.User, 
            {
+            as: 'user',
             foreignKey: "user_id"
            });
 
         CartExperience.belongsTo(models.Experience, 
            {
+            as: 'experience',
             foreignKey: "experience_id"
            });
     
