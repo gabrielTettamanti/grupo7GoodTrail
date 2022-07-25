@@ -110,7 +110,7 @@ erDiagram
     RATING ||--|| EXPERIENCE : "belongs to"
     RATING {
         int id PK
-        int rating 
+        int value 
         int experience_id FK 
     } 
     CART_EXEPERINCE o{--|| EXPERIENCE : has
@@ -126,21 +126,21 @@ erDiagram
         int user_id FK
     }
     EXPERIENCE ||--}o IMAGE : has
-    EXPERIENCE ||--o| OFFER : has
+    EXPERIENCE ||--|| OFFER : has
     EXPERIENCE o{--|| CATEGORY : "belongs to"
     EXPERIENCE {
         int id PK
         string name
         string description
-        string category
-        string ubication
+        string location
         int people_quantity
         int duration
         string duration_type
         string currency
         float price
-        string map
-        int owner FK
+        string map_direction
+        int user_id FK
+        int category_id FK
     }
     CATEGORY {
         int id PK
@@ -166,5 +166,6 @@ erDiagram
         string email
         string password
         string image
+        string bio
     }
 ```
