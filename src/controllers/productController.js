@@ -48,11 +48,11 @@ const productController={
         const experienceId = req.params.id; 
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            // if(req.files[0] != undefined){
-            //     image = req.files[0].filename;  
-		    // }else{
-			//     image = editedExperiences.image;
-		    // }
+
+            if(req.files[0] != undefined){
+                image = req.files[0].filename;
+                ImageService.updateImage(image, experienceId);  
+		    }
 
             ExperienceService.updateExperience(experienceId, req.body)
             .then(experience => {

@@ -14,7 +14,7 @@ const RatingService = {
     createRating: (ratingValue, experienceId) => {
         const creationPromise = 
         Rating.create({
-            rating: ratingValue,
+            value: ratingValue,
             experience_id: experienceId
         });
         

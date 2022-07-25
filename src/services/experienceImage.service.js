@@ -23,6 +23,19 @@ const ImageService = {
             }
         });
         return destroyPromise;
+    },
+
+    updateImage: (image, experienceId) => {
+        const imageToUpdate = {
+            url: image
+        };
+        const updatePromise = 
+        Image.update(imageToUpdate, {
+            where: {
+                experience_id: experienceId
+            }
+        });
+        return updatePromise;
     }
 }
 
