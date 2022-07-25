@@ -26,7 +26,8 @@ const productController={
 
     //******* Rendering provisional editor view *******   
     listProductsToEdit: (req, res) => {
-        const getPromise = ExperienceService.getExperiences({});
+        const query = { status: 1};
+        const getPromise = ExperienceService.getExperiences(query);
 
         getPromise
         .then(experiences => {
@@ -79,12 +80,9 @@ const productController={
     //******* Experience Destroy *******
     destroy: (req, res) => {
         let idToDestroy = req.params.id;
-        ImageService.destroyImage(idToDestroy)
+        ExperienceService.destroyExperience(idToDestroy)
         .then(result => {
-            ExperienceService.destroyExperience(idToDestroy)
-            .then(result => {
-                res.redirect('/');    
-            })
+            res.redirect('/');    
         })
         .catch(error => console.log(error));
     },

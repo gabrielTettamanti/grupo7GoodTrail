@@ -32,6 +32,7 @@ const ExperienceService = {
     createExperience: (body, user, rating) => {
         const experienceToCreate = {
             ...body,
+            status: 1, 
             price: parseInt(body.price),
             duration: parseInt(body.duration),
             people_quantity: parseInt(body.people_quantity),
@@ -70,7 +71,9 @@ const ExperienceService = {
 
     destroyExperience: experienceId => {
         const promiseToDestroy =
-        Experience.destroy({
+        Experience.update({
+            status: 0
+        },{
             where: {
                 id: experienceId
             }
@@ -80,6 +83,7 @@ const ExperienceService = {
 
     getQueryPrice: (minPrice, maxPrice) => {
         const query = {
+            status: 1,
             [Op.and]: [
                 {price: {[Op.gte]: minPrice}},
                 {price: {[Op.lte]: maxPrice}}
@@ -94,10 +98,12 @@ const ExperienceService = {
             let locationWanted = queryParams.location;
             if(locationWanted == 'Buenos Aires'){
                 query = {
+                    status: 1,
                     location: { [Op.like]: `%${locationWanted}%` }
                 }
             } else if(locationWanted == 'Argentina'){
                 query = {
+                    status: 1,
                     [Op.or]: [
                         { location: { [Op.like]: `%${locationWanted}%` }},
                         { location: { [Op.like]: `%Buenos Aires%` }}
@@ -105,6 +111,7 @@ const ExperienceService = {
                 }
             } else {
                 query = {
+                    status: 1,
                     [Op.and]: [
                         { location: { [Op.notLike]: `%Argentina%` }},
                         { location: { [Op.notLike]: `%Buenos Aires%` }}
@@ -114,18 +121,21 @@ const ExperienceService = {
         }
         else if(queryParams.people_quantity == 'gte2'){
             query = { 
+                status: 1,
                 people_quantity: {
                     [Op.gt]: 2
                 }
             } 
         } else {
             query = queryParams;
+            query.status = 1;
         }
         return query;
     },
 
     getSearchQuery: searched => {
         const query = {
+            status: 1,
             name: { [Op.like] : `%${searched}%`}
         }
         return query;

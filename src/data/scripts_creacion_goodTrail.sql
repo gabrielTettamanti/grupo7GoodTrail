@@ -35,6 +35,7 @@ DROP TABLE IF EXISTS experience;
 CREATE TABLE experience (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
     `name` VARCHAR(100) NOT NULL,
+    `status` int(10) unsigned NOT NULL, 
     `description` VARCHAR(500) 	NOT NULL,
 	`location` VARCHAR(100) NOT NULL,
 	`people_quantity` int(10) unsigned NOT NULL,

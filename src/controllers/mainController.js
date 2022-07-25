@@ -28,7 +28,8 @@ const mainController ={
     },
     //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
-        let getExperiences = ExperienceService.getExperiences({});
+        const query = { status: 1 };
+        let getExperiences = ExperienceService.getExperiences(query);
 
         let getCategories = CategoryService.getCategories();
 

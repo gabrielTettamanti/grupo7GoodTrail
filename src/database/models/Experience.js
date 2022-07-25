@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: false
         },
+        status: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         description: {
             type: DataTypes.STRING(500),
             allowNull: false
