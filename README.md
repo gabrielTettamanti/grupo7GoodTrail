@@ -175,26 +175,6 @@ erDiagram
 
 ### Sprint 7
 
-
-| **Name** | **Description** | **Data Type** |
-| --- | --- | --- |
-| name | Name of the client | String |
-| cname | CNAME | String |
-| url | URL’s to access to the client | String |
-| title | Title of the project | String |
-| country_id | Id of the country associate to the table country | Integer |
-| zone_id | Id of the zone associate to the table zone | Integer |
-| language_id | Id of the language associate to the table language | Integer |
-| ssl | SSL security if it’s available must be in 1 or 0 disable | TinyInt |
-| logo | Logo name locate in your images directory | String |
-| twitter_account | Name of your twitter account without https://www.twitter.com/ | String |
-| facebok_account | Name of your facebook account without https://www.facebook.com/ | String |
-| google_analytics | Alphanumeric reference for your Google Analytics | String |
-| facebook_app_id | Facebook App Id | String |
-| facebook_secret | Facebook Secret | String |
-| security_endpoint | Url of your endpoint | String |
-| status | If the client it’s available set in 1 or 0 for disable | TinyInt |
-
 | **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tuve problemas con** |
-| — — | — — | — — | — — | — — |
+| --- | --- | --- | --- | --- |
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
