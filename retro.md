@@ -113,20 +113,23 @@
 # Retrospectiva Sprint 6
 
 ## Comenzar a hacer
-* En caso de no tener tareas pendientes corregir/editar el codigo sin esperar permiso.
 * Implementar daily compartiendo qué hizo ayer, si se encontró con algún impedimento, qué va a hacer hoy, por whatsapp.
+* Escribir en la dayli del README en lo que avanzamos y trabajamos. 
 
 ## Hacer más
-* Implementar nuevos estilos y funciones yendo más allá de las consignas.
+* En caso de no tener tareas pendientes corregir/editar el codigo sin esperar permiso.
 * Implementar reuniones semanales mas extensas para revisar el codigo y resolver dudas.
 * Actualizar Trello más seguido.
+* Mayor comunicación.
+* Pedir más ayuda al resto del equipo.
 
 ## Continuar 
+* Implementar nuevos estilos y funciones yendo más allá de las consignas.
 * Revisar que nuestro codigo no rompa nada en el resto de la aplicacion.
-* Hablar temas del proyecto solo por el grupo del wpp, para poder seguir la conversacion y poder trabajarlo en equipo
+* Hablar temas del proyecto solo por el grupo del wpp, para poder seguir la conversacion y poder trabajarlo en equipo.
 
 ## Hacer menos
 * Pautar cosas en el retro y no hacerlo.
+* No dejar las cosas para el ultimo dia. Una idea es que una semana antes si el requisito no se cumplio se libere para el resto del grupo.
 
 ## Dejar de hacer
-* No dejar las cosas para el ultimo dia. Una idea es que una semana antes si el requisito no se cumplio se libere para el resto del grupo.
