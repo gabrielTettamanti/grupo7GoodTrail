@@ -177,7 +177,7 @@ erDiagram
 
 
 | **Name** | **Description** | **Data Type** |
-| — — | — — | — — |
+| --- | --- | --- |
 | name | Name of the client | String |
 | cname | CNAME | String |
 | url | URL’s to access to the client | String |
