@@ -7,6 +7,7 @@
 5. [Referentes del mercado](#links)
 6. [Tablero de trabajo](#trello)
 7. [Diagrama de Entidad-Relación](#der)
+8. [Tabla de Dayli](#dayli)
 
 ## Instalación y configuración <a name="install"></a>
 Instalar los modulos requeridos con el siguiente comando: 
@@ -169,3 +170,10 @@ erDiagram
         string bio
     }
 ```
+
+## Tabla de Dayli <a name="dayli"></a>
+
+### Sprint 7
+
+| **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tuve problemas con** |
+| 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
