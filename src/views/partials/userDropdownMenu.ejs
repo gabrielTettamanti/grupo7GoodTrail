@@ -1,5 +1,15 @@
-<a href="/user/profile" class="usuario">
-    <img id="headerUserAvatar" src="/img/usersImages/<%= locals.userLogged.image %>" alt="">
-    <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
-    <i class="fa-solid fa-arrow-down"></i>
-</a>
+<div class="dropdown">
+    <div class="user-select">
+        <img id="headerUserAvatar" src="/img/usersImages/<%= locals.userLogged.image %>" alt="">
+        <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
+        <!-- <i class="fa-solid fa-arrow-down"></i>     -->
+        <span class="arrow"></span>
+    </div>
+    <ul class="user-menu">
+        <li><a href="/user/profile">Mi Perfil</a></li>
+        <li><a href="">Mis experiencias</a></li>
+        <li><a href="/user/password">Configuración</a></li>
+        <li><a href="/user/logout">Cerrar sesión</a></li>
+    </ul>
+</div>
+
