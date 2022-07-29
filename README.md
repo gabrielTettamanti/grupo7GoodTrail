@@ -180,3 +180,4 @@ erDiagram
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
 | 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario |  |  |
 | 29/07 | Gabriel, Ignacio y Lucrecia | Llevamos a cabo la weekly, dividimos tareas y decimos cómo trabajar en los siguientes días | Validaciones de formularios en el front y backend y modulaciones | --- |
+| 29/07 | Ignacio | Cree el Dropdown-menu del usuario y el archivo de JS para que sea dinamico | Mañana mejoro el estilo del mismo |  |
