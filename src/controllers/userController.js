@@ -14,6 +14,10 @@ const User = DB.User;
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+//***** Getting Services *****/
+const ExperienceService = require('../services/experience.service');
+const UserService = require('../services/user.service');
+
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: 'utf-8'}));
@@ -59,20 +63,17 @@ const userController = {
             // console.log(req.body)
             const names = req.body.userName.split(' '); 
 
-            User.create({
-        
-                first_name: names[0], 
-                last_name: names[names.length - 1],
-                email: req.body.userEmail,
-                password: bcrypt.hashSync(req.body.userPassword, 10),
-                image: image
-        
-            }).then(()=> {
-        
-                res.redirect('/user/login');
-        
-            }) 
-        
+            UserService.getUserByEmail(req.body.userEmail)
+            .then(user => {
+                if(user == null){
+                    UserService.createUser(req.body, names, image)
+                    .then(user => {
+                        res.redirect('/user/login');
+                    }) 
+                }else{
+                    res.render("registerFormulary")
+                }
+            })
             }
             else{
                 res.render("registerFormulary", {errors: errors.mapped(), old:req.body})
