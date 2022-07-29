@@ -23,6 +23,8 @@ const upload = multer({ storage });
 //******* Get experience buy cart view *******
 userRouter.get("/buyCart", authenticatorMiddleware, userController.buyCart)
 
+userRouter.post("/productDescription/:id", authenticatorMiddleware, userController.addBuyCart);
+
 //******* Get Register form view *******
 userRouter.get("/registerFormulary", accessUserMiddleware, userController.registerFormulary)
 
