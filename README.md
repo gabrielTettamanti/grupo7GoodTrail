@@ -175,7 +175,8 @@ erDiagram
 
 ### Sprint 7
 
-| **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tuve problemas con** |
+| **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tendré dificultades con** |
 | --- | --- | --- | --- | --- |
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
 | 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario |  |  |
+| 29/07 | Gabriel, Ignacio y Lucrecia | Llevamos a cabo la weekly, dividimos tareas y decimos cómo trabajar en los siguientes días | Validaciones de formularios en el front y backend y modulaciones | --- |
