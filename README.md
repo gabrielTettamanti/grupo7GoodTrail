@@ -178,4 +178,4 @@ erDiagram
 | **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tuve problemas con** |
 | --- | --- | --- | --- | --- |
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
-| 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario | --- | --- |
+| 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario |  |  |
