@@ -27,11 +27,7 @@
 
         <div class="bottom-header-right">
             <% if (locals.userIsLogged) { %>
-                <a href="/user/profile" class="usuario">
-                    <img id="headerUserAvatar" src="/img/usersImages/<%= locals.userLogged.image %>" alt="">
-                    <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
+                <%- include('./userDropdownMenu') %> 
             <% } else { %>
                 <a href="/user/login" class="usuario" id="headerLoginButton">
                     <p>Iniciar sesión</p>
