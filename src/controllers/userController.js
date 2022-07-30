@@ -83,22 +83,16 @@ const userController = {
     checkLogin: (req, res) => {
         const errors = validationResult(req)
         if (errors.isEmpty()){
-        
             const userLogging = {
                 email: req.body.userEmail,
                 password: req.body.userPassword
             }
-
             const noLoginMsg = 'Las credenciales son incorrectas';
             let userSearched = "";
-
-            User.findOne({
-                where: {
-                    email: req.body.userEmail
-                }
-            }).then((resultado) => {
+            let userEmail = req.body.userEmail
+            UserService.getUserByEmail(userEmail)
+            .then((resultado) => {
                 userSearched = resultado
-            
                 if(userSearched != undefined){
                     if(req.body.remember){
                         res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
