@@ -182,3 +182,4 @@ erDiagram
 | 29/07 | Gabriel, Ignacio y Lucrecia | Llevamos a cabo la weekly, dividimos tareas y decimos cómo trabajar en los siguientes días | Validaciones de formularios en el front y backend y modulaciones | --- |
 | 29/07 | Ignacio | Cree el Dropdown-menu del usuario y el archivo de JS para que sea dinamico | Mañana mejoro el estilo del mismo |  |
 | 29/07 | Ignacio | Estilos del Dropdown-menu del usuario | Mañana ya arranco con el paginado del catalogo |  |
+| 30/07 | Gabriel | Pense como trabajar en mis tareas. | Voy a pasar todas los contactos entre el userController y la db al UserService. | Puede que se me complique iplementarlo por falta de experiencia. |
