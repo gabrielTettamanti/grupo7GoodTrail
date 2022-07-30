@@ -133,7 +133,7 @@ const productController={
 
     filterExperiences: (req, res) => {
         console.log(req.query.location);
-        const page = req.query.page ? req.query.page : 1;
+        const page = req.params.page;
         const query = ExperienceService.getfilterQuery(req.query);
 
         let getExperiences = ExperienceService.getExperiences(query, page);
@@ -143,7 +143,7 @@ const productController={
         Promise.all([getExperiences, getCategories, getTotal])
         .then(([experiences, categories, total]) => {
             let pages = Math.ceil( total / experiencesPerPage );
-            res.render('experienceCatalog', { experiences, categories, pages });
+            res.render('experienceCatalog', { experiences, categories, pages, currentPage: page });
         })
         .catch(error => console.log(error));
     },
@@ -151,7 +151,7 @@ const productController={
     filterExperiencesByPrice: (req, res) => {
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
-        const page = req.query.page ? req.query.page : 1;
+        const page = req.params.page;
         const query = ExperienceService.getQueryPrice(minPrice, maxPrice);
 
         let getExperiences = ExperienceService.getExperiences(query, page);
@@ -161,7 +161,7 @@ const productController={
         Promise.all([getExperiences, getCategories, getTotal])
         .then(([experiences, categories, total]) => {
             let pages = Math.ceil( total / experiencesPerPage );
-            res.render('experienceCatalog', { experiences, categories, pages });
+            res.render('experienceCatalog', { experiences, categories, pages, currentPage: page });
         })
         .catch(error => console.log(error));
     }
