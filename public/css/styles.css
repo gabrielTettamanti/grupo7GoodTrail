@@ -4,6 +4,7 @@
     --crimson-red: #d7263d;
     --cobalt-blue: #1d48a3;
     --cultured-gray: #e9ecef;
+    --user-menu-gray: #dee2e6;
 }
 
 * {
@@ -448,6 +449,7 @@ body {
     height: 40px;
     border-radius: 20px;
     color: black;
+    padding-right: 5px;
 }
 
 .user-select:hover {
@@ -462,16 +464,19 @@ body {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 6px solid #000;
-    /* background-color: #ccc7c7;
-    border-radius: 20px;
-    font-size: 15px;
-    margin-left: 5px; */
+    transition: 0.3s;
 }
+
+.user-select .arrow-rotate {
+    transform: rotate(180deg);
+}
+
 .user-select p {
     font-weight: bold;
     font-size: 16px;
     padding: 10px;
 }
+
 .user-select .fa-arrow-down {
     margin-right: 5px;
     padding: 5px;
@@ -480,6 +485,7 @@ body {
 .user-menu {
     list-style: none;
     background-color: white;
+    box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;
     position: absolute;
     top: 3em;
@@ -495,7 +501,12 @@ body {
 .user-menu li{
     padding: 0.7em 0.5em;
     margin: 0.3em 0;
+    border-radius: 0.5em;
+}
+
+.user-menu li:hover {
     cursor: pointer;
+    background-color: var(--user-menu-gray);
 }
 
 .menu-open {
