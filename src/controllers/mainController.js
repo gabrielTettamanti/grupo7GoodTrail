@@ -8,6 +8,8 @@ const CategoryService = require('../services/experienceCategory.service');
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+const experiencesPerPage = 9;
+
 //******* Controller *******
 const mainController ={
     //******* Rendering home  *******
@@ -32,12 +34,13 @@ const mainController ={
         const page = req.query.page ? req.query.page : 1; 
 
         let getExperiences = ExperienceService.getExperiences(query, page);
-
         let getCategories = CategoryService.getCategories();
+        let getTotal = ExperienceService.getTotalExperiences(query);
 
-        Promise.all([getExperiences, getCategories])
-        .then(([experiences, categories]) => {
-            res.render('experienceCatalog', {experiences, categories });
+        Promise.all([getExperiences, getCategories, getTotal])
+        .then(([experiences, categories, total]) => {
+            let pages = Math.ceil(total / experiencesPerPage);
+            res.render('experienceCatalog', {experiences, categories, pages });
         })
         .catch(errors => {
             console.log(errors);
@@ -51,10 +54,12 @@ const mainController ={
 
         let getExperiences = ExperienceService.getExperiences(query, page);
         let getCategories = CategoryService.getCategories();
+        let getTotal = ExperienceService.getTotalExperiences(query); 
 
-        Promise.all([getExperiences, getCategories])
-        .then(([experiences, categories]) => {
-            res.render('experienceCatalog', { experiences, categories }); 
+        Promise.all([getExperiences, getCategories, getTotal])
+        .then(([experiences, categories, total]) => {
+            let pages = Math.ceil( total / experiencesPerPage);
+            res.render('experienceCatalog', { experiences, categories, pages }); 
         })
         .catch(error => console.log(error));
     },

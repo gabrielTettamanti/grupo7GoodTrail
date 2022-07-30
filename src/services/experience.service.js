@@ -145,6 +145,15 @@ const ExperienceService = {
         return query;
     },
 
+    getTotalExperiences: query => {
+        const countPromise = 
+        Experience.count({
+            where: query
+        });
+
+        return countPromise;
+    }
+
 }
 
 module.exports = ExperienceService;

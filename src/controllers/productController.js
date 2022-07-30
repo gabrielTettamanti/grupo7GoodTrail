@@ -9,6 +9,8 @@ const ImageService = require('../services/experienceImage.service');
 const CategoryService = require('../services/experienceCategory.service');
 const OfferService = require('../services/offer.service');
 
+const experiencesPerPage = 9;
+
 //******* Controller *******
 const productController={
 //******* Rendering Experience detail *******
@@ -132,16 +134,16 @@ const productController={
     filterExperiences: (req, res) => {
         console.log(req.query.location);
         const page = req.query.page ? req.query.page : 1;
-
         const query = ExperienceService.getfilterQuery(req.query);
 
-        const getExperiences = ExperienceService.getExperiences(query, page);
-        
+        let getExperiences = ExperienceService.getExperiences(query, page);
         let getCategories = CategoryService.getCategories();
+        let getTotal = ExperienceService.getTotalExperiences(query);
 
-        Promise.all([getExperiences, getCategories])
-        .then(([experiences, categories]) => {
-            res.render('experienceCatalog', { experiences, categories });
+        Promise.all([getExperiences, getCategories, getTotal])
+        .then(([experiences, categories, total]) => {
+            let pages = Math.ceil( total / experiencesPerPage );
+            res.render('experienceCatalog', { experiences, categories, pages });
         })
         .catch(error => console.log(error));
     },
@@ -150,15 +152,16 @@ const productController={
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
         const page = req.query.page ? req.query.page : 1;
-
         const query = ExperienceService.getQueryPrice(minPrice, maxPrice);
 
         let getExperiences = ExperienceService.getExperiences(query, page);
         let getCategories = CategoryService.getCategories();
+        let getTotal = ExperienceService.getTotalExperiences(query);
 
-        Promise.all([getExperiences, getCategories])
-        .then(([experiences, categories]) => {
-            res.render('experienceCatalog', { experiences, categories });
+        Promise.all([getExperiences, getCategories, getTotal])
+        .then(([experiences, categories, total]) => {
+            let pages = Math.ceil( total / experiencesPerPage );
+            res.render('experienceCatalog', { experiences, categories, pages });
         })
         .catch(error => console.log(error));
     }
