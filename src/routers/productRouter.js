@@ -22,9 +22,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //***** Get Product filtered *****/
-productRouter.get('/filter', productController.filterExperiences);
+productRouter.get('/filter/:page', productController.filterExperiences);
 
-productRouter.get('/filterPrice', productController.filterExperiencesByPrice);
+productRouter.get('/filterPrice/:page', productController.filterExperiencesByPrice);
 
 //******* Get Product Detail *******
 productRouter.get("/productDescription/:id", productController.productDescription);

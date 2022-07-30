@@ -35,17 +35,7 @@
 
 
     <% if (pages > 0) { %>
-        <section class="page-buttons">
-            <div class="buttons-container">
-                    <button class="move page-button" disabled="disabled"><i class="fa-solid fa-angle-left"></i></button>
-                    
-                    <% for( let index = 0; index < pages; index++ ) { %>
-                        <button class="number page-button"> <%= index + 1 %>  </button>
-                    <% } %>
-                    
-                    <button class="move page-button"><i class="fa-solid fa-angle-right"></i></button>
-            </div>
-        </section>     
+        <%- include('./partials/catalogPagination') %>     
     <% } %>
 
     </main>

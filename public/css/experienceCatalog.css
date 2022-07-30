@@ -378,6 +378,8 @@ main {
         border-radius: 5px;
     }
 
+/* PAGINATION */  
+
     .page-buttons {
         width: 100%;
         display: flex;
@@ -391,6 +393,7 @@ main {
         width: 20%;
         display: flex;
         justify-content: space-around;
+        list-style: none;
     }
 
     .page-button {
@@ -399,6 +402,13 @@ main {
         border: 0;
         border-radius: 5px;
         font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .disabled {
+        background-color: var(--harder-gray);
     }
 
     .page-button:hover {
@@ -421,11 +431,6 @@ main {
     .number:hover {
         background-color: var(--light-crimson-red);
         color: white;
-    }
-
-    .move:disabled {
-        background-color: var(--harder-gray);
-        cursor: not-allowed;
     }
 
 }
