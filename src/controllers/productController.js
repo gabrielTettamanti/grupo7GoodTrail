@@ -131,10 +131,11 @@ const productController={
 
     filterExperiences: (req, res) => {
         console.log(req.query.location);
+        const page = req.query.page ? req.query.page : 1;
 
         const query = ExperienceService.getfilterQuery(req.query);
 
-        const getExperiences = ExperienceService.getExperiences(query);
+        const getExperiences = ExperienceService.getExperiences(query, page);
         
         let getCategories = CategoryService.getCategories();
 
@@ -148,10 +149,11 @@ const productController={
     filterExperiencesByPrice: (req, res) => {
         const minPrice = req.query.minPrice;
         const maxPrice = req.query.maxPrice;
+        const page = req.query.page ? req.query.page : 1;
 
         const query = ExperienceService.getQueryPrice(minPrice, maxPrice);
 
-        let getExperiences = ExperienceService.getExperiences(query);
+        let getExperiences = ExperienceService.getExperiences(query, page);
         let getCategories = CategoryService.getCategories();
 
         Promise.all([getExperiences, getCategories])

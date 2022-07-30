@@ -29,7 +29,9 @@ const mainController ={
     //******* Rendering experience catalog *******
     experienceCatalog:(req, res) => {
         const query = { status: 1 };
-        let getExperiences = ExperienceService.getExperiences(query);
+        const page = req.query.page ? req.query.page : 1; 
+
+        let getExperiences = ExperienceService.getExperiences(query, page);
 
         let getCategories = CategoryService.getCategories();
 
@@ -44,9 +46,10 @@ const mainController ={
     //******* Search functionallity *******
     search: (req,res) => {
         const searched = req.query.search;
+        const page = req.query.page ? req.query.page : 1;
         const query = ExperienceService.getSearchQuery(searched);
 
-        let getExperiences = ExperienceService.getExperiences(query);
+        let getExperiences = ExperienceService.getExperiences(query, page);
         let getCategories = CategoryService.getCategories();
 
         Promise.all([getExperiences, getCategories])
