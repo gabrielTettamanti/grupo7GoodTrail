@@ -19,6 +19,21 @@ const UserService = {
         return creationPromise;
     },
 
+    updateUser: (body, userNames, userId) => {
+        const updateUserPromise =  User.update({
+            first_name: userNames[0],
+            last_name: userNames[userNames.length - 1],
+            email: body.userEmail,
+            bio: body.userBio,
+            image: body.image
+        },{
+            where: {
+                id: userId
+            }
+        });
+        return updateUserPromise;
+    },
+
     getUserByEmail: userEmail => {
         const findPromise = User.findOne({
             where: {

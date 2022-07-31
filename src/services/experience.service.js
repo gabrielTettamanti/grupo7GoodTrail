@@ -155,7 +155,7 @@ const ExperienceService = {
     },
 
     getExperiencesByOwnerId: owner => {
-        const experiencesByOwner =
+        const experiencesByOwnerPromise =
         Experience.findAll({
             where: {
                 user_id: owner
@@ -164,7 +164,7 @@ const ExperienceService = {
                     {association: 'images'}
                 ]
         });
-        return experiencesByOwner;
+        return experiencesByOwnerPromise;
     }
 
 }

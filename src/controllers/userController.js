@@ -130,19 +130,11 @@ const userController = {
     },
 
     updateUser: (req, res) => {
+        const body = req.body
         const userId = req.session.user.id
         const userNames = req.body.userName.split(' ');
-        User.update({
-                first_name: userNames[0],
-                last_name: userNames[userNames.length - 1],
-                email: req.body.userEmail,
-                bio: req.body.userBio,
-                image: req.body.image
-        },{
-            where: {
-                id: userId
-            }
-        }).then(() => {
+        UserService.updateUser(body, userNames, userId)
+        .then(() => {
             User.findByPk(userId)
                 .then((userLoged) => {
                     req.session.user = userLoged
