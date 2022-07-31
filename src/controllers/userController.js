@@ -135,10 +135,9 @@ const userController = {
         const userNames = req.body.userName.split(' ');
         UserService.updateUser(body, userNames, userId)
         .then(() => {
-            User.findByPk(userId)
-                .then((userLoged) => {
+            UserService.getUserByPk(userId)
+            .then((userLoged) => {
                     req.session.user = userLoged
-                    console.log(req.session.user)
                 }).then(() =>{
                     res.redirect('/user/profile');
                 })

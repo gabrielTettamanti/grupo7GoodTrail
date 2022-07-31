@@ -34,6 +34,11 @@ const UserService = {
         return updateUserPromise;
     },
 
+    getUserByPk: userId => {
+        const getUserByPkPromise = User.findByPk(userId);
+        return getUserByPkPromise;
+    },
+
     getUserByEmail: userEmail => {
         const findPromise = User.findOne({
             where: {
