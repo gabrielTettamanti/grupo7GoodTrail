@@ -116,15 +116,8 @@ const userController = {
     userProfile: (req, res) => {
         const owner = req.session.user.id
 
-        Experience.findAll({
-            where: {
-                user_id: owner
-            },
-            include: [
-                    {association: 'images'}
-                ]
-            
-        }).then((experiencesByOwner) => {
+        ExperienceService.getExperiencesByOwnerId(owner)
+        .then((experiencesByOwner) => {
             let userExperiences = experiencesByOwner
             res.render('userProfile', { experiences: userExperiences});
         })

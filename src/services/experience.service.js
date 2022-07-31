@@ -152,6 +152,19 @@ const ExperienceService = {
         });
 
         return countPromise;
+    },
+
+    getExperiencesByOwnerId: owner => {
+        const experiencesByOwner =
+        Experience.findAll({
+            where: {
+                user_id: owner
+            },
+            include: [
+                    {association: 'images'}
+                ]
+        });
+        return experiencesByOwner;
     }
 
 }
