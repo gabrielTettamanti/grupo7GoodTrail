@@ -41,3 +41,9 @@ VALUES (1, 'bernabeuCatalog.jpg', 1), (2, 'gizaCatalog.png', 2), (3, 'romaCatalo
 -- -----------------------------------------------------
 INSERT INTO Offer (id, status, discount, limit_date, experience_id)
 VALUES (1, 0, null, null, 1),(2, 0, null, null, 2),(3, 0, null, null, 3),(4, 0, null, null, 4),(5, 0, null, null, 5),(6, 0, null, null, 6),(7, 0, null, null, 7),(8, 0, null, null, 8),(9, 0, null, null, 9);
+
+-- -----------------------------------------------------
+-- CartExperience insert
+-- -----------------------------------------------------
+INSERT INTO cart_experience (id, user_id, experience_id) 
+VALUES (1, 3, 2), (2, 2, 3);

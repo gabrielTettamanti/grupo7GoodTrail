@@ -89,11 +89,11 @@ const userController = {
             }
         })
         .then(resultado => {
-            if(resultado = null){
-            
+            if(resultado == null){
+
                 CartExperience.create({
-                        experience_id: experience_id,
-                        user_id: user_id
+                        user_id: user_id,
+                        experience_id: experience_id
                      })
             }
             
