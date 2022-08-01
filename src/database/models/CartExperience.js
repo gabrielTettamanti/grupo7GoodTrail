@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
+        tableName: 'cart_experience',
         timestamps: false,
         underscore: true
     }

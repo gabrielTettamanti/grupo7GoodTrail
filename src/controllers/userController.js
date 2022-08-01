@@ -14,6 +14,9 @@ const User = DB.User;
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+//***** Getting CartExperience model from DB *****/
+const CartExperience = DB.CartExperience;
+
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
 const experiences = JSON.parse(fs.readFileSync(experiencesFilePath, {encoding: 'utf-8'}));
@@ -26,15 +29,73 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, { encoding: 'utf-8' }));
 const userController = {
 //******* Rendering Experience Buy Cart view *******
     buyCart: (req, res) => {
-        let experiencesOfCart = [];
-        let total = 0;
 
-        for(let i=0; i<3; i++){
-            total = total + experiences[i].price
-            experiencesOfCart.push(experiences[i]);
-        }
+        // let experiencesCart = []
+        // let user_id = req.session.user.id
+        // let total = 0;
+
+        // CartExperience.findAll({
+        //     where: {
+        //         user_id : user_id
+        //     },
+        //     include: [{association: 'experience'}]
+        // })
+        // .then(experiences => {
+
+
+        //     experiences.forEach(experience => { 
+
+        //         total = total + parseInt(experience.experience.price)
+        //         const experience_id = experience.experience.id;
+        //         Experience.findByPk(experience_id, {
+        //         include: [
+        //             {association: 'images'}
+        //         ]
+        //         })
+        //         .then(newExperience => {
+        //             experiencesCart.push(newExperience)
+        //             console.log(experiencesCart)
+        //         })
+        //     })
+            
+        //     res.render('buyCart', {experiences: experiences, total });
+        // })
+
+        //LO QUE ESTABA ANTERIORMENTE //
+
+        // let experiencesOfCart = [];
+        // let total = 0;
+
+        // for(let i=0; i<3; i++){
+        //     total = total + experiences[i].price
+        //     experiencesOfCart.push(experiences[i]);
+        // }
        
-        res.render('buyCart', {experiences: experiencesOfCart, total });
+        // res.render('buyCart', {experiences: experiencesOfCart, total });
+    },
+
+//******* Adding Experience to the CartExperienceDB *******
+    addBuyCart: (req,res) => {
+        
+        let experience_id = req.params.id;
+        let user_id = req.session.user.id
+
+        CartExperience.findOne({
+            where:{
+                experience_id : experience_id
+            }
+        })
+        .then(resultado => {
+            if(resultado = null){
+            
+                CartExperience.create({
+                        experience_id: experience_id,
+                        user_id: user_id
+                     })
+            }
+            
+        })
+
     },
 //******* Rendering Login form view*******
     login: (req, res) => {
@@ -142,7 +203,7 @@ const userController = {
     },
 
     updateUser: (req, res) => {
-        const userId = req.session.user.id
+
         const userNames = req.body.userName.split(' ');
         User.update({
                 first_name: userNames[0],
