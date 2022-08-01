@@ -6,10 +6,14 @@ const Op = DB.Sequelize.Op;
 const Experience = DB.Experience;
 
 const ExperienceService = {
-    getExperiences: (query) => {
+    getExperiences: (query, page) => {
+        const experiencePerPage = 9;
+        const skip = (page - 1 ) * experiencePerPage;
         const promise =
         Experience.findAll({
             where: query,
+            offset: skip,
+            limit: experiencePerPage,
             include: [
                 {association: 'images'},
                 {association: 'rating'}
@@ -139,7 +143,30 @@ const ExperienceService = {
             name: { [Op.like] : `%${searched}%`}
         }
         return query;
+    },
+
+    getTotalExperiences: query => {
+        const countPromise = 
+        Experience.count({
+            where: query
+        });
+
+        return countPromise;
+    },
+
+    getExperiencesByOwnerId: owner => {
+        const experiencesByOwnerPromise =
+        Experience.findAll({
+            where: {
+                user_id: owner
+            },
+            include: [
+                    {association: 'images'}
+                ]
+        });
+        return experiencesByOwnerPromise;
     }
+
 }
 
 module.exports = ExperienceService;

@@ -175,6 +175,13 @@ erDiagram
 
 ### Sprint 7
 
-| **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tuve problemas con** |
+| **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tendré dificultades con** |
 | --- | --- | --- | --- | --- |
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
+| 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario |  |  |
+| 29/07 | Gabriel, Ignacio y Lucrecia | Llevamos a cabo la weekly, dividimos tareas y decimos cómo trabajar en los siguientes días | Validaciones de formularios en el front y backend y modulaciones | --- |
+| 29/07 | Ignacio | Cree el Dropdown-menu del usuario y el archivo de JS para que sea dinamico | Mañana mejoro el estilo del mismo |  |
+| 29/07 | Ignacio | Estilos del Dropdown-menu del usuario | Mañana ya arranco con el paginado del catalogo |  |
+| 30/07 | Gabriel | Pense como trabajar en mis tareas. | Voy a pasar todas los contactos entre el userController y la db al UserService. | Puede que se me complique iplementarlo por falta de experiencia. |
+| 30/07 | Ignacio | Implemente el paginado del catalogo de experiencias | Parece andar correctamente pero voy a insertar más experiencias en la DB para corroborar |  |
+| 31/07 | Gabriel | Pasando los metodos que comunican el userController y la db a los serveces. | Seguir con los services. | Trato de terminarlo hoy. |

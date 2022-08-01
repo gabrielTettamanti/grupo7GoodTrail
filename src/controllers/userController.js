@@ -16,6 +16,9 @@ const Experience = DB.Experience;
 
 //***** Getting CartExperience model from DB *****/
 const CartExperience = DB.CartExperience;
+//***** Getting Services *****/
+const ExperienceService = require('../services/experience.service');
+const UserService = require('../services/user.service');
 
 //******* Getting experience JSON file *******
 const experiencesFilePath = path.resolve(__dirname, '../data/experiences.json');
@@ -63,15 +66,15 @@ const userController = {
 
         //LO QUE ESTABA ANTERIORMENTE //
 
-        // let experiencesOfCart = [];
-        // let total = 0;
+        let experiencesOfCart = [];
+        let total = 0;
 
-        // for(let i=0; i<3; i++){
-        //     total = total + experiences[i].price
-        //     experiencesOfCart.push(experiences[i]);
-        // }
+        for(let i=0; i<3; i++){
+            total = total + experiences[i].price
+            experiencesOfCart.push(experiences[i]);
+        }
        
-        // res.render('buyCart', {experiences: experiencesOfCart, total });
+        res.render('buyCart', {experiences: experiencesOfCart, total });
     },
 
 //******* Adding Experience to the CartExperienceDB *******
@@ -120,20 +123,17 @@ const userController = {
             // console.log(req.body)
             const names = req.body.userName.split(' '); 
 
-            User.create({
-        
-                first_name: names[0], 
-                last_name: names[names.length - 1],
-                email: req.body.userEmail,
-                password: bcrypt.hashSync(req.body.userPassword, 10),
-                image: image
-        
-            }).then(()=> {
-        
-                res.redirect('/user/login');
-        
-            }) 
-        
+            UserService.getUserByEmail(req.body.userEmail)
+            .then(user => {
+                if(user == null){
+                    UserService.createUser(req.body, names, image)
+                    .then(user => {
+                        res.redirect('/user/login');
+                    }) 
+                }else{
+                    res.render("registerFormulary")
+                }
+            })
             }
             else{
                 res.render("registerFormulary", {errors: errors.mapped(), old:req.body})
@@ -143,22 +143,16 @@ const userController = {
     checkLogin: (req, res) => {
         const errors = validationResult(req)
         if (errors.isEmpty()){
-        
             const userLogging = {
                 email: req.body.userEmail,
                 password: req.body.userPassword
             }
-
             const noLoginMsg = 'Las credenciales son incorrectas';
             let userSearched = "";
-
-            User.findOne({
-                where: {
-                    email: req.body.userEmail
-                }
-            }).then((resultado) => {
+            let userEmail = req.body.userEmail
+            UserService.getUserByEmail(userEmail)
+            .then((resultado) => {
                 userSearched = resultado
-            
                 if(userSearched != undefined){
                     if(req.body.remember){
                         res.cookie('userEmail', req.body.userEmail, { maxAge: (1000 * 60) * 2 });
@@ -182,15 +176,8 @@ const userController = {
     userProfile: (req, res) => {
         const owner = req.session.user.id
 
-        Experience.findAll({
-            where: {
-                user_id: owner
-            },
-            include: [
-                    {association: 'images'}
-                ]
-            
-        }).then((experiencesByOwner) => {
+        ExperienceService.getExperiencesByOwnerId(owner)
+        .then((experiencesByOwner) => {
             let userExperiences = experiencesByOwner
             res.render('userProfile', { experiences: userExperiences});
         })
@@ -204,22 +191,14 @@ const userController = {
 
     updateUser: (req, res) => {
 
+        const body = req.body
+        const userId = req.session.user.id
         const userNames = req.body.userName.split(' ');
-        User.update({
-                first_name: userNames[0],
-                last_name: userNames[userNames.length - 1],
-                email: req.body.userEmail,
-                bio: req.body.userBio,
-                image: req.body.image
-        },{
-            where: {
-                id: userId
-            }
-        }).then(() => {
-            User.findByPk(userId)
-                .then((userLoged) => {
+        UserService.updateUser(body, userNames, userId)
+        .then(() => {
+            UserService.getUserByPk(userId)
+            .then((userLoged) => {
                     req.session.user = userLoged
-                    console.log(req.session.user)
                 }).then(() =>{
                     res.redirect('/user/profile');
                 })

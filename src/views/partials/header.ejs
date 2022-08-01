@@ -15,7 +15,7 @@
 
         <nav class="categorias">
                 <a href="/product/creation"><i class="fa-solid fa-plus" id="plusHeader"></i></a>             
-                <a href="/experienceCatalog">
+                <a href="/experienceCatalog/1">
                     <i class="fa-solid fa-angle-down"></i>
                     <i class="fa-solid fa-hotel"></i>
                     <i class="fa-solid fa-kitchen-set"></i>
@@ -27,13 +27,9 @@
 
         <div class="bottom-header-right">
             <% if (locals.userIsLogged) { %>
-                <a href="/user/profile" class="usuario">
-                    <img id="headerUserAvatar" src="/img/usersImages/<%= locals.userLogged.image %>" alt="">
-                    <p><%= locals.userLogged.first_name + ' ' + locals.userLogged.last_name %> </p>
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
+                <%- include('./userDropdownMenu') %> 
             <% } else { %>
-                <a href="/user/login" class="usuario" id="headerLoginButton">
+                <a href="/user/login" class="user-select" id="headerLoginButton">
                     <p>Iniciar sesión</p>
                 </a>
             <% } %>     
