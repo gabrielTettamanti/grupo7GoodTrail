@@ -11,19 +11,19 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        experience_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'Experience',
-                key: 'id'
-            }
-        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'User',
+                key: 'id'
+            }
+        },
+        experience_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Experience',
                 key: 'id'
             }
         }
