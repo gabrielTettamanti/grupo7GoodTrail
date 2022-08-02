@@ -32,7 +32,9 @@
                 Comprar
             </button>
             <div class="experience-button">
-                <i class="fa-solid fa-cart-plus"></i>
+                <form action="/user/productDescription/<%=experienceDetail.id%>" method="POST" id="buyCartAddForm">
+                    <button type="button" class="action-button buyCartAdd" id="buyCartAdd"><i id ='carrito' class="fa-solid fa-cart-plus"></i></button>
+                </form>
                 <i class="fa-solid fa-heart"></i>
             </div>
             
@@ -86,10 +88,8 @@
     <!-- FOOTER -->
     <%- include('./partials/footer')%>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=<%= locals.mapsKey %>&callback=initMap&v=weekly"
-      defer
-    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= locals.mapsKey %>&callback=initMap&v=weekly" defer></script>
+    <script src="/js/buyCartAdd.js" ></script>
 
     <script src="/js/userDropdownMenu.js"></script>
 

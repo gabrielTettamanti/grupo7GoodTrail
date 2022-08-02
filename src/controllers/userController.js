@@ -14,6 +14,8 @@ const User = DB.User;
 //***** Getting Experience model from DB *****/
 const Experience = DB.Experience;
 
+//***** Getting CartExperience model from DB *****/
+const CartExperience = DB.CartExperience;
 //***** Getting Services *****/
 const ExperienceService = require('../services/experience.service');
 const UserService = require('../services/user.service');
@@ -30,6 +32,40 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, { encoding: 'utf-8' }));
 const userController = {
 //******* Rendering Experience Buy Cart view *******
     buyCart: (req, res) => {
+
+        // let experiencesCart = []
+        // let user_id = req.session.user.id
+        // let total = 0;
+
+        // CartExperience.findAll({
+        //     where: {
+        //         user_id : user_id
+        //     },
+        //     include: [{association: 'experience'}]
+        // })
+        // .then(experiences => {
+
+
+        //     experiences.forEach(experience => { 
+
+        //         total = total + parseInt(experience.experience.price)
+        //         const experience_id = experience.experience.id;
+        //         Experience.findByPk(experience_id, {
+        //         include: [
+        //             {association: 'images'}
+        //         ]
+        //         })
+        //         .then(newExperience => {
+        //             experiencesCart.push(newExperience)
+        //             console.log(experiencesCart)
+        //         })
+        //     })
+            
+        //     res.render('buyCart', {experiences: experiences, total });
+        // })
+
+        //LO QUE ESTABA ANTERIORMENTE //
+
         let experiencesOfCart = [];
         let total = 0;
 
@@ -39,6 +75,30 @@ const userController = {
         }
        
         res.render('buyCart', {experiences: experiencesOfCart, total });
+    },
+
+//******* Adding Experience to the CartExperienceDB *******
+    addBuyCart: (req,res) => {
+        
+        let experience_id = req.params.id;
+        let user_id = req.session.user.id
+
+        CartExperience.findOne({
+            where:{
+                experience_id : experience_id
+            }
+        })
+        .then(resultado => {
+            if(resultado == null){
+
+                CartExperience.create({
+                        user_id: user_id,
+                        experience_id: experience_id
+                     })
+            }
+            
+        })
+
     },
 //******* Rendering Login form view*******
     login: (req, res) => {
@@ -129,6 +189,7 @@ const userController = {
     },
 
     updateUser: (req, res) => {
+
         const body = req.body
         const userId = req.session.user.id
         const userNames = req.body.userName.split(' ');
