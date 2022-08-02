@@ -42,7 +42,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword" minlength="8" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
+                    <input type="password" name="userPassword" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword) { %>
                         <div class="text-danger">
                             <%= errors.userPassword.msg %> 
@@ -51,7 +51,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Confirmar contraseña</label>
-                    <input type="password" name="passwordConfirmation" minlength="8"  value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
+                    <input type="password" name="passwordConfirmation"  value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
                     <% if (locals.errors && errors.passwordConfirmation ) { %>
                         <div class="text-danger">
                             <%= errors.passwordConfirmation.msg %> 
