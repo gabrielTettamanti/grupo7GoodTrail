@@ -60,7 +60,6 @@ const userController = {
                 image = 'profile-default.jpg';
             }
 
-            // console.log(req.body)
             const names = req.body.userName.split(' '); 
 
             UserService.getUserByEmail(req.body.userEmail)
