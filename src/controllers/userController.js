@@ -33,39 +33,8 @@ const userController = {
 //******* Rendering Experience Buy Cart view *******
     buyCart: (req, res) => {
 
-        // let experiencesCart = []
-        // let user_id = req.session.user.id
-        // let total = 0;
-
-        // CartExperience.findAll({
-        //     where: {
-        //         user_id : user_id
-        //     },
-        //     include: [{association: 'experience'}]
-        // })
-        // .then(experiences => {
-
-
-        //     experiences.forEach(experience => { 
-
-        //         total = total + parseInt(experience.experience.price)
-        //         const experience_id = experience.experience.id;
-        //         Experience.findByPk(experience_id, {
-        //         include: [
-        //             {association: 'images'}
-        //         ]
-        //         })
-        //         .then(newExperience => {
-        //             experiencesCart.push(newExperience)
-        //             console.log(experiencesCart)
-        //         })
-        //     })
-            
-        //     res.render('buyCart', {experiences: experiences, total });
-        // })
-
         //LO QUE ESTABA ANTERIORMENTE //
-
+                
         let experiencesOfCart = [];
         let total = 0;
 
@@ -75,7 +44,63 @@ const userController = {
         }
        
         res.render('buyCart', {experiences: experiencesOfCart, total });
+
+        // let user_id = req.session.user.id
+        // let total = 0;
+        
+        // CartExperience.findAll({
+        //     where: {
+        //         user_id : user_id
+        //     },
+        //     include: [{association: 'experience'}]
+        // })
+        // .then(experiences => {
+        //     let experiencesCart = []
+            
+        //INTENTO CON FOR:
+        //     console.log(experiences.length)
+        //     console.log(experiences[1])
+        //     console.log(experiences[1].experience.price)
+        //     for(let i=0; i<experiences.length; i++){
+        //             console.log(experiences[i].experience.price)
+        //             total = total + parseInt(experiences[i].experience.price)
+        //             let experience_id = (experiences[i].experience.id);
+        //             console.log(experience_id)
+        //             Experience.findByPk(experience_id, {
+        //                 include: [
+        //                     {association: 'images'}
+        //                 ]
+        //             })
+        //             .then(newExperience => {
+        //             experiencesCart.push(newExperience);
+        //             console.log(experiencesCart[i].status)
+        //             })
+        //         console.log(total)
+                
+        //     }
+        // })
+        // res.render('buyCart', {experiences: experiencesCart, total });
+
+            //INTENTO CON FOREACH:
+            // experiences.forEach(experience => { 
+                
+                //     total = total + parseInt(experience.experience.price)
+                //     const experience_id = experience.experience.id;
+                //     Experience.findByPk(experience_id, {
+                //     include: [
+                //         {association: 'images'}
+                //     ]
+                //     })
+                //     .then(newExperience => {
+                    //         experiencesCart.push(newExperience)
+                    //         console.log(experiencesCart)
+                    //     })
+                    // })
+            //     })
+            // res.render('buyCart', {experiences: experiencesCart, total });
+
     },
+
 
 //******* Adding Experience to the CartExperienceDB *******
     addBuyCart: (req,res) => {
