@@ -30,6 +30,7 @@
                             <%= errors.userEmail.msg %> 
                         </div>
                     <% } %>
+                        <ul id="warningList"></ul>
                 </div>
                 <div class="input-container">
                     <label for="userName">Nombre</label>
@@ -42,7 +43,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword" minlength="8" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
+                    <input type="password" name="userPassword" id="password" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword) { %>
                         <div class="text-danger">
                             <%= errors.userPassword.msg %> 
@@ -51,7 +52,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Confirmar contraseña</label>
-                    <input type="password" name="passwordConfirmation" minlength="8"  value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
+                    <input type="password" name="passwordConfirmation" id="passwordConfirm" value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
                     <% if (locals.errors && errors.passwordConfirmation ) { %>
                         <div class="text-danger">
                             <%= errors.passwordConfirmation.msg %> 
@@ -60,18 +61,19 @@
                 </div>
                 <div class="input-container">
                     <label for="">Foto de perfil</label>
-                    <input class= "image" type="file" id="image" name="profileImage"> 
+                    <input class= "image" type="file" accept=".jpg, .png, .jpeg, .gif" id="image" name="profileImage"> 
                     <label id="imageButton" for="image">
                         <i class="fa-solid fa-plus"></i>
                     </label>
                 </div>
-                <button class="register-button" type="submit">Registrarse</button>
+                <button class="register-button" id="register-submit-button" type="submit">Registrarse</button>
             </form>
 
         </main>
     </section>
 
-    <script src="/js/userDropdownMenu.js"></script>
+    <!-- <script src="/js/userDropdownMenu.js"></script> -->
+    <script type = "text/javascript" src="/js/validatorRegisterFormulary.js"></script>
 
 </body>
 </html>
