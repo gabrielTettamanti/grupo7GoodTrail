@@ -127,7 +127,7 @@ const productController={
             });
             
         }else {
-            res.render('creacion', { errors: errors.mapped(), old: req.body });
+            res.render('creation', { errors: errors.mapped(), old: req.body });
         }
     },
 
