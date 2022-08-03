@@ -22,19 +22,20 @@ Values (1, "Santiago Bernabeu", 1, "Visita el icónico estadio de Madrid y viví
 (6, "The Temple Bar", 1, "Noche de cervezas con amigos en uno de los bares más populares de Buenos Aires.", "CABA - Buenos Aires", 3, 0, "días", "$", 3000, "Casa Temple Buenos Aires, Argentina", 2, 3),
 (7, "Hotel Madero", 1, "Una noche para 2 personas en el prestigioso hotel de Puerto Madero.", "CABA - Buenos Aires", 2, 1, "día", "$", 65000, "Hotel Madero Buenos Aires, Argentina", 2, 4),
 (8, "Rabieta", 1, "Cena para 4 personas en el bar ubicado en el hipodromo de Palermo.", "CABA - Buenos Aires", 4, 0, "día", "$", 8000, "Rabieta Avenida Libertador, Buenos Aires", 2, 3),
-(9, "Golden State Warriors", 1, "Noche de NBA en la casa del gran Stephen Curry.", "San Francisco - USA", 2, 2, "días", "$", 500000, "Chase Center San Francisco, California", 2, 7);
+(9, "Golden State Warriors", 1, "Noche de NBA en la casa del gran Stephen Curry.", "San Francisco - USA", 2, 2, "días", "$", 500000, "Chase Center San Francisco, California", 2, 7),
+(10, "Santa Monica Burguer House", 1, "Viaja a la ciudad de Quilmes para comer las mejores hamburgesas del país (y posiblemente del mundo). Unica hamburguseria que tiene un gato como mascota llamado 'Santos'.", "Quilmes - Buenos Aires", 4, 3, "horas", "$", 8000, "Santa Monica Burguers Quilmes, Buenos Aires", 1, 3);
 
 -- -----------------------------------------------------
 -- Rating insert
 -- -----------------------------------------------------
 INSERT INTO rating (id, value, experience_id) 
-VALUES (default, 5, 1), (default, 4, 2), (default, 5, 3), (default, 5, 4), (default, 4, 5), (default, 3, 6), (default, 4, 7), (default, 4, 8), (default, 5, 9); 
+VALUES (default, 5, 1), (default, 4, 2), (default, 5, 3), (default, 5, 4), (default, 4, 5), (default, 3, 6), (default, 4, 7), (default, 4, 8), (default, 5, 9), (default, 5, 10); 
 
 -- -----------------------------------------------------
 -- Experiences images insert
 -- -----------------------------------------------------
 INSERT INTO experience_image (id, url, experience_id) 
-VALUES (1, 'bernabeuCatalog.jpg', 1), (2, 'gizaCatalog.png', 2), (3, 'romaCatalog.jpg', 3), (4, 'liverpool.jpg' , 4), (5, 'stampa.jpg' ,5), (6, 'temple.jpg' ,6), (7, 'hotelMadero.avif' ,7), (8, 'rabieta.jpg' ,8), (9, 'warriors.jpg',9);
+VALUES (1, 'bernabeuCatalog.jpg', 1), (2, 'gizaCatalog.png', 2), (3, 'romaCatalog.jpg', 3), (4, 'liverpool.jpg' , 4), (5, 'stampa.jpg' ,5), (6, 'temple.jpg' ,6), (7, 'hotelMadero.avif' ,7), (8, 'rabieta.jpg' ,8), (9, 'warriors.jpg',9), (10, 'california.png', 10);
 
 -- -----------------------------------------------------
 -- Offer insert

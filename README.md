@@ -186,3 +186,4 @@ erDiagram
 | 30/07 | Ignacio | Implemente el paginado del catalogo de experiencias | Parece andar correctamente pero voy a insertar más experiencias en la DB para corroborar |  |
 | 31/07 | Gabriel | Pasando los metodos que comunican el userController y la db a los serveces. | Seguir con los services. | Trato de terminarlo hoy. |
 | 02/08 | Gabriel | Termine de revisar los user.services | Voy a hacer las validaciones del registro de usuarios en el backend | Falta de practica |
+| 02/08 | Ignacio | Validaciones de la experiencia en el back y agrego 1 experiencia a la DB | Tengo que revisar que valide bien el tipo de imagen al crear la experiencia | Falta de tiempo |
