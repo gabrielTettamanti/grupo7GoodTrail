@@ -1,35 +1,52 @@
 window.onload = function(){
     ///// QUERYSLECTORS /////
-    let warningList = document.querySelector("#warningList")
+    let emailWarningList = document.querySelector("#emailWarningList")
+    let nameWarningList = document.querySelector("#nameWarningList")
+
     let email = document.querySelector("#email")
     let name = document.querySelector("#userName")
     let password = document.querySelector("#password")
     let passwordConfirm = document.querySelector("#passwordConfirm")
     let image = document.querySelector("#image")
+
     let submitButton = document.querySelector("#register-submit-button")
 
-    submitButton.addEventListener('click', (event) => {
-        event.preventDefault();
-    });
+    // submitButton.addEventListener('click', (event) => {
+    //     event.preventDefault();
+    // });
 
     ///// EMAIL /////
     email.addEventListener('blur', e =>{
           if(email.value.length < 1){
-            if(warningList.innerHTML == "") {
-                warningList.innerHTML += "<p class='text-danger'>Debe tener un email</p>"
+            if(emailWarningList.innerHTML == "") {
+                emailWarningList.innerHTML += "<p class='text-danger'>Debe tener un email.</p>"
             }
           }else{
               if(!email.value.includes("@")){
-                if(warningList.innerHTML == "") {
-                    warningList.innerHTML += "<p class='text-danger'>Debe tener formato de email</p>"
+                if(emailWarningList.innerHTML == "") {
+                    emailWarningList.innerHTML += "<p class='text-danger'>Debe tener formato de email.</p>"
                 }
               }else{
-                warningList.innerHTML = ""
+                emailWarningList.innerHTML = ""
               }
           }
-    
     });
     ///// NAME /////
+    name.addEventListener('blur', e =>{
+    if(name.value.length < 1){
+        if(warningList.innerHTML == "") {
+            warningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
+        }
+      }else{
+          if(!name.value.length <= 2){
+            if(warningList.innerHTML == "") {
+                warningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
+            }
+          }else{
+            warningList.innerHTML = ""
+          }
+      }
+    });
     ///// PASSWORD /////
     ///// PASSWORD CONFIRM /////
     ///// IMAGE /////
