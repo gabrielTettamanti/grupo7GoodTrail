@@ -2,6 +2,8 @@ window.onload = function(){
     ///// QUERYSLECTORS /////
     let emailWarningList = document.querySelector("#emailWarningList")
     let nameWarningList = document.querySelector("#nameWarningList")
+    let passwordWarningList = document.querySelector("#passwordWarningList")
+    let passwordConfirmWarningList = document.querySelector("#passwordConfirmWarningList")
 
     let email = document.querySelector("#email")
     let name = document.querySelector("#userName")
@@ -34,16 +36,16 @@ window.onload = function(){
     ///// NAME /////
     name.addEventListener('blur', e =>{
     if(name.value.length < 1){
-        if(warningList.innerHTML == "") {
-            warningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
+        if(nameWarningList.innerHTML == "") {
+            nameWarningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
         }
       }else{
           if(!name.value.length <= 2){
-            if(warningList.innerHTML == "") {
-                warningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
+            if(nameWarningList.innerHTML == "") {
+                nameWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
             }
           }else{
-            warningList.innerHTML = ""
+            nameWarningList.innerHTML = ""
           }
       }
     });
