@@ -50,14 +50,21 @@
                                 <option value="Aventura">Aventura</option>
                                 <option value="Deportes">Deportes</option>
                                 <option value="Cultura">Cultura</option>
+                                <option value="Cultura">Viajes</option>
+                                <option value="Cultura">Gourmet</option>
+                                <option value="Cultura">Alojamiento</option>
+                                <option value="Cultura">Relax</option>
+                                <option value="Cultura">Entretenimiento</option>
+                                <option value="Cultura">Alojamiento</option>
+                                <option value="Cultura">Cultura</option>
                             </select>
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
                             <input type="search" name="location" value="<%= experienceEdit.location %>"> 
-                            <% if (locals.errors && errors.ubication) { %>
+                            <% if (locals.errors && errors.location) { %>
                                 <p class="text-danger">
-                                    <%= errors.ubication.msg %> 
+                                    <%= errors.location.msg %> 
                                 </p>
                             <% } %>
                     </div>
@@ -65,17 +72,17 @@
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people_quantity" value=<%= experienceEdit.people_quantity %>> 
-                        <% if (locals.errors && errors.peopleQuantity) { %>
+                        <input type="number" min="1" name="people_quantity" value=<%= experienceEdit.people_quantity %>> 
+                        <% if (locals.errors && errors.people_quantity) { %>
                             <p class="text-danger">
-                                <%= errors.peopleQuantity.msg %> 
+                                <%= errors.people_quantity.msg %> 
                             </p>
                         <% } %>
                     </div>
                     <div class="duration">
                         <div class="input-container">
                                 <label for="">Duración</label>
-                                <input type="number" name="duration" value=<%= experienceEdit.duration %>> 
+                                <input type="number" min="1" name="duration" value=<%= experienceEdit.duration %>> 
                                 <% if (locals.errors && errors.duration) { %>
                                     <p class="text-danger">
                                         <%= errors.duration.msg %> 
@@ -103,7 +110,7 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" name="price" value=<%= experienceEdit.price %>> 
+                         <input type="number" min="0" name="price" value=<%= experienceEdit.price %>> 
                          <% if (locals.errors && errors.price) { %>
                             <p class="text-danger">
                                 <%= errors.price.msg %> 

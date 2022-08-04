@@ -8,8 +8,9 @@ const validateForm = [
         .isLength({ min: 20 }).withMessage('La descripción de la experiencia debe tener al menos 20 caracteres'),
     body('location').notEmpty().withMessage('La experiencia debe tener un destino').bail(),
     body('people_quantity').notEmpty().withMessage('La experiencia debe tener la cantidad de personas').bail()
-        .isInt().withMessage('La cantidad de personas debe ser un número'),
-    body('duration').notEmpty().withMessage('La experiencia debe tener una duración'),
+        .isInt({min:1}).withMessage('La cantidad de personas debe ser un número mayor a cero'),
+    body('duration').notEmpty().withMessage('La experiencia debe tener una duración')
+    .isInt({min:1}).withMessage('La duración de la experiencia debe ser mayor a cero'),
     body('price').notEmpty().withMessage('La experiencia debe tener un precio')
         .isNumeric().withMessage('El precio debe contener solo números')  
 ];
