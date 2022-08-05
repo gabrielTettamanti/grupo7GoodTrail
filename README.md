@@ -188,3 +188,4 @@ erDiagram
 | 02/08 | Gabriel | Termine de revisar los user.services | Voy a hacer las validaciones del registro de usuarios en el backend | Falta de practica |
 | 02/08 | Ignacio | Validaciones de la experiencia en el back y agrego 1 experiencia a la DB | Tengo que revisar que valide bien el tipo de imagen al crear la experiencia | Falta de tiempo |
 | 04/08 | Gabriel | Revise el codigo de validacion de email. | Voy a avanzar con las validaciones del front en el registro de formulario. Espero terminar con el nombre. | Puedo tener dificultades con los condicionales y la logica que uso para poner el HTML desde JS |
+| 05/08 | Gabriel | Validaciones de registro de usuario en el front | Voy a hacer la validacion de la password | Puedo tener dificultad en la comprobacion de la contraseña |
