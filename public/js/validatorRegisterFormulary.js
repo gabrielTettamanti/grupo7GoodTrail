@@ -50,6 +50,21 @@ window.onload = function(){
       }
     });
     ///// PASSWORD /////
+    password.addEventListener('blur', e =>{
+      if(password.value.length < 1){
+          if(passwordWarningList.innerHTML == "") {
+              passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
+          }
+        }else{
+            if(!password.value.length <= 2){
+              if(passwordWarningList.innerHTML == "") {
+                  passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
+              }
+            }else{
+              passwordWarningList.innerHTML = ""
+            }
+        }
+      });
     ///// PASSWORD CONFIRM /////
     ///// IMAGE /////
     ///// SUBMIT BUTTON IF /////
