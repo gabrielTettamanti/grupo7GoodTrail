@@ -20,9 +20,7 @@ window.onload = function(){
     ///// EMAIL /////
     email.addEventListener('blur', e =>{
           if(email.value.length < 1){
-            if(emailWarningList.innerHTML == "") {
-                emailWarningList.innerHTML += "<p class='text-danger'>Debe tener un email.</p>"
-            }
+                emailWarningList.appendChild(document.createElement("<p class='text-danger'>Debe tener un email.</p>"))
           }else{
               if(!email.value.includes("@")){
                 if(emailWarningList.innerHTML == "") {
@@ -53,12 +51,12 @@ window.onload = function(){
     password.addEventListener('blur', e =>{
       if(password.value.length < 1){
           if(passwordWarningList.innerHTML == "") {
-              passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
+              passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener una contraseña.</p>"
           }
         }else{
-            if(!password.value.length <= 2){
+            if(!password.value.length <= 8){
               if(passwordWarningList.innerHTML == "") {
-                  passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
+                  passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 8 caracteres.</p>"
               }
             }else{
               passwordWarningList.innerHTML = ""
