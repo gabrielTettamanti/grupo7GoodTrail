@@ -21,46 +21,46 @@
     
         <main>
     
-            <form action="/user/registerFormulary" method="POST" enctype="multipart/form-data">
+            <form class="forms" action="/user/registerFormulary" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="text" name="userEmail" id="email" value="<%= locals.old && old.userEmail ? old.userEmail : "" %>">
+                    <input type="text" name="userEmail" id="email" class="formElement" value="<%= locals.old && old.userEmail ? old.userEmail : "" %>">
                     <% if (locals.errors && errors.userEmail) { %>
                         <div class="text-danger">
                             <%= errors.userEmail.msg %> 
                         </div>
                     <% } %>
-                        <ul id="emailWarningList"></ul>
+                    <p id="erroremail" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="userName" id="userName" value="<%= locals.old && old.userName ? old.userName : "" %>">
+                    <input type="text" name="userName" id="nombre" class="formElement" value="<%= locals.old && old.userName ? old.userName : "" %>">
                     <% if (locals.errors && errors.userName) { %>
                         <div class="text-danger">
                             <%= errors.userName.msg %> 
                         </div>
                     <% } %>
-                    <ul id="nameWarningList"></ul>
+                    <p id="errornombre" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword" id="password" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
+                    <input type="password" name="userPassword" id="contraseña" class="formElement" value="<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword) { %>
                         <div class="text-danger">
                             <%= errors.userPassword.msg %> 
                         </div>
                     <% } %>
-                    <ul id="passwordWarningList"></ul>
+                    <p id="errorcontraseña" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Confirmar contraseña</label>
-                    <input type="password" name="passwordConfirmation" id="passwordConfirm" value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
+                    <input type="password" name="passwordConfirmation" id="confirmación" class="formElement" value="<%= locals.old && old.passwordConfirmation ? old.passwordConfirmation : "" %>">
                     <% if (locals.errors && errors.passwordConfirmation ) { %>
                         <div class="text-danger">
                             <%= errors.passwordConfirmation.msg %> 
                         </div>
                     <% } %>
-                    <ul id="passwordConfirmWarningList"></ul>
+                    <p id="errorconfirmación" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Foto de perfil</label>

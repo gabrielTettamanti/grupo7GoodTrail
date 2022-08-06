@@ -1,69 +1,51 @@
-window.onload = function(){
-    ///// QUERYSLECTORS /////
-    let emailWarningList = document.querySelector("#emailWarningList")
-    let nameWarningList = document.querySelector("#nameWarningList")
-    let passwordWarningList = document.querySelector("#passwordWarningList")
-    let passwordConfirmWarningList = document.querySelector("#passwordConfirmWarningList")
+window.addEventListener('load', () => {
+  const form = document.querySelector('.forms');
+  const formElements = document.querySelectorAll('.formElement');
 
-    let email = document.querySelector("#email")
-    let name = document.querySelector("#userName")
-    let password = document.querySelector("#password")
-    let passwordConfirm = document.querySelector("#passwordConfirm")
-    let image = document.querySelector("#image")
+  form.addEventListener('submit', e => {
+      let errors = [];
 
-    let submitButton = document.querySelector("#register-submit-button")
-
-    // submitButton.addEventListener('click', (event) => {
-    //     event.preventDefault();
-    // });
-
-    ///// EMAIL /////
-    email.addEventListener('blur', e =>{
-          if(email.value.length < 1){
-                emailWarningList.appendChild(document.createElement("<p class='text-danger'>Debe tener un email.</p>"))
-          }else{
-              if(!email.value.includes("@")){
-                if(emailWarningList.innerHTML == "") {
-                    emailWarningList.innerHTML += "<p class='text-danger'>Debe tener formato de email.</p>"
-                }
-              }else{
-                emailWarningList.innerHTML = ""
-              }
+      formElements.forEach(input => {
+          if(input.value === ''){
+              errors.push(input);
           }
-    });
-    ///// NAME /////
-    name.addEventListener('blur', e =>{
-    if(name.value.length < 1){
-        if(nameWarningList.innerHTML == "") {
-            nameWarningList.innerHTML += "<p class='text-danger'>Debe tener un nombre.</p>"
-        }
-      }else{
-          if(!name.value.length <= 2){
-            if(nameWarningList.innerHTML == "") {
-                nameWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 2 caracteres.</p>"
-            }
-          }else{
-            nameWarningList.innerHTML = ""
-          }
-      }
-    });
-    ///// PASSWORD /////
-    password.addEventListener('blur', e =>{
-      if(password.value.length < 1){
-          if(passwordWarningList.innerHTML == "") {
-              passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener una contraseña.</p>"
-          }
-        }else{
-            if(!password.value.length <= 8){
-              if(passwordWarningList.innerHTML == "") {
-                  passwordWarningList.innerHTML += "<p class='text-danger'>Debe tener por lo menos 8 caracteres.</p>"
-              }
-            }else{
-              passwordWarningList.innerHTML = ""
-            }
-        }
       });
-    ///// PASSWORD CONFIRM /////
-    ///// IMAGE /////
-    ///// SUBMIT BUTTON IF /////
-}
+
+      if(errors.length > 0){
+          e.preventDefault();
+      }
+  });
+
+  formElements.forEach(input => input.addEventListener('blur', e => {
+      const element = e.srcElement;
+      const p = document.querySelector('#error' + element.id);
+      if(element.value === ''){
+          element.classList.add('invalid');
+          p.innerHTML = `El campo ${element.id} no puede estar vacio`;
+      } else if(element.name === 'userEmail' && !isEmail(element.value)) {
+          p.innerHTML = `Debe tener formato de email.`;
+      } else {
+          p.innerHTML = "";
+      }
+  }));
+
+  const isEmail = email => {
+    const emailSplit = email.split("@")
+    if(!email.includes("@")){
+      return false
+    }
+    if(!email.includes(".com")){
+      return false
+    }
+    if(emailSplit[0] == ""){
+      return false
+    }
+    if(emailSplit){
+      const dotcomSplit = emailSplit[1].split(".com")
+      if(dotcomSplit[0] == ""){
+        return false
+      }
+    }
+    return true
+  }
+});
