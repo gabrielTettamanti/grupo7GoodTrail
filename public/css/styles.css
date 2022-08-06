@@ -213,6 +213,11 @@ body {
     color: var(--crimson-red);
 }
 
+.all-width {
+    display: block;
+    width: 100%;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width: 468px) {

@@ -167,7 +167,14 @@ main {
     cursor: pointer;
 }
 
-.edition-button {background-image: linear-gradient(to right, #56CCF2 0%, #3777ff  51%, #56CCF2  100%)}
+.edition-button {
+    background-image: linear-gradient(to right, #56CCF2 0%, #3777ff  51%, #56CCF2  100%)
+}
+
+.invalid-button {
+    background-color: var(--harder-gray);
+    cursor: not-allowed;
+}
 
 .edition-button {
     margin: 10px 0;
@@ -362,6 +369,7 @@ main {
 .duration{
     display: flex;
     width: 40%;
+    flex-wrap: wrap;
 }
 .duration input{
     margin-right: 10px;

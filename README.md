@@ -190,3 +190,4 @@ erDiagram
 | 04/08 | Gabriel | Revise el codigo de validacion de email. | Voy a avanzar con las validaciones del front en el registro de formulario. Espero terminar con el nombre. | Puedo tener dificultades con los condicionales y la logica que uso para poner el HTML desde JS |
 | 05/08 | Gabriel | Validaciones de registro de usuario en el front | Voy a hacer la validacion de la password | Puedo tener dificultad en la comprobacion de la contraseña |
 | 06/08 | Todos | Hicimos la weekly | Seguimos el sprint 7 con las validaciones en frontend | Crear todas las condiciones |
+| 06/08 | Ignacio | Validaciones front-end de la creación de experiencia y estilos | Boton de agregar imagen | Puedo tener dificultad al mejorar ese boton |

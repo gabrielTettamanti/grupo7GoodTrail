@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
     const form = document.querySelector('.forms');
     const formElements = document.querySelectorAll('.formElement');
+    const button = document.querySelector('#submit-button');
 
     form.addEventListener('submit', e => {
         let errors = [];
