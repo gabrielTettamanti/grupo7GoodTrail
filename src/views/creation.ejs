@@ -20,21 +20,23 @@
             <form class="forms" action="/product/creation" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                    <input class="formElement" type="text" name="name" id="nombre" value="<%= locals.old && old.name ? old.name : '' %>">
                     <% if (locals.errors && errors.name) { %>
                         <p class="text-danger">
                             <%= errors.name.msg %> 
                         </p>
                     <% } %>
+                    <p id="errornombre" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea type="text" name="description" maxlength="400" style="height: 150px"><%= locals.old && old.description ? old.description : '' %></textarea>
+                    <textarea class="formElement" type="text" name="description" id="descripción" maxlength="400" style="height: 150px"><%= locals.old && old.description ? old.description : '' %></textarea>
                     <% if (locals.errors && errors.description) { %>
                         <p class="text-danger">
                             <%= errors.description.msg %>
                         </p>
                     <% } %>
+                    <p id="errordescripción" class="text-danger"></p>
                 </div>
 
                 <div class="input-container">
@@ -46,42 +48,45 @@
                 </div>
                 <div class="categoryDestiny">
                     <div class="input-container">
-                            <label for="">Categoría</label>
-                            <select name="category_id">
-                                <% categories.forEach(category => { %>
-                                    <option value="<%= category.id %> "><%= category.category_name %></option>    
-                                <% }) %>
-                            </select>
+                        <label for="">Categoría</label>
+                        <select name="category_id">
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category.id %> "><%= category.category_name %></option>    
+                            <% }) %>
+                        </select>
                     </div>
                     <div class="input-container">
-                            <label for="">Destino</label>
-                            <input type="search" name="location"> 
-                            <% if (locals.errors && errors.ubication) { %>
-                                <p class="text-danger">
-                                    <%= errors.ubication.msg %>
-                                </p>
-                            <% } %>
+                        <label for="">Destino</label>
+                        <input class="formElement" type="search" name="location" id="destino"> 
+                        <% if (locals.errors && errors.ubication) { %>
+                            <p class="text-danger">
+                                <%= errors.ubication.msg %>
+                            </p>
+                        <% } %>
+                        <p class="text-danger" id="errordestino"></p>
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" name="people_quantity"> 
+                        <input class="formElement" type="number" name="people_quantity" id="personas"> 
                         <% if (locals.errors && errors.peopleQuantity) { %>
                             <p class="text-danger">
                                 <%= errors.peopleQuantity.msg %>
                             </p>
                         <% } %>
+                        <p class="text-danger" id="errorpersonas"></p>
                     </div>
                     <div class="duration">
                         <div class="input-container">
-                                <label for="">Duración</label>
-                                <input type="number" name="duration"> 
-                                <% if (locals.errors && errors.duration) { %>
-                                    <p class="text-danger">
-                                        <%= errors.duration.msg %>
-                                    </p>
-                                <% } %>
+                            <label for="">Duración</label>
+                            <input class="formElement" type="number" name="duration" id="duración"> 
+                            <% if (locals.errors && errors.duration) { %>
+                                <p class="text-danger">
+                                    <%= errors.duration.msg %>
+                                </p>
+                            <% } %>
+                            <p class="text-danger" id="errorduración"></p>
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
@@ -104,17 +109,19 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" name="price"> 
+                         <input class="formElement" type="number" name="price" id="precio"> 
                          <% if (locals.errors && errors.price) { %>
                             <p class="text-danger">
                                 <%= errors.price.msg %>
                             </p>
                         <% } %>
+                        <p class="text-danger" id="errorprecio"></p>
                     </div>
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input type="text" name="map_direction">
+                    <input class="formElement" type="text" name="map_direction" id="ubicación">
+                    <p class="text-danger" id="errorubicación"></p>
                 </div>
                 <div class="buttomTrash">
                     <button class="edition-button" type="submit">Crear</button>
@@ -128,4 +135,5 @@
     <%- include('./partials/footer')%>
 
     <script src="/js/userDropdownMenu.js"></script>
+    <script src="/js/experienceCreationValidator.js"></script>
 </body>

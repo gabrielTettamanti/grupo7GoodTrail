@@ -4,6 +4,7 @@
     --cool-gray: #d9d9d9;
     --harder-gray: #6c757d;
     --light-blue-crayola: #7fa8ff;
+    --crimson-red: #d7263d;
 }
 
 * {
@@ -106,6 +107,10 @@ main {
 
 .input-container input:hover {
     border: solid 2px var(--harder-gray);
+}
+
+.invalid {
+    border: solid 2px var(--crimson-red);
 }
 
 .input-container input:focus {
