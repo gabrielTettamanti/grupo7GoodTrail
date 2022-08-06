@@ -5,6 +5,7 @@
     --harder-gray: #6c757d;
     --light-blue-crayola: #7fa8ff;
     --crimson-red: #d7263d;
+    --green: #38b000;
 }
 
 * {
@@ -100,9 +101,13 @@ main {
 
 .input-container input {
     height: 30px;
-    border: 0;
     background-color: var(--cool-gray);
     border-radius: 5px;
+    padding: 10px;
+}
+
+.normal-border {
+    border: 0;
 }
 
 .input-container input:hover {
@@ -113,6 +118,11 @@ main {
     border: solid 2px var(--crimson-red);
 }
 
+.valid {
+    border: solid 2px var(--green);
+}
+
+
 .input-container input:focus {
     outline: none;
     border: solid 2px var(--blue-crayola);
@@ -120,9 +130,9 @@ main {
 }
 .input-container textarea {
     height: 30px;
-    border: 0;
     background-color: var(--cool-gray);
     border-radius: 5px;
+    padding: 10px;
 }
 
 .input-container textarea:hover {

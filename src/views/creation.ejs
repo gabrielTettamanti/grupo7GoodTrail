@@ -20,7 +20,7 @@
             <form class="forms" action="/product/creation" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="userName">Nombre</label>
-                    <input class="formElement" type="text" name="name" id="nombre" value="<%= locals.old && old.name ? old.name : '' %>">
+                    <input class="formElement normal-border" type="text" name="name" id="nombre" value="<%= locals.old && old.name ? old.name : '' %>">
                     <% if (locals.errors && errors.name) { %>
                         <p class="text-danger">
                             <%= errors.name.msg %> 
@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea class="formElement" type="text" name="description" id="descripción" maxlength="400" style="height: 150px"><%= locals.old && old.description ? old.description : '' %></textarea>
+                    <textarea class="formElement normal-border" type="text" name="description" id="descripción" maxlength="400" style="height: 150px"><%= locals.old && old.description ? old.description : '' %></textarea>
                     <% if (locals.errors && errors.description) { %>
                         <p class="text-danger">
                             <%= errors.description.msg %>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="input-container">
                         <label for="">Destino</label>
-                        <input class="formElement" type="search" name="location" id="destino"> 
+                        <input class="formElement normal-border" type="search" name="location" id="destino"> 
                         <% if (locals.errors && errors.ubication) { %>
                             <p class="text-danger">
                                 <%= errors.ubication.msg %>
@@ -69,7 +69,7 @@
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input class="formElement" type="number" name="people_quantity" id="personas"> 
+                        <input class="formElement normal-border" type="number" name="people_quantity" id="personas"> 
                         <% if (locals.errors && errors.peopleQuantity) { %>
                             <p class="text-danger">
                                 <%= errors.peopleQuantity.msg %>
@@ -80,13 +80,12 @@
                     <div class="duration">
                         <div class="input-container">
                             <label for="">Duración</label>
-                            <input class="formElement" type="number" name="duration" id="duración"> 
+                            <input class="formElement normal-border" type="number" name="duration" id="duración"> 
                             <% if (locals.errors && errors.duration) { %>
                                 <p class="text-danger">
                                     <%= errors.duration.msg %>
                                 </p>
                             <% } %>
-                            <p class="text-danger" id="errorduración"></p>
                         </div>
                         <div class="input-container">
                             <label class= "hidden" for="">Duración</label>
@@ -96,6 +95,7 @@
                                     <option value="month">Mes</option>
                                 </select> 
                         </div>
+                        <p class="text-danger" id="errorduración"></p>
                     </div>
                 </div>
                 <div class="coinPrice">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input class="formElement" type="number" name="price" id="precio"> 
+                         <input class="formElement normal-border" type="number" name="price" id="precio"> 
                          <% if (locals.errors && errors.price) { %>
                             <p class="text-danger">
                                 <%= errors.price.msg %>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input class="formElement" type="text" name="map_direction" id="ubicación">
+                    <input class="formElement normal-border" type="text" name="map_direction" id="ubicación">
                     <p class="text-danger" id="errorubicación"></p>
                 </div>
                 <div class="buttomTrash">
