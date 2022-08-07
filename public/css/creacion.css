@@ -305,6 +305,21 @@ main {
         border: 1px solid #000;
     }
 
+    .image-output {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        width: 100%;
+    }
+
+    .image-view {
+        width: 150px;
+        border-radius: 15px;
+        /* height: 190px; */
+    }
+
 
     /* /////////////////////////////// */
 .categoryDestiny{
@@ -431,6 +446,6 @@ main {
 
 @media (min-width: 1280px) {
     .form-section {
-        width: 40%;
+        width: 70%;
     }
 }
