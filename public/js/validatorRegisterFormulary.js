@@ -21,9 +21,11 @@ window.addEventListener('load', () => {
       const p = document.querySelector('#error' + element.id);
       if(element.value === ''){
           element.classList.add('invalid');
-          p.innerHTML = `El campo ${element.id} no puede estar vacio`;
+          p.innerHTML = `El campo ${element.id} no puede estar vacio.`;
       } else if(element.name === 'userEmail' && !isEmail(element.value)) {
           p.innerHTML = `Debe tener formato de email.`;
+      } else if(element.name === 'userName' && element.value.length <= 1) {
+        p.innerHTML = `El campo ${element.id} debe tener al menos 2 caracteres.`;
       } else {
           p.innerHTML = "";
       }
