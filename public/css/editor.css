@@ -130,7 +130,7 @@ main {
     background-color: white;
 }
 .input-container select {
-    height: 30px;
+    height: 34px;
     border: 0;
     background-color: var(--cool-gray);
     border-radius: 5px;
@@ -348,14 +348,21 @@ main {
     justify-content: space-between;
     margin-top: 20px;
 }
+
 .duration{
-    display: flex;
+    display: block;
     width: 40%;
 }
-.duration input{
-    margin-right: 10px;
+
+#divDuracion{
+    margin-bottom: 0px;
+    width: 45%;
 }
 
+.duration .both-input-container{
+    display: flex;
+    justify-content: space-between;
+}
 
  /* MEDIA QUERIES */
 

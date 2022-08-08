@@ -20,33 +20,36 @@
             <form class="forms" action="/product/editor/<%=experienceEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input-container">
                     <label for="name">Nombre</label>
-                    <input type="text" name="name" id="name" value="<%= experienceEdit.name %>">
+                    <input type="text" name="name" id="nombre" class="formElement" value="<%= experienceEdit.name %>">
                     <% if (locals.errors && errors.name) { %>
                         <p class="text-danger">
                             <%= errors.name.msg %> 
                         </p>
                     <% } %>
+                    <p id="errornombre" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Descripción</label>
-                    <textarea type="text" name="description" style="height: 150px" ><%= experienceEdit.description %></textarea>
+                    <textarea type="text" name="description" id="descripcion" class="formElement" style="height: 150px" ><%= experienceEdit.description %></textarea>
                     <% if (locals.errors && errors.description) { %>
                         <p class="text-danger">
                             <%= errors.description.msg %> 
                         </p>
                     <% } %>
+                    <p id="errordescripcion" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
-                    <input class= "image" type="file" id="image" name="image" accept=".jpg" multiple> 
+                    <input class= "image" type="file" id="imagenes"  class="formElement" name="image" accept=".jpg" multiple> 
                     <label id="imageButton" for="image">
                         <i class="fa-solid fa-plus"></i>
                     </label>
+                    <p id="errorimagenes" class="text-danger"></p>
                 </div>
                 <div class="categoryDestiny">
                     <div class="input-container">
                             <label for="">Categoría</label>
-                            <select name="category">
+                            <select name="category" id="categoria" class="formElement">
                                 <option value="Aventura">Aventura</option>
                                 <option value="Deportes">Deportes</option>
                                 <option value="Cultura">Cultura</option>
@@ -58,51 +61,57 @@
                                 <option value="Cultura">Alojamiento</option>
                                 <option value="Cultura">Cultura</option>
                             </select>
+                            <p id="errorcategoria" class="text-danger"></p>
                     </div>
                     <div class="input-container">
                             <label for="">Destino</label>
-                            <input type="search" name="location" value="<%= experienceEdit.location %>"> 
+                            <input type="search" name="location" id="destino" class="formElement" value="<%= experienceEdit.location %>"> 
                             <% if (locals.errors && errors.location) { %>
                                 <p class="text-danger">
                                     <%= errors.location.msg %> 
                                 </p>
                             <% } %>
+                            <p id="errordestino" class="text-danger"></p>
                     </div>
                 </div>
                 <div class="peopleDuration">
                     <div class="input-container">
                         <label for="">Personas</label>
-                        <input type="number" min="1" name="people_quantity" value=<%= experienceEdit.people_quantity %>> 
+                        <input type="number" min="1" id="personas" name="people_quantity" class="formElement" value=<%= experienceEdit.people_quantity %>> 
                         <% if (locals.errors && errors.people_quantity) { %>
                             <p class="text-danger">
                                 <%= errors.people_quantity.msg %> 
                             </p>
                         <% } %>
+                        <p id="errorpersonas" class="text-danger"></p>
                     </div>
                     <div class="duration">
-                        <div class="input-container">
-                                <label for="">Duración</label>
-                                <input type="number" min="1" name="duration" value=<%= experienceEdit.duration %>> 
-                                <% if (locals.errors && errors.duration) { %>
-                                    <p class="text-danger">
-                                        <%= errors.duration.msg %> 
-                                    </p>
-                                <% } %>
+                        <div class="both-input-container">
+                            <div class="input-container" id="divDuracion">
+                                    <label for="">Duración</label>
+                                    <input type="number" min="1" name="duration" id="duracion" class="formElement" value=<%= experienceEdit.duration %>> 
+                                    <% if (locals.errors && errors.duration) { %>
+                                        <p class="text-danger">
+                                            <%= errors.duration.msg %> 
+                                        </p>
+                                    <% } %>
+                                </div>
+                                <div class="input-container" id="divDuracion">
+                                    <label class= "hidden" for="">Duración</label>
+                                    <select name="duration_type" class="formElement">
+                                        <option value="hour">Horas</option>
+                                        <option value="day">Día</option>
+                                        <option value="month">Mes</option>
+                                    </select> 
+                                </div>
                         </div>
-                        <div class="input-container">
-                            <label class= "hidden" for="">Duración</label>
-                                <select name="duration_type">
-                                    <option value="hour">Horas</option>
-                                    <option value="day">Día</option>
-                                    <option value="month">Mes</option>
-                                </select> 
-                        </div>
+                            <p id="errorduracion" class="text-danger"></p>
                     </div>
                 </div>
                 <div class="coinPrice">
                     <div class="input-container">
                         <label for="">Precio</label>
-                            <select name="currency">
+                            <select name="currency" class="formElement">
                                 <option value="$">$</option>
                                 <option value="€">€</option>
                                 <option value="¥">¥</option>
@@ -110,27 +119,31 @@
                     </div>
                     <div class="input-container">
                          <label class="hidden" for="">Precio</label>
-                         <input type="number" min="0" name="price" value=<%= experienceEdit.price %>> 
+                         <input type="number" min="0" name="price" id="precio" class="formElement" value=<%= experienceEdit.price %>> 
                          <% if (locals.errors && errors.price) { %>
                             <p class="text-danger">
                                 <%= errors.price.msg %> 
                             </p>
                         <% } %>
+                        <p id="errorprecio" class="text-danger"></p>
                     </div>
                 </div>
                 <div class="coinPrice">
                     <div class="input-container">
                         <label for="">Oferta</label>
-                        <input type="number" min="0" max="100" step="1" name="offer" />
+                        <input type="number" min="0" max="100" step="1" id="oferta" name="offer" class="formElement"/>
+                        <p id="erroroferta" class="text-danger"></p>
                     </div>
                     <div class="input-container">
                         <label for="">Fecha limite</label>
-                        <input type="date" name="limit_date">
+                        <input type="date" name="limit_date" id="fecha_limite" class="formElement">
+                        <p id="errorfecha_limite" class="text-danger"></p>
                     </div>
                 </div>
                 <div class="input-container" id="map-input-container">
                     <label for="map">Ubicacion</label>
-                    <input type="text" name="map_direction" value="<%= experienceEdit.map_direction %>">
+                    <input type="text" name="map_direction" id="ubicacion" class="formElement" value="<%= experienceEdit.map_direction %>">
+                    <p id="errorubicacion" class="text-danger"></p>
                 </div>
                 <div class="buttomTrash">
                     <button type="submit" class="edition-button">Editar</button>
