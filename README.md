@@ -178,16 +178,20 @@ erDiagram
 | **Fecha** | **Nombre** | **Que hice** | **Que voy hacer** | **Tendré dificultades con** |
 | --- | --- | --- | --- | --- |
 | 27/07 | Ignacio | Hicimos entre todos la tabla del dayli | Estudiar Redes para mañana | VOIP |
+| 28/07 | Julian | Comencé con el CRUD carrito (agregar y listar) | Seguir avanzando con esto | |
 | 29/07 | Gabriel e Ignacio | Hicimos que no se pueda repetir email al registrarse e hicimos el servicio de creacion de usuario |  |  |
 | 29/07 | Gabriel, Ignacio y Lucrecia | Llevamos a cabo la weekly, dividimos tareas y decimos cómo trabajar en los siguientes días | Validaciones de formularios en el front y backend y modulaciones | --- |
 | 29/07 | Ignacio | Cree el Dropdown-menu del usuario y el archivo de JS para que sea dinamico | Mañana mejoro el estilo del mismo |  |
 | 29/07 | Ignacio | Estilos del Dropdown-menu del usuario | Mañana ya arranco con el paginado del catalogo |  |
 | 30/07 | Gabriel | Pense como trabajar en mis tareas. | Voy a pasar todas los contactos entre el userController y la db al UserService. | Puede que se me complique iplementarlo por falta de experiencia. |
+| 30/07 | Julian | Terminé listar del CRUD carrito y avancé con listar | Seguir avanzando con listar | Con agregar la imagen |
 | 30/07 | Ignacio | Implemente el paginado del catalogo de experiencias | Parece andar correctamente pero voy a insertar más experiencias en la DB para corroborar |  |
 | 31/07 | Gabriel | Pasando los metodos que comunican el userController y la db a los serveces. | Seguir con los services. | Trato de terminarlo hoy. |
 | 02/08 | Gabriel | Termine de revisar los user.services | Voy a hacer las validaciones del registro de usuarios en el backend | Falta de practica |
 | 02/08 | Ignacio | Validaciones de la experiencia en el back y agrego 1 experiencia a la DB | Tengo que revisar que valide bien el tipo de imagen al crear la experiencia | Falta de tiempo |
+| 02/08 | Julian | Merge una parte del CRUD del carrito | Seguir avanzando con el CRUD del carrito y las validaciones | |
 | 04/08 | Gabriel | Revise el codigo de validacion de email. | Voy a avanzar con las validaciones del front en el registro de formulario. Espero terminar con el nombre. | Puedo tener dificultades con los condicionales y la logica que uso para poner el HTML desde JS |
+| 04/08 | Julian | Completé el validator del editor de experiencias en backend | Seguir avanzando con validaciones del front | |
 | 05/08 | Gabriel | Validaciones de registro de usuario en el front | Voy a hacer la validacion de la password | Puedo tener dificultad en la comprobacion de la contraseña |
 | 06/08 | Todos | Hicimos la weekly | Seguimos el sprint 7 con las validaciones en frontend | Crear todas las condiciones |
 | 06/08 | Ignacio | Validaciones front-end de la creación de experiencia y estilos | Boton de agregar imagen | Puedo tener dificultad al mejorar ese boton |

@@ -31,7 +31,7 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 
 //******* Product Edition *******
 productRouter.get("/editor", authenticatorMiddleware, productController.listProductsToEdit)
-productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor);
+productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor); 
 productRouter.put("/editor/:id", upload.any(), productFormMiddleware, productController.update);
 
 //******* Product Destroy *******
