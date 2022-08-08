@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
   });
 
   formElements.forEach(input => input.addEventListener('blur', e => {
+      const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&][^'\s]/;
       const element = e.srcElement;
       const p = document.querySelector('#error' + element.id);
       if(element.value === ''){
@@ -26,6 +27,10 @@ window.addEventListener('load', () => {
           p.innerHTML = `Debe tener formato de email.`;
       } else if(element.name === 'userName' && element.value.length <= 1) {
         p.innerHTML = `El campo ${element.id} debe tener al menos 2 caracteres.`;
+      } else if(element.name === 'userPassword' && element.value.length < 8) {
+        p.innerHTML = `El campo ${element.id} debe tener al menos 8 caracteres.`;
+      } else if(element.name === 'userPassword' && !(passwordValidation.test(element.value))) {
+        p.innerHTML = `El campo ${element.id} debe tener letras mayúsculas, minúsculas, un número y un carácter especial (! % * ? &).`;
       } else {
           p.innerHTML = "";
       }
