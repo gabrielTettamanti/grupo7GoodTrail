@@ -64,10 +64,15 @@
                 </div>
                 <div class="input-container">
                     <label for="">Foto de perfil</label>
-                    <input class= "image" type="file" accept=".jpg, .png, .jpeg, .gif" id="image" name="profileImage"> 
+                    <input class= "image" type="file"  id="image" name="profileImage"> 
                     <label id="imageButton" for="image">
                         <i class="fa-solid fa-plus"></i>
                     </label>
+                    <% if (locals.errors && errors.profileImage ) { %>
+                        <div class="text-danger">
+                            <%= errors.profileImage.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <button class="register-button" id="register-submit-button" type="submit">Registrarse</button>
             </form>

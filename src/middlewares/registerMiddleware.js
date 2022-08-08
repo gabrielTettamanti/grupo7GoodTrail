@@ -12,7 +12,19 @@ const validateRegister = [
                 throw new Error('Las contraseñas no coinciden');
             }
             return true;
-        })
+        }),
+    body("profileImage").bail().custom((value, { req }) => {
+		let file = req.body.image;
+		let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
+
+        if(file){
+            let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+        }
+        return true;
+	    })
 ];
 
 module.exports = validateRegister;
