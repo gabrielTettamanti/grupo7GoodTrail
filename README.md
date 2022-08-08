@@ -197,3 +197,4 @@ erDiagram
 | 06/08 | Ignacio | Validaciones front-end de la creación de experiencia y estilos | Boton de agregar imagen | Puedo tener dificultad al mejorar ese boton |
 | 07/08 | Ignacio | Mostrar imagenes en la vista que se agregan al crear la experiencia | Aplicar lo mismo para la edición | Puedo tener dificultad al tratar de eliminar imagenes |
 | 07/08 | Gabriel | Trabaje en las validaciones del front del email en el registro. | Voy a seguir con las contraseñas, creo terminar hoy. | Confirmacion de compatibilidad de contraseñas. |
+| 08/08 | Gabriel | Validando la imagen de registro de usuario desde el back | tengo que terminarlo | Tengo dificultades en completar la validacion, pero no creo que se complique más. |
