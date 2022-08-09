@@ -199,3 +199,4 @@ erDiagram
 | 07/08 | Gabriel | Trabaje en las validaciones del front del email en el registro. | Voy a seguir con las contraseñas, creo terminar hoy. | Confirmacion de compatibilidad de contraseñas. |
 | 08/08 | Gabriel | Validando la imagen de registro de usuario desde el back | tengo que terminarlo | Tengo dificultades en completar la validacion, pero no creo que se complique más. |
 | 08/08 | Julian | Validando la edicion de experiencias desde el front y arreglando como se ve la alerta en la vista | tengo que validar la imagen tanto en el front como back | |
+| 09/08 | Gabriel y Lucrecia | Validacion de login desde el front | --- | --- |
