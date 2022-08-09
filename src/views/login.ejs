@@ -21,7 +21,7 @@
             <form action="/user/login" method="POST" class="forms">
                 <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="text" name="userEmail" id="email" value = "<%= locals.old && old.userEmail ? old.userEmail : "" %>">
+                    <input type="text" name="userEmail" id="email" class="formElement" value = "<%= locals.old && old.userEmail ? old.userEmail : "" %>">
                     <% if (locals.errors && errors.userEmail) { %>
                         <p class="text-danger">
                             <%= errors.userEmail.msg %> 
@@ -31,7 +31,7 @@
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword" id="contraseña" value = "<%= locals.old && old.userPassword ? old.userPassword : "" %>">
+                    <input type="password" name="userPassword" id="contraseña" class="formElement" value = "<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword ) { %>
                         <p class="text-danger">
                             <%= errors.userPassword.msg %> 
@@ -65,5 +65,6 @@
 
         </main>
     </section>
+    <script type = "text/javascript" src="/js/validatorLoginFormulary.js"></script>
 </body>
 </html>
