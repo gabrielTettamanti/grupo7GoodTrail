@@ -18,7 +18,7 @@
         </header>    
         <main>
     
-            <form action="/user/login" method="POST">
+            <form action="/user/login" method="POST" class="forms">
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input type="text" name="userEmail" id="email" value = "<%= locals.old && old.userEmail ? old.userEmail : "" %>">
@@ -27,15 +27,17 @@
                             <%= errors.userEmail.msg %> 
                         </p>
                     <% } %>
+                    <p id="erroremail" class="text-danger"></p>
                 </div>
                 <div class="input-container">
                     <label for="">Contraseña</label>
-                    <input type="password" name="userPassword" value = "<%= locals.old && old.userPassword ? old.userPassword : "" %>">
+                    <input type="password" name="userPassword" id="contraseña" value = "<%= locals.old && old.userPassword ? old.userPassword : "" %>">
                     <% if (locals.errors && errors.userPassword ) { %>
                         <p class="text-danger">
                             <%= errors.userPassword.msg %> 
                         </p>
-                        <% } %>
+                    <% } %>
+                    <p id="errorcontraseña" class="text-danger"></p>
                     </div>
                 </div>
 
