@@ -3,7 +3,8 @@ const express = require("express");
 const productRouter = express.Router();
 const multer = require('multer');
 const authenticatorMiddleware = require('../middlewares/authenticatorMiddleware');
-const productFormMiddleware = require('../middlewares/productFormsMiddleware');
+const editionMiddleware = require('../middlewares/editionExperienceMiddleware');
+const creationMiddleware = require('../middlewares/creationExperienceMiddleware');
 
 //******* Product´s controller*******
 const productController = require("../controllers/productController");
@@ -32,13 +33,13 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 //******* Product Edition *******
 productRouter.get("/editor", authenticatorMiddleware, productController.listProductsToEdit)
 productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor); 
-productRouter.put("/editor/:id", upload.single('image'), productFormMiddleware, productController.update);
+productRouter.put("/editor/:id", upload.single('image'), editionMiddleware, productController.update);
 
 //******* Product Destroy *******
 productRouter.delete("/delete/:id", authenticatorMiddleware, productController.destroy);
 
 //******* Product Creation *******
 productRouter.get("/creation", authenticatorMiddleware, productController.creation);
-productRouter.post("/creation", upload.single('image') , productFormMiddleware,productController.store);
+productRouter.post("/creation", upload.any() , creationMiddleware, productController.store);
 
 module.exports = productRouter;

@@ -45,6 +45,11 @@
                     <label id="imageButton" for="image">
                         <i class="fa-solid fa-plus"></i>
                     </label>
+                    <% if (locals.errors && errors.image) { %>
+                        <p class="text-danger">
+                            <%= errors.image.msg %>
+                        </p>
+                    <% } %>
                 </div>
                 <output id="image-output" class="image-output"></output>
                 <div class="categoryDestiny">
@@ -136,6 +141,6 @@
     <%- include('./partials/footer')%>
 
     <script src="/js/userDropdownMenu.js"></script>
-    <script src="/js/experienceCreationValidator.js"></script>
+    <!-- <script src="/js/experienceCreationValidator.js"></script> -->
     <script src="/js/manageImages.js"></script>
 </body>
