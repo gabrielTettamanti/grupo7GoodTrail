@@ -32,7 +32,7 @@ productRouter.get("/productDescription/:id", productController.productDescriptio
 //******* Product Edition *******
 productRouter.get("/editor", authenticatorMiddleware, productController.listProductsToEdit)
 productRouter.get("/editor/:id",authenticatorMiddleware, productController.editor); 
-productRouter.put("/editor/:id", upload.any(), productFormMiddleware, productController.update);
+productRouter.put("/editor/:id", upload.single('image'), productFormMiddleware, productController.update);
 
 //******* Product Destroy *******
 productRouter.delete("/delete/:id", authenticatorMiddleware, productController.destroy);

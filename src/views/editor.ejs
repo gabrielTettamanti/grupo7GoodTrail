@@ -40,11 +40,15 @@
                 </div>
                 <div class="input-container">
                     <label for="">Imagenes</label>
-                    <input class= "image" type="file" id="imagenes"  class="formElement" name="image" accept=".jpg" multiple> 
+                    <input class= "image" type="file" id="image" name="image" accept=".jpg, .png, .jpeg, .gif" > 
                     <label id="imageButton" for="image">
                         <i class="fa-solid fa-plus"></i>
                     </label>
-                    <p id="errorimagenes" class="text-danger"></p>
+                    <% if (locals.errors && errors.image ) { %>
+                        <div class="text-danger">
+                            <%= errors.image.msg %> 
+                        </div>
+                    <% } %>
                 </div>
                 <div class="categoryDestiny">
                     <div class="input-container">
