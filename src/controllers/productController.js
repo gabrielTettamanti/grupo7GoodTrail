@@ -127,7 +127,11 @@ const productController={
             });
             
         }else {
-            res.render('creation', { errors: errors.mapped(), old: req.body });
+            CategoryService.getCategories()
+            .then(categories => {
+                res.render('creation', { errors: errors.mapped(), old: req.body, categories });
+            })
+            .catch(error => console.log(error));
         }
     },
 
