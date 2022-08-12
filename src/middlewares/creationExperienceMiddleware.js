@@ -17,8 +17,17 @@ const validateForm = [
         .isNumeric().withMessage('El precio debe contener solo números') ,
     body('image').custom((value, { req }) => {
         const updatedFiles = req.files;
+        let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
         if(updatedFiles.length === 0){
             throw new Error('La experiencia debe tener una imagen');
+        } else {
+            updatedFiles.forEach(file => {
+                console.log(file);
+                let fileExt = path.extname(file.originalname);
+                if(!acceptedExtensions.includes(fileExt)){
+                    throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+                }
+            });
         }
         return true;
     })

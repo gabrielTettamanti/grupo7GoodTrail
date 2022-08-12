@@ -92,8 +92,6 @@ const productController={
     creation: (req, res) => { 
         CategoryService.getCategories()
         .then(categories => {
-            console.log('Categorias');
-            console.log(categories);
             res.render('creation', { categories });
         })
         .catch(error => console.log(error));

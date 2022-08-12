@@ -202,3 +202,4 @@ erDiagram
 | 09/08 | Gabriel y Lucrecia | Validacion de login desde el front | --- | --- |
 | 09/08 | Gabriel | Hice con lucre la validacion del formulario de login desde el front | Voy a hacer la validacion desde el back y terminar la validacion de las imagenes del formulario de registro desde el back | La validacion con la db |
 | 09/08 | Julian | Validacion back de la imagen en el editor | Correguir errores en la validacion con la oferta y arreglar el controller | correguir el controller|
+| 09/08 | Ignacio | Validacion back de la imagen al crear la experiencia | Validacion de la imagen al crear la experiencia en el front | --- |
