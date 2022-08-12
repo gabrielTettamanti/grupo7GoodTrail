@@ -1,9 +1,14 @@
 window.addEventListener('load', () => {
   const form = document.querySelector('.forms');
   const formElements = document.querySelectorAll('.formElement');
+  const offerElement = document.querySelector('.offerElement');
 
   form.addEventListener('submit', e => {
       let errors = [];
+
+      if(offerElement.value >= 101 || offerElement.value <= 0){
+        e.preventDefault();
+      }
 
       formElements.forEach(input => {
           if(input.value === ''){
@@ -15,9 +20,20 @@ window.addEventListener('load', () => {
           e.preventDefault();
       }
   });
+  
+  offerElement.addEventListener('blur', e => {
+    const element = e.srcElement;
+    const p = document.querySelector('#error' + element.id);
+    if(element.name === 'offer' && element.value !== "" && element.value >= 101) {
+      p.innerHTML = `El campo ${element.id} debe tener un valor menor o igual a 100.`;
+    } else if(element.name === 'offer' && element.value !== "" && element.value < 0) {
+      p.innerHTML = `El campo ${element.id} debe tener un valor mayor o igual a 0.`;
+    } else {
+      p.innerHTML = "";
+  }
+  })
 
   formElements.forEach(input => input.addEventListener('blur', e => {
-      //const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&][^'\s]/;
       const element = e.srcElement;
       const p = document.querySelector('#error' + element.id);
       if(element.value === '' && element.name !== 'offer' && element.name !== 'limit_date'){
@@ -45,24 +61,4 @@ window.addEventListener('load', () => {
           p.innerHTML = "";
       }
   }));
-
-  const isEmail = email => {
-    const emailSplit = email.split("@")
-    if(!email.includes("@")){
-      return false
-    }
-    if(!email.includes(".com")){
-      return false
-    }
-    if(emailSplit[0] == ""){
-      return false
-    }
-    if(emailSplit){
-      const dotcomSplit = emailSplit[1].split(".com")
-      if(dotcomSplit[0] == ""){
-        return false
-      }
-    }
-    return true
-  }
 });

@@ -52,8 +52,8 @@ const productController={
         const errors = validationResult(req);
         if(errors.isEmpty()){
 
-            if(req.files[0] != undefined){
-                image = req.files[0].filename;
+            if(req.file != undefined){
+                image = req.file.filename;
                 ImageService.updateImage(image, experienceId);  
 		    }
 
