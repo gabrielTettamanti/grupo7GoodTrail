@@ -33,8 +33,10 @@ app.set("views", path.resolve(__dirname, "src/views"));
 const mainRouter = require("./src/routers/mainRouter");
 const userRouter = require("./src/routers/userRouter");
 const productRouter = require("./src/routers/productRouter");
+const apiRouter = require('./src/api/routers/api');
 app.use("/user", userRouter);
 app.use("/product", productRouter);
+app.use('/api', apiRouter);
 app.use("/", mainRouter);
 
 //******* Starting Server *******
