@@ -20,6 +20,9 @@ const UserAPI = {
                 message: error.message
             })
         });
+    },
+    getUser: (req, res) => {
+
     }
 }
 
