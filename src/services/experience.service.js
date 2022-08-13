@@ -165,6 +165,16 @@ const ExperienceService = {
                 ]
         });
         return experiencesByOwnerPromise;
+    },
+
+    getAPIExperience: experienceId => {
+        const getExperiencePromise = 
+        Experience.findByPk(experienceId, {
+            include: [
+                { association: 'images' } 
+            ]
+        });
+        return getExperiencePromise;
     }
 
 }
