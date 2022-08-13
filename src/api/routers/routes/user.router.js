@@ -1,7 +1,9 @@
 ////// Require´s ///////
-const express = require("express");
-const userRouter = express.Router()
-const userAPI = require("../../services/user.api")
+const { Router } = require('express');
+const userRouter = Router();
+const userAPI = require("../../services/user.api");
 
 //******* Get User *******
 userRouter.get('/', userAPI.usersList);
+
+module.exports = userRouter;
