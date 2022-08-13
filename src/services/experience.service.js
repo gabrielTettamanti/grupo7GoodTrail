@@ -167,14 +167,16 @@ const ExperienceService = {
         return experiencesByOwnerPromise;
     },
 
-    getAPIExperience: experienceId => {
-        const getExperiencePromise = 
-        Experience.findByPk(experienceId, {
-            include: [
-                { association: 'images' } 
-            ]
+    getExperiencesAPI: page => {
+        const experiencePerPage = 10;
+        const skip = (page - 1 ) * experiencePerPage;
+        const getExperiencesPromise =
+        Experience.findAll({
+            attributes: ['id', 'name', 'description'],
+            offset: skip,
+            limit: experiencePerPage
         });
-        return getExperiencePromise;
+        return getExperiencesPromise;
     }
 
 }

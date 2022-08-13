@@ -9,6 +9,15 @@ const CategoryService = {
     getCategories: () => {
         const promiseToGet = Category.findAll();
         return promiseToGet;
+    },
+
+    getCategoriesWithExperiences: () => {
+        const promiseToGet = Category.findAll({
+            include: [
+                { association: 'experiences' }
+            ]
+        });
+        return promiseToGet;
     }
 }
 
