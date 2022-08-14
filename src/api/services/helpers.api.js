@@ -9,7 +9,10 @@ const Helper = {
 
     getTotalByCategories: categoriesInDB => {
         const categories = categoriesInDB.map(category => {
-            return  category.dataValues.experiences.length;
+            return {
+                category: category.dataValues.category_name,
+                totalExperiences: category.dataValues.experiences.length 
+            }  
         });
         return categories;
     }

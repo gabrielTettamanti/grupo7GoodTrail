@@ -42,19 +42,7 @@ const ExpierenceAPI = {
                     status: 200
                 },
                 data: {
-                    id: experience.id,
-                    name: experience.name,
-                    status: experience.status,
-                    description: experience.description,
-                    location: experience.location,
-                    people_quantity: experience.people_quantity,
-                    duration: experience.duration,
-                    duration_type: experience.duration_type,
-                    currency: experience.currency,
-                    price: experience.price,
-                    map_direction: experience.map_direction,
-                    user_id: experience.user_id,
-                    category_id: experience.category_id,
+                    experience,
                     url: experience.images[0].url
                 }
             });

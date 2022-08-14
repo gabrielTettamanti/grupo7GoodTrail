@@ -174,7 +174,10 @@ const ExperienceService = {
         Experience.findAll({
             attributes: ['id', 'name', 'description'],
             offset: skip,
-            limit: experiencePerPage
+            limit: experiencePerPage,
+            include: [
+                { association: 'images' }
+            ]
         });
         return getExperiencesPromise;
     }
