@@ -14,6 +14,11 @@ const UserService = {
         return usersList
     },
 
+    getTotalUsers: () => {
+        usersCount = User.count()
+        return usersCount
+    },
+
     createUser: (body, names, image) => {
         const creationPromise = 
         User.create({
