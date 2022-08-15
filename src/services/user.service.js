@@ -2,11 +2,19 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 const bcrypt = require('bcryptjs');
+// const { usersList } = require('../api/services/user.api');
 
 //***** Getting User model from DB *****/
 const User = DB.User;
 
 const UserService = {
+    getUserList: () => {
+        const usersList = User.findAll({
+            attributes: ['id', 'first_name', 'last_name', 'email'],
+        });
+        return usersList
+    },
+
     createUser: (body, names, image) => {
         const creationPromise = 
         User.create({

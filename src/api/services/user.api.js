@@ -6,6 +6,7 @@ const UserAPI = {
     usersList: (req,res) => {
         UserService.getUserList()
         .then(users => {
+            console.log(users)
             return res.status(200).json({
                 meta: {
                     status: 200
