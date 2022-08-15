@@ -45,9 +45,9 @@ window.addEventListener('load', () => {
         p.innerHTML = `El campo ${element.id} debe tener al menos 20 caracteres.`;
       } else if(element.name === 'location' && element.value.length <= 1) {
         p.innerHTML = `El campo ${element.id} debe tener al menos 2 caracteres.`;
-      } else if(element.name === 'people_quantity' && element.value <= 1) {
+      } else if(element.name === 'people_quantity' && element.value < 1) {
         p.innerHTML = `El campo ${element.id} debe tener un valor igual o superior a 1.`;
-      } else if(element.name === 'duration' && element.value <= 1) {
+      } else if(element.name === 'duration' && element.value < 1) {
         p.innerHTML = `El campo ${element.id} debe tener un valor igual o superior a 1.`;
       } else if(element.name === 'price' && element.value !== "" && element.value < 0) {
         p.innerHTML = `El campo ${element.id} debe tener un valor mayor o igual a 0.`;
