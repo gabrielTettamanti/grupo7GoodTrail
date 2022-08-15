@@ -2,7 +2,6 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 const bcrypt = require('bcryptjs');
-// const { usersList } = require('../api/services/user.api');
 
 //***** Getting User model from DB *****/
 const User = DB.User;
