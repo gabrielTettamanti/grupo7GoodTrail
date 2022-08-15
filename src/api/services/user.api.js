@@ -4,15 +4,17 @@ const UserService = require('../../services/user.service');
 
 const UserAPI = {
     usersList: (req,res) => {
-        UserService.getUserList()
-        .then(users => {
-            console.log(users)
+        let getUserList = UserService.getUserList()
+        let getTotalUsers = UserService.getTotalUsers()
+
+        Promise.all([getUserList, getTotalUsers])
+        .then(([userListInDb, totalUserInDb]) => {
             return res.status(200).json({
                 meta: {
                     status: 200
                 },
-                data: {
-                }
+                count: totalUserInDb,
+                users: userListInDb
             });
         })
         .catch(error => {
