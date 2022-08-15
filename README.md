@@ -208,3 +208,4 @@ erDiagram
 | 13/08 | Todos | Estructura API | Arrancar con los endpoint de la API | --- |
 | 13/08 | Ignacio | API de productos | Avanzo bastante con la API de productos | --- |
 | 15/08 | Julian | API de usuario particular | Cree api de usuario sin info sensible y corregui problema validacion de creacion de experiencia| Seguir con APIs  | --- |
+| 15/08 | Gabriel | API lista de usuarios y recuento del total | --- | --- |
