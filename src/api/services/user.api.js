@@ -39,16 +39,14 @@ const UserAPI = {
                 meta: {
                     status: 200
                 },
-                data: {
-                    user : {
-                        id,
-                        first_name,
-                        last_name,
-                        email,
-                        bio,
-                        image
-                    }
-                 }
+                user : {
+                    id,
+                    first_name,
+                    last_name,
+                    email,
+                    bio,
+                    image
+                }
             });
         })
         .catch(error => {
