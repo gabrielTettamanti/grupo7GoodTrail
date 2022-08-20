@@ -10,7 +10,7 @@ const cookies = require('cookie-parser');
 const googleMapsMiddleware = require('./src/middlewares/googleMapsMiddleware');
 
 //******* Server Configuration *******
-const port = 3000;
+const port = 4000;
 const publicPath = path.resolve(__dirname, "./public");
 const sessionSecret = 'Scaloneta 2022';
 
