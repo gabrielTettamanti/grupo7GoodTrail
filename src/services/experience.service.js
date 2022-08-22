@@ -176,7 +176,8 @@ const ExperienceService = {
             offset: skip,
             limit: experiencePerPage,
             include: [
-                { association: 'images' }
+                { association: 'images' },
+                { association: 'category' }
             ]
         });
         return getExperiencesPromise;
