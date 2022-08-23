@@ -169,7 +169,7 @@ const ExperienceService = {
 
     getExperiencesAPI: page => {
         const experiencePerPage = 10;
-        const skip = (page - 1 ) * experiencePerPage;
+        const skip = (page) * experiencePerPage;
         const getExperiencesPromise =
         Experience.findAll({
             attributes: ['id', 'name', 'description'],
