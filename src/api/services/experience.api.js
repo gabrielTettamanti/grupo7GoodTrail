@@ -6,8 +6,9 @@ const Helper = require('./helpers.api');
 const ExpierenceAPI = {
     getExperiences: (req, res) => {
         const page = req.query.page;
+        const experiencePerPage = 10;
 
-        const getExperiences = ExperienceService.getExperiencesAPI(page);
+        const getExperiences = ExperienceService.getExperiencesAPI(page, experiencePerPage);
         const getTotalExperiences = ExperienceService.getTotalExperiences('');
         const getCategories = CategoryService.getCategoriesWithExperiences();
 
@@ -15,12 +16,14 @@ const ExpierenceAPI = {
         .then(([experiencesInDB, total, categoriesInDB]) => {
             const experiences = Helper.formatExperiences(experiencesInDB);
             const categories = Helper.getTotalByCategories(categoriesInDB);
+            const totalPages = Math.ceil(total / experiencePerPage);
 
             return res.status(200).json({
                 meta: {
                     status: 200
                 },
                 count: total,
+                pages: totalPages,
                 experiences: experiences,
                 categories
             });

@@ -167,8 +167,7 @@ const ExperienceService = {
         return experiencesByOwnerPromise;
     },
 
-    getExperiencesAPI: page => {
-        const experiencePerPage = 10;
+    getExperiencesAPI: (page, experiencePerPage) => {
         const skip = (page) * experiencePerPage;
         const getExperiencesPromise =
         Experience.findAll({
