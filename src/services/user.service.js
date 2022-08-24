@@ -20,10 +20,12 @@ const UserService = {
     },
 
     createUser: (body, names, image) => {
+        let first_name = names[0];
+        let last_name = names.length > 1 ? names[names.length - 1] : '';
         const creationPromise = 
         User.create({
-            first_name: names[0], 
-            last_name: names[names.length - 1],
+            first_name: first_name, 
+            last_name: last_name,
             email: body.userEmail,
             password: bcrypt.hashSync(body.userPassword, 10),
             image: image
