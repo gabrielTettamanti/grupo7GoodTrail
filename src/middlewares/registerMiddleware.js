@@ -15,12 +15,13 @@ const validateRegister = [
             return true;
         }),
     body("profileImage").bail().custom((value, { req }) => {
-        let file = req.file.filename;
+        let file = req.file == undefined ? false : req.file.filename;
+        console.log(file)
 		let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
         if(file){
             let fileExtension = path.extname(file);
 			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+				throw new Error(`La imagen debe ser ${acceptedExtensions.join(', ')}`);
 			}
         }
         return true;
