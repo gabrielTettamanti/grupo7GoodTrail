@@ -56,6 +56,19 @@ const ExpierenceAPI = {
                 message: error.message
             })
         });
+    },
+
+    getLastExperience: (req, res) => {
+        ExperienceService.getLastExperience()
+        .then(experience => {
+            return res.status(200).json({
+                meta: {
+                    status: 200
+                },
+                experience: experience,
+            });
+        })
+        .catch(error => console.log(error));
     }
 }
 

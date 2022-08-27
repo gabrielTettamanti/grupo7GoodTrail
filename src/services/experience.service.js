@@ -180,6 +180,14 @@ const ExperienceService = {
             ]
         });
         return getExperiencesPromise;
+    },
+
+    getLastExperience: () => {
+        const getPromise = 
+        Experience.findOne({
+            order: [[ 'id', 'DESC' ]]
+        });
+        return getPromise;
     }
 
 }

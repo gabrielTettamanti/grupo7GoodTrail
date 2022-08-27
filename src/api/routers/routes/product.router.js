@@ -6,6 +6,9 @@ const ExpierenceAPI = require('../../services/experience.api');
 //***** Get Experiences *****/
 productRouter.get('/', ExpierenceAPI.getExperiences);
 
+//***** Get Last Experience *****/
+productRouter.get('/last', ExpierenceAPI.getLastExperience);
+
 //***** Get Experience by ID *****/
 productRouter.get('/:id', ExpierenceAPI.getExperience);
 
