@@ -6,7 +6,7 @@ const Helper = require('./helpers.api');
 const ExpierenceAPI = {
     getExperiences: (req, res) => {
         const page = req.query.page;
-        const experiencePerPage = 10;
+        const experiencePerPage = 5;
 
         const getExperiences = ExperienceService.getExperiencesAPI(page, experiencePerPage);
         const getTotalExperiences = ExperienceService.getTotalExperiences('');

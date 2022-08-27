@@ -5,7 +5,7 @@ const UserService = require('../../services/user.service');
 const UserAPI = {
     usersList: (req,res) => {
         const page = req.query.page;
-        const usersPerPage = 10;
+        const usersPerPage = 5;
 
         let getUserList = UserService.getUserList(page, usersPerPage);
         let getTotalUsers = UserService.getTotalUsers();
