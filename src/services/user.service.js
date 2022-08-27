@@ -7,9 +7,13 @@ const bcrypt = require('bcryptjs');
 const User = DB.User;
 
 const UserService = {
-    getUserList: () => {
-        const usersList = User.findAll({
+    getUserList: (page, usersPerPage) => {
+        const skip = (page) * usersPerPage;
+        const usersList = 
+        User.findAll({
             attributes: ['id', 'first_name', 'last_name', 'email'],
+            offset: skip,
+            limit: usersPerPage
         });
         return usersList
     },

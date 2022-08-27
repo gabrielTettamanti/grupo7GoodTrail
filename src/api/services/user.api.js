@@ -4,15 +4,20 @@ const UserService = require('../../services/user.service');
 
 const UserAPI = {
     usersList: (req,res) => {
-        let getUserList = UserService.getUserList()
-        let getTotalUsers = UserService.getTotalUsers()
+        const page = req.query.page;
+        const usersPerPage = 10;
+
+        let getUserList = UserService.getUserList(page, usersPerPage);
+        let getTotalUsers = UserService.getTotalUsers();
 
         Promise.all([getUserList, getTotalUsers])
         .then(([userListInDb, totalUserInDb]) => {
+            const totalPages = Math.ceil(totalUserInDb / usersPerPage);
             return res.status(200).json({
                 meta: {
                     status: 200
                 },
+                pages: totalPages,
                 count: totalUserInDb,
                 users: userListInDb
             });
