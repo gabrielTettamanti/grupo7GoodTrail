@@ -40,6 +40,6 @@ productRouter.delete("/delete/:id", authenticatorMiddleware, productController.d
 
 //******* Product Creation *******
 productRouter.get("/creation", authenticatorMiddleware, productController.creation);
-productRouter.post("/creation", upload.any() , creationMiddleware, productController.store);
+productRouter.post("/creation", upload.single('image') , creationMiddleware, productController.store);
 
 module.exports = productRouter;

@@ -98,6 +98,7 @@ const productController={
     },
     //******* Experience creation functionallity *******
     store: (req,res) => {
+        console.log(req.file)
         const errors = validationResult(req);
         if(errors.isEmpty()){
             let image;

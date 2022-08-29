@@ -15,22 +15,23 @@ const validateForm = [
     .isInt({min:1}).withMessage('La duración de la experiencia debe ser mayor a cero'),
     body('price').notEmpty().withMessage('La experiencia debe tener un precio')
         .isNumeric().withMessage('El precio debe contener solo números') ,
-    body('image').custom((value, { req }) => {
-        const updatedFiles = req.files;
-        let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
-        if(updatedFiles.length === 0){
-            throw new Error('La experiencia debe tener una imagen');
-        } else {
-            updatedFiles.forEach(file => {
-                console.log(file);
-                let fileExt = path.extname(file.originalname);
-                if(!acceptedExtensions.includes(fileExt)){
+    body('image').bail().custom((value, { req }) => {
+        console.log('ESTE ES EL CONSOLELOG EN EL MIDDLEWARE')
+        console.log(req.file)
+        if(req.file != undefined){
+    
+            let file = req.file.filename;
+            let acceptedExtensions = ['.jpg', '.png', '.gif', 'jpeg'];
+            if(file){
+                let fileExtension = path.extname(file);
+                if (!acceptedExtensions.includes(fileExtension)) {
                     throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
                 }
-            });
-        }
-        return true;
-    })
+            } 
+            return true;
+            }
+            return true;
+        })
 ];
 
 module.exports = validateForm;
