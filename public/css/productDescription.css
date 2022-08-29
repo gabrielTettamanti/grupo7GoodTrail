@@ -186,6 +186,10 @@ main {
     display: none;
 }
 
+ #buyCartAdd{
+    background-color: white;
+    border: none;
+}
 
 /* MEDIA QUERIES */
 
