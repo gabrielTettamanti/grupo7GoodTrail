@@ -185,7 +185,11 @@ const ExperienceService = {
     getLastExperience: () => {
         const getPromise = 
         Experience.findOne({
-            order: [[ 'id', 'DESC' ]]
+            order: [[ 'id', 'DESC' ]],
+            include: [
+                { association: 'images' },
+                { association: 'category' }
+            ]
         });
         return getPromise;
     }
