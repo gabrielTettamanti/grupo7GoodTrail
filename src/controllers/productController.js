@@ -28,8 +28,8 @@ const productController={
 
     //******* Rendering provisional editor view *******   
     listProductsToEdit: (req, res) => {
-        const query = { status: 1};
-        const getPromise = ExperienceService.getExperiences(query);
+        const ownerId = req.session.user.id
+        const getPromise = ExperienceService.getExperiencesByOwnerId(ownerId);
 
         getPromise
         .then(experiences => {
